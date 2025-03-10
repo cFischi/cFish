@@ -1,0 +1,49 @@
+.top-menu:hover > li > a{
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+	opacity: .85;
+	-webkit-filter: blur(1px);
+	filter: blur(1px);
+}
+
+.top-menu > li{
+	padding: 7px 16px;
+}
+
+.top-menu > li > a:before{
+	bottom: -2px;
+	height: 6px;
+	width: 6px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	opacity: 0;
+	border-radius: 50%;
+}
+
+.top-menu > li > a:hover{
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+	opacity: 1;
+	-webkit-filter: blur(0);
+	filter: blur(0);
+}
+
+.top-menu > li > a:hover:before{
+	width: 6px;
+}
+
+.top-menu > .current-menu-item > a,
+.top-menu > .current-menu-item > a,
+.top-menu > .current-menu-parent > a,
+.top-menu > .current-menu-parent > a{
+	color: var(--colorMain);
+}
+
+.top-menu > .current-menu-item > a:before,
+.top-menu > .current-menu-item > a:after,
+.top-menu > .current-menu-parent > a:before,
+.top-menu > .current-menu-parent > a:after{
+	opacity: .8;
+	width: 6px;
+}

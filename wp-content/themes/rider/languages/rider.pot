@@ -1,0 +1,417 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Rider​\n"
+"POT-Creation-Date: 2021-06-08 12:55+0530\n"
+"PO-Revision-Date: 2015-03-23 16:25+0530\n"
+"Last-Translator: FasterThemes <support@fasterthemes.com>\n"
+"Language-Team: FasterThemes <support@fasterthemes.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:9
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:17
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:43 author.php:42 category.php:44 index.php:54 search.php:43
+#: tag.php:44
+msgid "READ MORE"
+msgstr ""
+
+#: author.php:10
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: category.php:10
+#, php-format
+msgid "Category : %s"
+msgstr ""
+
+#: comments.php:16
+#, php-format
+msgid "%1$s Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: footer.php:20 header.php:36
+msgid "logo"
+msgstr ""
+
+#: footer.php:39
+#, php-format
+msgid " Powered by %1$s"
+msgstr ""
+
+#: footer.php:39
+msgid "Rider WordPress Theme"
+msgstr ""
+
+#: functions.php:10
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:95
+msgid "Pro Feature"
+msgstr ""
+
+#: functions.php:95
+msgid "Rider Pro"
+msgstr ""
+
+#: inc/breadcrumbs.php:14 inc/breadcrumbs.php:16 index.php:20
+msgid "Home"
+msgstr ""
+
+#: inc/breadcrumbs.php:20
+msgid "Archive by category: "
+msgstr ""
+
+#: inc/breadcrumbs.php:22
+msgid "Search results for"
+msgstr ""
+
+#: inc/breadcrumbs.php:72
+msgid "Posts tagged"
+msgstr ""
+
+#: inc/breadcrumbs.php:76
+msgid "Articles posted by"
+msgstr ""
+
+#: inc/breadcrumbs.php:78
+msgid "Error 404"
+msgstr ""
+
+#: inc/breadcrumbs.php:82
+msgid "Page"
+msgstr ""
+
+#: inc/customizer.php:44
+msgid "General"
+msgstr ""
+
+#: inc/customizer.php:45
+msgid "styling options"
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "Social Accounts Settings"
+msgstr ""
+
+#: inc/customizer.php:56
+msgid ""
+"In first input box, you need to add FONT AWESOME shortcode which you can "
+"find "
+msgstr ""
+
+#: inc/customizer.php:56
+msgid "here"
+msgstr ""
+
+#: inc/customizer.php:56
+msgid ""
+" and in second input box, you need to add your social media profile URL."
+msgstr ""
+
+#: inc/customizer.php:56
+msgid ""
+" Enter the URL of your social accounts. Leave it empty to hide the icon."
+msgstr ""
+
+#: inc/customizer.php:73
+msgid "Social Account "
+msgstr ""
+
+#: inc/customizer.php:91
+msgid "Enter Icon"
+msgstr ""
+
+#: inc/customizer.php:101
+msgid "Social Link "
+msgstr ""
+
+#: inc/customizer.php:120
+msgid "Enter URL"
+msgstr ""
+
+#: inc/customizer.php:128 inc/customizer.php:133
+msgid "Header & Logo"
+msgstr ""
+
+#: inc/customizer.php:150
+msgid "Enter Logo Size"
+msgstr ""
+
+#: inc/customizer.php:151
+msgid ""
+"Use if you want to increase or decrease logo size (optional) Don't enter "
+"`px` in the string. e.g. 20 (default: 40px)"
+msgstr ""
+
+#: inc/customizer.php:159
+msgid "Basic settings"
+msgstr ""
+
+#: inc/customizer.php:160
+msgid "Blog title and background image"
+msgstr ""
+
+#: inc/customizer.php:175
+msgid "Header Logo Recommended Size (230x220px)"
+msgstr ""
+
+#: inc/customizer.php:176
+msgid "Size of Logo should be exactly 230x220px for best results"
+msgstr ""
+
+#: inc/customizer.php:195 inc/customizer.php:196
+msgid "Enter Blog Title"
+msgstr ""
+
+#: inc/customizer.php:198
+msgid "Blog Title"
+msgstr ""
+
+#: inc/customizer.php:213
+msgid "Header Background Image Recommended(1350x667px)"
+msgstr ""
+
+#: inc/customizer.php:214
+msgid "Size of Logo should be exactly 1350x667px for best results."
+msgstr ""
+
+#: inc/customizer.php:228
+msgid "Front Page Options"
+msgstr ""
+
+#: inc/customizer.php:229
+msgid "Front Page options"
+msgstr ""
+
+#: inc/customizer.php:238
+msgid "Front Page : About The Author"
+msgstr ""
+
+#: inc/customizer.php:258
+msgid "About The Author Section"
+msgstr ""
+
+#: inc/customizer.php:259
+msgid "About The Author Section hide or show ."
+msgstr ""
+
+#: inc/customizer.php:262 inc/customizer.php:399
+msgid "Show"
+msgstr ""
+
+#: inc/customizer.php:263 inc/customizer.php:400
+msgid "Hide"
+msgstr ""
+
+#: inc/customizer.php:278 inc/customizer.php:280
+msgid "Enter About Us Title"
+msgstr ""
+
+#: inc/customizer.php:295 inc/customizer.php:297
+msgid "Enter Author Name"
+msgstr ""
+
+#: inc/customizer.php:311
+msgid "Author image Recommended size(159x159px)"
+msgstr ""
+
+#: inc/customizer.php:330 inc/customizer.php:332
+msgid "Enter Author Link"
+msgstr ""
+
+#: inc/customizer.php:347 inc/customizer.php:349
+msgid "Enter Author Location"
+msgstr ""
+
+#: inc/customizer.php:364 inc/customizer.php:366 inc/customizer.php:479
+msgid "Enter Short Description"
+msgstr ""
+
+#: inc/customizer.php:375
+msgid "Front Page : Blog Post Section"
+msgstr ""
+
+#: inc/customizer.php:395
+msgid "Blog Post Section"
+msgstr ""
+
+#: inc/customizer.php:396
+msgid "Blog Post Section hide or show ."
+msgstr ""
+
+#: inc/customizer.php:416
+msgid "Enter Recent Post Section Title "
+msgstr ""
+
+#: inc/customizer.php:418
+msgid "Enter Title"
+msgstr ""
+
+#: inc/customizer.php:434
+msgid "Select Category"
+msgstr ""
+
+#: inc/customizer.php:435
+msgid ""
+"Select Categories of posts for your site , you would like to display in the "
+"Home Page."
+msgstr ""
+
+#: inc/customizer.php:443
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer.php:458
+msgid "Footer Logo Recommended size(190x25px)"
+msgstr ""
+
+#: inc/customizer.php:480
+msgid "100 words short description to display in the footer."
+msgstr ""
+
+#: inc/customizer.php:498
+msgid "Enter Copyright Text"
+msgstr ""
+
+#: inc/customizer.php:499
+msgid ""
+"Some text regarding copyright of your site, you would like to display in the "
+"footer."
+msgstr ""
+
+#: inc/theme-default-setup.php:18
+msgctxt "OpenSans font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/theme-default-setup.php:28
+msgid "Main Sidebar"
+msgstr ""
+
+#: inc/theme-default-setup.php:30
+msgid "Main sidebar that appears on the right."
+msgstr ""
+
+#: inc/theme-default-setup.php:46
+msgid "Tags : "
+msgstr ""
+
+#: inc/theme-default-setup.php:53
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: inc/theme-default-setup.php:60
+msgid "Category "
+msgstr ""
+
+#: inc/theme-default-setup.php:61
+msgid "Author "
+msgstr ""
+
+#: inc/theme-default-setup.php:85 inc/theme-default-setup.php:88
+msgid "No Comments"
+msgstr ""
+
+#: inc/theme-default-setup.php:90
+msgid " Comments"
+msgstr ""
+
+#: inc/theme-default-setup.php:92
+msgid "1 Comment"
+msgstr ""
+
+#: inc/theme-default-setup.php:107
+msgid "Previous"
+msgstr ""
+
+#: inc/theme-default-setup.php:108
+msgid "Next"
+msgstr ""
+
+#: inc/theme-default-setup.php:131
+msgctxt "comment form placeholder"
+msgid "Name *"
+msgstr ""
+
+#: inc/theme-default-setup.php:143
+msgctxt "comment form placeholder"
+msgid "Email Id *"
+msgstr ""
+
+#: inc/theme-default-setup.php:154
+msgctxt "comment form placeholder"
+msgid "Website URl"
+msgstr ""
+
+#: inc/theme-default-setup.php:170
+msgctxt "comment form placeholder"
+msgid "Comment"
+msgstr ""
+
+#: index.php:15
+msgid "My Blog"
+msgstr ""
+
+#: index.php:21
+msgid "Blog"
+msgstr ""
+
+#: page-templates/full-width.php:29 page-templates/left-sidebar.php:32
+#: page.php:29 single.php:41
+msgid "Pages"
+msgstr ""
+
+#: page-templates/full-width.php:35 page-templates/left-sidebar.php:38
+#: page.php:35 single.php:47
+msgid "Edit"
+msgstr ""
+
+#: page-templates/home-page.php:86 page-templates/home-page.php:108
+#: page-templates/home-page.php:129
+msgid "Comments"
+msgstr ""
+
+#: page-templates/home-page.php:87 page-templates/home-page.php:130
+msgid "Posted By"
+msgstr ""
+
+#: page-templates/home-page.php:109
+msgid "Posted By: "
+msgstr ""
+
+#: search.php:10
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:49
+msgid "Not Found"
+msgstr ""
+
+#: tag.php:10
+#, php-format
+msgid "Tag Archives : %s"
+msgstr ""

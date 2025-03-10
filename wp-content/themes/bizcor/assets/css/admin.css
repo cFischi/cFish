@@ -1,0 +1,23 @@
+.bizcor-getting-started-notice{
+	padding: 20px 10px;
+	display: flex;
+	align-items: center;
+}
+
+.bizcor-theme-screenshot{
+	margin-right: 20px;
+}
+
+.bizcor-theme-screenshot img {
+    max-width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.bizcor-push-down {
+    padding-top: 15px;
+    display: inline-block;
+    padding-left: 8px;
+}

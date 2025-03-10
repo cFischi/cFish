@@ -1,0 +1,1 @@
+"use strict";"undefined"!=typeof elementor&&elementor.hooks.addFilter("editor/style/styleText",function(e,t){var n,o;if(t)return n=(t=t.model).get("settings").get("exs_custom_css"),o=".elementor-element.elementor-element-"+t.get("id"),"document"===t.get("elType")&&(o=elementor.config.document.settings.cssWrapperSelector),n&&(e+=n.replace(/selector/g,o)),e});

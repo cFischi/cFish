@@ -1,0 +1,306 @@
+blockquote {
+  border: 0 solid var(--bs-gray-500);
+  border-left-width: 4px;
+  font-style: italic;
+  line-height: inherit;
+  margin: 0 0 23px;
+  overflow: hidden;
+  padding: 0 0 0 20px;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+blockquote p {
+  padding-bottom: inherit;
+  margin-bottom: 8px;
+}
+
+blockquote cite,
+blockquote small {
+  display: block;
+  color: #444444;
+}
+
+blockquote cite:before,
+blockquote small:before {
+  content: "\2014\00a0";
+}
+
+blockquote em,
+blockquote i,
+blockquote cite {
+  font-style: normal;
+}
+
+blockquote strong,
+blockquote b {
+  font-weight: normal;
+}
+
+blockquote > :last-child {
+  padding-bottom: 0;
+}
+
+blockquote{
+  border-color: var(--bs-primary);
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--bs-gray-500);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-width: 1px 0 0 1px;
+  margin: 0 0 28px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+
+th {
+  border-width: 0 1px 1px 0;
+  font-weight: 700;
+}
+
+td {
+  border-width: 0 1px 1px 0;
+}
+
+th,
+td {
+  padding: 7px;
+}
+
+pre {
+    border: 1px solid var(--bs-gray-500);
+    margin: 0 0 28px;
+    max-width: 100%;
+    overflow: auto;
+    padding: 28px;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.post-password-form label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.076923077em;
+    line-height: 21px;
+    margin-bottom: 28px
+    text-transform: uppercase;
+}
+
+.page-links {
+    clear: both;
+    font-family: Montserrat, "Helvetica Neue", sans-serif;
+    margin: 0 0 1.75em;
+}
+
+.page-links a,
+.page-links > span {
+    border: 1px solid var(--bs-gray-500);
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    height: 1.8461538462em;
+    line-height: 1.6923076923em;
+    margin-right: 0.3076923077em;
+    text-align: center;
+    width: 1.8461538462em;
+}
+
+.page-links a {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+    color: var(--bs-white);
+    text-decoration: none;
+}
+
+.page-links a:hover,
+.page-links a:focus {
+    background-color: var(--bs-primary);
+    border-color: transparent;
+    color: var(--bs-white);
+}
+
+.page-links > .page-links-title {
+    border: 0;
+    color: #1a1a1a;
+    height: auto;
+    margin: 0;
+    padding-right: 0.6153846154em;
+    width: auto;
+}
+
+.gallery {
+  margin: 0 -7px 28px;
+}
+
+.gallery-item {
+  display: inline-block;
+  max-width: 33.33%;
+  padding: 0 1.1400652% 2.2801304%;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+.gallery-columns-1 .gallery-item {
+  max-width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-icon img {
+  margin: 0 auto;
+}
+
+.gallery-caption {
+  color: #686868;
+  display: block;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 21px;
+  padding-top: 7px;
+}
+
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+  display: none;
+}
+
+.alignleft {
+  float: left;
+  margin: 6px 28px 28px 0;
+}
+
+.alignright {
+  float: right;
+  margin: 6px 0 28px 28px;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto 28px;
+}
+
+blockquote.alignleft {
+  margin: 6px 28px 28px 0;
+}
+
+blockquote.alignright {
+  margin: 6px 0 28px 28px;
+}
+
+blockquote.aligncenter {
+  margin-bottom: 28px;
+}
+
+.wp-caption {
+    margin-bottom: 28px;
+    max-width: 100%;
+}
+
+.wp-caption .wp-caption-text {
+    color: inherit;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.bypostauthor {
+
+}
+
+form.post-password-form label,
+form.post-password-form input {
+    display: inline-block;
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal;
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    height: auto;
+    right: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;  /* Above WP toolbar. */
+}
+
+#content[tabindex="-1"]:focus {
+    outline: 0;
+}

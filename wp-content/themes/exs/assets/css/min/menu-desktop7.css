@@ -1,0 +1,1 @@
+.top-menu>li{margin:0;padding:0 1.5em}.top-menu>.menu-item+.menu-item:before{content:"";width:1px;height:1em;display:inline-block;background-color:var(--colorMain);position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.top-menu ul{left:1.5em}

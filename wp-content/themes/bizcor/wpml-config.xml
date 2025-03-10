@@ -1,0 +1,190 @@
+<wpml-config>
+	<custom-types>
+        <custom-type translate="1">project</custom-type>
+    </custom-types>
+    <taxonomies>
+        <taxonomy translate="1">project_category</taxonomy>
+    </taxonomies>
+	<admin-texts>
+	  <key name="current_theme"/>
+	  <key name="theme_mods_bizcor-pro">
+	  	<key name="0"/>
+	  	<key name="nav_menu_locations"/>
+	  	<key name="bizcor_nav_btn_title"/>
+	  	<key name="bizcor_nav_btn_link"/>
+	  	<key name="bizcor_h_left_title"/>
+	  	<key name="bizcor_h_left_desc"/>
+	  	<key name="bizcor_h_right_title"/>
+	  	<key name="bizcor_h_right_desc"/>
+	  	<key name="bizcor_footer_above_info_title"/>
+	  	<key name="bizcor_footer_above_info_desc"/>
+	  	<key name="bizcor_footer_above_newsletter_title"/>
+	  	<key name="bizcor_footer_bottom_copyright"/>
+	  	<key name="bizcor_service_subtitle"/>
+	  	<key name="bizcor_service_title"/>
+	  	<key name="bizcor_service_desc"/>
+	  	<key name="bizcor_service_btn_label"/>
+	  	<key name="bizcor_service_btn_link"/>
+	  	<key name="bizcor_service_no_more_btn_label"/>
+	  	<key name="bizcor_about_subtitle"/>
+	  	<key name="bizcor_about_title"/>
+	  	<key name="bizcor_about_desc"/>
+	  	<key name="bizcor_about_btn_label"/>
+	  	<key name="bizcor_about_btn_link"/>
+	  	<key name="bizcor_about_year_text"/>
+	  	<key name="bizcor_about_ceo_name"/>
+	  	<key name="bizcor_about_ceo_designation"/>
+	  	<key name="bizcor_team_subtitle"/>
+	  	<key name="bizcor_team_title"/>
+	  	<key name="bizcor_team_desc"/>
+	  	<key name="bizcor_funfect_subtitle"/>
+	  	<key name="bizcor_funfect_title"/>
+	  	<key name="bizcor_funfect_desc"/>
+	  	<key name="bizcor_portfolio_subtitle"/>
+	  	<key name="bizcor_portfolio_title"/>
+	  	<key name="bizcor_portfolio_desc"/>
+	  	<key name="bizcor_testimonial_subtitle"/>
+	  	<key name="bizcor_testimonial_title"/>
+	  	<key name="bizcor_testimonial_desc"/>
+	  	<key name="bizcor_pricing_subtitle"/>
+	  	<key name="bizcor_pricing_title"/>
+	  	<key name="bizcor_pricing_desc"/>
+	  	<key name="bizcor_blog_subtitle"/>
+	  	<key name="bizcor_blog_title"/>
+	  	<key name="bizcor_blog_desc"/>
+	  	<key name="bizcor_client_subtitle"/>
+	  	<key name="bizcor_client_title"/>
+	  	<key name="bizcor_client_desc"/>
+	  	<key name="bizcor_gallery_subtitle"/>
+	  	<key name="bizcor_gallery_title"/>
+	  	<key name="bizcor_gallery_desc"/>
+	  	<key name="bizcor_skill_subtitle"/>
+	  	<key name="bizcor_skill_title"/>
+	  	<key name="bizcor_skill_desc"/>
+	  	<key name="bizcor_timeline_subtitle"/>
+	  	<key name="bizcor_timeline_title"/>
+	  	<key name="bizcor_timeline_desc"/>
+	  	<key name="bizcor_testimonialpg_subtitle"/>
+	  	<key name="bizcor_testimonialpg_title"/>
+	  	<key name="bizcor_testimonialpg_desc"/>
+	  	<key name="bizcor_teampg_subtitle"/>
+	  	<key name="bizcor_teampg_title"/>
+	  	<key name="bizcor_teampg_desc"/>
+	  	<key name="bizcor_portfoliopg_subtitle"/>
+	  	<key name="bizcor_portfoliopg_title"/>
+	  	<key name="bizcor_portfoliopg_desc"/>
+	  	<key name="bizcor_faqpg_subtitle"/>
+	  	<key name="bizcor_faqpg_title"/>
+	  	<key name="bizcor_faqpg_desc"/>
+	  	<key name="bizcor_faqpg_form_subtitle"/>
+	  	<key name="bizcor_faqpg_form_title"/>
+	  	<key name="bizcor_faqpg_form_desc"/>
+	  	<key name="bizcor_contactpg_subtitle"/>
+	  	<key name="bizcor_contactpg_title"/>
+	  	<key name="bizcor_contactpg_desc"/>
+	  	<key name="bizcor_error_subtitle"/>
+	  	<key name="bizcor_error_title"/>
+	  	<key name="bizcor_error_desc"/>
+	  	<key name="bizcor_error_btn_label"/>
+	  	<key name="bizcor_topbar_content">
+	  		<key name="*">
+	  			<key name="text"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_slider_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  			<key name="button1_label"/>
+	  			<key name="button1_link"/>
+	  			<key name="button2_label"/>
+	  			<key name="button2_link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_info_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  			<key name="link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_service_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  			<key name="link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_about_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  			<key name="link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_team_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="designation"/>
+	  			<key name="link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_funfect_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_testimonial_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="designation"/>
+	  			<key name="desc"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_pricing_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="price_type"/>
+	  			<key name="features"/>
+	  			<key name="btn_label"/>
+	  			<key name="btn_link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_gallery_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_footer_bottom_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="link"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_skill_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_timeline_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_faqpg_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  		</key>
+	  	</key>
+	  	<key name="bizcor_contactpg_content">
+	  		<key name="*">
+	  			<key name="title"/>
+	  			<key name="desc"/>
+	  		</key>
+	  	</key>
+	  </key>	  
+	</admin-texts>
+</wpml-config>
