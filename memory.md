@@ -110,6 +110,20 @@
 - Configured Cursor to use cmd.exe instead of PowerShell for better compatibility
 - Documented terminal troubleshooting steps for future reference
 
+### Cursor Terminal Issue Diagnosis (2023-11-16)
+- Core terminal handling problems identified:
+  - Pager Conflicts: Commands with paginated output (like `git branch`) get stuck in pager mode
+  - Shell Configuration Mismatch: Despite `.cursorrules` specifying `cmd.exe`, Cursor still uses PowerShell
+  - Buffer Limitations: Terminal buffer size issues cause errors like `ArgumentOutOfRangeException`
+  - Interactive Command Interruption: Commands requiring user input are interrupted before completion
+  - Command Piping Problems: PowerShell's handling of piped commands differs from cmd.exe
+
+- Workaround Recommendations:
+  - Run batch files directly from Windows Explorer or Command Prompt when needed
+  - Use simpler, non-interactive commands within Cursor
+  - Continue WordPress development workflow focusing on development tasks
+  - Use batch files for file synchronization between repositories
+
 ## .cursorrules file
 ```
 {
