@@ -171,6 +171,53 @@
 - Updated `wordpress-studio-guide.md` - Repositioned Studio's role and documented limitations (2023-11-16)
 - Revised `sop.md` - Shifted focus to wordpress.com backend workflows and official GitHub Deployments integration (2023-11-16)
 
+## WordPress.com GitHub Deployments Lessons (2023-11-17)
+- Conducted extensive testing of WordPress.com's GitHub Deployments feature
+- Attempted to modify both child and parent themes through GitHub integration
+- Documented numerous limitations and considerations for future projects
+
+### Environment & Structure Issues
+1. **Mismatched Environments**: Local repository structure doesn't match live WordPress.com site structure
+2. **Block Editor vs. Theme Files**: Sites built in WordPress.com's block editor don't have a direct 1:1 relationship with traditional theme files
+3. **Parent Theme Protection**: WordPress.com prevents direct modifications to parent themes through GitHub Deployments
+
+### GitHub Deployments Limitations
+1. **Selective Deployment**: Not all files pushed to GitHub are deployed to WordPress.com
+2. **Theme Handling Restrictions**:
+   - Child themes need specific formatting and complete structures
+   - Parent theme modifications appear to be rejected entirely
+   - Some theme files are protected from modification
+   - Template overrides require specific naming and structure
+
+### Workflow Challenges
+1. **Split Environments**: Working across local Cursor environment, GitHub, and WordPress.com creates synchronization difficulties
+2. **Documentation Gaps**: WordPress.com doesn't clearly document all limitations of GitHub Deployments
+3. **Testing Complexity**: No clear preview/staging process that mirrors production environment
+
+### Technical Discoveries
+1. **Child Theme Requirements**: Need proper Template: declaration and GitHub Theme URI values
+2. **WordPress.com Theme Structure**: Block themes on WordPress.com have specific structural requirements
+3. **CSS/Template Overrides**: Most reliable modifications are through proper child theme template hierarchy and CSS
+
+### Deployment Test Results
+- Parent theme header modification (orange "cFish Test 🐟" button) was not deployed despite successful GitHub push
+- Child theme deployment had mixed results - files appeared in deployment logs but theme didn't activate
+- GitHub Deployments feature successfully transmitted some files but with unpredictable results
+
+### Recommendations for Future Projects
+1. **Start with Local Environment**: Build sites entirely in local environment first
+2. **Use Standard WordPress Structure**: Follow traditional WordPress development patterns
+3. **Plan Deployment Strategy**: Determine deployment method before significant development
+4. **Document Everything**: Create clear documentation for the development and deployment workflow
+5. **Test End-to-End**: Verify the complete workflow from development to deployment before real work
+6. **Consider Alternatives**: Evaluate other hosting options with more predictable deployment processes
+
+## Next Steps
+- Decision made to start fresh with new WordPress site built from scratch
+- Will pre-produce, test & vet workflow framework and production system before development
+- Focus on creating a consistent development environment that mirrors production
+- Will follow standard WordPress development practices rather than block editor approach
+
 ## Parent Theme Modification Test (2023-11-17)
 - Added a visible test to verify GitHub Deployments functionality
 - Modified wp-content/themes/assembler/parts/header.html in parent theme
