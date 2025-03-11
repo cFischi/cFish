@@ -170,3 +170,16 @@
 - Created `wordpress-com-testing.md` - Guide for safely testing changes on wordpress.com (2023-11-16)
 - Updated `wordpress-studio-guide.md` - Repositioned Studio's role and documented limitations (2023-11-16)
 - Revised `sop.md` - Shifted focus to wordpress.com backend workflows and official GitHub Deployments integration (2023-11-16)
+
+## Child Theme Fixes (2023-11-17)
+- Identified issues with the Assembler child theme not displaying correctly on staging site
+- Fixed GitHub Theme URI in style.css (updated from incorrect `cFischi/cFish` to correct `tY-FischEYe/cFish.io`)
+- Simplified functions.php by removing conflicting filter-based footer customization approach
+- Retained the cleaner template-based approach using parts/footer.html
+- Committed changes to feature/assembler-footer-update branch
+- Pushed changes to GitHub repository
+- Next steps:
+  - Trigger new deployment from WordPress.com dashboard
+  - Verify child theme is activated
+  - Test footer display on staging site
+  - Merge to main branch when verified
