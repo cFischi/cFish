@@ -16,6 +16,19 @@
    - Test in WordPress Studio
    - Deploy to live site from WordPress Studio
 
+### File Synchronization Process
+- **Manual method**: Use command prompt to copy files:
+  ```
+  xcopy "C:\Users\Chris\cFish.io\wp-content\themes\[theme-name]" "C:\Users\Chris\Studio\cfishio\wp-content\themes\[theme-name]" /E /I /Y
+  ```
+- **Automated method**: Use Node.js sync script (sync-to-studio.js) within Cursor:
+  ```
+  node sync-to-studio.js
+  ```
+- Always verify changes in WordPress Studio admin panel after synchronization
+- Activate themes/plugins if needed
+- Test functionality thoroughly before merging feature branches
+
 ## Git Commands to Remember
 - `git checkout -b feature-name` - Create and switch to a new feature branch
 - `git add .` - Stage all changes
@@ -73,8 +86,39 @@
     - Merge to development branch once verified
 
 ## Next Steps
-- Complete workflow testing by activating child theme in WordPress Studio
+- ✅ Complete workflow testing by activating child theme in WordPress Studio
+- ✅ Establish file synchronization process between Cursor and WordPress Studio
+- ✅ Create automation scripts for common development tasks
 - Review documentation and spec.md for completeness
 - Consider merging documentation to main branch when approved
 - Create a detailed roadmap with milestones based on spec.md
 - Begin implementation of core features starting with Phase 1 tasks
+
+## Development Tools Added
+- Created `sync-to-studio.js` - Node.js script to sync Assembler child theme to WordPress Studio
+- Created `sync-wp-files.js` - Configurable script to sync any WordPress files (themes, plugins, content)
+- Created `sync-assembler-theme.bat` - One-click batch file to sync Assembler child theme
+- Created `test-node.bat` - Utility to verify Node.js installation
+- Created `sync-wordpress-files.bat` - Interactive menu-driven batch file for syncing various WordPress files
+- Created `sync-assembler-quick.bat` - Simplified one-click sync for Assembler child theme (no Node.js required)
+- Created `.cursorrules` - Configuration file to improve terminal functionality
+- Created `terminal-troubleshooting.md` - Guide for fixing terminal issues in Cursor
+
+## Environment Issues Addressed
+- Identified and documented PowerShell/terminal compatibility issues in Cursor
+- Created batch file workarounds for file synchronization without relying on Cursor's terminal
+- Configured Cursor to use cmd.exe instead of PowerShell for better compatibility
+- Documented terminal troubleshooting steps for future reference
+
+## .cursorrules file
+```
+{
+  "terminal": {
+    "shell": "cmd.exe",
+    "args": []
+  },
+  "editor": {
+    "formatOnSave": true,
+    "tabSize": 2
+  }
+}

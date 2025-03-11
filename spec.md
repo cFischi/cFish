@@ -127,4 +127,4 @@ cFish.io is a WordPress-based website that needs to be developed with modern web
 - Mobile usability score (target: > 90%)
 - Conversion rates (specific to site goals)
 - SEO rankings for target keywords
-- User engagement metrics 
+- User engagement metrics
