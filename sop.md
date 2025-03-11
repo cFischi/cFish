@@ -134,28 +134,32 @@ This document outlines the standard procedures for common development tasks for 
 
 ## GitHub-WordPress.com Integration
 
-WordPress.com Business plan enables direct integration with our GitHub repository, creating a more efficient development workflow.
+WordPress.com Business plan includes an official GitHub Deployments feature that provides native integration between your GitHub repository and WordPress.com site, enabling automated or manual deployments.
 
 ### Setup and Configuration
 
-1. **Initial Plugin Setup**
-   - Install "Git Updater" plugin on WordPress.com site
-   - Configure with GitHub repository credentials:
-     ```
-     Repository URL: https://github.com/cFischi/cFish
-     Branch: main (or development for testing)
-     Authentication: GitHub Personal Access Token
-     ```
-   - Test connection to ensure plugin can access repository
+1. **Access GitHub Deployments**
+   - Go to your WordPress.com dashboard
+   - Navigate to Tools → GitHub Deployments
+   - Click "Connect Repository"
 
-2. **Theme Registration**
-   - Register your theme with Git Updater
-   - Ensure theme has proper GitHub headers in style.css:
-     ```css
-     GitHub Theme URI: cFischi/cFish
-     GitHub Theme Branch: main
+2. **Repository Connection**
+   - Authenticate with your GitHub account when prompted
+   - Choose between:
+     - Connect an existing repository
+     - Create a new repository from your WordPress.com site
+   - Select the repository you want to connect
+   - Configure initial deployment settings
+
+3. **Deployment Configuration**
+   - Set branch to deploy from (e.g., `main`, `development`, or feature branches)
+   - Configure deployment triggers:
      ```
-   - Initial theme installation may require manual upload
+     Automatic: Deploy on every push to the selected branch
+     Manual: Only deploy when manually triggered from dashboard
+     ```
+   - Set file paths to include/exclude (if needed)
+   - Configure pre-deployment GitHub Actions workflows (optional)
 
 ### Standard GitHub-to-WordPress.com Workflow
 
@@ -164,46 +168,69 @@ WordPress.com Business plan enables direct integration with our GitHub repositor
    - Commit to feature branches
    - Push to GitHub
 
-2. **WordPress.com Update Methods**
+2. **Testing Approaches**
    
-   **Method A: Git Updater (Preferred for Theme Updates)**
-   - After pushing to GitHub, log into WordPress.com
-   - Navigate to Dashboard → Appearance → Themes
-   - Git Updater will show notification if updates available
-   - Click "Update" to pull latest changes from GitHub
+   **Approach A: Manual Testing (Recommended for Initial Tests)**
+   - Push changes to feature branch on GitHub
+   - Log into WordPress.com dashboard
+   - Navigate to Tools → GitHub Deployments
+   - Manually trigger deployment from feature branch
+   - Test changes on live or staging site
    
-   **Method B: Manual File Upload**
-   - For specific file changes, download from GitHub
-   - Use theme/plugin editor to update individual files
-   - Test changes immediately after update
+   **Approach B: Automated Testing**
+   - Configure automatic deployments for certain branches
+   - Push to designated testing branch
+   - Changes automatically deploy to WordPress.com
+   - Monitor deployment status in run logs
    
-   **Method C: Full Theme Upload**
-   - Download complete theme ZIP from GitHub
-   - Upload via Appearance → Themes → Add New → Upload
+   **Approach C: Staging Site Testing**
+   - For Business plans with staging sites
+   - Configure GitHub deployments to update staging environment
+   - Test thoroughly before promoting to production
 
-3. **Testing Procedures**
-   - After updating from GitHub, follow testing procedures in [WordPress.com Testing Guide](wordpress-com-testing.md)
-   - Document any issues in GitHub repository issues
-   - Fix issues in Cursor, push to GitHub, then update again
-
-4. **Deployment Finalization**
+3. **Deployment to Production**
    - After successful testing, merge feature branch to main
-   - Update WordPress.com one final time from main branch
-   - Add entry to changelog.md
+   - If automatic deployments are enabled, changes will deploy automatically
+   - If using manual deployments, trigger final deployment from dashboard
+   - Verify deployment in run logs
+   - Document changes in changelog
 
-### Maintaining Code Synchronization
+4. **Monitoring Deployments**
+   - Check Tools → GitHub Deployments → Deployment Run Logs
+   - Review status of all deployments
+   - Troubleshoot any failed deployments
+   - Document deployment history
+
+### Maintaining Code Integrity
 
 1. **GitHub as Source of Truth**
-   - Always consider GitHub repository as the canonical source code
-   - Any direct edits on WordPress.com should be documented and committed back to GitHub
+   - Always treat GitHub repository as the canonical source code
+   - Direct edits on WordPress.com should be avoided when possible
+   - If emergency changes are made directly on WordPress.com, commit those changes back to GitHub
 
-2. **Periodic Verification**
-   - Monthly: Verify WordPress.com theme files match GitHub repository
-   - If discrepancies found, update from GitHub to ensure consistency
+2. **Version Control Best Practices**
+   - Use semantic versioning for releases
+   - Tag significant releases in GitHub
+   - Maintain a detailed changelog
+   - Use descriptive commit messages
 
-3. **Plugin Update Procedures**
-   - Keep Git Updater plugin updated for security
-   - Document any changes to integration configuration
+3. **Backup Procedures**
+   - WordPress.com handles backups of the production site
+   - GitHub preserves code history and versions
+   - Consider additional backup solutions for critical projects
+
+### GitHub Actions Integration (Advanced)
+
+1. **Pre-Deployment Processing**
+   - Create GitHub Actions workflows for:
+     - Code linting and validation
+     - Asset compilation (Sass, JavaScript, etc.)
+     - Automated testing
+   - Configure these to run before deployment
+
+2. **Notification Workflows**
+   - Set up GitHub Actions to notify team of successful/failed deployments
+   - Integrate with Slack, email, or other notification systems
 
 ## Content Updates
 

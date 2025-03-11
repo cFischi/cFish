@@ -79,77 +79,86 @@ This document outlines best practices for safely testing WordPress changes direc
 
 ## GitHub Integration for WordPress.com Business Plan
 
-WordPress.com Business plan offers enhanced capabilities for integrating with GitHub repositories, streamlining our development workflow.
+WordPress.com Business plan includes official GitHub Deployments functionality that provides direct, native integration with your GitHub repository, eliminating the need for third-party plugins or manual file transfers.
 
-### Direct Theme Upload
+### Official GitHub Deployments Feature
 
-1. **Uploading Theme from GitHub**
-   - Download the theme ZIP file from GitHub repository
-   - Access WordPress.com Dashboard → Appearance → Themes → Add New → Upload Theme
-   - Select the downloaded ZIP file
-   - Click "Install Now" and then "Activate" when prompted
-   - Test theme functionality
+1. **Key Benefits**
+   - Direct connection between GitHub and WordPress.com
+   - Automated or manual deployments
+   - Deployment run logs for troubleshooting
+   - Pre-deployment processing via GitHub workflows
+   - More reliable than plugin-based solutions
 
-2. **Theme File Updates**
-   - For incremental updates, download only the modified files
-   - Use the WordPress.com theme editor (Appearance → Theme Editor) to update specific files
-   - Always create a backup before modifying theme files
+2. **Connection Options**
+   - Connect an existing GitHub repository to your WordPress.com site
+   - Create a new GitHub repository from your existing WordPress.com site
+   - Support for public and private repositories
 
-### Plugin-Based GitHub Integration
+### Setting Up GitHub Deployments
 
-1. **Git Updater Plugin**
-   - Install the "Git Updater" plugin via WordPress.com dashboard
-   - Configure to connect with your GitHub repository:
-     - Add repository URL: `https://github.com/cFischi/cFish`
-     - Add GitHub authentication (personal access token)
-     - Configure branch to track (e.g., `main` or `development`)
-   - Plugin will notify of available updates from GitHub
-   - Can pull theme/plugin updates directly from repository
+1. **Connect Repository to WordPress.com**
+   - Navigate to your WordPress.com site dashboard
+   - Go to Tools → GitHub Deployments
+   - Click "Connect Repository"
+   - Authenticate with your GitHub account when prompted
+   - Select the repository to connect
+   - Configure deployment settings (branch, file paths, etc.)
 
-2. **WP GitHub Sync**
-   - Alternative plugin for two-way content synchronization
-   - Works best for post/page content rather than theme files
-   - Allows content editing in GitHub markdown format
-
-### Advanced Integration Options
-
-1. **SFTP Access (When Available)**
-   - Some Business plans include SFTP credentials
-   - Use these to directly transfer files from local environment to WordPress.com
-   - SFTP provides more reliable file transfer than browser uploads
-
-2. **Webhooks and Automation**
-   - Set up GitHub webhook to trigger notifications when code is pushed
-   - Consider GitHub Actions for automated testing
-   - Potential for automated deployment pipelines (requires additional tools)
+2. **Deployment Configuration Options**
+   - Choose between automatic or manual deployments
+   - Select which branch to deploy from
+   - Define deployment triggers (push to branch, PR merge, etc.)
+   - Configure file paths to include/exclude
+   - Set up pre-deployment GitHub Actions workflows if needed
 
 ### Recommended GitHub-WordPress.com Workflow
 
 1. **Development Phase**
-   - Develop in Cursor as before
+   - Develop in Cursor IDE
    - Commit changes to feature branch
    - Push to GitHub repository
 
-2. **Testing Phase (Options)**
-   - **Option A**: Download ZIP from GitHub and upload via WordPress.com dashboard
-   - **Option B**: Use Git Updater plugin to pull changes directly
-   - **Option C**: Update individual files through Theme Editor for small changes
+2. **Testing Phase**
+   - Option A (Manual Testing): Manually trigger deployment from feature branch to test changes
+   - Option B (Automated): Configure automatic deployments for feature branches to a staging site
+   - Review changes on WordPress.com site
+   - Document test results
 
 3. **Deployment Phase**
-   - After successful testing, merge feature branch to main
-   - Update production theme using preferred method from testing phase
-   - Document changes in changelog
+   - After successful testing, merge feature branch to main branch
+   - If configured for automatic deployment, changes will deploy automatically
+   - If using manual deployment, trigger deployment from WordPress.com dashboard
+   - Verify successful deployment via run logs
 
-4. **Maintenance Considerations**
+4. **Monitoring & Maintenance**
+   - Review deployment logs for any issues
    - Keep GitHub as canonical source of code
-   - Periodically verify WordPress.com files match GitHub repository
-   - Use GitHub for version tracking and rollbacks if needed
+   - Any emergency fixes made directly on WordPress.com should be committed back to GitHub
+
+### Deployment Run Logs
+
+1. **Accessing Logs**
+   - Go to Tools → GitHub Deployments → Deployment Run Logs
+   - View detailed information about each deployment
+   - Identify and troubleshoot any deployment failures
+
+2. **Log Information**
+   - Deployment timestamp
+   - Deployment status (success/failure)
+   - Files changed
+   - Error messages (if any)
+   - GitHub commit information
 
 ### Security Considerations
-- Store authentication tokens securely
-- Use limited-access GitHub accounts for integration
-- Regularly audit plugin access permissions
-- Keep GitHub integration plugins updated
+- Repository connection uses OAuth for secure authentication
+- Consider using protected branches in GitHub for production code
+- Follow GitHub security best practices for repository access control
+- Regularly review deployment configurations for any security improvements
+
+### Resources
+- [Official GitHub Deployments Documentation](https://developer.wordpress.com/docs/developer-tools/github-deployments/)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions) for pre-deployment workflows
 
 ## Testing the Assembler Footer Update
 
