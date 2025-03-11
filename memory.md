@@ -151,10 +151,16 @@
   - Direct editing in wordpress.com admin interfaces
   - Testing via draft/preview mode on wordpress.com
   - Using wordpress.com's mature, reliable toolset
+- Discovered WordPress.com Business plan offers GitHub integration options:
+  - Theme upload directly from GitHub repositories
+  - Git Updater plugin for automated theme updates
+  - Potential SFTP access for direct file transfers
+  - More streamlined development-to-production workflow
 - Updated all documentation to reflect this workflow change:
   - Revised `wordpress-studio-guide.md` to highlight limitations
   - Updated `sop.md` to focus on wordpress.com workflows
   - Created `wordpress-com-testing.md` for safe testing procedures
+  - Added GitHub integration workflow documentation
 - Assembler footer update feature to be tested directly on wordpress.com
 - Next steps adjusted to emphasize wordpress.com-centric approach
 - Maintained Studio as offline backup and for WP-CLI operations
@@ -162,4 +168,4 @@
 ## Documentation Updates
 - Created `wordpress-com-testing.md` - Guide for safely testing changes on wordpress.com (2023-11-16)
 - Updated `wordpress-studio-guide.md` - Repositioned Studio's role and documented limitations (2023-11-16)
-- Revised `sop.md` - Shifted focus to wordpress.com backend workflows (2023-11-16)
+- Revised `sop.md` - Shifted focus to wordpress.com backend workflows and GitHub integration (2023-11-16)

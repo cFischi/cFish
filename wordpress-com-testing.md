@@ -77,6 +77,80 @@ This document outlines best practices for safely testing WordPress changes direc
 - Communicate maintenance windows to team members
 - Test thoroughly before making site public again
 
+## GitHub Integration for WordPress.com Business Plan
+
+WordPress.com Business plan offers enhanced capabilities for integrating with GitHub repositories, streamlining our development workflow.
+
+### Direct Theme Upload
+
+1. **Uploading Theme from GitHub**
+   - Download the theme ZIP file from GitHub repository
+   - Access WordPress.com Dashboard → Appearance → Themes → Add New → Upload Theme
+   - Select the downloaded ZIP file
+   - Click "Install Now" and then "Activate" when prompted
+   - Test theme functionality
+
+2. **Theme File Updates**
+   - For incremental updates, download only the modified files
+   - Use the WordPress.com theme editor (Appearance → Theme Editor) to update specific files
+   - Always create a backup before modifying theme files
+
+### Plugin-Based GitHub Integration
+
+1. **Git Updater Plugin**
+   - Install the "Git Updater" plugin via WordPress.com dashboard
+   - Configure to connect with your GitHub repository:
+     - Add repository URL: `https://github.com/cFischi/cFish`
+     - Add GitHub authentication (personal access token)
+     - Configure branch to track (e.g., `main` or `development`)
+   - Plugin will notify of available updates from GitHub
+   - Can pull theme/plugin updates directly from repository
+
+2. **WP GitHub Sync**
+   - Alternative plugin for two-way content synchronization
+   - Works best for post/page content rather than theme files
+   - Allows content editing in GitHub markdown format
+
+### Advanced Integration Options
+
+1. **SFTP Access (When Available)**
+   - Some Business plans include SFTP credentials
+   - Use these to directly transfer files from local environment to WordPress.com
+   - SFTP provides more reliable file transfer than browser uploads
+
+2. **Webhooks and Automation**
+   - Set up GitHub webhook to trigger notifications when code is pushed
+   - Consider GitHub Actions for automated testing
+   - Potential for automated deployment pipelines (requires additional tools)
+
+### Recommended GitHub-WordPress.com Workflow
+
+1. **Development Phase**
+   - Develop in Cursor as before
+   - Commit changes to feature branch
+   - Push to GitHub repository
+
+2. **Testing Phase (Options)**
+   - **Option A**: Download ZIP from GitHub and upload via WordPress.com dashboard
+   - **Option B**: Use Git Updater plugin to pull changes directly
+   - **Option C**: Update individual files through Theme Editor for small changes
+
+3. **Deployment Phase**
+   - After successful testing, merge feature branch to main
+   - Update production theme using preferred method from testing phase
+   - Document changes in changelog
+
+4. **Maintenance Considerations**
+   - Keep GitHub as canonical source of code
+   - Periodically verify WordPress.com files match GitHub repository
+   - Use GitHub for version tracking and rollbacks if needed
+
+### Security Considerations
+- Store authentication tokens securely
+- Use limited-access GitHub accounts for integration
+- Regularly audit plugin access permissions
+- Keep GitHub integration plugins updated
+
 ## Testing the Assembler Footer Update
 
 ### Specific Testing Plan

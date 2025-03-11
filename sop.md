@@ -7,14 +7,15 @@ This document outlines the standard procedures for common development tasks for 
 1. [Development Environment Setup](#development-environment-setup)
 2. [Feature Development Workflow](#feature-development-workflow)
 3. [WordPress.com Admin Workflow](#wordpresscom-admin-workflow)
-4. [Content Updates](#content-updates)
-5. [Theme Customization](#theme-customization)
-6. [Plugin Management](#plugin-management)
-7. [WordPress Core Updates](#wordpress-core-updates)
-8. [Database Management](#database-management)
-9. [Deployment Procedures](#deployment-procedures)
-10. [WordPress Studio Usage (Limited)](#wordpress-studio-usage-limited)
-11. [Troubleshooting Common Issues](#troubleshooting-common-issues)
+4. [GitHub-WordPress.com Integration](#github-wordpresscom-integration)
+5. [Content Updates](#content-updates)
+6. [Theme Customization](#theme-customization)
+7. [Plugin Management](#plugin-management)
+8. [WordPress Core Updates](#wordpress-core-updates)
+9. [Database Management](#database-management)
+10. [Deployment Procedures](#deployment-procedures)
+11. [WordPress Studio Usage (Limited)](#wordpress-studio-usage-limited)
+12. [Troubleshooting Common Issues](#troubleshooting-common-issues)
 
 ## Development Environment Setup
 
@@ -130,6 +131,79 @@ This document outlines the standard procedures for common development tasks for 
    - Create a backup point before significant changes
    - Use WordPress.com's built-in backup features or plugins
    - Know how to restore from backup if needed
+
+## GitHub-WordPress.com Integration
+
+WordPress.com Business plan enables direct integration with our GitHub repository, creating a more efficient development workflow.
+
+### Setup and Configuration
+
+1. **Initial Plugin Setup**
+   - Install "Git Updater" plugin on WordPress.com site
+   - Configure with GitHub repository credentials:
+     ```
+     Repository URL: https://github.com/cFischi/cFish
+     Branch: main (or development for testing)
+     Authentication: GitHub Personal Access Token
+     ```
+   - Test connection to ensure plugin can access repository
+
+2. **Theme Registration**
+   - Register your theme with Git Updater
+   - Ensure theme has proper GitHub headers in style.css:
+     ```css
+     GitHub Theme URI: cFischi/cFish
+     GitHub Theme Branch: main
+     ```
+   - Initial theme installation may require manual upload
+
+### Standard GitHub-to-WordPress.com Workflow
+
+1. **Code Development**
+   - Develop in Cursor IDE as usual
+   - Commit to feature branches
+   - Push to GitHub
+
+2. **WordPress.com Update Methods**
+   
+   **Method A: Git Updater (Preferred for Theme Updates)**
+   - After pushing to GitHub, log into WordPress.com
+   - Navigate to Dashboard → Appearance → Themes
+   - Git Updater will show notification if updates available
+   - Click "Update" to pull latest changes from GitHub
+   
+   **Method B: Manual File Upload**
+   - For specific file changes, download from GitHub
+   - Use theme/plugin editor to update individual files
+   - Test changes immediately after update
+   
+   **Method C: Full Theme Upload**
+   - Download complete theme ZIP from GitHub
+   - Upload via Appearance → Themes → Add New → Upload
+
+3. **Testing Procedures**
+   - After updating from GitHub, follow testing procedures in [WordPress.com Testing Guide](wordpress-com-testing.md)
+   - Document any issues in GitHub repository issues
+   - Fix issues in Cursor, push to GitHub, then update again
+
+4. **Deployment Finalization**
+   - After successful testing, merge feature branch to main
+   - Update WordPress.com one final time from main branch
+   - Add entry to changelog.md
+
+### Maintaining Code Synchronization
+
+1. **GitHub as Source of Truth**
+   - Always consider GitHub repository as the canonical source code
+   - Any direct edits on WordPress.com should be documented and committed back to GitHub
+
+2. **Periodic Verification**
+   - Monthly: Verify WordPress.com theme files match GitHub repository
+   - If discrepancies found, update from GitHub to ensure consistency
+
+3. **Plugin Update Procedures**
+   - Keep Git Updater plugin updated for security
+   - Document any changes to integration configuration
 
 ## Content Updates
 
