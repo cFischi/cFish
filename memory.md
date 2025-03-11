@@ -103,6 +103,7 @@
 - Created `sync-assembler-quick.bat` - Simplified one-click sync for Assembler child theme (no Node.js required)
 - Created `.cursorrules` - Configuration file to improve terminal functionality
 - Created `terminal-troubleshooting.md` - Guide for fixing terminal issues in Cursor
+- Created `wordpress-studio-guide.md` - Comprehensive documentation on WordPress Studio capabilities, limitations, and workflow integration (2023-11-16)
 
 ## Environment Issues Addressed
 - Identified and documented PowerShell/terminal compatibility issues in Cursor

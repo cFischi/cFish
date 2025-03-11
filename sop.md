@@ -12,7 +12,8 @@ This document outlines the standard procedures for common development tasks for 
 6. [WordPress Core Updates](#wordpress-core-updates)
 7. [Database Management](#database-management)
 8. [Deployment Procedures](#deployment-procedures)
-9. [Troubleshooting Common Issues](#troubleshooting-common-issues)
+9. [WordPress Studio Usage](#wordpress-studio-usage)
+10. [Troubleshooting Common Issues](#troubleshooting-common-issues)
 
 ## Development Environment Setup
 
@@ -192,6 +193,40 @@ This document outlines the standard procedures for common development tasks for 
    - Check critical site functionality
    - Verify visual integrity across devices
    - Confirm third-party integrations
+
+## WordPress Studio Usage
+
+### Overview
+- WordPress Studio serves as our testing environment and WordPress management platform
+- Refer to [wordpress-studio-guide.md](wordpress-studio-guide.md) for detailed capabilities and limitations
+
+### Best Practices
+1. **Using Studio Assistant**
+   - Leverage Studio Assistant for WordPress-specific guidance
+   - Request code examples for WordPress standards
+   - Use for troubleshooting WordPress-specific issues
+
+2. **WP-CLI Usage**
+   - Access WP-CLI through WordPress Studio Terminal
+   - Common useful commands:
+     ```
+     wp plugin list
+     wp theme list
+     wp core version
+     wp db export backup.sql
+     ```
+
+3. **File Synchronization**
+   - Always use the synchronization batch files to move code from Cursor to Studio
+   - After synchronizing, verify changes in WordPress admin
+   - For theme changes, check if theme needs to be activated or reactivated
+
+4. **Testing Workflow**
+   - Make code changes in Cursor
+   - Sync to WordPress Studio
+   - Test in WordPress Studio
+   - Document results
+   - Only then commit changes to Git
 
 ## Troubleshooting Common Issues
 
