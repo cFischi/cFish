@@ -171,6 +171,18 @@
 - Updated `wordpress-studio-guide.md` - Repositioned Studio's role and documented limitations (2023-11-16)
 - Revised `sop.md` - Shifted focus to wordpress.com backend workflows and official GitHub Deployments integration (2023-11-16)
 
+## Parent Theme Modification Test (2023-11-17)
+- Added a visible test to verify GitHub Deployments functionality
+- Modified wp-content/themes/assembler/parts/header.html in parent theme
+- Changed "Learn more" button to "cFish Test 🐟" with bright orange background
+- Committed changes to feature/assembler-footer-update branch
+- Pushed changes to GitHub repository
+- Purpose: Verify that direct theme modifications are deployed correctly
+- Next steps:
+  - Monitor WordPress.com GitHub Deployments
+  - Verify changes appear on staging site
+  - Document results of this test
+
 ## Child Theme Fixes (2023-11-17)
 - Identified issues with the Assembler child theme not displaying correctly on staging site
 - Fixed GitHub Theme URI in style.css (updated from incorrect `cFischi/cFish` to correct `tY-FischEYe/cFish.io`)
