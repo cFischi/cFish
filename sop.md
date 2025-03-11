@@ -6,14 +6,15 @@ This document outlines the standard procedures for common development tasks for 
 
 1. [Development Environment Setup](#development-environment-setup)
 2. [Feature Development Workflow](#feature-development-workflow)
-3. [Content Updates](#content-updates)
-4. [Theme Customization](#theme-customization)
-5. [Plugin Management](#plugin-management)
-6. [WordPress Core Updates](#wordpress-core-updates)
-7. [Database Management](#database-management)
-8. [Deployment Procedures](#deployment-procedures)
-9. [WordPress Studio Usage](#wordpress-studio-usage)
-10. [Troubleshooting Common Issues](#troubleshooting-common-issues)
+3. [WordPress.com Admin Workflow](#wordpresscom-admin-workflow)
+4. [Content Updates](#content-updates)
+5. [Theme Customization](#theme-customization)
+6. [Plugin Management](#plugin-management)
+7. [WordPress Core Updates](#wordpress-core-updates)
+8. [Database Management](#database-management)
+9. [Deployment Procedures](#deployment-procedures)
+10. [WordPress Studio Usage (Limited)](#wordpress-studio-usage-limited)
+11. [Troubleshooting Common Issues](#troubleshooting-common-issues)
 
 ## Development Environment Setup
 
@@ -37,16 +38,21 @@ This document outlines the standard procedures for common development tasks for 
    - Configure database connection parameters
    - Set up debug mode for development
 
-### Environment Synchronization
+### Environment Synchronization (Modified Workflow)
 
-1. **Syncing from WordPress Studio to Cursor**
-   - Export database from WordPress Studio if needed
-   - Copy files from `C:\Users\Chris\Studio\cfishio` to `C:\Users\Chris\cFish.io`
-   - Verify file integrity
+1. **Primary Development: WordPress.com Backend**
+   - Most development and content updates happen directly on wordpress.com
+   - Use draft/preview mode for testing changes
+   - Export theme modifications as needed for version control
 
-2. **Syncing from Cursor to WordPress Studio**
-   - Commit and push changes to GitHub
-   - Copy modified files from `C:\Users\Chris\cFish.io` to `C:\Users\Chris\Studio\cfishio`
+2. **Code Version Control: Cursor & GitHub**
+   - Major code changes developed in Cursor
+   - Backed up and versioned in GitHub
+   - Used for collaborative development and tracking changes
+
+3. **WordPress Studio (Limited Usage)**
+   - Used mainly for offline development and WP-CLI operations
+   - Not a primary part of daily workflow
 
 ## Feature Development Workflow
 
@@ -55,7 +61,20 @@ This document outlines the standard procedures for common development tasks for 
    git checkout -b feature/descriptive-name
    ```
 
-2. **Make necessary code changes in Cursor**
+2. **Development Approach Options**
+   
+   **Option A: WordPress.com Direct (Preferred)**
+   - For minor to moderate changes
+   - Make changes directly in WordPress.com Customizer or editor
+   - Test in draft/preview mode
+   - Document changes for later backup to version control
+
+   **Option B: Local Development & Upload**
+   - For complex changes requiring offline work
+   - Make code changes in Cursor
+   - Commit to feature branch
+   - Upload to WordPress.com for testing
+   - Document results
 
 3. **Commit changes incrementally**
    ```
@@ -68,9 +87,10 @@ This document outlines the standard procedures for common development tasks for 
    git push -u origin feature/descriptive-name
    ```
 
-5. **Test in WordPress Studio**
-   - Copy changed files to WordPress Studio
-   - Test functionality thoroughly
+5. **Test on WordPress.com**
+   - Upload changed files to WordPress.com if needed
+   - Test in draft/preview mode
+   - Document test results
 
 6. **Create Pull Request**
    - Go to GitHub repository
@@ -87,13 +107,38 @@ This document outlines the standard procedures for common development tasks for 
    git push origin main
    ```
 
+## WordPress.com Admin Workflow
+
+### Safe Testing on WordPress.com
+
+1. **Using Draft Mode**
+   - Create draft posts/pages for testing content changes
+   - Preview drafts to see how they will appear when published
+   - Only publish when fully tested
+
+2. **Theme Customizer**
+   - Use the built-in Customizer for theme modifications
+   - Changes in Customizer are previewed before publishing
+   - Save changes only when satisfied with results
+
+3. **Plugin Testing**
+   - Test new plugins in isolation when possible
+   - Have a rollback plan before activating major plugins
+   - Document plugin test results
+
+4. **Backup Before Major Changes**
+   - Create a backup point before significant changes
+   - Use WordPress.com's built-in backup features or plugins
+   - Know how to restore from backup if needed
+
 ## Content Updates
 
 ### Blog Posts
 
-1. **Create/edit content in WordPress Studio**
-   - Use WordPress editor for content creation
+1. **Create/edit content in WordPress.com Editor**
+   - Use WordPress.com block editor for content creation
    - Preview content before publishing
+   - Save as draft for team review if needed
 
 2. **Media Management**
    - Optimize images before upload (compression, proper dimensions)
@@ -103,32 +148,33 @@ This document outlines the standard procedures for common development tasks for 
 ### Page Updates
 
 1. **Major page structure changes**
-   - Create feature branch for template changes
-   - Test layout changes in WordPress Studio
-   - Follow standard feature workflow
+   - Create in draft mode first
+   - Preview extensively across devices
+   - Document changes in version control after publishing
 
 2. **Minor content updates**
-   - Make directly in WordPress Studio
+   - Make directly in WordPress.com editor
+   - Use preview mode to verify changes
    - Document changes in change log
 
 ## Theme Customization
 
 1. **Theme file modifications**
-   - Create feature branch with `theme/` prefix
-   - Edit theme files in Cursor
-   - Test in WordPress Studio
-   - Follow standard feature workflow
+   - For advanced customizations, use Cursor for code development
+   - Version changes in Git
+   - Upload to WordPress.com for testing
+   - Document implementation process
 
 2. **CSS Customizations**
-   - Work in dedicated feature branch
-   - Use browser inspector to test changes
-   - Implement in appropriate stylesheet files
-   - Minimize use of !important declarations
+   - Preferably use WordPress.com's Additional CSS feature
+   - Test changes using preview
+   - For complex changes, develop in Cursor first
+   - Document CSS modifications
 
 3. **JavaScript Enhancements**
    - Create separate JS files for custom functionality
-   - Enqueue properly via functions.php
-   - Test thoroughly for browser compatibility
+   - Test locally before uploading
+   - Verify compatibility across browsers
 
 ## Plugin Management
 
@@ -180,13 +226,13 @@ This document outlines the standard procedures for common development tasks for 
 
 1. **Pre-deployment checklist**
    - Code review completed
-   - All tests passing
+   - All tests passing in wordpress.com preview mode
    - Feature branch merged to main
    - Documentation updated
 
-2. **Deployment to WordPress.com**
-   - Deploy from WordPress Studio to WordPress.com
-   - Follow WordPress.com specific deployment steps
+2. **Deployment**
+   - For changes developed locally: Upload to WordPress.com
+   - For changes made in WordPress.com: Publish from draft/preview
    - Document deployment time and version
 
 3. **Post-deployment verification**
@@ -194,39 +240,28 @@ This document outlines the standard procedures for common development tasks for 
    - Verify visual integrity across devices
    - Confirm third-party integrations
 
-## WordPress Studio Usage
+## WordPress Studio Usage (Limited)
 
 ### Overview
-- WordPress Studio serves as our testing environment and WordPress management platform
+- WordPress Studio serves as a **secondary environment** for special cases
 - Refer to [wordpress-studio-guide.md](wordpress-studio-guide.md) for detailed capabilities and limitations
+- **Not recommended for primary development** due to performance and usability issues
 
-### Best Practices
-1. **Using Studio Assistant**
-   - Leverage Studio Assistant for WordPress-specific guidance
-   - Request code examples for WordPress standards
-   - Use for troubleshooting WordPress-specific issues
+### When to Use Studio
+1. **Offline Development Needs**
+   - When internet access is limited or unreliable
+   - For experimenting with high-risk changes
+   - As a local backup environment
 
-2. **WP-CLI Usage**
-   - Access WP-CLI through WordPress Studio Terminal
-   - Common useful commands:
-     ```
-     wp plugin list
-     wp theme list
-     wp core version
-     wp db export backup.sql
-     ```
+2. **WP-CLI Operations**
+   - For database exports and manipulation
+   - Bulk content operations not available in WordPress.com
+   - Custom scripts requiring server access
 
-3. **File Synchronization**
-   - Always use the synchronization batch files to move code from Cursor to Studio
-   - After synchronizing, verify changes in WordPress admin
-   - For theme changes, check if theme needs to be activated or reactivated
-
-4. **Testing Workflow**
-   - Make code changes in Cursor
-   - Sync to WordPress Studio
-   - Test in WordPress Studio
-   - Document results
-   - Only then commit changes to Git
+3. **File Synchronization (Infrequent)**
+   - Use synchronization batch files only when necessary
+   - Verify changes in WordPress admin after synchronization
+   - Consider this a fallback approach, not primary workflow
 
 ## Troubleshooting Common Issues
 

@@ -137,3 +137,29 @@
     "tabSize": 2
   }
 }
+```
+
+## Workflow Strategy Update (2023-11-16)
+- Evaluated WordPress Studio performance and usability after initial testing
+- Identified significant limitations in WordPress Studio's functionality:
+  - Performance issues (slow loading, poor responsiveness)
+  - Limited editing capabilities compared to wordpress.com's backend
+  - Immature interface with usability challenges
+  - Inefficient workflow requiring excessive workarounds
+- Decided to reposition WordPress Studio as a secondary/backup environment
+- Shifted primary development workflow to wordpress.com's backend:
+  - Direct editing in wordpress.com admin interfaces
+  - Testing via draft/preview mode on wordpress.com
+  - Using wordpress.com's mature, reliable toolset
+- Updated all documentation to reflect this workflow change:
+  - Revised `wordpress-studio-guide.md` to highlight limitations
+  - Updated `sop.md` to focus on wordpress.com workflows
+  - Created `wordpress-com-testing.md` for safe testing procedures
+- Assembler footer update feature to be tested directly on wordpress.com
+- Next steps adjusted to emphasize wordpress.com-centric approach
+- Maintained Studio as offline backup and for WP-CLI operations
+
+## Documentation Updates
+- Created `wordpress-com-testing.md` - Guide for safely testing changes on wordpress.com (2023-11-16)
+- Updated `wordpress-studio-guide.md` - Repositioned Studio's role and documented limitations (2023-11-16)
+- Revised `sop.md` - Shifted focus to wordpress.com backend workflows (2023-11-16)
