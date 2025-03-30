@@ -24,17 +24,33 @@ REM Add, commit and push
 echo.
 echo Adding all changes...
 git add .
+if %ERRORLEVEL% neq 0 (
+    echo Error adding files. Please check your changes and try again.
+    pause
+    exit /b 1
+)
 
 echo.
 echo Committing changes with message: "%COMMIT_MESSAGE%"
-git commit -m "%COMMIT_MESSAGE%"
+git commit -n -m "%COMMIT_MESSAGE%"
+if %ERRORLEVEL% neq 0 (
+    echo Error committing changes. Please check the error message above.
+    pause
+    exit /b 1
+)
 
 echo.
 echo Pushing to GitHub...
 git push origin %BRANCH%
+if %ERRORLEVEL% neq 0 (
+    echo Error pushing to GitHub. Check your internet connection and GitHub access.
+    pause
+    exit /b 1
+)
 
 echo.
-echo Done! Remember to run 'git pull origin %BRANCH%' on your other computer.
+echo Success! Changes pushed to GitHub.
+echo Remember to run 'git pull origin %BRANCH%' on your other computer.
 echo.
 
 pause 

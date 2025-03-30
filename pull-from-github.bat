@@ -20,11 +20,25 @@ if /i not "%CONTINUE%"=="Y" (
 )
 
 echo.
-echo Pulling latest changes from GitHub...
-git pull origin %BRANCH%
+echo Fetching latest changes from GitHub...
+git fetch origin %BRANCH%
+if %ERRORLEVEL% neq 0 (
+    echo Error fetching from GitHub. Check your internet connection and GitHub access.
+    pause
+    exit /b 1
+)
 
 echo.
-echo Done! You now have the latest changes from GitHub.
+echo Pulling latest changes from GitHub...
+git pull origin %BRANCH%
+if %ERRORLEVEL% neq 0 (
+    echo Error pulling changes. There might be conflicts that need resolution.
+    pause
+    exit /b 1
+)
+
+echo.
+echo Success! You now have the latest changes from GitHub.
 echo.
 
 pause 
