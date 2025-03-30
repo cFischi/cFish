@@ -1,0 +1,38 @@
+{
+  "metadata": {},
+  "sections": [
+    {
+      "level": 0,
+      "title": "Content",
+      "content": [
+        "# MD-JSON Sync Test File - MODIFIED\r",
+        "\r",
+        "## Test Section 1\r",
+        "This is a test section to verify synchronization functionality.\r",
+        "- List item 1\r",
+        "- List item 2\r",
+        "- List item 3\r",
+        "- New item added to test sync exclusion\r",
+        "\r",
+        "## Test Section 2\r",
+        "This section contains additional content to test sync behavior.\r",
+        "This line was added to verify the exclusion mechanism.\r",
+        "\r",
+        "```javascript\r",
+        "// Code block to test formatting\r",
+        "function testFunction() {\r",
+        "  console.log(\"Testing sync exclusion\");\r",
+        "  return true;\r",
+        "}\r",
+        "```\r",
+        "\r",
+        "## Test Section 3\r",
+        "Final test section with some **bold text** and *italic text*.\r",
+        "\r",
+        "_Modified for testing on 03-13-2025 | Cursor (Claude 3.7 Sonnet)_"
+      ]
+    }
+  ],
+  "filePath": "C:\\Users\\Chris\\cFish.io\\test-sync.md",
+  "lastUpdated": "2025-03-12T07:42:00.786Z"
+}

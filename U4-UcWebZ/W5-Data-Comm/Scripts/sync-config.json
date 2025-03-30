@@ -1,0 +1,40 @@
+{
+    "masterFile": "memory.md",
+    "departments": [
+        {
+            "name": "U1-Administration",
+            "path": "U1-Administration/memory.md",
+            "keywords": ["administration", "admin", "management", "policy", "governance", "organization", "planning", "strategy"]
+        },
+        {
+            "name": "U2-Research",
+            "path": "U2-Research/memory.md",
+            "keywords": ["research", "analysis", "study", "investigation", "data analysis", "findings", "discovery", "evaluation"]
+        },
+        {
+            "name": "U3-Operations",
+            "path": "U3-Operations/memory.md",
+            "keywords": ["operations", "procedure", "process", "workflow", "operational", "execution", "implementation", "maintenance"]
+        },
+        {
+            "name": "U4-Production",
+            "path": "U4-Production/memory.md",
+            "keywords": ["production", "development", "wordpress", "website", "web", "content", "publishing", "deployment"]
+        },
+        {
+            "name": "U5-Data",
+            "path": "U5-Data/memory.md",
+            "keywords": ["data", "backup", "storage", "synchronization", "database", "information", "recovery", "protection"]
+        },
+        {
+            "name": "U6-Marketing",
+            "path": "U6-Marketing/memory.md",
+            "keywords": ["marketing", "promotion", "communication", "branding", "outreach", "messaging", "audience", "engagement"]
+        },
+        {
+            "name": "U7-Systems",
+            "path": "U7-Systems/memory.md",
+            "keywords": ["systems", "scripts", "automation", "tools", "infrastructure", "technical", "software", "integration"]
+        }
+    ]
+} 

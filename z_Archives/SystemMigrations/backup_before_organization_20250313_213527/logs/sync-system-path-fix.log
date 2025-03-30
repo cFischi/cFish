@@ -1,0 +1,22 @@
+[2025-03-13T05:32:48.837Z] [INFO] Starting sync system path fix script
+[2025-03-13T05:32:48.854Z] [INFO] Creating directory: C:\Users\Chris\cFish.io\backups\sync-system-config
+[2025-03-13T05:32:48.856Z] [ERROR] Config file not found at: C:\Users\Chris\cFish.io\sync-system\config\tydisync-config.json
+[2025-03-13T05:32:48.858Z] [ERROR] Failed to backup config, aborting
+[2025-03-13T05:34:07.933Z] [INFO] Starting sync system path fix script
+[2025-03-13T05:34:07.950Z] [SUCCESS] Config backup created at: C:\Users\Chris\cFish.io\backups\sync-system-config\tydisync-config-2025-03-13T05-34-07.947Z.json.backup
+[2025-03-13T05:34:07.953Z] [INFO] Updated UI settings paths:
+[2025-03-13T05:34:07.954Z] [INFO]   Status file: sync-system/state/tydisync-status.json -> state/md-json-sync-status.json
+[2025-03-13T05:34:07.956Z] [INFO]   Notifications file: sync-system/state/tydisync-notifications.json -> state/md-json-sync-notifications.json
+[2025-03-13T05:34:07.958Z] [SUCCESS] Config file updated successfully
+[2025-03-13T05:34:07.961Z] [SUCCESS] Created state file: C:\Users\Chris\cFish.io\sync-system\state\md-json-sync-status.json
+[2025-03-13T05:34:07.964Z] [SUCCESS] Created state file: C:\Users\Chris\cFish.io\sync-system\state\md-json-sync-notifications.json
+[2025-03-13T05:34:07.966Z] [SUCCESS] Sync system path fix completed successfully
+[2025-03-13T05:34:07.968Z] [INFO] You should restart the sync system to apply these changes
+[2025-03-13T05:39:51.938Z] [INFO] Starting sync system path fix script
+[2025-03-13T05:39:51.951Z] [SUCCESS] Config backup created at: C:\Users\Chris\cFish.io\backups\sync-system-config\tydisync-config-2025-03-13T05-39-51.949Z.json.backup
+[2025-03-13T05:39:51.952Z] [INFO] Updated UI settings paths:
+[2025-03-13T05:39:51.953Z] [INFO]   Status file: state/md-json-sync-status.json -> state/md-json-sync-status.json
+[2025-03-13T05:39:51.954Z] [INFO]   Notifications file: state/md-json-sync-notifications.json -> state/md-json-sync-notifications.json
+[2025-03-13T05:39:51.955Z] [SUCCESS] Config file updated successfully
+[2025-03-13T05:39:51.957Z] [SUCCESS] Sync system path fix completed successfully
+[2025-03-13T05:39:51.957Z] [INFO] You should restart the sync system to apply these changes

@@ -1,0 +1,11 @@
+[2025-03-15 17:00:56] ERROR in Get-ImplementationStatus: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-ImplementationStatus, C:\Users\Chris\cFish.io\U5-Data\Scripts\implementation-helper.ps1: line 1192
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\implementation-helper.ps1: line 1262
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 17:34:35] ERROR in Get-ImplementationStatus: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-ImplementationStatus, C:\Users\Chris\cFish.io\U5-Data\Scripts\implementation-helper.ps1: line 1192
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\implementation-helper.ps1: line 1262
+----------------------------------------

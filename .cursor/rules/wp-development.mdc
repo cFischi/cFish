@@ -1,0 +1,138 @@
+---
+description: WordPress development guidelines and best practices for cFish.io.
+globs: *.php, *.js, *.css
+alwaysApply: false
+---
+
+# WordPress Development Guidelines
+
+Follow these guidelines when developing WordPress code for cFish.io:
+
+## Core Principles
+
+- Use OOP for better modularity and maintainability
+- Follow WordPress coding standards consistently
+- Leverage WordPress hooks (actions/filters) appropriately
+- Implement proper security practices (nonce, sanitize, escape)
+- Never modify core/parent theme files directly
+
+## Code Organization
+
+- Directory naming: lowercase with hyphens (wp-content/themes/my-theme)
+- File naming: descriptive, purpose-based (class-user-profile.php)
+- Enable strict typing: declare(strict_types=1);
+- Header format: [Description, @package, @since, @author]
+- Use namespace cFish\Module\Submodule for all custom code
+
+## Security Practices
+
+- **Database**: Use $wpdb->prepare() for ALL queries
+- **Input**: sanitize_* functions before processing
+- **Output**: esc_* functions before display
+- **Forms**: wp_nonce_* functions for verification
+- **APIs**: wp_remote_* for external requests
+
+Example nonce implementation:
+```php
+// Creating a nonce
+$nonce = wp_create_nonce('cfish_action_nonce');
+echo '<input type="hidden" name="cfish_nonce" value="' . esc_attr($nonce) . '" />';
+
+// Verifying a nonce
+if (!isset($_POST['cfish_nonce']) || !wp_verify_nonce($_POST['cfish_nonce'], 'cfish_action_nonce')) {
+    wp_die('Security check failed');
+}
+```
+
+## WordPress Hooks
+
+Add hooks using proper array syntax for classes:
+
+```php
+add_action('init', [$this, 'method_name'], 10, 1);
+add_filter('the_content', [$this, 'filter_content'], 10, 1);
+```
+
+Create custom hooks for extensibility:
+
+```php
+// Creating a custom action
+do_action('cfish_before_content', $post_id);
+
+// Creating a custom filter
+$title = apply_filters('cfish_custom_title', get_the_title());
+```
+
+## Database Operations
+
+Always use wpdb with prepare for dynamic queries:
+
+```php
+global $wpdb;
+$table = $wpdb->prefix . 'my_table';
+$results = $wpdb->get_results(
+    $wpdb->prepare(
+        "SELECT * FROM %i WHERE user_id = %d AND status = %s",
+        $table,
+        $user_id,
+        $status
+    )
+);
+```
+
+Use custom tables only when necessary, prefer post types and meta.
+
+## Custom Post Types
+
+Register custom post types with proper arguments:
+
+```php
+function register_cfish_post_type() {
+    $args = [
+        'public' => true,
+        'label'  => 'Custom Type',
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'show_in_rest' => true,
+    ];
+    register_post_type('cfish_custom', $args);
+}
+add_action('init', 'register_cfish_post_type');
+```
+
+## REST API Integration
+
+Create custom endpoints with proper namespace:
+
+```php
+add_action('rest_api_init', function () {
+    register_rest_route('cfish/v1', '/custom-endpoint', [
+        'methods' => 'GET',
+        'callback' => 'cfish_api_callback',
+        'permission_callback' => function () {
+            return current_user_can('edit_posts');
+        }
+    ]);
+});
+```
+
+## Testing
+
+Write unit tests for all custom functionality:
+
+```php
+class Test_My_Functionality extends WP_UnitTestCase {
+    public function test_feature() {
+        $result = my_function();
+        $this->assertEquals('expected', $result);
+    }
+}
+```
+
+## tYDiSync~ Integration
+
+When working with files that may be synchronized:
+
+- Maintain bidirectional compatibility between markdown and JSON formats
+- Respect .nosync marker files to prevent synchronization conflicts
+- Add appropriate synchronization metadata to facilitate cross-platform compatibility
+- Create hooks for bidirectional data flow between WordPress and other platforms 

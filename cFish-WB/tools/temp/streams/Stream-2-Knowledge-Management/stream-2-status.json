@@ -1,0 +1,108 @@
+{
+  "streamId": "Stream-2-Knowledge-Management",
+  "name": "Advanced Knowledge Management",
+  "version": "1.0",
+  "lastUpdated": "2025-03-28",
+  "completionPercentage": 15,
+  "originalCompletionPercentage": 10,
+  "status": "Ahead of Schedule",
+  "currentFocus": "Knowledge Base",
+  "completionStatus": {
+    "Knowledge Base": {
+      "completionPercentage": 45,
+      "status": "Ahead of Schedule",
+      "completedTasks": [
+        "Complete knowledge object model design",
+        "Implement metadata schema and validation system",
+        "Establish storage infrastructure architecture",
+        "Implement core access control mechanisms",
+        "Develop versioning system foundation"
+      ],
+      "inProgressTasks": [
+        "Develop API endpoints for knowledge management",
+        "Create basic search functionality"
+      ],
+      "pendingTasks": []
+    },
+    "Semantic Search Capabilities": {
+      "completionPercentage": 0,
+      "status": "Not Started",
+      "acceleratedStartDate": "2025-03-31",
+      "originalStartDate": "2025-04-02"
+    },
+    "Knowledge Visualization Tools": {
+      "completionPercentage": 0,
+      "status": "Not Started",
+      "acceleratedStartDate": "2025-04-14",
+      "originalStartDate": "2025-04-17"
+    },
+    "Knowledge Analytics": {
+      "completionPercentage": 0,
+      "status": "Not Started",
+      "acceleratedStartDate": "2025-04-22",
+      "originalStartDate": "2025-04-26"
+    }
+  },
+  "nextMilestones": [
+    {
+      "milestone": "Complete API endpoints for knowledge management",
+      "deadline": "2025-03-31",
+      "priority": "High"
+    },
+    {
+      "milestone": "Finalize basic search functionality",
+      "deadline": "2025-03-31",
+      "priority": "High"
+    },
+    {
+      "milestone": "Begin preparations for Semantic Search Capabilities",
+      "deadline": "2025-03-31",
+      "priority": "Medium"
+    }
+  ],
+  "dependencies": {
+    "outgoing": [
+      {
+        "target": "Stream 4",
+        "description": "Knowledge Base needs Database Optimization",
+        "originalDeadline": "2025-04-01",
+        "acceleratedDeadline": "2025-03-30",
+        "status": "On Track",
+        "criticalPath": true
+      }
+    ],
+    "incoming": [
+      {
+        "source": "Stream 3",
+        "description": "Authentication needs integration with Knowledge Base",
+        "originalDeadline": "2025-04-12",
+        "acceleratedDeadline": "2025-04-08",
+        "status": "On Track",
+        "criticalPath": false
+      }
+    ]
+  },
+  "risks": [
+    {
+      "risk": "Knowledge model scalability issues",
+      "likelihood": "Medium",
+      "impact": "High",
+      "mitigationStrategy": "Implement comprehensive testing with large datasets, optimize early",
+      "owner": "Stream 2 Lead",
+      "status": "Actively Monitored"
+    },
+    {
+      "risk": "Search performance limitations",
+      "likelihood": "Medium",
+      "impact": "Medium",
+      "mitigationStrategy": "Implement appropriate indexing strategies, optimize query patterns",
+      "owner": "Stream 2 Lead",
+      "status": "Planned"
+    }
+  ],
+  "metadata": {
+    "generatedBy": "Claude 3.7 Sonnet (Cursor)",
+    "timestamp": "2025-03-28T16:05:00Z",
+    "version": "1.0.0"
+  }
+} 

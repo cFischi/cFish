@@ -1,0 +1,311 @@
+/*
+Theme Name: CFish 2025
+Theme URI: https://cfish.io/
+Author: tY FischEYe
+Author URI: https://cfish.io/about
+Description: Modern theme for cFish.io with AI integration, launched in 2025.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cfish-2025
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+/* CSS Variables */
+:root {
+  /* Primary Colors */
+  --color-primary: #1e88e5;
+  --color-primary-dark: #1565c0;
+  --color-primary-light: #42a5f5;
+  
+  /* Secondary Colors */
+  --color-secondary: #00acc1;
+  --color-secondary-dark: #007c91;
+  --color-secondary-light: #5ddef4;
+  
+  /* Neutral Colors */
+  --color-background: #ffffff;
+  --color-background-alt: #f5f7fa;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-border: #e0e0e0;
+  
+  /* Special Colors */
+  --color-success: #43a047;
+  --color-warning: #ffa000;
+  --color-error: #e53935;
+  --color-info: #039be5;
+  
+  /* Typography */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  --font-monospace: 'Roboto Mono', monospace;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-width: 1px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  --shadow-lg: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  
+  /* Container widths */
+  --width-container: 1200px;
+  --width-narrow: 800px;
+  --width-wide: 1600px;
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover, a:focus {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.container-narrow {
+  max-width: var(--width-narrow);
+}
+
+.container-wide {
+  max-width: var(--width-wide);
+}
+
+/* Header */
+.site-header {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  background-color: var(--color-background);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.site-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* Navigation */
+.main-navigation {
+  margin-top: var(--spacing-md);
+}
+
+.main-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-navigation li {
+  margin-right: var(--spacing-md);
+}
+
+.main-navigation a {
+  display: block;
+  padding: var(--spacing-xs) 0;
+  font-weight: 500;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.button:hover, .button:focus {
+  background-color: var(--color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.button.secondary {
+  background-color: var(--color-secondary);
+}
+
+.button.secondary:hover, .button.secondary:focus {
+  background-color: var(--color-secondary-dark);
+}
+
+/* Content */
+.site-content {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.entry-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.entry-meta {
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.entry-content {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Footer */
+.site-footer {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  background-color: var(--color-background-alt);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-branding {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .main-navigation ul {
+    flex-direction: column;
+  }
+  
+  .main-navigation li {
+    margin-right: 0;
+    margin-bottom: var(--spacing-xs);
+  }
+}
+
+/* WordPress Core Styles */
+.alignleft {
+  float: left;
+  margin-right: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.alignright {
+  float: right;
+  margin-left: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: var(--spacing-md);
+}
+
+.wp-caption img {
+  display: block;
+  margin: 0 auto;
+}
+
+.wp-caption-text {
+  margin-top: var(--spacing-xs);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.screen-reader-text:focus {
+  display: block;
+  width: auto;
+  height: auto;
+  clip: auto;
+  z-index: 100000;
+} 

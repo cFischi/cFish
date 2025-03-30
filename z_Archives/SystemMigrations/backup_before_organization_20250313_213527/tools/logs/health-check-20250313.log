@@ -1,0 +1,16 @@
+[2025-03-13 01:26:32] [INFO] ===== cFish.io Daily Health Check - 2025-03-13 01:26:32 =====
+[2025-03-13 01:26:32] [INFO] Checking system resources...
+[2025-03-13 01:26:32] [INFO] Disk space: 34.06 GB free (7.18%)
+[2025-03-13 01:26:32] [INFO] CPU Usage: 15.55%
+[2025-03-13 01:26:32] [INFO] Memory Usage: 46.52% (14.85 GB of 31.93 GB)
+[2025-03-13 01:26:32] [INFO] Checking tYDiSync~ system...
+[2025-03-13 01:26:32] [ERROR] Sync system directory not found at sync-system
+[2025-03-13 01:26:32] [INFO] Checking content directories...
+[2025-03-13 01:26:32] [ERROR] Markdown content directory not found at md
+[2025-03-13 01:26:32] [ERROR] JSON content directory not found at json
+[2025-03-13 01:26:32] [ERROR] WordPress content directory not found at wp-content
+[2025-03-13 01:26:32] [ERROR] Backup files directory not found at backups
+[2025-03-13 01:26:32] [INFO] MD Files: 0, JSON Files: 0
+[2025-03-13 01:26:32] [INFO] Checking recent backups...
+[2025-03-13 01:26:32] [WARNING] Backup directory not found at backups
+[2025-03-13 01:26:32] [INFO] ===== Health Check Complete: 5 issues, 1 warnings =====

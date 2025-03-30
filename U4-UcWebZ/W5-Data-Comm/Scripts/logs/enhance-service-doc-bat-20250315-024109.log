@@ -1,0 +1,4 @@
+[Sat 03/15/2025  2:41:09.49] Starting Service Documentation Enhancement 
+[Sat 03/15/2025  2:41:09.49] Parameters: CATALOG=Services\service-catalog.json, OUTPUT=Services\Documentation, ALL=false, SERVICE=, TEMPLATE=Templates\service-documentation-template.md 
+[Sat 03/15/2025  2:41:09.52] Executing PowerShell command: powershell -NoProfile -ExecutionPolicy Bypass -File ""C:\Users\Chris\cFish.io\U5-Data\Scripts\enhance-service-documentation.ps1"" -ServiceCatalogPath ""Services\service-catalog.json"" -OutputDirectory ""Services\Documentation"" -TemplatePath ""Templates\service-documentation-template.md"" 
+[Sat 03/15/2025  2:41:09.87] Service Documentation Enhancement completed with some failures. 

@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-03-12T12:52:58.949Z",
+  "reason": "shutdown",
+  "stats": {
+    "totalTransformations": 0,
+    "successfulTransformations": 0,
+    "failedTransformations": 0,
+    "totalRetries": 0,
+    "successfulRetries": 0,
+    "recoveryAttempts": 0,
+    "successfulRecoveries": 0,
+    "startTime": "2025-03-12T12:51:55.857Z"
+  },
+  "queues": {
+    "markdown": [],
+    "json": [],
+    "retry": []
+  },
+  "memoryUsage": [],
+  "failedOperations": []
+}

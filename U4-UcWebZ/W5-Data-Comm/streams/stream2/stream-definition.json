@@ -1,0 +1,69 @@
+{
+  "name": "Stream 2: Advanced Knowledge Management",
+  "description": "Focus on knowledge base, documentation management, and semantic search capabilities.",
+  "lead": "Knowledge Management Lead",
+  "directory": "U5-Data\\streams\\stream2",
+  "tasks": [
+    {
+      "id": "stream2-001",
+      "name": "Initial Setup",
+      "description": "Set up the foundational infrastructure and components required for Stream 2.",
+      "status": "Completed",
+      "priority": "High",
+      "assignee": "Knowledge Management Lead",
+      "dueDate": "2025-03-26"
+    },
+    {
+      "id": "stream2-002",
+      "name": "Enhanced Knowledge Base",
+      "description": "Develop enhanced knowledge base with improved metadata and search capabilities.",
+      "status": "In Progress",
+      "priority": "High",
+      "assignee": "Knowledge Management Lead",
+      "dueDate": "2025-04-01"
+    },
+    {
+      "id": "stream2-003",
+      "name": "Semantic Search Capabilities",
+      "description": "Implement advanced semantic search across all knowledge assets.",
+      "status": "Not Started",
+      "priority": "Medium",
+      "assignee": "Search Engineer",
+      "dueDate": "2025-04-08"
+    },
+    {
+      "id": "stream2-004",
+      "name": "Knowledge Visualization Tools",
+      "description": "Develop visualization tools for knowledge relationships and dependencies.",
+      "status": "Not Started",
+      "priority": "Medium",
+      "assignee": "UI Engineer",
+      "dueDate": "2025-04-15"
+    },
+    {
+      "id": "stream2-005",
+      "name": "Knowledge Analytics",
+      "description": "Implement analytics to measure knowledge usage and effectiveness.",
+      "status": "Not Started",
+      "priority": "Medium",
+      "assignee": "Analytics Engineer",
+      "dueDate": "2025-04-22"
+    }
+  ],
+  "timeline": {
+    "week1": {
+      "dateRange": "March 26 - April 1, 2025",
+      "tasks": ["stream2-001", "stream2-002"]
+    },
+    "week2to3": {
+      "dateRange": "April 2 - April 15, 2025",
+      "tasks": ["stream2-003", "stream2-004"]
+    },
+    "week4to5": {
+      "dateRange": "April 16 - April 29, 2025",
+      "tasks": ["stream2-005"]
+    }
+  },
+  "createdDate": "2025-03-25",
+  "lastUpdated": "2025-03-25"
+} 

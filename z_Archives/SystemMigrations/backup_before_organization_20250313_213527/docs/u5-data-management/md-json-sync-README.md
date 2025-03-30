@@ -1,0 +1,158 @@
+# MD-JSON Two-Way Sync System
+
+This system provides bidirectional synchronization between Markdown files and JSON files optimized for AI consumption.
+
+## Features
+
+- **Two-Way Synchronization**: Changes in either format automatically update the other
+- **Real-time Watching**: Continuously monitors for changes in both file types
+- **Multiple Conflict Resolution Methods**: Choose how to handle conflicts between formats
+- **Automatic Background Operation**: Can run silently at Windows startup
+- **Structured JSON Format**: Optimized for AI consumption and reduced token usage
+
+## Components
+
+- **tydisync.js** - Core Node.js script providing bidirectional synchronization
+- **md-json-sync.bat** - Windows batch script for running the synchronizer
+- **start-tydisync-watcher.bat** - Script to start the watcher in background
+- **start-tydisync-silent.vbs** - Silent runner for Windows Task Scheduler
+- **setup-md-json-sync-startup.bat** - Sets up automatic startup
+- **remove-md-json-sync-startup.bat** - Removes the startup task
+
+## Basic Usage
+
+### One-time Synchronization
+```
+md-json-sync.bat
+```
+
+### Watch Mode (Manual)
+```
+md-json-sync.bat --watch
+```
+
+### Watch Mode with Verbose Output
+```
+md-json-sync.bat --watch --verbose
+```
+
+### Background Watch Mode
+```
+start-tydisync-watcher.bat
+```
+
+## Conflict Resolution
+
+When both the Markdown and JSON versions of a file have been modified, the system needs to determine which version to consider authoritative. You can specify a conflict resolution method:
+
+- **Timestamp-based (default)**: The most recently modified file wins
+- **Prefer Markdown**: Always use Markdown as the source of truth
+- **Prefer JSON**: Always use JSON as the source of truth
+
+```
+md-json-sync.bat --watch --prefer-md
+```
+
+## Automatic Startup
+
+To configure the two-way sync watcher to start automatically when Windows starts:
+
+1. Right-click **setup-md-json-sync-startup.bat**
+2. Select **Run as administrator**
+3. Follow the prompts
+
+This will create a Windows Task Scheduler task that runs the watcher on login.
+
+## Remove Automatic Startup
+
+To remove the automatic startup configuration:
+
+1. Right-click **remove-md-json-sync-startup.bat**
+2. Select **Run as administrator**
+3. Follow the prompts
+
+## Checking Status
+
+To check if the watcher is currently running:
+
+1. Open Task Manager
+2. Look for **cmd.exe** processes
+3. One of them should show "MD-JSON Two-Way Sync" in the command line
+
+## Troubleshooting
+
+If the watcher is not working correctly:
+
+1. Check that Node.js is installed and in your PATH
+2. Try running `md-json-sync.bat --verbose` to see detailed output
+3. Check for error messages in the command window
+4. Verify the directories in the config section of tydisync.js
+
+## Manually Stopping the Watcher
+
+To stop the watcher process:
+
+1. Open Task Manager
+2. Find the CMD window with "MD-JSON Two-Way Sync" in the command line
+3. Select it and click "End task"
+
+## File Organization
+
+For each Markdown file, the corresponding JSON file is stored in a "json" subdirectory within the same directory:
+
+- `shortlinks/cfish.md` ↔ `shortlinks/json/cfish.json`
+- `docs/glossary.md` ↔ `docs/json/glossary.json`
+
+This bidirectional relationship means you can edit either file, and the other will be automatically updated to match.
+
+## More Information
+
+For more details about the MD-JSON sync system, see:
+- [JSON Sync System Documentation](./docs/json-sync-system.md)
+
+## Current Status
+
+The MD-JSON Two-Way Sync System is now fully operational with the following status:
+
+- ✅ Markdown-to-JSON synchronization: Working correctly
+- ✅ JSON-to-Markdown synchronization: Fixed and working correctly
+- ✅ File monitoring for Markdown changes: Working correctly
+- ✅ File monitoring for JSON changes: Fixed and working correctly
+- ✅ Conflict resolution strategies: Implemented and tested
+- ✅ Windows Task Scheduler automation: Working correctly
+
+## Testing
+
+To test the system's bidirectional capabilities:
+
+1. Start the watcher: `md-json-sync.bat --watch --verbose`
+2. Edit a Markdown file and save it - observe the JSON file being updated
+3. Edit the corresponding JSON file and save it - observe the Markdown file being updated
+
+You can also use the test script to verify the JSON-to-Markdown conversion:
+
+```
+node test-json-to-md.js
+```
+
+This script reads `docs/json/sync-test.json` and generates `docs/sync-test-from-json.md` to demonstrate the conversion process.
+
+## Recent Improvements
+
+The following issues have been fixed in the latest update:
+
+1. Fixed JSON-to-Markdown synchronization by correcting file path handling
+2. Improved file monitoring for JSON changes with dedicated watchers
+3. Enhanced error handling and directory management
+4. Fixed path resolution for complex directory structures
+5. Added better feedback in verbose mode
+
+## Future Improvements
+
+Planned improvements for future versions:
+
+1. Add more robust error recovery mechanisms
+2. Implement bidirectional conflict resolution with user prompts
+3. Add a graphical user interface for monitoring sync status
+4. Improve performance for large file sets
+5. Add support for custom file extensions and directories

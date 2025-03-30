@@ -1,0 +1,180 @@
+# Content Fingerprint Report
+
+## File Information
+- **File Path**: C:\Users\Chris\cFish.io\Documentation\Process\cFish.io File Management System SOP.md
+- **Word Count**: 4351
+- **Byte Size**: 40622 bytes
+- **MD5 Hash**: DDBFEFEEACDAF136810D48F50A5BB874
+- **Generated**: 2025-03-14 16:11:37
+
+## Content Structure
+- **Headlines**: 148
+- **Key Phrases**: 239
+- **Code Blocks**: 18
+
+## Headlines
+- cFish.io File Management System SOP
+- Standard Operating Procedure for UcF Ecosystem File Organization
+- 1. Overview
+- 1.1 Purpose
+- 1.2 Scope
+- 1.3 UcF Organizational Hierarchy
+- 2. File Structure
+- 2.1 Top-Level Directory Structure
+- Your actual website files (wp-content, etc.)
+- Website backups
+- Production department
+- Management department
+- Research department
+- Production department (different division)
+- Intelligence department
+- Operations department
+- Innovation department
+- Cross-departmental resources
+- 2.2 Department Subfolder Structure
+- Department-specific documentation
+- Department planning materials
+- Department-related assets
+- Department development materials
+- Department-specific templates
+- Meeting notes and recordings
+- Regular departmental reports
+- Data analysis and insights
+- Department-specific training materials
+- 2.3 Cross-Departmental Resources
+- Brand guidelines, logos used by all departments
+- Shared templates
+- Company-wide policies
+- Cross-departmental training materials
+- Cross-departmental meetings
+- Strategic planning documents
+- 2.4 Project-Based Organization
+- Project specifications and requirements
+- Planning documents and timelines
+- Shared project resources
+- Final project outputs
+- Archived project materials
+- Project overview and navigation guide
+- 2.5 Alternative Department Folder Naming
+- U1 - Overheads
+- U2 - Research and Development
+- U3 - Operations
+- U4 - Production
+- U5 - Data Management
+- U6 - Social Media/Communications
+- U7 - Specialized Operations
+- 3. Naming Conventions
+- 3.1 Directory Naming
+- 3.2 File Naming
+- 3.3 File Categorization
+- 3.4 Version Control in Filenames
+- 3.5 UcF Hierarchical Naming Convention
+- 4. File Management Practices
+- 4.1 Version Control
+- 4.2 Documentation Standards
+- [Title] (MM-DD-2025)
+- 4.3 Changelog Maintenance
+- [Department Name] Changelog
+- [Version Number] - [YYYY-MM-DD]
+- Added
+- Changed
+- Fixed
+- Removed
+- U1-Production Changelog
+- 1.0.0 - 2025-03-10
+- Added
+- Changed
+- Fixed
+- 4.4 Metadata and Tagging
+- 4.5 Digital Asset Management
+- 4.5.1 Images
+- 4.5.2 Documents
+- 4.5.3 Data Files
+- 4.6 Automation and Tooling
+- 4.6.1 File Organization Scripts
+- 4.6.2 File Naming Tools
+- 4.6.3 Scheduled Maintenance
+- 5. Security Considerations
+- 5.1 Access Controls
+- 5.2 Sensitive Information
+- 5.3 Data Classification
+- 6. WordPress Considerations
+- 6.1 Website Integrity
+- 6.2 WordPress Documentation
+- 6.3 WordPress-Related Files Organization
+- Theme development files
+- Plugin development files
+- Custom code snippets
+- Exported content
+- Database backups and migrations
+- 7. Backup Procedures
+- 7.1 Backup Strategy
+- 7.2 Department Backups
+- 7.3 Digital Preservation
+- 8. Implementation Plan
+- 8.1 Initial Setup
+- 8.2 Migration
+- 8.3 Training
+- 8.4 Cross-Departmental Collaboration
+- 8.5 Implementation Scripts
+- Run backup script:
+- Create directory structure:
+- Organize files:
+- Create mapping documentation:
+- Check file naming:
+- Update memory.md and changelog.md:
+- 9. Maintenance Schedule
+- 9.1 Regular Reviews
+- 9.2 Auditing
+- 9.3 Continuous Improvement
+- 10. Digital Workflow Integration
+- 10.1 File Handoff Procedures
+- 10.2 Digital Workspace Integration
+- 10.3 Cross-Platform Integration
+- 10.3.1 WordPress Integration
+- 10.3.2 ClickUp Integration
+- 10.3.3 Notion Integration
+- 11. Governance and Compliance
+- 11.1 File System Governance
+- 11.2 Regulatory Compliance
+- 11.3 UcF Department Governance
+- Change Log
+- Version 1.2 - 2025-04-18
+- Added
+- Changed
+- Version 1.1 - 2025-04-15
+- Added
+- Changed
+- Version 1.0.0 - 2025-03-10
+- Added
+- Implementation Steps
+- Immediate (Week 1):
+- Short-term (Weeks 2-3):
+- Medium-term (Weeks 4-6):
+- Long-term (Months 2-3):
+- Extended (Months 4-6):
+- JSON Format for AI Ingestion
+- [Department Name] Changelog",
+- [Version Number] - [YYYY-MM-DD]",
+- Added",
+- Changed",
+- Fixed",
+- Removed",
+- [Title] (MM-DD-2025)",
+
+
+## Sample Key Phrases
+- Consistent file organization across all departments
+- Clear hierarchical structure reflecting the organizational structure
+- Efficient file retrieval and discovery
+- Reduced duplication of resources
+- Improved collaboration between departments
+- Preservation of WordPress website integrity
+- All digital assets within the cFish.io ecosystem
+- All departments (U1-U7) and shared resources
+- All team members working with digital files
+- WordPress and non-WordPress content
+- _(plus 229 more phrases...)_
+
+
+_Updated 03-14-2025 | AI: Cursor (Claude 3.7 Sonnet)_

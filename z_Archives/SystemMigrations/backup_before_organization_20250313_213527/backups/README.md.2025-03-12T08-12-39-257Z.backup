@@ -1,0 +1,234 @@
+# cFish.io WordPress Site
+
+This repository contains the WordPress code for the cFish.io website.
+
+## Development Workflow
+
+1. **Development Environment:**
+   - The site is developed locally in Cursor
+   - Local WordPress development is done at: `C:\Users\Chris\cFish.io`
+
+2. **WordPress Studio:**
+   - Local WordPress Studio installation at: `C:\Users\Chris\Studio\cfishio`
+   - Used for managing the site and pushing changes to the live site
+
+3. **GitHub Repository:**
+   - Changes are tracked in this repository
+   - Main branch contains the production-ready code
+   - Development is done in feature branches before merging to main
+
+4. **Deployment:**
+   - Develop locally in Cursor
+   - Push changes to WordPress Studio
+   - From WordPress Studio, update the live site on WordPress.com
+
+## Important Notes
+
+- The `wp-config.php` file is excluded from version control for security reasons
+- The `.gitignore` file is configured to exclude unnecessary WordPress files
+
+## Getting Started
+
+1. Clone this repository
+2. Set up a local WordPress development environment
+3. Configure your local WordPress to use the appropriate database
+4. Create feature branches for new development
+5. Merge completed features to main
+
+## License
+
+WordPress is licensed under the GPL v2 or later.
+
+## Documentation
+
+This project uses a dual-format documentation approach:
+
+1. **Human-Readable Format**: Markdown (.md) files for human consumption
+2. **AI-Optimized Format**: JSON files automatically generated from Markdown
+
+The MD-to-JSON synchronization system ensures both formats stay in sync. For more information, see:
+- [JSON Sync System Documentation](./docs/json-sync-system.md)
+
+## Working with AI Assistants
+
+AI assistants are configured to prioritize the JSON versions of documentation files for:
+- Reduced token consumption
+- More efficient parsing
+- Structured access to content
+
+When working with AI tools like Cursor, the system automatically directs the AI to use the optimized JSON format.
+
+# MD-JSON Synchronization System
+
+A robust, modular, bidirectional synchronization system that maintains perfect synchronization between Markdown (.md) files and their corresponding JSON representations.
+
+## Overview
+
+The MD-JSON Synchronization System employs a distributed agent architecture to solve several critical issues in maintaining bidirectional synchronization between Markdown and JSON files. This system is specifically designed to work with the Cursor IDE environment, providing a reliable and safe synchronization process.
+
+## Features
+
+- **Intelligent Root Directory Monitoring**: Monitors all Markdown and JSON files in the workspace
+- **Advanced Content Transformation**: Preserves document structure and content integrity
+- **Smart Conflict Resolution**: Uses intelligent section-level merging for content preservation
+- **Comprehensive Safety Measures**: Transaction-based operations, versioned backups, and file locking
+- **Cursor Process Detection**: Optimized for Cursor IDE with automatic startup and shutdown
+- **Exclusion Mechanism**: Simple marker files to exclude specific files from synchronization
+
+## Agent Architecture
+
+The system employs a multi-agent approach where each agent handles a specific aspect of the synchronization process:
+
+- **Alpha Agent**: File system monitor handling file change detection
+- **Beta Agent**: Content transformer managing bidirectional format conversion
+- **Gamma Agent**: Conflict resolver implementing intelligent merging
+- **Delta Agent**: Safety manager handling backups and transaction safety
+- **Epsilon Agent**: Process controller managing system lifecycle
+
+## Installation
+
+1. Clone this repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Configure the system (see Configuration section)
+4. Run the system:
+   ```
+   npm start
+   ```
+
+## Usage
+
+### Basic Commands
+
+Start a one-time synchronization:
+```
+npm start
+```
+
+Watch for file changes:
+```
+npm run watch
+```
+
+Watch with verbose output:
+```
+npm run watch:verbose
+```
+
+### Command-Line Options
+
+Run the system directly with additional options:
+```
+node md-json-sync.js [options]
+```
+
+Available options:
+- `--watch`: Continuously watch for file changes
+- `--verbose`: Show detailed output
+- `--force`: Force synchronization even when conflicts exist
+- `--prefer-md`: Always prefer Markdown files in conflicts
+- `--prefer-json`: Always prefer JSON files in conflicts
+- `--config=path/to/config.json`: Use a custom configuration file
+
+### Windows Integration
+
+1. To set up automatic startup with Windows:
+   ```
+   setup-md-json-sync-startup.bat
+   ```
+   (Run as administrator)
+
+2. To remove automatic startup:
+   ```
+   remove-md-json-sync-startup.bat
+   ```
+   (Run as administrator)
+
+3. To run silently in the background:
+   ```
+   start-md-json-sync-silent.vbs
+   ```
+
+## Configuration
+
+The system can be configured by creating a `config.json` file in the project root. Here's an example:
+
+```json
+{
+  "watchDirs": [
+    { "md": "./docs", "json": "./docs/json" },
+    { "md": "./shortlinks", "json": "./shortlinks/json" }
+  ],
+  "backupDir": "./backups",
+  "maxBackups": 5,
+  "enableBackups": true,
+  "debounceTime": 500,
+  "exclusions": ["node_modules", ".git"],
+  "conflictResolutionMethod": "timestamp",
+  "criticalFiles": ["memory.md"],
+  "exitWithCursor": true,
+  "recursiveWatching": true,
+  "validationThreshold": 0.9
+}
+```
+
+## File Exclusion
+
+To exclude a file from synchronization, create a marker file with the same name plus `.nosync` extension:
+
+```
+memory.md.nosync
+```
+
+This will prevent the synchronization system from processing the corresponding file, protecting critical content from accidental modification.
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Synchronization Loops**: If files keep updating in an infinite loop, check for recursive synchronization between directories.
+
+2. **Data Loss in Critical Files**: Use the exclusion mechanism (`.nosync` files) for critical documents until you're confident in the synchronization process.
+
+3. **Process Already Running**: If you get an "already running" message, check if there's another instance already active or if a stale PID file exists.
+
+### Logs
+
+The system outputs detailed logs to the console. Use the `--verbose` flag for additional information during troubleshooting.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin feature/my-new-feature`
+5. Submit a pull request
+
+## License
+
+MIT
+
+## Acknowledgments
+
+- This system was created for cFish.io and related Cursor projects.
+- Distributed agent architecture inspired by modern multi-agent systems.
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_

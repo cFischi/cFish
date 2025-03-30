@@ -1,0 +1,392 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+#### Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    #### Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        #### Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    #### Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    #### Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    #### Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    #### Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+#### begin-service-definition.ps1
+#### Purpose: Begin service definition for cFish.io
+#### Created: 2025-03-19
+#### Author: Claude 3.7 Sonnet
+
+#### Set error action preference
+$ErrorActionPreference = "Stop"
+
+#### Create log directory if it doesn't exist
+$logDir = Join-Path -Path $PSScriptRoot -ChildPath "logs"
+if (-not (Test-Path -Path $logDir)) {
+    New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+}
+
+#### Log file path
+$logFile = Join-Path -Path $logDir -ChildPath "service-definition-$(Get-Date -Format 'yyyyMMdd-HHmmss').log"
+
+#### Function to write to log
+function Write-Log {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("INFO", "WARNING", "ERROR")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logMessage = "[$timestamp] [$Level] $Message"
+    
+    #### Write to console
+    switch ($Level) {
+        "INFO" { Write-Host $logMessage -ForegroundColor Cyan 
+    try {
+        #### Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Write-Log"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        "WARNING" { Write-Host $logMessage -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logMessage -ForegroundColor Red }
+    }
+    
+    #### Write to log file
+    Add-Content -Path $logFile -Value $logMessage
+}
+
+#### Function to create service definition document
+function Create-ServiceDefinition {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$ServiceName,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$ServiceDescription,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Department,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Category,
+        
+        [Parameter(Mandatory = $true)]
+        [string[]]$Deliverables,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$PricingModel,
+        
+        [Parameter(Mandatory = $true)]
+        [string[]]$DreamfloAlignment
+    )
+    
+    $outputDir = "U1-Administration\Services"
+    if (-not (Test-Path -Path $outputDir)) {
+        New-Item -Path $outputDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        #### Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Create-ServiceDefinition"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    $fileName = $ServiceName -replace '[^\w\-\s]', '' -replace '\s+', '-'
+    $fileName = $fileName.ToLower() + ".md"
+    $filePath = Join-Path -Path $outputDir -ChildPath $fileName
+    
+    $content = @"
+#### $ServiceName
+
+##### Metadata
+- **URL**: https://u.cfish.io/services/$($fileName -replace '\.md', '')
+- **Last Updated**: $(Get-Date -Format "yyyy-MM-dd")
+- **Department**: $Department
+- **Category**: $Category
+- **Status**: Draft
+- **Version**: 1.0
+
+##### Service Description
+$ServiceDescription
+
+##### Deliverables
+$(foreach ($deliverable in $Deliverables) {
+"- $deliverable"
+})
+
+##### Pricing Model
+$PricingModel
+
+##### Dreamflo Alignment
+$(foreach ($alignment in $DreamfloAlignment) {
+"- $alignment"
+})
+
+##### Departmental Responsibilities
+
+| Department | Responsibility |
+|------------|----------------|
+| U1-Administration | Client management, contracts, invoicing |
+| U2-Research | Market analysis, competitive positioning |
+| U3-Operations | Service delivery, quality assurance |
+| U4-Production | Content creation, technical implementation |
+| U5-Data | Data management, reporting, analytics |
+| U6-Marketing | Service promotion, client communication |
+| U7-Systems | Technical infrastructure, system integration |
+
+##### Implementation Timeline
+- **Discovery Phase**: 1-2 weeks
+- **Planning Phase**: 1 week
+- **Implementation Phase**: 2-4 weeks
+- **Review Phase**: 1 week
+- **Maintenance Phase**: Ongoing
+
+##### Success Metrics
+- Client satisfaction rating (target: 90%+)
+- Delivery timeline adherence (target: 95%+)
+- Quality assurance metrics (target: 98%+)
+- Documentation completeness (target: 100%)
+
+_Updated $(Get-Date -Format "MM-dd-yyyy") | AI: Cursor (Claude 3.7 Sonnet)_
+"@
+    
+    Set-Content -Path $filePath -Value $content
+    Write-Log "Created service definition for $ServiceName at $filePath"
+    
+    return $filePath
+}
+
+#### Main function to begin service definition
+function Begin-ServiceDefinition {
+    Write-Log "Starting service definition process"
+    
+    #### Create service definitions for top 3 offerings
+    
+    #### Service 1: Digital Organization System Implementation
+    $service1Path = Create-ServiceDefinition `
+        -ServiceName "Digital Organization System Implementation" `
+        -ServiceDescription "Comprehensive implementation of the UcF Digital Organization System for businesses seeking to optimize their digital workspace. This service includes directory structure setup, file naming standardization, documentation organization, and integration with existing systems." `
+        -Department "U7-Systems" `
+        -Category "System Implementation" `
+        -Deliverables @(
+            "Complete UcF-compliant directory structure",
+            "File naming convention implementation",
+            "Documentation reorganization and standardization",
+            "Integration with existing systems",
+            "Staff training and documentation",
+            "30-day post-implementation support"
+        ) `
+        -PricingModel "Fixed price based on organization size and complexity, starting at $2,500 for small businesses (up to 10 employees)" `
+        -DreamfloAlignment @(
+            "Self-Awareness & Self-Discipline: Creates organized digital environment that promotes discipline",
+            "Empathy and Excellence: Tailored to client's specific needs with excellence in implementation",
+            "Dreamflo Philosophy: Enables clients to work more efficiently, reducing stress and promoting happiness"
+        )
+    
+    #### Service 2: DMMS Implementation and Integration
+    $service2Path = Create-ServiceDefinition `
+        -ServiceName "Distributed Memory Management System Implementation" `
+        -ServiceDescription "Implementation of the UcF Distributed Memory Management System (DMMS) for businesses seeking to optimize their knowledge management. This service includes memory file setup, synchronization configuration, integration with existing systems, and staff training." `
+        -Department "U5-Data" `
+        -Category "Knowledge Management" `
+        -Deliverables @(
+            "Complete DMMS implementation with department-specific memory files",
+            "Bi-directional synchronization setup",
+            "Integration with existing documentation systems",
+            "JSON conversion for AI accessibility",
+            "Staff training and documentation",
+            "60-day post-implementation support"
+        ) `
+        -PricingModel "Subscription-based pricing with implementation fee, starting at $1,500 implementation + $250/month for small businesses (up to 10 employees)" `
+        -DreamfloAlignment @(
+            "Self-Awareness & Self-Discipline: Enhances organizational memory and knowledge retention",
+            "Empathy and Excellence: Tailored to client's specific knowledge management needs",
+            "Dreamflo Philosophy: Reduces stress by ensuring critical information is always accessible"
+        )
+    
+    #### Service 3: WordPress Integration and Optimization
+    $service3Path = Create-ServiceDefinition `
+        -ServiceName "WordPress Integration and Optimization" `
+        -ServiceDescription "Comprehensive WordPress integration and optimization service for businesses seeking to enhance their web presence. This service includes WordPress setup, theme customization, plugin configuration, content optimization, and integration with UcF systems." `
+        -Department "U4-Production" `
+        -Category "Web Development" `
+        -Deliverables @(
+            "WordPress installation and configuration",
+            "Custom theme development or customization",
+            "Plugin selection and configuration",
+            "Content optimization and SEO setup",
+            "Integration with UcF systems (DMMS, Digital Organization)",
+            "Staff training and documentation",
+            "90-day post-implementation support"
+        ) `
+        -PricingModel "Tiered pricing based on project scope, starting at $3,500 for basic implementation" `
+        -DreamfloAlignment @(
+            "Self-Awareness & Self-Discipline: Creates structured web presence that reflects client's identity",
+            "Empathy and Excellence: Tailored to client's specific brand and audience needs",
+            "Dreamflo Philosophy: Enables clients to communicate effectively with their audience"
+        )
+    
+    #### Generate service catalog
+    $catalogPath = "U1-Administration\Services\service-catalog.md"
+    
+    $catalog = @"
+#### cFish.io Service Catalog
+
+##### Metadata
+- **URL**: https://u.cfish.io/services/catalog
+- **Last Updated**: $(Get-Date -Format "yyyy-MM-dd")
+- **Purpose**: Comprehensive catalog of cFish.io service offerings
+- **Status**: Draft
+- **Version**: 1.0
+
+##### Overview
+This catalog provides a comprehensive list of services offered by cFish.io, organized by department and category. Each service is aligned with the UcF departmental structure and Dreamflo philosophical principles.
+
+##### Service Categories
+
+###### System Implementation (U7-Systems)
+- [Digital Organization System Implementation](digital-organization-system-implementation.md)
+- Custom System Development (Coming Soon)
+- System Integration (Coming Soon)
+
+###### Knowledge Management (U5-Data)
+- [Distributed Memory Management System Implementation](distributed-memory-management-system-implementation.md)
+- Knowledge Base Development (Coming Soon)
+- Data Migration and Organization (Coming Soon)
+
+###### Web Development (U4-Production)
+- [WordPress Integration and Optimization](wordpress-integration-and-optimization.md)
+- Custom Web Application Development (Coming Soon)
+- E-commerce Implementation (Coming Soon)
+
+###### Pricing Overview
+All services are available in tiered pricing models based on organization size and project complexity. Custom quotes are available for specific requirements.
+
+###### Service Delivery Process
+1. **Discovery**: Understanding client needs and requirements
+2. **Planning**: Developing detailed implementation plan
+3. **Implementation**: Executing the plan with regular client updates
+4. **Review**: Comprehensive review of deliverables
+5. **Maintenance**: Ongoing support and maintenance
+
+##### Dreamflo Alignment
+All services are designed to align with the Dreamflo philosophical principles:
+- "Live Lovingly FREE & Contagiously HAPPY"
+- Self-Awareness & Self-Discipline
+- Empathy and Excellence
+
+_Updated $(Get-Date -Format "MM-dd-yyyy") | AI: Cursor (Claude 3.7 Sonnet)_
+"@
+    
+    Set-Content -Path $catalogPath -Value $catalog
+    Write-Log "Created service catalog at $catalogPath"
+    
+    #### Generate summary report
+    $reportFile = Join-Path -Path $logDir -ChildPath "service-definition-report-$(Get-Date -Format 'yyyyMMdd-HHmmss').md"
+    
+    $report = @"
+#### Service Definition Process Report
+
+##### Overview
+- **Date**: $(Get-Date -Format "yyyy-MM-dd")
+- **Time**: $(Get-Date -Format "HH:mm:ss")
+- **Status**: Completed
+
+##### Created Service Definitions
+1. **Digital Organization System Implementation**
+   - Department: U7-Systems
+   - Category: System Implementation
+   - File: `U1-Administration\Services\digital-organization-system-implementation.md`
+
+2. **Distributed Memory Management System Implementation**
+   - Department: U5-Data
+   - Category: Knowledge Management
+   - File: `U1-Administration\Services\distributed-memory-management-system-implementation.md`
+
+3. **WordPress Integration and Optimization**
+   - Department: U4-Production
+   - Category: Web Development
+   - File: `U1-Administration\Services\wordpress-integration-and-optimization.md`
+
+##### Service Catalog
+- Created comprehensive service catalog at `U1-Administration\Services\service-catalog.md`
+
+##### Next Steps
+1. Review and refine service definitions with department leads
+2. Develop detailed implementation documentation for each service
+3. Create pricing calculators for estimating service costs
+4. Develop client-facing marketing materials for each service
+
+_Updated $(Get-Date -Format "MM-dd-yyyy") | AI: Cursor (Claude 3.7 Sonnet)_
+"@
+    
+    Set-Content -Path $reportFile -Value $report
+    Write-Log "Created service definition process report at $reportFile"
+    
+    Write-Host "`nService definition process completed. See $reportFile for details." -ForegroundColor Green
+
+    try {
+        #### Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Begin-ServiceDefinition"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+
+# Execute service definition process
+Begin-ServiceDefinition 
+
+

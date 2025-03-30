@@ -1,0 +1,673 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+######## Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    ######## Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    ######## Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    ######## Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    ######## Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<######## .SYNOPSIS
+    Performs integrity scanning on DMMS memory files to detect inconsistencies.
+
+.DESCRIPTION
+    This script scans all memory files in the DMMS system to detect inconsistencies,
+    corruption, or other integrity issues. It verifies content structure, checks for
+    missing entries, validates cross-references, and generates detailed reports.
+
+.NOTES
+    File Name      : scan-integrity.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3
+    Copyright      : cFish.io 2025
+    Date           : March 24, 2025
+    Version        : 1.0
+#>
+
+######## Get workspace root directory
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$workspaceRoot = Split-Path -Parent (Split-Path -Parent $scriptDir)
+
+######## Import configuration
+$configFile = Join-Path -Path $scriptDir -ChildPath "sync-config.json"
+$config = Get-Content -Raw -Path $configFile | ConvertFrom-Json
+
+######## Log directory
+$logDir = Join-Path -Path $scriptDir -ChildPath "logs"
+if (!(Test-Path $logDir)) {
+    New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+}
+$logFile = Join-Path -Path $logDir -ChildPath "integrity_scan_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+
+######## Results directory for reports
+$reportDir = Join-Path -Path $scriptDir -ChildPath "reports"
+if (!(Test-Path $reportDir)) {
+    New-Item -ItemType Directory -Path $reportDir -Force | Out-Null
+}
+$reportFile = Join-Path -Path $reportDir -ChildPath "integrity_report_$(Get-Date -Format 'yyyyMMdd_HHmmss').md"
+
+######## Function to write to log
+function Write-Log {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory=$false)]
+        [ValidateSet("INFO", "WARNING", "ERROR", "SUCCESS")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logEntry = "[$timestamp] [$Level] $Message"
+    
+    Add-Content -Path $logFile -Value $logEntry
+    
+    ######## Also write to console with appropriate color
+    switch ($Level) {
+        "INFO" { Write-Host $logEntry -ForegroundColor White 
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Write-Log"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        "WARNING" { Write-Host $logEntry -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logEntry -ForegroundColor Red }
+        "SUCCESS" { Write-Host $logEntry -ForegroundColor Green }
+    }
+}
+
+######## Function to extract entries from a memory file
+function Get-MemoryEntries {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath
+    )
+    
+    $entries = [System.Collections.ArrayList]@()
+    
+    if (Test-Path $FilePath) {
+        $content = Get-Content -Path $FilePath -Raw
+        $regex = [regex]"(?ms)^## (.*?) \((.*?)\)(.*?)(?=^## |\z)"
+        $matches = $regex.Matches($content)
+        
+        foreach ($match in $matches) {
+            $title = $match.Groups[1].Value.Trim()
+            $date = $match.Groups[2].Value.Trim()
+            $content = $match.Groups[3].Value.Trim()
+            
+            ######## Calculate SHA-256 hash of the entry for verification
+            $contentBytes = [System.Text.Encoding]::UTF8.GetBytes("$title|$date|$content")
+            $sha256 = [System.Security.Cryptography.SHA256]::Create()
+            $hashBytes = $sha256.ComputeHash($contentBytes)
+            $hash = [System.BitConverter]::ToString($hashBytes).Replace("-", "").ToLower()
+            
+            $entry = [PSCustomObject]@{
+                title = $title
+                date = $date
+                content = $content
+                hash = $hash
+                fullEntry = "######### $title ($date)$content"
+            
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Get-MemoryEntries"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+            
+            [void]$entries.Add($entry)
+        }
+    }
+    
+    return $entries
+}
+
+######## Function to validate date format
+function Test-DateFormat {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Date
+    )
+    
+    try {
+        [DateTime]::ParseExact($Date, "MM-dd-yyyy", [System.Globalization.CultureInfo]::InvariantCulture)
+        return $true
+    } catch {
+        return $false
+    }
+}
+
+######## Function to check for entry structure issues
+function Test-EntryStructure {
+    param (
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$Entry
+    )
+    
+    $issues = @()
+    
+    ######## Check for missing title
+    if ([string]::IsNullOrWhiteSpace($Entry.title)) {
+        $issues += "Entry has an empty title"
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Test-EntryStructure"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Check for date format issues
+    if (![string]::IsNullOrWhiteSpace($Entry.date) -and !(Test-DateFormat -Date $Entry.date)) {
+        $issues += "Entry has invalid date format: '$($Entry.date)'"
+    }
+    
+    ######## Check for missing content
+    if ([string]::IsNullOrWhiteSpace($Entry.content)) {
+        $issues += "Entry has no content"
+    } else {
+        ######## Check for minimum content length
+        if ($Entry.content.Length -lt 10) {
+            $issues += "Entry content is too short (less than 10 characters)"
+        }
+    }
+    
+    ######## Check for signature line
+    if ($Entry.content -notmatch "_Updated \d{2}-\d{2}-\d{4} \| (?:AI|Human): .*?_") {
+        $issues += "Entry is missing a proper signature line (_Updated MM-DD-YYYY | AI/Human: Name_)"
+    }
+    
+    return $issues
+}
+
+######## Function to check for missing entries between master and department files
+function Compare-Entries {
+    param (
+        [Parameter(Mandatory=$true)]
+        [array]$MasterEntries,
+        
+        [Parameter(Mandatory=$true)]
+        [array]$DeptEntries,
+        
+        [Parameter(Mandatory=$true)]
+        [string]$DeptName
+    )
+    
+    $issues = @()
+    
+    ######## Check for entries that should be in the department file based on keywords
+    foreach ($masterEntry in $MasterEntries) {
+        $shouldBeInDept = $false
+        
+        ######## Get department keywords
+        $deptConfig = $config.departments | Where-Object { $_.name -eq $DeptName 
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Compare-Entries"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        if ($null -ne $deptConfig) {
+            foreach ($keyword in $deptConfig.keywords) {
+                if ($masterEntry.title -match $keyword -or $masterEntry.content -match $keyword) {
+                    $shouldBeInDept = $true
+                    break
+                }
+            }
+        }
+        
+        ######## If entry should be in department but isn't
+        if ($shouldBeInDept) {
+            $matchingDeptEntry = $DeptEntries | Where-Object { $_.title -eq $masterEntry.title -and $_.date -eq $masterEntry.date }
+            if ($null -eq $matchingDeptEntry) {
+                $issues += "Entry '$($masterEntry.title) ($($masterEntry.date))' should be in $DeptName based on keywords but is missing"
+            }
+        }
+    }
+    
+    ######## Check for entries in department file not in master file
+    foreach ($deptEntry in $DeptEntries) {
+        $matchingMasterEntry = $MasterEntries | Where-Object { $_.title -eq $deptEntry.title -and $_.date -eq $deptEntry.date }
+        if ($null -eq $matchingMasterEntry) {
+            $issues += "Entry '$($deptEntry.title) ($($deptEntry.date))' exists in $DeptName but is missing from master file"
+        }
+    }
+    
+    return $issues
+}
+
+######## Function to check for content inconsistencies
+function Compare-EntryContent {
+    param (
+        [Parameter(Mandatory=$true)]
+        [array]$MasterEntries,
+        
+        [Parameter(Mandatory=$true)]
+        [array]$DeptEntries
+    )
+    
+    $issues = @()
+    
+    ######## Check for content differences between master and department entries
+    foreach ($masterEntry in $MasterEntries) {
+        $matchingDeptEntries = $DeptEntries | Where-Object { $_.title -eq $masterEntry.title -and $_.date -eq $masterEntry.date 
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Compare-EntryContent"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        
+        foreach ($deptEntry in $matchingDeptEntries) {
+            if ($masterEntry.hash -ne $deptEntry.hash) {
+                $issues += "Content mismatch for entry '$($masterEntry.title) ($($masterEntry.date))': Master and department versions differ"
+            }
+        }
+    }
+    
+    return $issues
+}
+
+######## Function to generate detailed integrity report
+function New-IntegrityReport {
+    param (
+        [Parameter(Mandatory=$true)]
+        [hashtable]$Results
+    )
+    
+    $report = @"
+# DMMS Integrity Scan Report
+
+Generated: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+
+######### Summary
+
+- **Scan Time**: $($Results.scanTime)
+- **Files Scanned**: $($Results.fileCount)
+- **Total Issues**: $($Results.totalIssues)
+- **Files with Issues**: $($Results.filesWithIssues)
+- **Status**: $($Results.status)
+
+######### Detailed Results
+
+"@
+    
+    foreach ($fileResult in $Results.fileResults) {
+        $report += @"
+
+########## $($fileResult.fileName)
+
+- **Entry Count**: $($fileResult.entryCount)
+- **Issues Found**: $($fileResult.issueCount)
+- **Status**: $($fileResult.status)
+
+"@
+        
+        if ($fileResult.issues.Count -gt 0) {
+            $report += "########### Issues:\n\n"
+            
+            foreach ($issue in $fileResult.issues) {
+                $report += "- $issue\n"
+            
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "New-IntegrityReport"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        } else {
+            $report += "No issues found.\n"
+        }
+    }
+    
+    $report += @"
+
+######### Consistency Checks
+
+"@
+    
+    foreach ($comparisonResult in $Results.comparisonResults) {
+        $report += @"
+
+########## $($comparisonResult.comparison)
+
+- **Issues Found**: $($comparisonResult.issueCount)
+- **Status**: $($comparisonResult.status)
+
+"@
+        
+        if ($comparisonResult.issues.Count -gt 0) {
+            $report += "########### Issues:\n\n"
+            
+            foreach ($issue in $comparisonResult.issues) {
+                $report += "- $issue\n"
+            }
+        } else {
+            $report += "No consistency issues found.\n"
+        }
+    }
+    
+    ######## Recommendations section
+    $report += @"
+
+## Recommendations
+
+"@
+    
+    if ($Results.totalIssues -eq 0) {
+        $report += "- System integrity is excellent. Continue with regular maintenance.\n"
+    } else {
+        if ($Results.filesWithIssues -gt 0) {
+            $report += "- Run repair-integrity.ps1 to address structural issues in memory files.\n"
+        }
+        
+        if ($Results.comparisonResults | Where-Object { $_.issueCount -gt 0 } | Measure-Object | Select-Object -ExpandProperty Count) {
+            $report += "- Run sync-bidirectional.bat to synchronize missing entries between master and department files.\n"
+        }
+        
+        $report += "- Review report details and address any specific issues manually if needed.\n"
+    }
+    
+    return $report
+}
+
+######## Main function to scan all memory files
+function Start-IntegrityScan {
+    param (
+        [Parameter(Mandatory=$false)]
+        [switch]$Detailed,
+        
+        [Parameter(Mandatory=$false)]
+        [switch]$QuietMode
+    )
+    
+    $startTime = Get-Date
+    Write-Log "Starting DMMS integrity scan..." -Level "INFO"
+    
+    ######## Master file
+    $masterFile = Join-Path -Path $workspaceRoot -ChildPath $config.masterFile
+    Write-Log "Scanning master file: $masterFile" -Level "INFO"
+    
+    ######## Get master entries
+    $masterEntries = Get-MemoryEntries -FilePath $masterFile
+    Write-Log "Found $($masterEntries.Count) entries in master file." -Level "INFO"
+    
+    ######## Initialize results
+    $results = @{
+        scanTime = "{0:hh\:mm\:ss
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Start-IntegrityScan"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}" -f (New-TimeSpan)
+        fileCount = 1 + $config.departments.Count
+        totalIssues = 0
+        filesWithIssues = 0
+        status = "OK"
+        fileResults = @()
+        comparisonResults = @()
+    }
+    
+    ######## Check master file structure
+    $masterIssues = @()
+    $entryIssueCount = 0
+    
+    foreach ($entry in $masterEntries) {
+        $entryIssues = Test-EntryStructure -Entry $entry
+        
+        if ($entryIssues.Count -gt 0) {
+            $formattedIssues = $entryIssues | ForEach-Object { "[Master] Entry '$($entry.title) ($($entry.date))': $_" }
+            $masterIssues += $formattedIssues
+            $entryIssueCount++
+        }
+    }
+    
+    $masterStatus = if ($masterIssues.Count -gt 0) { "Issues Found" } else { "OK" }
+    
+    $results.fileResults += @{
+        fileName = "memory.md (Master)"
+        entryCount = $masterEntries.Count
+        issueCount = $masterIssues.Count
+        issues = $masterIssues
+        status = $masterStatus
+    }
+    
+    $results.totalIssues += $masterIssues.Count
+    if ($masterIssues.Count -gt 0) {
+        $results.filesWithIssues++
+    }
+    
+    ######## Process each department
+    $deptResults = @()
+    
+    foreach ($dept in $config.departments) {
+        $deptPath = Join-Path -Path $workspaceRoot -ChildPath $dept.path
+        $deptName = $dept.name
+        
+        Write-Log "Scanning department file: $deptPath" -Level "INFO"
+        
+        ######## Get department entries
+        $deptEntries = Get-MemoryEntries -FilePath $deptPath
+        Write-Log "Found $($deptEntries.Count) entries in $deptName file." -Level "INFO"
+        
+        ######## Check department file structure
+        $deptIssues = @()
+        $entryIssueCount = 0
+        
+        foreach ($entry in $deptEntries) {
+            $entryIssues = Test-EntryStructure -Entry $entry
+            
+            if ($entryIssues.Count -gt 0) {
+                $formattedIssues = $entryIssues | ForEach-Object { "[$deptName] Entry '$($entry.title) ($($entry.date))': $_" }
+                $deptIssues += $formattedIssues
+                $entryIssueCount++
+            }
+        }
+        
+        $deptStatus = if ($deptIssues.Count -gt 0) { "Issues Found" } else { "OK" }
+        
+        $results.fileResults += @{
+            fileName = "$($dept.path) ($deptName)"
+            entryCount = $deptEntries.Count
+            issueCount = $deptIssues.Count
+            issues = $deptIssues
+            status = $deptStatus
+        }
+        
+        $results.totalIssues += $deptIssues.Count
+        if ($deptIssues.Count -gt 0) {
+            $results.filesWithIssues++
+        }
+        
+        ######## Check for missing entries
+        $missingEntryIssues = Compare-Entries -MasterEntries $masterEntries -DeptEntries $deptEntries -DeptName $deptName
+        $missingEntryStatus = if ($missingEntryIssues.Count -gt 0) { "Issues Found" } else { "OK" }
+        
+        $results.comparisonResults += @{
+            comparison = "Master vs $deptName (Missing Entries)"
+            issueCount = $missingEntryIssues.Count
+            issues = $missingEntryIssues
+            status = $missingEntryStatus
+        }
+        
+        $results.totalIssues += $missingEntryIssues.Count
+        
+        ######## Check for content inconsistencies
+        $contentIssues = Compare-EntryContent -MasterEntries $masterEntries -DeptEntries $deptEntries
+        $contentStatus = if ($contentIssues.Count -gt 0) { "Issues Found" } else { "OK" }
+        
+        $results.comparisonResults += @{
+            comparison = "Master vs $deptName (Content Consistency)"
+            issueCount = $contentIssues.Count
+            issues = $contentIssues
+            status = $contentStatus
+        }
+        
+        $results.totalIssues += $contentIssues.Count
+        
+        $deptResults += @{
+            name = $deptName
+            entries = $deptEntries
+            issues = $deptIssues
+            missingIssues = $missingEntryIssues
+            contentIssues = $contentIssues
+        }
+    }
+    
+    ######## Final status
+    $results.status = if ($results.totalIssues -gt 0) { "Issues Found" } else { "Healthy" }
+    
+    ######## Calculate scan time
+    $endTime = Get-Date
+    $scanDuration = $endTime - $startTime
+    $results.scanTime = "{0:hh\:mm\:ss}" -f $scanDuration
+    
+    ######## Generate report
+    $report = New-IntegrityReport -Results $results
+    $report | Out-File -FilePath $reportFile -Encoding utf8
+    
+    ######## Log completion
+    $statusLevel = if ($results.totalIssues -gt 0) { "WARNING" } else { "SUCCESS" }
+    Write-Log "Integrity scan completed in $($results.scanTime). Found $($results.totalIssues) issues across $($results.filesWithIssues) files." -Level $statusLevel
+    Write-Log "Report saved to: $reportFile" -Level "INFO"
+    
+    if (!$QuietMode) {
+        Write-Host "`nScan Results Summary:" -ForegroundColor Cyan
+        Write-Host "--------------------------" -ForegroundColor Cyan
+        Write-Host "Files Scanned: $($results.fileCount)" -ForegroundColor White
+        Write-Host "Total Issues: $($results.totalIssues)" -ForegroundColor $(if ($results.totalIssues -gt 0) { "Yellow" } else { "Green" })
+        Write-Host "Files with Issues: $($results.filesWithIssues)" -ForegroundColor $(if ($results.filesWithIssues -gt 0) { "Yellow" } else { "Green" })
+        Write-Host "Overall Status: $($results.status)" -ForegroundColor $(if ($results.status -eq "Healthy") { "Green" } else { "Yellow" })
+        Write-Host "Scan Duration: $($results.scanTime)" -ForegroundColor White
+        Write-Host "Detailed Report: $reportFile" -ForegroundColor White
+        Write-Host "--------------------------" -ForegroundColor Cyan
+        
+        if ($Detailed) {
+            Write-Host "`nDetailed Issue Summary:" -ForegroundColor Cyan
+            
+            foreach ($fileResult in $results.fileResults) {
+                if ($fileResult.issueCount -gt 0) {
+                    Write-Host "`n$($fileResult.fileName) - $($fileResult.issueCount) issues:" -ForegroundColor Yellow
+                    
+                    foreach ($issue in $fileResult.issues) {
+                        Write-Host " - $issue" -ForegroundColor White
+                    }
+                }
+            }
+            
+            foreach ($comparisonResult in $results.comparisonResults) {
+                if ($comparisonResult.issueCount -gt 0) {
+                    Write-Host "`n$($comparisonResult.comparison) - $($comparisonResult.issueCount) issues:" -ForegroundColor Yellow
+                    
+                    foreach ($issue in $comparisonResult.issues) {
+                        Write-Host " - $issue" -ForegroundColor White
+                    }
+                }
+            }
+        }
+    }
+    
+    return $results
+}
+
+######## Main execution
+try {
+    ######## Set error action preference to stop on any error
+    $ErrorActionPreference = "Stop"
+    
+    ######## Parse command-line parameters
+    $detailed = $false
+    $quietMode = $false
+    
+    for ($i = 0; $i -lt $args.Count; $i++) {
+        switch ($args[$i]) {
+            "-detailed" { $detailed = $true }
+            "-quiet" { $quietMode = $true }
+        }
+    }
+    
+    ######## Run integrity scan
+    $results = Start-IntegrityScan -Detailed:$detailed -QuietMode:$quietMode
+    
+    ######## Return overall status (0 = success, 1 = issues found)
+    if ($results.totalIssues -gt 0) {
+        exit 1
+    } else {
+        exit 0
+    }
+} catch {
+    Write-Log "Error during execution: $_" -Level "ERROR"
+    Write-Log "Stack Trace: $($_.ScriptStackTrace)" -Level "ERROR"
+    exit 2
+} 
+
+
+

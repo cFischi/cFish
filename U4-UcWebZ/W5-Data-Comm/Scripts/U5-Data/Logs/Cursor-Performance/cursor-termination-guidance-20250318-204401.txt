@@ -1,0 +1,17 @@
+﻿CURSOR PROCESS TERMINATION GUIDANCE
+==========================================================
+Based on the monitoring results from 20250318-204401:
+
+1. Total Cursor-related processes: 13
+2. High-CPU processes (>10%): 8
+3. Total CPU usage: 8200.8%
+
+RECOMMENDATION:
+Run the terminator tool to address these high-CPU processes:
+.\\U5-Data\\Scripts\\terminate-cursor-subprocesses-new.bat
+
+If Cursor performance issues persist after termination:
+1. Close Cursor completely
+2. Restart your computer
+3. Try running Cursor with extensions disabled:
+   cursor.exe --disable-extensions

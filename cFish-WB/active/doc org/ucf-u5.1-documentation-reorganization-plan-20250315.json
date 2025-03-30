@@ -1,0 +1,320 @@
+{
+  "document_type": "documentation_reorganization_plan",
+  "document_title": "cFish.io Documentation Folder Reorganization Plan",
+  "document_date": "2025-03-15",
+  "created_by": "Claude 3.7 Sonnet (Cursor)",
+  "version": "1.0",
+  "current_state_analysis": {
+    "issues": [
+      "Duplicated structure (Documentation/docs/ mirrors main Documentation/)",
+      "Files with non-UcF naming conventions",
+      "Department-specific files not in respective U1-U7 folders",
+      "Empty test files (0 bytes)",
+      "Multiple implementation summaries that could be consolidated",
+      "Overlapping subdirectories with redundant content"
+    ],
+    "problematic_areas": [
+      {
+        "name": "Implementation Documentation",
+        "issue": "Scattered across multiple files and directories"
+      },
+      {
+        "name": "Technical Documentation",
+        "issue": "Mixed between general and department-specific content"
+      },
+      {
+        "name": "Process Documents",
+        "issue": "SOPs that should be in U3-Operations"
+      },
+      {
+        "name": "WordPress Documentation",
+        "issue": "Should be in U4-Production"
+      }
+    ]
+  },
+  "implemented_folder_structure": {
+    "main_documentation_folder": {
+      "subdirectories": [
+        {
+          "name": "Core",
+          "description": "System-wide core files (README, spec, changelog, memory)"
+        },
+        {
+          "name": "Organization",
+          "description": "File management and organization documentation"
+        },
+        {
+          "name": "Implementation",
+          "description": "Implementation plans, summaries, and lessons"
+        },
+        {
+          "name": "tYDiSync",
+          "description": "tYDiSync-related documentation"
+        },
+        {
+          "name": "Tools",
+          "description": "Documentation update scripts and utilities"
+        },
+        {
+          "name": "Reference",
+          "description": "Reference materials and guides"
+        },
+        {
+          "name": "SOPs",
+          "description": "Existing SOPs directory for system-wide SOPs"
+        },
+        {
+          "name": "Technical",
+          "description": "Existing Technical directory for technical documentation"
+        },
+        {
+          "name": "Process",
+          "description": "Existing Process directory for process documentation"
+        },
+        {
+          "name": "Reports",
+          "description": "Existing Reports directory for reports"
+        }
+      ]
+    },
+    "department_specific_documentation": [
+      {
+        "department": "U1-Administration/Documentation",
+        "description": "Admin-specific documentation",
+        "content_types": [
+          "Planning documents",
+          "Policy documentation",
+          "HR and legal guides"
+        ]
+      },
+      {
+        "department": "U3-Operations/Documentation/SOPs",
+        "description": "Operations documentation",
+        "content_types": [
+          "Standard Operating Procedures",
+          "Monitoring procedures",
+          "Maintenance guides"
+        ]
+      },
+      {
+        "department": "U4-Production/Documentation/WordPress",
+        "description": "Production & WordPress docs",
+        "content_types": [
+          "WordPress guides",
+          "Content standards",
+          "Design documentation"
+        ]
+      },
+      {
+        "department": "U5-Data/Documentation/Implementation",
+        "description": "Data management & implementation",
+        "content_types": [
+          "Implementation plans",
+          "Implementation summaries",
+          "Data migration documentation"
+        ]
+      },
+      {
+        "department": "U7-Systems/Documentation/PowerShell",
+        "description": "Technical & development docs",
+        "content_types": [
+          "Technical specifications",
+          "PowerShell guides",
+          "Development documentation"
+        ]
+      }
+    ]
+  },
+  "migration_actions_completed": [
+    {
+      "source_path": "Documentation/README.md",
+      "target_path": "Documentation/Core/README.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/Technical/spec.md",
+      "target_path": "Documentation/Core/spec.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/changelog.md",
+      "target_path": "Documentation/Core/changelog.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/memory.md",
+      "target_path": "Documentation/Core/memory.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/file-organization-system.md",
+      "target_path": "Documentation/Organization/file-organization-system.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/Process/cFish.io File Management System SOP.md",
+      "target_path": "Documentation/Organization/cFish.io-File-Management-System-SOP.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/README-tydisync.md",
+      "target_path": "Documentation/tYDiSync/README-tydisync.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/update-documentation.js",
+      "target_path": "Documentation/Tools/update-documentation.js",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/update-docs-directory.js",
+      "target_path": "Documentation/Tools/update-docs-directory.js",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/update-documentation.bat",
+      "target_path": "Documentation/Tools/update-documentation.bat",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/README-cFish-io.md",
+      "target_path": "Documentation/Reference/README-cFish-io.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/README-cursor-integration.md",
+      "target_path": "Documentation/Reference/README-cursor-integration.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/README-cursor-integration-testing.md",
+      "target_path": "Documentation/Reference/README-cursor-integration-testing.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/ucf-u5.1-comprehensive-action-plan-20250314.md",
+      "target_path": "Documentation/Implementation/ucf-u5.1-comprehensive-action-plan-20250315.md",
+      "action": "Copied and updated"
+    },
+    {
+      "source_path": "Documentation/ucf-u5.1-comprehensive-action-plan-20250314.json",
+      "target_path": "Documentation/Implementation/ucf-u5.1-comprehensive-action-plan-20250315.json",
+      "action": "Copied and updated"
+    },
+    {
+      "source_path": "Documentation/final-implementation-summary.md",
+      "target_path": "Documentation/Implementation/final-implementation-summary.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/implementation-lessons.md",
+      "target_path": "Documentation/Implementation/implementation-lessons.md",
+      "action": "Copied"
+    },
+    {
+      "source_path": "Documentation/ucf-u5.1-digital-organization-implementation-status-20250314.md",
+      "target_path": "Documentation/Implementation/ucf-u5.1-digital-organization-implementation-status-20250315.md",
+      "action": "Copied and updated"
+    },
+    {
+      "source_path": "Documentation/wordpress-studio-guide.md",
+      "target_path": "U4-Production/Documentation/WordPress/ucf-u4.2-wordpress-studio-guide-20250315.md",
+      "action": "Copied and renamed"
+    },
+    {
+      "source_path": "Documentation/wordpress-ai-guidelines.md",
+      "target_path": "U4-Production/Documentation/WordPress/ucf-u4.2-wordpress-ai-guidelines-20250315.md",
+      "action": "Copied and renamed"
+    },
+    {
+      "source_path": "Documentation/wordpress-ai-guidelines.json",
+      "target_path": "U4-Production/Documentation/WordPress/ucf-u4.2-wordpress-ai-guidelines-20250315.json",
+      "action": "Copied and renamed"
+    },
+    {
+      "source_path": "Documentation/Process/sop.md",
+      "target_path": "U3-Operations/Documentation/SOPs/ucf-u3.1-operational-procedures-20250315.md",
+      "action": "Copied and renamed"
+    }
+  ],
+  "next_steps": {
+    "update_internal_references": [
+      "Update all internal references in documentation to reflect new file locations",
+      "Create symbolic links or redirects for commonly referenced files",
+      "Update any scripts that reference specific file paths"
+    ],
+    "consolidate_implementation_documentation": [
+      "Review all implementation summaries and consolidate redundant information",
+      "Create a master implementation document that references all sub-documents",
+      "Ensure consistent naming and formatting across all implementation documents"
+    ],
+    "clean_up_empty_and_redundant_files": [
+      "Remove empty test files (0 bytes)",
+      "Delete redundant copies after verifying content has been properly migrated",
+      "Archive outdated documentation in the _Archives directory"
+    ],
+    "update_documentation_tools": [
+      "Update documentation tools to work with the new directory structure",
+      "Modify update-documentation.js and update-docs-directory.js to handle the new paths",
+      "Create new tools for maintaining documentation consistency"
+    ],
+    "documentation_standards_enforcement": [
+      "Implement automated checks for UcF naming convention compliance",
+      "Create templates for different types of documentation",
+      "Establish review process for new documentation"
+    ]
+  },
+  "expected_outcomes": [
+    "Documentation properly organized by department function",
+    "Files named according to UcF standards",
+    "Elimination of redundancy and duplication",
+    "Improved maintainability and updates",
+    "Enhanced accessibility for humans and AI"
+  ],
+  "implementation_timeline": [
+    {
+      "task": "Create required directory structure",
+      "timeline": "March 15, 2025",
+      "status": "Completed"
+    },
+    {
+      "task": "Execute migration by department",
+      "timeline": "March 15, 2025",
+      "status": "Completed"
+    },
+    {
+      "task": "Standardize file naming",
+      "timeline": "March 15, 2025",
+      "status": "Completed"
+    },
+    {
+      "task": "Update internal references",
+      "timeline": "March 16-17, 2025",
+      "status": "Pending"
+    },
+    {
+      "task": "Cleanup and verify file organization",
+      "timeline": "March 18, 2025",
+      "status": "Pending"
+    }
+  ],
+  "verification_process": [
+    "Verify all core system files are accessible in their new locations",
+    "Confirm department-specific documentation is properly located in UcF department folders",
+    "Test all links and references to ensure they point to the correct locations",
+    "Validate UcF naming convention compliance",
+    "Ensure no critical documentation was lost during the migration"
+  ],
+  "conclusion": "The documentation reorganization plan has been successfully implemented, with core system files organized into logical subdirectories within the main Documentation folder and department-specific documentation moved to the appropriate UcF department folders. This reorganization improves the discoverability, maintainability, and accessibility of documentation while eliminating redundancy and enforcing UcF naming conventions. The next steps focus on updating internal references, consolidating implementation documentation, cleaning up empty and redundant files, updating documentation tools, and enforcing documentation standards to ensure the long-term success of the reorganization.",
+  "metadata": {
+    "last_updated": "2025-03-15",
+    "updated_by": "Claude 3.7 Sonnet (Cursor)",
+    "status": "Active",
+    "priority": "High",
+    "related_documents": [
+      "memory.md",
+      "changelog.md",
+      "ucf-u5.1-digital-organization-system-README-20250315.md"
+    ]
+  }
+} 

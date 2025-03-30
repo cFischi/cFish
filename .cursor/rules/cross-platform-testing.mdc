@@ -1,0 +1,266 @@
+---
+description: "Guidelines for testing across the four cFish.io platforms"
+globs: "*.php, *.js, *.md"
+alwaysApply: false
+---
+
+# Cross-Platform Testing Guidelines
+
+This rule provides guidance for testing implementations across all four cFish.io platforms to ensure compatibility, data integrity, and consistent user experience.
+
+## Platform Overview
+
+cFish.io operates on four integrated platforms that must work together seamlessly:
+
+1. **WordPress (cFish.io)**
+   - Content management and public-facing website
+   - Custom post types and taxonomies
+   - Theme customizations and blocks
+   - Plugin integrations and extensions
+
+2. **ClickUp (cFish.App)**
+   - Project and task management
+   - Workflow automation
+   - Time tracking and resource allocation
+   - Client collaboration
+
+3. **Notion (U.cFish.io)**
+   - Knowledge management and documentation
+   - Process and procedure tracking
+   - Content planning and organization
+   - Internal collaboration
+
+4. **Vendasta (cFish.Vip)**
+   - Client management (CRM)
+   - Marketing automation
+   - Service delivery tracking
+   - Analytics and reporting
+
+## Integration Testing Framework
+
+### 1. Data Synchronization Testing
+
+Test the bidirectional synchronization of data between platforms:
+
+```
+TEST: Verify [Data Type] synchronization between [Platform A] and [Platform B]
+
+Testing procedure:
+1. Create test data in [Platform A]
+2. Trigger synchronization process
+3. Verify data appears correctly in [Platform B]
+4. Modify data in [Platform B]
+5. Trigger synchronization process
+6. Verify modifications appear correctly in [Platform A]
+7. Test conflict resolution with simultaneous edits
+8. Verify error handling and recovery mechanisms
+
+Document all results, including any synchronization failures or inconsistencies.
+```
+
+### 2. User Experience Testing
+
+Test for consistent user experience across platforms:
+
+```
+TEST: Evaluate [Feature/Flow] experience across platforms
+
+Testing procedure:
+1. Identify all touchpoints for the feature across platforms
+2. Create a test scenario that spans multiple platforms
+3. Execute the scenario from a user perspective
+4. Document the flow and transitions between platforms
+5. Evaluate consistency of terminology and visual elements
+6. Measure time and clicks required to complete tasks
+7. Identify any friction points or confusion
+8. Test across different devices and screen sizes
+
+Document user experience observations and recommendations for improvement.
+```
+
+### 3. Authentication and Access Control
+
+Test security and access control consistency:
+
+```
+TEST: Verify authentication and permissions for [User Role]
+
+Testing procedure:
+1. Create test users with the specified role
+2. Attempt to access appropriate resources across all platforms
+3. Verify correct access is granted on each platform
+4. Attempt to access unauthorized resources
+5. Verify appropriate restrictions are applied
+6. Test single sign-on functionality between platforms
+7. Verify session management and timeouts
+8. Test password changes and their effect across platforms
+
+Document any inconsistencies in permissions or authentication behavior.
+```
+
+### 4. Performance Testing
+
+Test performance and responsiveness across platforms:
+
+```
+TEST: Measure performance of [Operation] across platforms
+
+Testing procedure:
+1. Establish baseline performance metrics
+2. Execute the operation on each relevant platform
+3. Measure response times and resource utilization
+4. Test under various load conditions
+5. Identify performance bottlenecks
+6. Test with simulated poor network conditions
+7. Verify mobile performance on various devices
+8. Measure synchronization performance between platforms
+
+Document performance metrics and identify optimization opportunities.
+```
+
+## Platform-Specific Test Considerations
+
+### WordPress (cFish.io) Testing
+
+- Test all custom post types and taxonomies
+- Verify theme responsiveness across devices
+- Test custom blocks and Gutenberg integration
+- Verify REST API endpoints and performance
+- Test plugin integration points
+- Validate content permissions and access controls
+- Verify forms and user interaction elements
+- Test search functionality and performance
+
+### ClickUp (cFish.App) Testing
+
+- Test custom field synchronization
+- Verify automation rules and triggers
+- Test time tracking accuracy
+- Validate task dependency management
+- Test client view permissions
+- Verify notification delivery
+- Test API integrations and webhooks
+- Validate reporting and dashboard functionality
+
+### Notion (U.cFish.io) Testing
+
+- Test database template consistency
+- Verify document structure and organization
+- Test cross-referencing between pages
+- Validate embedded content display
+- Test permission settings for shared content
+- Verify search functionality and accuracy
+- Test export functionality for various formats
+- Validate API connections and integrations
+
+### Vendasta (cFish.Vip) Testing
+
+- Test client record creation and updates
+- Verify service activation and provisioning
+- Test marketing automation sequences
+- Validate reporting accuracy
+- Test customer portal functionality
+- Verify notification delivery
+- Test integration with external services
+- Validate data import and export functionality
+
+## Test Documentation Standards
+
+All cross-platform testing documentation should follow these standards:
+
+- Use clear, consistent terminology across platforms
+- Document test environments and configurations
+- Include step-by-step procedures for reproducibility
+- Provide screenshots for visual verification
+- Document expected vs. actual results
+- Include severity classification for issues
+- Add recommendations for issue resolution
+- Follow the memory file update format for test results:
+
+```markdown
+## [Test Name] Results (MM-DD-2025)
+- [Test environment details]
+- [Summary of test procedure]
+- [Key findings and issues]
+- [Recommendations for resolution]
+
+_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+```
+
+## Test Prioritization
+
+Prioritize cross-platform tests based on these criteria:
+
+1. **Critical Path Functionality**
+   - Core synchronization between platforms
+   - Authentication and security features 
+   - Essential user workflows
+   - Data integrity mechanisms
+
+2. **High-Impact Features**
+   - Client-facing functionality
+   - Revenue-generating features
+   - High-visibility components
+   - Frequently used operations
+
+3. **Recent Changes**
+   - Newly implemented features
+   - Recently modified components
+   - Areas with previous issues
+   - Components affected by dependency updates
+
+## Implementation Guidelines
+
+When implementing cross-platform testing:
+
+1. **Create Reproducible Test Cases**
+   - Document all test steps in detail
+   - Create test data that can be reused
+   - Use consistent testing accounts
+   - Document environment configuration
+
+2. **Test Across Environments**
+   - Test in development environments first
+   - Verify in staging environments
+   - Confirm in production environments
+   - Test on multiple devices and browsers
+
+3. **Automate When Possible**
+   - Create automated tests for critical functionality
+   - Implement integration testing frameworks
+   - Set up continuous testing in CI/CD pipelines
+   - Develop monitoring for ongoing verification
+
+4. **Document Results Thoroughly**
+   - Use consistent reporting formats
+   - Include detailed error information
+   - Document both expected and actual behavior
+   - Provide clear reproduction steps for issues
+
+## DMMS Integration Testing
+
+Special attention should be given to testing the Distributed Memory Management System (DMMS) integration across platforms:
+
+- Test bidirectional synchronization of memory files
+- Verify markdown-to-JSON conversion accuracy
+- Test conflict resolution mechanisms
+- Validate cross-platform content categorization
+- Verify error handling and recovery procedures
+- Test performance with large files
+- Validate security controls and access restrictions
+- Verify integrity verification mechanisms
+
+## Relaunch Readiness Testing
+
+Before the April 2025 relaunch, conduct comprehensive cross-platform testing:
+
+- Execute full test suite across all platforms
+- Verify all `[RELAUNCH-CRITICAL]` functionality
+- Conduct load testing under expected launch conditions
+- Validate all integration points and synchronization
+- Test user onboarding flows across platforms
+- Verify documentation accuracy and completeness
+- Test disaster recovery procedures
+- Conduct security assessment across all platforms
+
+Document test results with the `[RELAUNCH-VERIFICATION]` tag to track readiness. 

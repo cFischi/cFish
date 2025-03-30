@@ -1,0 +1,92 @@
+---
+description: U7-Systems department guidelines focused on development, design, and technical direction.
+globs: U7-Systems/*, *.js, *.ts, *.py, *.php
+alwaysApply: false
+---
+
+# U7-Systems Department Guidelines
+
+The U7-Systems department focuses on development, design, and technical direction for cFish.io through tYberius Designz.
+
+## Department Role
+
+- Lead technical system architecture and design
+- Develop specialized technical solutions
+- Establish technical standards and best practices
+- Implement cross-platform integrations
+- Provide technical direction for all departments
+- Align all implementations with the Serve (U7) philosophical principle
+
+## Core Technologies
+
+- **Frontend**: React, TypeScript, SCSS, etc.
+- **Backend**: Node.js, PHP, Python, etc.
+- **Databases**: MySQL, PostgreSQL, MongoDB, etc.
+- **DevOps**: Docker, Git, CI/CD pipelines, etc.
+- **Cloud Services**: AWS, Azure, etc.
+- **System Architecture**: Microservices, APIs, etc.
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u7.4-api-gateway-20250507.js`
+
+- Systems-specific organization:
+  ```
+  U7-Systems/
+    Frontend/         # Frontend code and components
+    Backend/          # Backend services and APIs
+    Architecture/     # System architecture documentation
+    DevOps/           # Deployment and operations
+    Libraries/        # Shared code libraries
+    Tools/            # Development tools and utilities
+    Documentation/    # Technical documentation
+  ```
+
+## Coding Standards
+
+- All code must follow these standards:
+  - Consistent formatting (use linters and formatters)
+  - Comprehensive documentation
+  - Unit and integration tests
+  - Error handling and logging
+  - Security best practices
+  - Performance optimization
+
+- Language-specific standards:
+  - JavaScript/TypeScript: ESLint, Prettier
+  - PHP: PSR-12, PHPStan, PHPCS
+  - Python: PEP 8, Pylint
+  - CSS/SCSS: Stylelint
+
+## Architecture Guidelines
+
+- Implement loosely coupled, highly cohesive components
+- Use domain-driven design principles
+- Create clear interfaces between systems
+- Document all API endpoints and data models
+- Implement comprehensive error handling
+- Design for scalability and maintainability
+- Consider cross-platform compatibility in all designs
+
+## Philosophical Alignment
+
+As Serve (U7) department, focus on:
+- Technical solutions that serve the mission
+- Creating value through specialized expertise
+- Balancing innovation with stability
+- Empowering users and clients
+- Technical excellence in service of goals
+- Reliable and robust implementations
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Cross-platform integration optimization
+- API development for knowledge monetization
+- Technical infrastructure for documentation-as-service
+- Performance optimization for increased traffic
+- Security enhancements for client data
+- Scalability improvements for future growth 

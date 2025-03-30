@@ -1,0 +1,114 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+# Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    # Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    # Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    # Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    # Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    # Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<#
+.SYNOPSIS
+    Simple backup script for critical files.
+
+.DESCRIPTION
+    This script creates backups of critical files like memory.md and changelog.md.
+
+.NOTES
+    File Name      : simple-backup.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Copyright      : cFish.io 2025
+    Date           : March 20, 2025
+#>
+
+# Script configuration
+$criticalFiles = @(
+    "memory.md",
+    "changelog.md"
+)
+$backupRoot = "U5-Data\Backups\critical"
+
+# Initialize
+$timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
+$dateFolder = Get-Date -Format "yyyyMMdd" 
+$backupDir = Join-Path -Path $backupRoot -ChildPath $dateFolder
+
+# Ensure directories exist
+if (-not (Test-Path -Path $backupRoot)) {
+    New-Item -ItemType Directory -Path $backupRoot -Force
+}
+if (-not (Test-Path -Path $backupDir)) {
+    New-Item -ItemType Directory -Path $backupDir -Force
+}
+
+Write-Output "============================================="
+Write-Output "Critical File Backup - Started: $(Get-Date)"
+Write-Output "============================================="
+
+# Create backup for each critical file
+foreach ($file in $criticalFiles) {
+    if (Test-Path -Path $file) {
+        $destination = Join-Path -Path $backupDir -ChildPath "$file"
+        Copy-Item -Path $file -Destination $destination -Force
+        
+        # Calculate SHA-256 hash for verification
+        $sourceHash = (Get-FileHash -Path $file -Algorithm SHA256).Hash
+        $destinationHash = (Get-FileHash -Path $destination -Algorithm SHA256).Hash
+        
+        # Verify backup integrity
+        $verified = ($sourceHash -eq $destinationHash)
+        
+        Write-Output "Backed up: $file -> $destination (Verified: $verified)"
+    } else {
+        Write-Warning "File not found: $file"
+    }
+}
+
+Write-Output "============================================="
+Write-Output "Critical File Backup - Completed: $(Get-Date)"
+Write-Output "=============================================" 

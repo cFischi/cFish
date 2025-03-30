@@ -1,0 +1,98 @@
+---
+description: U3-Operations department guidelines focused on physical operations and facilities management.
+globs: U3-Operations/*, *.md, *.ps1
+alwaysApply: false
+---
+
+# U3-Operations Department Guidelines
+
+The U3-Operations department focuses on physical operations, FiscHouse management, and facility coordination for cFish.io.
+
+## Department Role
+
+- Manage physical infrastructure and facilities
+- Oversee FiscHouse operations and maintenance
+- Coordinate hardware and physical resource allocation
+- Implement physical security measures
+- Support cross-departmental physical resource needs
+- Align all implementations with the Body (U3) philosophical principle
+
+## Core Technologies
+
+- **PowerShell**: Automation for physical systems
+- **Hardware Management**: System configuration and maintenance
+- **Facility Systems**: Physical space management
+- **Resource Tracking**: Inventory and asset management
+- **Physical Security**: Access control and security systems
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u3.3-system-maintenance-20250507.ps1`
+
+- Operations-specific organization:
+  ```
+  U3-Operations/
+    Scripts/          # PowerShell automation scripts
+    Documentation/    # System documentation
+    Inventory/        # Resource tracking
+    Maintenance/      # Maintenance schedules and logs
+    Security/         # Physical security documentation
+    Configurations/   # System configuration files
+  ```
+
+## Hardware Resources
+
+- Manage resources for garage-based operations:
+  - Server infrastructure
+  - Workstation configurations
+  - Network equipment
+  - Storage systems
+  - Local model hardware requirements
+  - Physical security devices
+
+- Document resource allocation and requirements:
+  - Hardware specifications
+  - Resource utilization metrics
+  - Capacity planning
+  - Upgrade schedules
+  - Maintenance logs
+
+## Philosophical Alignment
+
+As Body (U3) department, focus on:
+- Physical robustness and coherence
+- Practical implementation of systems
+- Resource efficiency and optimization
+- Environmental sustainability
+- Reliable and consistent operations
+- Physical manifestation of philosophical principles
+
+## System Maintenance
+
+- Implement regular maintenance procedures:
+  - Hardware diagnostics and health monitoring
+  - Software updates and patch management
+  - Performance optimization
+  - Security audits and updates
+  - Environmental monitoring (temperature, humidity, etc.)
+  - Power management and optimization
+
+- Document all maintenance activities:
+  - Date and time of maintenance
+  - Systems affected
+  - Actions performed
+  - Results and observations
+  - Follow-up requirements
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Hardware resource optimization for increased traffic
+- Local infrastructure requirements for AI operations
+- Physical security enhancement for client data
+- Facility optimization for client demonstrations
+- Resource planning for future growth
+- Environmental improvements to physical workspace 

@@ -1,0 +1,162 @@
+---
+description: "Guidelines for prioritizing development related to the April 2025 relaunch"
+globs: "*.php, *.js, *.md"
+alwaysApply: true
+---
+
+# April 2025 Relaunch Priorities
+
+This rule provides guidance for prioritizing development tasks in preparation for the cFish.io April 2025 relaunch.
+
+## Relaunch Timeline
+
+The relaunch consists of these key phases:
+
+1. **Foundation Completion** (March 1-15, 2025)
+   - Complete DMMS implementation
+   - Finalize documentation restructuring
+   - Verify cross-platform integration
+   - Develop client-ready service descriptions
+
+2. **Performance Optimization** (March 16-31, 2025)
+   - Implement DMMS Phase 2 (Performance)
+   - Optimize cross-platform integration
+   - Develop marketing materials
+   - Create partnership proposals
+
+3. **Security Enhancement** (April 1-15, 2025)
+   - Implement DMMS Phase 3 (Security)
+   - Finalize client demonstration environment
+   - Complete mobile optimization
+   - Prepare relaunch communication strategy
+
+4. **Launch Preparation** (April 16-30, 2025)
+   - Conduct system-wide performance testing
+   - Finalize client onboarding documentation
+   - Prepare relaunch event framework
+   - Execute relaunch communication plan
+
+## Priority Tagging System
+
+When working on tasks related to the relaunch, use these priority tags:
+
+- `[RELAUNCH-CRITICAL]`: Essential for the April 2025 relaunch
+- `[RELAUNCH-HIGH]`: Important for relaunch, but not blocking
+- `[RELAUNCH-MEDIUM]`: Beneficial for relaunch, but can be deferred if necessary
+- `[RELAUNCH-LOW]`: Related to relaunch, but scheduled for post-launch implementation
+
+Include these tags in commit messages, documentation, and task descriptions.
+
+## Relaunch Focus Areas
+
+### 1. Knowledge Monetization
+
+Priority: `[RELAUNCH-CRITICAL]`
+
+All development related to the documentation-as-service offering:
+- Professional documentation templates
+- Document export and packaging systems
+- Client documentation workflows
+- Documentation quality assurance procedures
+
+### 2. Cross-Platform Integration
+
+Priority: `[RELAUNCH-CRITICAL]`
+
+All development related to integrating the four cFish.io platforms:
+- WordPress (cFish.io) integration components
+- ClickUp (cFish.App) synchronization
+- Notion (U.cFish.io) knowledge integration
+- Vendasta (cFish.Vip) client management
+- tYDiSync~ optimization and reliability
+
+### 3. Multi-Agent Collaboration
+
+Priority: `[RELAUNCH-HIGH]`
+
+All development related to the tYFeAiz "Live Boardz" framework:
+- Agent role templates and workflows
+- Collaborative session management
+- Decision-making and handoff protocols
+- Session documentation and knowledge capture
+
+### 4. Local LLM Implementation
+
+Priority: `[RELAUNCH-MEDIUM]`
+
+All development related to local language model deployment:
+- Model configuration and optimization
+- Prompt template development
+- Hardware resource allocation
+- Performance benchmarking
+
+### 5. Mobile Optimization
+
+Priority: `[RELAUNCH-HIGH]`
+
+All development related to mobile accessibility:
+- Responsive interface optimization
+- Field operations support
+- Mobile documentation access
+- Cross-device synchronization
+
+## Implementation Guidelines
+
+When working on relaunch-related tasks:
+
+1. **Prioritize Critical Components**
+   - Focus on `[RELAUNCH-CRITICAL]` items first
+   - Ensure core functionality before enhancements
+   - Validate integration points early
+
+2. **Track Dependencies**
+   - Document dependencies between components
+   - Identify potential bottlenecks
+   - Communicate blocking issues immediately
+
+3. **Validate Against Requirements**
+   - Verify implementations against relaunch requirements
+   - Test cross-platform functionality
+   - Ensure documentation aligns with delivered features
+
+4. **Track Progress**
+   - Update task status in scratchpad.md
+   - Document completed items in changelog.md
+   - Update memory.md with implementation details
+
+## Milestone Tracking
+
+Track relaunch preparation using these milestone indicators:
+
+```
+RELAUNCH MILESTONE: [Milestone Name] - [Status]
+- [Completed components]
+- [Pending components]
+- [Blocking issues]
+- [Next steps]
+```
+
+Include this format in relevant memory.md entries to track progress.
+
+## Documentation Requirements
+
+All relaunch-related documentation should:
+
+- Clearly indicate relevance to April 2025 relaunch
+- Include current status and remaining work
+- Document dependencies and integration points
+- Provide validation procedures and success criteria
+- Follow the standard memory.md update format
+- Include relaunch priority tags where appropriate
+
+## Post-Relaunch Planning
+
+While focusing on the April 2025 relaunch, also maintain awareness of:
+
+- Post-launch enhancement opportunities
+- Client feedback integration mechanisms
+- Continuous improvement processes
+- Performance monitoring plans
+- Long-term roadmap alignment
+
+Document these considerations with a `[POST-RELAUNCH]` tag for future reference. 

@@ -1,0 +1,50 @@
+# Exclude large WordPress backup directories
+WordPress/wp-content/Archives/
+WordPress/wp-content/*/backup*
+z_Archives/Unsorted/wp-includes/
+z_backups/*/backup*
+
+# Exclude any .bak files
+*.bak
+
+# Exclude backup and temporary files
+*.nosync
+*.tmp
+*.temp
+*~
+
+# Exclude large log files
+*.log
+
+# Exclude any files with excessively long paths
+WordPress/wp-content/*/jetpack_vendor/automattic/backups/*.json.*
+
+# Large files exceeding GitHub's 100MB limit
+U4-UcWebZ/WordPress/d749a-60fps-hd-motion-background-deep-blue-portal-1.png
+z_Archives/SystemMigrations/backup_before_organization_20250313_213527/temp/powershell7-setup/PowerShell-7.3.4-win-x64.msi
+
+# Ignore all large media files and installers
+*.msi
+*.mp4
+*.mov
+*.avi
+*.wmv
+*.flv
+*.iso
+*.dmg
+*.pkg
+
+# Only ignore large image files (>5MB) but keep necessary images
+# Instead of ignoring all PNGs, we'll manually exclude large ones
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnp
+.pnp.js
+
+# Sync controller temporary files
+.sync-*
+cursor-sync-*.log 

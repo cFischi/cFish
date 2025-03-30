@@ -1,0 +1,48 @@
+{
+  "watchDirs": [
+    { "md": "./docs", "json": "./docs/json" },
+    { "md": "./shortlinks", "json": "./shortlinks/json" },
+    { "md": "./", "json": "./json" }
+  ],
+  "backupDir": "./backups",
+  "maxBackups": 5,
+  "enableBackups": true,
+  "debounceTime": 2000,
+  "exclusions": [
+    "node_modules", ".git", ".cursor",
+    "wp-content", "wp-admin", "wp-includes", "plugins", "themes",
+    "wordpress", "vendor", "backup", "temp", "tmp", "cache",
+    ".vscode", "dist", "build", "assets", "images", "public"
+  ],
+  "conflictResolutionMethod": "timestamp",
+  "criticalFiles": ["memory.md"],
+  "recursiveWatching": false,
+  "validationThreshold": 0.95,
+  "lowCpuMode": true,
+  "throttling": {
+    "maxConcurrent": 1,
+    "delayBetweenFiles": 5000,
+    "batchSize": 5,
+    "batchDelay": 10000
+  },
+  "polling": {
+    "usePolling": true,
+    "interval": 5000,
+    "binaryInterval": 10000
+  },
+  "watching": {
+    "depth": 1,
+    "awaitWriteFinish": {
+      "stabilityThreshold": 2000,
+      "pollInterval": 500
+    },
+    "ignoreInitial": true,
+    "alwaysStat": false,
+    "disableGlobbing": true
+  },
+  "memoryManagement": {
+    "gcIntervalMs": 60000,
+    "heapThresholdMb": 500,
+    "statsIntervalMs": 120000
+  }
+} 

@@ -1,0 +1,103 @@
+{
+  "metadata": {},
+  "sections": [
+    {
+      "level": 1,
+      "title": "cFish.io Shortlinks",
+      "content": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Metadata",
+      "content": [
+        "",
+        "",
+        "- Last tested: May 12, 2025 - Synchronization Test",
+        "- Watch mode test: May 12, 2025 - Real-time sync verification",
+        "",
+        "---",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Available Shortlinks",
+      "content": [
+        "",
+        "",
+        "",
+        "1. [cFish](./cfish.md) - https://u.cfish.io/cfish - Documentation for cFish.io operational procedures",
+        "",
+        "2. [cFish IT](./cfish-it.md) - https://u.cfish.io/cfish-it - Technical support and troubleshooting procedures",
+        "",
+        "3. [tY](./ty.md) - https://u.cfish.io/ty - Personal and professional profile for tY FischEYe",
+        "",
+        "4. [Documentation](./docs.md) - https://u.cfish.io/docs - Quick reference to important documentation",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Usage Instructions",
+      "content": [
+        "",
+        "",
+        "",
+        "These files contain content that's published on the internet via the cFish.io shortlink service. To update a shortlink's content:",
+        "",
+        "1. Modify the corresponding markdown file",
+        "",
+        "2. Commit and push changes to the repository",
+        "",
+        "3. Deploy changes to the live site",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "JSON Versions",
+      "content": [
+        "",
+        "",
+        "",
+        "AI-optimized JSON versions of each shortlink are available in the `/shortlinks/json/` directory for AI ingestion and processing. These files are automatically maintained by the MD-to-JSON synchronization system.",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Development Workflow",
+      "content": [
+        "",
+        "",
+        "",
+        "Follow the standard WordPress development workflow as documented in sop.md when making changes to shortlink content.",
+        "",
+        "---",
+        "",
+        "Last updated: 05-10-2025",
+        "",
+        "",
+        "---",
+        "",
+        "Last updated: 03-11-2025"
+      ]
+    }
+  ],
+  "filePath": "C:\\Users\\Chris\\cFish.io\\shortlinks\\README.md",
+  "lastUpdated": "2025-03-12T07:59:56.971Z"
+}

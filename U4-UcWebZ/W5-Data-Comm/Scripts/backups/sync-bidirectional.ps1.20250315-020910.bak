@@ -1,0 +1,525 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+# Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    # Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    # Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    # Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    # Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    # Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<#
+.SYNOPSIS
+    Implements bi-directional synchronization between master memory.md and department-specific memory files.
+
+.DESCRIPTION
+    This script enables two-way synchronization between the master memory.md file
+    and department-specific memory files, with conflict detection and resolution.
+    
+    It detects changes in both master and department files, identifies conflicts,
+    and provides both automatic and interactive resolution options.
+
+.NOTES
+    File Name      : sync-bidirectional.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3
+    Copyright      : cFish.io 2025
+    Date           : March 21, 2025
+    Version        : 1.0
+#>
+
+# Get workspace root directory
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$workspaceRoot = Split-Path -Parent (Split-Path -Parent $scriptDir)
+
+# Import configuration
+$configFile = Join-Path -Path $scriptDir -ChildPath "sync-config.json"
+$config = Get-Content -Raw -Path $configFile | ConvertFrom-Json
+
+# Update config if it doesn't have the new bidirectional properties
+$configUpdated = $false
+if (-not (Get-Member -InputObject $config -Name "lastSync" -MemberType Properties)) {
+    Add-Member -InputObject $config -MemberType NoteProperty -Name "lastSync" -Value (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+    $configUpdated = $true
+}
+
+# Add lastModified property to each department if it doesn't exist
+foreach ($dept in $config.departments) {
+    if (-not (Get-Member -InputObject $dept -Name "lastModified" -MemberType Properties)) {
+        Add-Member -InputObject $dept -MemberType NoteProperty -Name "lastModified" -Value (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+        $configUpdated = $true
+    }
+    if (-not (Get-Member -InputObject $dept -Name "lastSyncTimestamp" -MemberType Properties)) {
+        Add-Member -InputObject $dept -MemberType NoteProperty -Name "lastSyncTimestamp" -Value (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+        $configUpdated = $true
+    }
+}
+
+# Save updated config if changes were made
+if ($configUpdated) {
+    $config | ConvertTo-Json -Depth 10 | Set-Content -Path $configFile
+    Write-Host "Updated configuration file with timestamp tracking properties."
+}
+
+# File paths
+$masterFile = Join-Path -Path $workspaceRoot -ChildPath $config.masterFile
+
+# Create log directory if it doesn't exist
+$logDir = Join-Path -Path $scriptDir -ChildPath "logs"
+if (!(Test-Path $logDir)) {
+    New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+}
+$logFile = Join-Path -Path $logDir -ChildPath "sync_bidirectional_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+
+# Function to log messages
+function Write-Log {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory=$false)]
+        [ValidateSet("INFO", "WARNING", "ERROR")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logEntry = "[$timestamp] [$Level] $Message"
+    
+    Add-Content -Path $logFile -Value $logEntry
+    
+    # Also write to console with appropriate color
+    switch ($Level) {
+        "INFO" { Write-Host $logEntry -ForegroundColor White 
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Write-Log"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        "WARNING" { Write-Host $logEntry -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logEntry -ForegroundColor Red }
+    }
+}
+
+# Function to extract entries from a memory file
+function Get-MemoryEntries {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath
+    )
+    
+    $entries = [System.Collections.ArrayList]@()
+    
+    if (Test-Path $FilePath) {
+        $content = Get-Content -Path $FilePath -Raw
+        $regex = [regex]"(?ms)^## (.*?) \((.*?)\)(.*?)(?=^## |\z)"
+        $matches = $regex.Matches($content)
+        
+        foreach ($match in $matches) {
+            $title = $match.Groups[1].Value.Trim()
+            $date = $match.Groups[2].Value.Trim()
+            $content = $match.Groups[3].Value.Trim()
+            
+            # Calculate SHA-256 hash of the entry for comparison
+            $contentBytes = [System.Text.Encoding]::UTF8.GetBytes("$title|$date|$content")
+            $sha256 = [System.Security.Cryptography.SHA256]::Create()
+            $hashBytes = $sha256.ComputeHash($contentBytes)
+            $hash = [System.BitConverter]::ToString($hashBytes).Replace("-", "").ToLower()
+            
+            $entry = [PSCustomObject]@{
+                title = $title
+                date = $date
+                content = $content
+                hash = $hash
+                fullEntry = "## $title ($date)$content"
+            
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Get-MemoryEntries"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+            
+            [void]$entries.Add($entry)
+        }
+    }
+    
+    return $entries
+}
+
+# Function to determine relevant departments for an entry
+function Get-RelevantDepartments {
+    param (
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$Entry
+    )
+    
+    $relevantDepartments = @()
+    
+    foreach ($dept in $config.departments) {
+        foreach ($keyword in $dept.keywords) {
+            if ($Entry.title -match $keyword -or $Entry.content -match $keyword) {
+                $relevantDepartments += $dept.name
+                break
+            
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Get-RelevantDepartments"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        }
+    }
+    
+    # If no specific department matches, assign to Administration
+    if ($relevantDepartments.Count -eq 0) {
+        $relevantDepartments += "U1-Administration"
+    }
+    
+    # Remove duplicates
+    return $relevantDepartments | Select-Object -Unique
+}
+
+# Function to detect conflicts between master and department entries
+function Test-EntryConflict {
+    param (
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$MasterEntry,
+        
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$DeptEntry
+    )
+    
+    # If hash is the same, no conflict
+    if ($MasterEntry.hash -eq $DeptEntry.hash) {
+        return @{
+            hasConflict = $false
+            reason = "identical"
+        
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Test-EntryConflict"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    }
+    
+    # Otherwise, we have a content conflict
+    return @{
+        hasConflict = $true
+        reason = "content"
+        masterEntry = $MasterEntry
+        deptEntry = $DeptEntry
+    }
+}
+
+# Function to automatically resolve a conflict
+function Resolve-EntryConflictAutomatic {
+    param (
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$MasterEntry,
+        
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$DeptEntry,
+        
+        [Parameter(Mandatory=$true)]
+        [string]$ResolutionStrategy # "master", "department", "newest"
+    )
+    
+    switch ($ResolutionStrategy) {
+        "master" {
+            Write-Log "Auto-resolving conflict for '$($MasterEntry.title)' using master content" -Level "INFO"
+            return $MasterEntry
+        
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Resolve-EntryConflictAutomatic"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        "department" {
+            Write-Log "Auto-resolving conflict for '$($MasterEntry.title)' using department content" -Level "INFO"
+            return $DeptEntry
+        }
+        "newest" {
+            # Parse dates to determine which is newer
+            try {
+                $masterDate = [DateTime]::ParseExact($MasterEntry.date, "MM-dd-yyyy", [System.Globalization.CultureInfo]::InvariantCulture)
+                $deptDate = [DateTime]::ParseExact($DeptEntry.date, "MM-dd-yyyy", [System.Globalization.CultureInfo]::InvariantCulture)
+                
+                if ($masterDate -ge $deptDate) {
+                    Write-Log "Auto-resolving conflict for '$($MasterEntry.title)' using master content (newer date)" -Level "INFO"
+                    return $MasterEntry
+                } else {
+                    Write-Log "Auto-resolving conflict for '$($MasterEntry.title)' using department content (newer date)" -Level "INFO"
+                    return $DeptEntry
+                }
+            } catch {
+                Write-Log "Error parsing dates for conflict resolution. Using master content as fallback." -Level "WARNING"
+                return $MasterEntry
+            }
+        }
+        default {
+            Write-Log "Unknown resolution strategy '$ResolutionStrategy'. Using master content as fallback." -Level "WARNING"
+            return $MasterEntry
+        }
+    }
+}
+
+# Main synchronization function
+function Sync-MemoryFiles {
+    param (
+        [Parameter(Mandatory=$false)]
+        [switch]$AutoResolveConflicts,
+        
+        [Parameter(Mandatory=$false)]
+        [ValidateSet("master", "department", "newest")]
+        [string]$ResolutionStrategy = "newest"
+    )
+    
+    Write-Log "Starting bi-directional synchronization..."
+    
+    # Get master entries
+    Write-Log "Reading master file: $masterFile"
+    $masterEntries = Get-MemoryEntries -FilePath $masterFile
+    Write-Log "Found $($masterEntries.Count) entries in master file."
+    
+    # Process each department
+    foreach ($dept in $config.departments) {
+        $deptPath = Join-Path -Path $workspaceRoot -ChildPath $dept.path
+        Write-Log "Processing department file: $deptPath"
+        
+        # Create directory if it doesn't exist
+        $deptDir = Split-Path -Parent $deptPath
+        if (!(Test-Path $deptDir)) {
+            Write-Log "Creating directory: $deptDir"
+            New-Item -ItemType Directory -Path $deptDir -Force | Out-Null
+        
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Sync-MemoryFiles"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        
+        # Create file if it doesn't exist
+        if (!(Test-Path $deptPath)) {
+            Write-Log "Creating new department file: $deptPath"
+            @"
+# $($dept.name) Memory File
+
+This department-specific memory file contains entries related to $($dept.name) activities.
+
+## Table of Contents
+
+"@ | Out-File -FilePath $deptPath -Encoding utf8
+        }
+        
+        # Get department entries
+        $deptEntries = Get-MemoryEntries -FilePath $deptPath
+        Write-Log "Found $($deptEntries.Count) entries in department file."
+        
+        # 1. Process entries from master to department
+        $entriesAddedToDept = 0
+        $entriesUpdatedInDept = 0
+        
+        foreach ($masterEntry in $masterEntries) {
+            $relevantDepartments = Get-RelevantDepartments -Entry $masterEntry
+            
+            if ($relevantDepartments -contains $dept.name) {
+                # Check if entry exists in department file
+                $matchingDeptEntry = $deptEntries | Where-Object { $_.title -eq $masterEntry.title -and $_.date -eq $masterEntry.date }
+                
+                if ($null -eq $matchingDeptEntry) {
+                    # Entry doesn't exist in department file, so add it
+                    Write-Log "Adding entry to department file: $($masterEntry.title) ($($masterEntry.date))"
+                    $newEntry = "`n$($masterEntry.fullEntry)"
+                    Add-Content -Path $deptPath -Value $newEntry
+                    $entriesAddedToDept++
+                } else {
+                    # Entry exists, check for conflicts
+                    $conflict = Test-EntryConflict -MasterEntry $masterEntry -DeptEntry $matchingDeptEntry
+                    
+                    if ($conflict.hasConflict) {
+                        if ($AutoResolveConflicts) {
+                            # Auto-resolve the conflict
+                            $resolvedEntry = Resolve-EntryConflictAutomatic -MasterEntry $masterEntry -DeptEntry $matchingDeptEntry -ResolutionStrategy $ResolutionStrategy
+                            
+                            # Update department file if resolved entry is different from current department entry
+                            if ($resolvedEntry.hash -ne $matchingDeptEntry.hash) {
+                                Write-Log "Updating entry in department file: $($masterEntry.title) ($($masterEntry.date))"
+                                $deptContent = Get-Content -Path $deptPath -Raw
+                                $pattern = "(?ms)## $([regex]::Escape($matchingDeptEntry.title)) \($([regex]::Escape($matchingDeptEntry.date))\).*?(?=^## |\z)"
+                                $replacement = "## $($resolvedEntry.title) ($($resolvedEntry.date))$($resolvedEntry.content)"
+                                $newContent = [regex]::Replace($deptContent, $pattern, $replacement)
+                                Set-Content -Path $deptPath -Value $newContent
+                                $entriesUpdatedInDept++
+                            }
+                        } else {
+                            # Log conflict for manual resolution
+                            Write-Log "Conflict detected for entry: $($masterEntry.title) ($($masterEntry.date)) - Manual resolution required" -Level "WARNING"
+                            # Here you would add code to store conflicts for later interactive resolution
+                        }
+                    }
+                }
+            }
+        }
+        
+        # 2. Process entries from department to master
+        $entriesAddedToMaster = 0
+        $entriesUpdatedInMaster = 0
+        
+        foreach ($deptEntry in $deptEntries) {
+            # Check if entry exists in master file
+            $matchingMasterEntry = $masterEntries | Where-Object { $_.title -eq $deptEntry.title -and $_.date -eq $deptEntry.date }
+            
+            if ($null -eq $matchingMasterEntry) {
+                # Entry doesn't exist in master file, so add it
+                Write-Log "Adding entry to master file: $($deptEntry.title) ($($deptEntry.date))"
+                $newEntry = "`n$($deptEntry.fullEntry)"
+                Add-Content -Path $masterFile -Value $newEntry
+                $entriesAddedToMaster++
+                
+                # Update master entries collection
+                $masterEntries = Get-MemoryEntries -FilePath $masterFile
+            } else {
+                # Entry exists, check for conflicts (if not already processed)
+                $conflict = Test-EntryConflict -MasterEntry $matchingMasterEntry -DeptEntry $deptEntry
+                
+                if ($conflict.hasConflict) {
+                    if ($AutoResolveConflicts) {
+                        # Auto-resolve the conflict
+                        $resolvedEntry = Resolve-EntryConflictAutomatic -MasterEntry $matchingMasterEntry -DeptEntry $deptEntry -ResolutionStrategy $ResolutionStrategy
+                        
+                        # Update master file if resolved entry is different from current master entry
+                        if ($resolvedEntry.hash -ne $matchingMasterEntry.hash) {
+                            Write-Log "Updating entry in master file: $($deptEntry.title) ($($deptEntry.date))"
+                            $masterContent = Get-Content -Path $masterFile -Raw
+                            $pattern = "(?ms)## $([regex]::Escape($matchingMasterEntry.title)) \($([regex]::Escape($matchingMasterEntry.date))\).*?(?=^## |\z)"
+                            $replacement = "## $($resolvedEntry.title) ($($resolvedEntry.date))$($resolvedEntry.content)"
+                            $newContent = [regex]::Replace($masterContent, $pattern, $replacement)
+                            Set-Content -Path $masterFile -Value $newContent
+                            $entriesUpdatedInMaster++
+                            
+                            # Update master entries collection
+                            $masterEntries = Get-MemoryEntries -FilePath $masterFile
+                        }
+                    } else {
+                        # Log conflict for manual resolution
+                        Write-Log "Conflict detected for entry: $($deptEntry.title) ($($deptEntry.date)) - Manual resolution required" -Level "WARNING"
+                        # Here you would add code to store conflicts for later interactive resolution
+                    }
+                }
+            }
+        }
+        
+        # Update department's last sync timestamp
+        $dept.lastSyncTimestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        
+        Write-Log "Department $($dept.name) synchronization summary:"
+        Write-Log "  - Added $entriesAddedToDept entries to department file"
+        Write-Log "  - Updated $entriesUpdatedInDept entries in department file"
+        Write-Log "  - Added $entriesAddedToMaster entries to master file"
+        Write-Log "  - Updated $entriesUpdatedInMaster entries in master file"
+    }
+    
+    # Update master last sync timestamp
+    $config.lastSync = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    
+    # Save updated config
+    $config | ConvertTo-Json -Depth 10 | Set-Content -Path $configFile
+    
+    Write-Log "Bi-directional synchronization completed successfully."
+    
+    # Convert updated master file to JSON if the convert script exists
+    $convertScript = Join-Path -Path $scriptDir -ChildPath "convert-md-to-json.ps1"
+    if (Test-Path $convertScript) {
+        Write-Log "Converting updated master file to JSON..."
+        try {
+            & $convertScript
+            Write-Log "JSON conversion completed successfully."
+        } catch {
+            Write-Log "Error during JSON conversion: $_" -Level "ERROR"
+        }
+    }
+}
+
+# Main execution
+try {
+    # Set error action preference to stop on any error
+    $ErrorActionPreference = "Stop"
+    
+    Write-Log "DMMS Phase 2 - Bi-directional Synchronization - v1.0" -Level "INFO"
+    Write-Log "Workspace Root: $workspaceRoot" -Level "INFO"
+    
+    # Run synchronization with automatic conflict resolution
+    Sync-MemoryFiles -AutoResolveConflicts -ResolutionStrategy "newest"
+    
+    Write-Log "Script execution completed successfully."
+} catch {
+    Write-Log "Error during execution: $_" -Level "ERROR"
+    Write-Log "Stack Trace: $($_.ScriptStackTrace)" -Level "ERROR"
+    exit 1
+} 

@@ -1,0 +1,109 @@
+[2025-03-14 22:26:01] [INFO] Starting DMMS integrity scan...
+[2025-03-14 22:26:01] [INFO] Scanning master file: C:\Users\Chris\cFish.io\memory.md
+[2025-03-14 22:26:01] [INFO] Found 48 entries in master file.
+[2025-03-14 22:26:01] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U1-Administration\memory.md
+[2025-03-14 22:26:01] [INFO] Found 45 entries in U1-Administration file.
+[2025-03-14 22:26:02] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U2-Research\memory.md
+[2025-03-14 22:26:02] [INFO] Found 12 entries in U2-Research file.
+[2025-03-14 22:26:02] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U3-Operations\memory.md
+[2025-03-14 22:26:02] [INFO] Found 39 entries in U3-Operations file.
+[2025-03-14 22:26:02] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U4-Production\memory.md
+[2025-03-14 22:26:02] [INFO] Found 24 entries in U4-Production file.
+[2025-03-14 22:26:02] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U5-Data\memory.md
+[2025-03-14 22:26:02] [INFO] Found 29 entries in U5-Data file.
+[2025-03-14 22:26:02] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U6-Marketing\memory.md
+[2025-03-14 22:26:02] [INFO] Found 2 entries in U6-Marketing file.
+[2025-03-14 22:26:02] [INFO] Scanning department file: C:\Users\Chris\cFish.io\U7-Systems\memory.md
+[2025-03-14 22:26:02] [INFO] Found 28 entries in U7-Systems file.
+[2025-03-14 22:26:02] [WARNING] Integrity scan completed in 00:00:00. Found 31 issues across 6 files.
+[2025-03-14 22:26:02] [INFO] Report saved to: C:\Users\Chris\cFish.io\U5-Data\Scripts\reports\integrity_report_20250314_222601.md
+
+Scan Results Summary:
+--------------------------
+Files Scanned: 8
+Total Issues: 31
+Files with Issues: 6
+Overall Status: Issues Found
+Scan Duration: 00:00:00
+Detailed Report: C:\Users\Chris\cFish.io\U5-Data\Scripts\reports\integrity_report_20250314_222601.md
+--------------------------
+
+Detailed Issue Summary:
+
+memory.md (Master) - 3 issues:
+ - [Master] Entry 'Documentation Reorganization Script Troubleshooting (03-19-2025)': Entry has no content
+ - [Master] Entry 'Documentation Reorganization Script Troubleshooting (03-19-2025)': Entry is missing a proper signature line (_Updated MM-DD-YYYY | AI/Human: Name_)
+ - [Master] Entry 'Distributed Memory Management System (DMMS)': Entry has invalid date format: 'DMMS'
+
+U1-Administration/memory.md (U1-Administration) - 3 issues:
+ - [U1-Administration] Entry 'Documentation Reorganization Script Troubleshooting (03-19-2025)': Entry has no content
+ - [U1-Administration] Entry 'Documentation Reorganization Script Troubleshooting (03-19-2025)': Entry is missing a proper signature line (_Updated MM-DD-YYYY | AI/Human: Name_)
+ - [U1-Administration] Entry 'Distributed Memory Management System (DMMS)': Entry has invalid date format: 'DMMS'
+
+U3-Operations/memory.md (U3-Operations) - 1 issues:
+ - [U3-Operations] Entry 'Distributed Memory Management System (DMMS)': Entry has invalid date format: 'DMMS'
+
+U4-Production/memory.md (U4-Production) - 1 issues:
+ - [U4-Production] Entry 'Distributed Memory Management System (DMMS)': Entry has invalid date format: 'DMMS'
+
+U5-Data/memory.md (U5-Data) - 1 issues:
+ - [U5-Data] Entry 'Distributed Memory Management System (DMMS)': Entry has invalid date format: 'DMMS'
+
+U7-Systems/memory.md (U7-Systems) - 1 issues:
+ - [U7-Systems] Entry 'Distributed Memory Management System (DMMS)': Entry has invalid date format: 'DMMS'
+
+Master vs U1-Administration (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U1-Administration based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U1-Administration based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U1-Administration but is missing from master file
+
+Master vs U2-Research (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U2-Research based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U2-Research based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U2-Research but is missing from master file
+
+Master vs U3-Operations (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U3-Operations based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U3-Operations based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U3-Operations but is missing from master file
+
+Master vs U4-Production (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U4-Production based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U4-Production based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U4-Production but is missing from master file
+
+Master vs U5-Data (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U5-Data based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U5-Data based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U5-Data but is missing from master file
+
+Master vs U6-Marketing (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U6-Marketing based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U6-Marketing based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U6-Marketing but is missing from master file
+
+Master vs U7-Systems (Missing Entries) - 3 issues:
+ - Entry 'DMMS Phase 1 Verification and Phase 2 Action Plan (03-20-2025)' should be in U7-Systems based on keywords but is missing
+ - Entry 'DMMS Phase 1 Implementation (03-20-2025)' should be in U7-Systems based on keywords but is missing
+ - Entry 'Table of Contents
+
+
+## DMMS Phase 1 Implementation (03-20-2025)' exists in U7-Systems but is missing from master file

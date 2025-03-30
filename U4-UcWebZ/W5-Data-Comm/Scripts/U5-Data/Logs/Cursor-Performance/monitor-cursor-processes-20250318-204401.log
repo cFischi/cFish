@@ -1,0 +1,91 @@
+﻿[2025-03-18 20:44:01] ==========================================================
+[2025-03-18 20:44:01]   Cursor Process Monitor - FIXED VERSION
+[2025-03-18 20:44:01] ==========================================================
+[2025-03-18 20:44:01] Start time: 2025-03-18 20:44:01
+[2025-03-18 20:44:01] Monitoring for high-CPU Cursor-related processes...
+[2025-03-18 20:44:01] Will check processes: cursor, node, electron
+[2025-03-18 20:44:01] ==========================================================
+[2025-03-18 20:44:01] 
+[2025-03-18 20:44:01] Found 13 Cursor-related processes:
+[2025-03-18 20:44:01] PID: 11416, Name: Cursor, CPU: 2985.67%, Memory: 1675.84 MB
+[2025-03-18 20:44:01]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:01] 
+[2025-03-18 20:44:02] PID: 12860, Name: Cursor, CPU: 2684.3%, Memory: 1748.12 MB
+[2025-03-18 20:44:02]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:02] 
+[2025-03-18 20:44:02] PID: 7880, Name: Cursor, CPU: 1838.89%, Memory: 475.31 MB
+[2025-03-18 20:44:02]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" 
+[2025-03-18 20:44:02] 
+[2025-03-18 20:44:02] PID: 13992, Name: Cursor, CPU: 578.55%, Memory: 145.16 MB
+[2025-03-18 20:44:02]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:02] 
+[2025-03-18 20:44:02] PID: 16888, Name: Cursor, CPU: 35.83%, Memory: 251.48 MB
+[2025-03-18 20:44:02]   Command: C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe c:\U...
+[2025-03-18 20:44:02] 
+[2025-03-18 20:44:02] PID: 12324, Name: Cursor, CPU: 24.61%, Memory: 140.81 MB
+[2025-03-18 20:44:02]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:02] 
+[2025-03-18 20:44:02] PID: 15220, Name: node, CPU: 15.02%, Memory: 81.66 MB
+[2025-03-18 20:44:02]   Command: "C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs...
+[2025-03-18 20:44:02] 
+[2025-03-18 20:44:03] PID: 6280, Name: Cursor, CPU: 13.34%, Memory: 55.56 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 13860, Name: Cursor, CPU: 6.36%, Memory: 123.55 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 9228, Name: Cursor, CPU: 5.06%, Memory: 138.25 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 14884, Name: Cursor, CPU: 3.42%, Memory: 95.29 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 17432, Name: Cursor, CPU: 0.47%, Memory: 97.51 MB
+[2025-03-18 20:44:03]   Command: C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe c:\U...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 13116, Name: Cursor, CPU: 0.02%, Memory: 35.47 MB
+[2025-03-18 20:44:03]   Command: C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe --ty...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] Found 8 high-CPU processes (above 10%):
+[2025-03-18 20:44:03] PID: 11416, Name: Cursor, CPU: 2990.02%, Memory: 1675.84 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 12860, Name: Cursor, CPU: 2687.09%, Memory: 1748.12 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 7880, Name: Cursor, CPU: 1838.98%, Memory: 475.31 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" 
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 13992, Name: Cursor, CPU: 578.88%, Memory: 145.16 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 16888, Name: Cursor, CPU: 35.83%, Memory: 251.48 MB
+[2025-03-18 20:44:03]   Command: C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe c:\U...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 12324, Name: Cursor, CPU: 24.61%, Memory: 140.81 MB
+[2025-03-18 20:44:03]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:03] PID: 15220, Name: node, CPU: 15.02%, Memory: 81.66 MB
+[2025-03-18 20:44:03]   Command: "C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs...
+[2025-03-18 20:44:03] 
+[2025-03-18 20:44:04] PID: 6280, Name: Cursor, CPU: 13.34%, Memory: 55.56 MB
+[2025-03-18 20:44:04]   Command: "C:\Users\Chris\AppData\Local\Programs\cursor\Cursor.exe" --...
+[2025-03-18 20:44:04] 
+[2025-03-18 20:44:04] Recommendation: Use the terminate-cursor-subprocesses-new.bat tool to selectively
+[2025-03-18 20:44:04]                terminate the high-CPU processes identified above.
+[2025-03-18 20:44:04] 
+[2025-03-18 20:44:04] Overall Cursor resource usage:
+[2025-03-18 20:44:04]   Total CPU: 8200.8%
+[2025-03-18 20:44:04]   Total Memory: 5064.02 MB
+[2025-03-18 20:44:04]   Process Count: 13
+[2025-03-18 20:44:04] 
+[2025-03-18 20:44:04] ==========================================================
+[2025-03-18 20:44:04] Process monitor complete: 2025-03-18 20:44:04
+[2025-03-18 20:44:04] Log file: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Logs\Cursor-Performance\monitor-cursor-processes-20250318-204401.log
+[2025-03-18 20:44:04] ==========================================================
+[2025-03-18 20:44:04] Created guidance file: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Logs\Cursor-Performance\cursor-termination-guidance-20250318-204401.txt
+[2025-03-18 20:44:04] 
+[2025-03-18 20:44:04] Next steps:
+[2025-03-18 20:44:04] 1. Review the log file for detailed information
+[2025-03-18 20:44:04] 2. If high-CPU processes were found, run terminate-cursor-subprocesses-new.bat
+[2025-03-18 20:44:04] 3. If issues persist, try running Cursor with extensions disabled

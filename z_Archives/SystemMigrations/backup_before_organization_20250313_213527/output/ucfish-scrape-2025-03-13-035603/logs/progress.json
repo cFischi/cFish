@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "startTime": "2025-03-13T07:56:03.640Z",
+  "lastUpdateTime": "2025-03-13T07:57:08.615Z",
+  "totalUrls": 1,
+  "processedUrls": 0,
+  "failedUrls": 1,
+  "currentUrl": null,
+  "estimatedTimeRemaining": null,
+  "averageProcessingTime": null,
+  "processingTimes": [],
+  "recentProcessingTimes": [],
+  "problematicUrls": [],
+  "completionPercentage": 100,
+  "elapsedTimeMinutes": 1
+}

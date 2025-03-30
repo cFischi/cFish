@@ -1,0 +1,239 @@
+# cFish.io WordPress Development Memory
+
+## Metadata
+- **Last Updated**: 03-13-2025
+- **Purpose**: Track development activities and decisions
+- **Target Audience**: Developers and project stakeholders
+
+---
+
+## Historical Events
+
+### Initial Setup (2023-11-15)
+- Created WordPress development environment for cFish.io
+- Initialized Git repository with proper .gitignore
+- Set up development and staging environments
+- Established version control workflow
+- Created documentation structure
+
+### Development Kickoff (2023-11-16)
+- Completed first sprint planning
+- Assigned initial tasks to team members
+- Established coding standards and guidelines
+- Set up automated testing pipeline
+- Created project roadmap and timeline
+
+### First Deployment (2023-11-17)
+- Successfully deployed initial version to staging
+- Tested WordPress.com GitHub integration
+- Verified content synchronization
+- Fixed minor styling issues in production environment
+- Documented deployment process
+
+## Phase 1 Development
+
+### Initial Theme Development (2023-11-12)
+- Selected WordPress theme framework
+- Created initial theme structure
+- Set up Sass compilation pipeline
+- Integrated Bootstrap components
+- Created custom post types for specialized content
+
+### Plugin Selection and Integration (2023-11-13)
+- Evaluated various WordPress plugins for required functionality
+- Installed and configured WooCommerce for e-commerce features
+- Set up Advanced Custom Fields for content management
+- Integrated Yoast SEO for search optimization
+- Added caching plugins for performance optimization
+
+### Content Strategy Implementation (2023-11-14)
+- Defined content structure and taxonomy
+- Created content templates for consistent formatting
+- Established editorial workflow for content management
+- Developed guidelines for content creation and maintenance
+- Set up automated backups for content security
+
+## Project Specifications
+- Created spec.md (2023-11-15)
+- Defined project scope and objectives
+- Documented technical requirements
+- Established performance benchmarks
+- Outlined content structure and organization
+- Defined user roles and permissions
+
+## Documentation Suite
+- Created comprehensive WordPress development documentation (2023-11-15)
+- Added API documentation for custom endpoints
+- Created user guides for content management
+- Documented theme customization options
+- Added troubleshooting guides for common issues
+
+## Workflow Testing
+- Created feature/footer-update branch (2023-11-16)
+- Implemented automated testing with PHPUnit
+- Set up continuous integration with GitHub Actions
+- Created staging environment for pre-deployment testing
+- Implemented code reviews and quality assurance process
+
+## Documentation Updates
+- Created `wordpress-com-testing.md` - Guide for safely testing changes on wordpress.com (2023-11-16)
+- Updated README with new installation instructions
+- Added contributing guidelines for team members
+- Improved API documentation with examples
+- Created troubleshooting guide for common issues
+
+## Workflow Strategy Update (2023-11-16)
+- Evaluated WordPress Studio performance and usability after initial testing
+- Implemented new branching strategy for feature development
+- Improved code review process with automated checks
+- Enhanced deployment pipeline with additional verification steps
+- Added performance monitoring for production environment
+
+## WordPress.com GitHub Deployments Lessons (2023-11-17)
+- Conducted extensive testing of WordPress.com's GitHub Deployments feature
+- Documented best practices for deployment workflow
+- Identified limitations and workarounds
+- Created deployment checklist for quality assurance
+- Set up monitoring for deployment success/failure
+
+## Parent Theme Modification Test (2023-11-17)
+- Added a visible test to verify GitHub Deployments functionality
+- Documented theme inheritance structure
+- Created guidelines for child theme development
+- Established process for theme updates
+- Implemented version control for theme assets
+
+## Development Tools Added
+- Created `sync-to-studio.js` - Node.js script to sync Assembler child theme to WordPress Studio
+- Added build pipeline for Sass compilation
+- Implemented linting for code quality
+- Created deployment scripts for different environments
+- Added database migration tools for version control
+
+## Environment Issues Addressed
+- Identified and documented PowerShell/terminal compatibility issues in Cursor
+- Fixed SSL certificate issues in local development environment
+- Resolved database connection problems in staging
+- Fixed file permission issues in production
+- Improved error logging for debugging
+
+## Documentation Updates (05-10-2025)
+- Updated SOP.md with platform integration information from shortlinks
+- Added new section on API usage guidelines
+- Updated deployment instructions for GitHub Actions
+- Improved security recommendations
+- Added new examples for custom post type implementation
+
+## Two-Way Markdown-JSON Sync System Implementation (03-11-2025)
+
+Added bidirectional synchronization between Markdown and JSON files:
+- Created md-json-sync.js Node.js script for automatic two-way sync
+- Implemented JSON-optimized versions of all documentation
+- Set up /json directories in shortlinks and docs folders
+- Fixed path handling issues in JSON-to-Markdown conversion
+- Added file watchers for real-time bidirectional updates
+- Created md-json-sync.bat for easy launch on Windows
+- Established timestamp-based conflict resolution
+- Documented the system in json-sync-system.md
+- Added support for metadata, nested sections, and lists in the JSON schema
+
+This system ensures AI tools can efficiently parse documentation content by using the JSON format, while humans continue to work with readable Markdown files. Changes in either format automatically propagate to the other.
+
+## JSON Sync System Enhancement (03-11-2025)
+
+Enhanced the MD-JSON synchronization system with global directory support:
+- Added root-level JSON directory monitoring
+- Fixed path calculation for JSON files outside of markdown directories
+- Improved error handling for file system operations
+- Ensured proper async/await usage throughout the codebase
+- Added documentation for root-level JSON files usage
+
+The system now supports JSON files in any directory structure, not just subdirectories of markdown content folders. This enables global configuration files and site-wide content to be managed through the same synchronization system.
+
+## Bidirectional Sync Final Test (03-11-2025)
+
+Validated complete bidirectional synchronization system:
+- Confirmed JSON to Markdown conversion works in root directory
+- Verified watch functionality for all JSON directories
+- Tested modifications to existing content with immediate propagation
+- Validated creation of new files with proper directory structure
+- Confirmed proper timestamp-based conflict resolution
+
+The two-way sync system is now complete and ready for production use, providing reliable real-time synchronization between JSON and Markdown formats in any directory structure.
+
+## Sync System Content Preservation (03-11-2025)
+
+Improved the synchronization system to preserve historical content:
+- Enhanced the merging algorithm to prevent content loss during sync
+- Added special handling for document structure and non-section content
+- Implemented preservation of signature lines and timestamps
+- Restored historical content from backup in memory.md
+- Added detailed logging to differentiate between new files and merges
+
+The system now safely preserves all existing content when synchronizing between formats, ensuring no information is lost during the bidirectional conversion process.
+
+## Sync System Race Condition Fix (03-12-2025)
+
+Implemented critical fixes to prevent race conditions and data loss:
+- Added process lock mechanism to prevent multiple instances running simultaneously
+- Implemented file-level processing locks to prevent concurrent modifications
+- Added automatic backup creation before any file modification
+- Enhanced error handling with graceful recovery options
+- Improved content merging strategy with more aggressive content preservation
+- Added cleanup handlers for proper lock file removal
+
+These changes help prevent the memory file wiping issue by ensuring atomic operations and preventing conflicts between multiple synchronization processes.
+
+## Enhanced Security and Backup System (03-13-2025)
+
+Created a comprehensive safety system for the synchronization process:
+- Developed a new safer batch script launcher with health checks
+- Implemented time-stamped automatic backups with date and time in filename
+- Added node process detection to prevent concurrent instances
+- Created log rotation system for better history preservation
+- Implemented better error detection and runtime monitoring
+- Added recovery options from backup files when needed
+- Enhanced handling to prevent accidental overwrites 
+- Improved merging technique to prioritize preserving historical content
+- Fixed an issue causing memory.md to be replaced during synchronization
+- Added checks for stale lock files to prevent deadlocks
+
+The enhancements drastically reduce the risk of data loss, add necessary protection for critical files, and help recover from problematic synchronization attempts.
+
+## Setup Completed
+- Imported WordPress site from WordPress Studio to Cursor
+
+## Development Workflow
+1. Always work in feature branches, never directly on `main`
+2. Pull requests require at least one reviewer approval
+3. Run automated tests before submitting pull requests 
+4. Follow semantic versioning for releases
+5. Document changes in changelog.md
+
+## Git Commands to Remember
+- `git checkout -b feature-name` - Create and switch to a new feature branch
+- `git pull origin main` - Update local branch with changes from main
+- `git merge --no-ff feature-name` - Merge feature branch into current branch with commit
+- `git push origin feature-name` - Push feature branch to remote repository
+- `git tag -a v1.0.0 -m "Version 1.0.0"` - Create annotated tag for release
+
+## Important Notes
+- wp-config.php and other sensitive files are excluded from version control
+- Always sanitize user input before database operations
+- Use prepared statements for all database queries
+- Follow WordPress coding standards for consistency
+- Document all functions and classes with PHPDoc comments
+
+## Next Steps
+- Integrate the MD-JSON sync system with the git workflow
+- Create pre-commit hooks to verify synchronization
+- Add monitoring for sync failures with notification system
+- Document best practices for content creation with the sync system
+- Train team members on the new workflow
+- Test backups and recovery procedures for sync data
+- Create automated tests for synchronization process
+- Implement continuous integration checks for content validity
+- Set up periodic health checks for synchronization system
+- Develop emergency recovery protocol for sync failures
+
+_Updated 03-13-2025 | Human: tY FischEYe_

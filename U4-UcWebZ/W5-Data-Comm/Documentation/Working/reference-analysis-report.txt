@@ -1,0 +1,7 @@
+===================================================
+   Update Document References Tool (Simple Version)
+===================================================
+This tool helps update references to moved files
+as part of the documentation reorganization.
+
+Analyzing references to moved files...

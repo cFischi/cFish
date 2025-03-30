@@ -1,0 +1,22 @@
+# Bidirectional Sync Test
+
+## Metadata
+- **URL**: https://u.cfish.io/sync-test
+- **Last Updated**: 07-24-2025
+- **Purpose**: Testing the bidirectional synchronization system
+- **Target Audience**: Developers
+
+---
+
+## MD to JSON Test
+
+This section tests the conversion from Markdown to JSON.
+
+### Test Features
+- Automatic file creation
+- Bidirectional synchronization
+- Real-time updates
+
+## JSON to MD Test
+
+This section will be used to test the reverse direction after checking the JSON file is created. 

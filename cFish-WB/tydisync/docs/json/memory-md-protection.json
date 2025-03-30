@@ -1,0 +1,108 @@
+{
+  "id": "memory-md-protection",
+  "title": "Memory.md Protection Guide",
+  "url": "",
+  "metadata": {},
+  "sections": [
+    {
+      "title": "Overview",
+      "content": [
+        "This document explains the protection mechanisms in place for the critical `memory.md` file and how to safely update it while preserving its content."
+      ]
+    },
+    {
+      "title": "Current Protection Status",
+      "content": [
+        "The `memory.md` file is currently protected from automatic synchronization by:",
+        "1. A `.nosync` marker file (`memory.md.nosync`)",
+        "2. Multiple backup files stored in the project root:",
+        "- `memory.md.restored.backup`: The fully restored version",
+        "- `memory.md.before-restore`: Pre-restoration state",
+        "- `memory.md.urgent.backup`: Backup from detection point",
+        "- `memory.md.backup`: Earlier backup"
+      ]
+    },
+    {
+      "title": "Why This Protection Is Needed",
+      "content": [
+        "The automatic MD-JSON synchronization system has a critical flaw in its merging algorithm that can cause data loss when converting JSON back to Markdown. This issue specifically affects complex files like `memory.md` with multiple sections and lengthy content.",
+        "Despite the logs showing \"merged\" operations:",
+        "```",
+        "✓ JSON → MD (merged): json\\memory.json to memory.md",
+        "```",
+        "The actual result is that existing content is overwritten rather than properly merged, resulting in significant data loss."
+      ]
+    },
+    {
+      "title": "How to Safely Update memory.md",
+      "content": [
+        "Until the synchronization system is fixed, follow these guidelines to safely update `memory.md`:",
+        {
+          "subtitle": "Method 1: Direct Editing (Recommended)",
+          "items": [
+            "1. Edit `memory.md` directly in Cursor",
+            "2. Make your changes",
+            "3. Save the file",
+            "4. **Do not** manually convert to JSON",
+            "The `.nosync` marker will prevent any automatic synchronization."
+          ]
+        },
+        {
+          "subtitle": "Method 2: Update with Script (For Complex Updates)",
+          "items": [
+            "For standardized updates that follow the proper format:",
+            "1. Use the `update-memory.js` script:",
+            "```",
+            "node update-memory.js --title \"Update Title\" --content \"Update content in bullet form\"",
+            "```",
+            "2. Or use the batch wrapper:",
+            "```",
+            "update-memory.bat \"Update Title\" \"Update content in bullet form\"",
+            "```",
+            "These scripts perform proper appending without triggering synchronization."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Safety Guidelines",
+      "content": [
+        "1. **Never Delete** the `.nosync` marker file",
+        "2. **Always Check** that your changes are preserved after saving",
+        "3. **Create Manual Backups** before significant updates",
+        "4. **Do Not** attempt to synchronize memory.md with its JSON version",
+        "5. **Report Any Issues** immediately if content appears to be lost"
+      ]
+    },
+    {
+      "title": "When Protection Can Be Removed",
+      "content": [
+        "The `.nosync` protection should remain in place until ALL of the following are completed:",
+        "1. The merging algorithm in `tydisync.js` is fixed to properly preserve content",
+        "2. Content validation is implemented to detect and prevent content loss",
+        "3. Thorough testing validates the fix across multiple test cases",
+        "4. A supervised test synchronization of memory.md completes successfully"
+      ]
+    },
+    {
+      "title": "Emergency Recovery",
+      "content": [
+        "If content is lost despite these protections:",
+        "1. Immediately stop any synchronization processes",
+        "2. Restore from the most recent backup: `memory.md.restored.backup`",
+        "3. Create a new backup of the current state for analysis",
+        "4. Document the issue and how it occurred"
+      ]
+    },
+    {
+      "title": "Documentation Updates",
+      "content": [
+        "Any changes to the protection mechanism or the status of the underlying issue should be documented in:",
+        "1. This file (`memory-md-protection.md`)",
+        "2. The main `README-tydisync.md` file",
+        "3. The `docs/tydisync-status-report.md` file",
+        "_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_"
+      ]
+    }
+  ]
+}

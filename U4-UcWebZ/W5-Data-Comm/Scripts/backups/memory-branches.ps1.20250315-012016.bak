@@ -1,0 +1,879 @@
+<#
+.SYNOPSIS
+    Memory branch management for DMMS memory files
+.DESCRIPTION
+    This script provides functionality for creating branches of memory files,
+    working on them independently, and merging changes back to the main branch.
+.NOTES
+    File Name      : memory-branches.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell 5.1 or later
+    Copyright 2025 - cFish.io
+#>
+
+#Requires -Version 5.1
+
+# Strict mode to catch common errors
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
+# Define constants
+$SCRIPT_VERSION = "1.0.0"
+$SCRIPT_DATE = "2025-03-26"
+$BRANCHES_DIR = Join-Path -Path $PSScriptRoot -ChildPath "../Data/Branches"
+$BRANCHES_DB_FILE = Join-Path -Path $BRANCHES_DIR -ChildPath "branches.json"
+$PULL_REQUESTS_DB_FILE = Join-Path -Path $BRANCHES_DIR -ChildPath "pull-requests.json"
+$LOG_FILE = Join-Path -Path $PSScriptRoot -ChildPath "../Logs/memory-branches.log"
+
+# Create directories if they don't exist
+function Initialize-BranchEnvironment {
+    Write-Verbose "Initializing branch environment..."
+    
+    # Create Branches directory if it doesn't exist
+    if (-not (Test-Path -Path $BRANCHES_DIR)) {
+        New-Item -Path $BRANCHES_DIR -ItemType Directory -Force | Out-Null
+        Write-Verbose "Created branches directory: $BRANCHES_DIR"
+    }
+    
+    # Create logs directory if it doesn't exist
+    $logDir = Split-Path -Path $LOG_FILE -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+        Write-Verbose "Created logs directory: $logDir"
+    }
+    
+    # Initialize branches database if it doesn't exist
+    if (-not (Test-Path -Path $BRANCHES_DB_FILE)) {
+        $initialDb = @{
+            "metadata" = @{
+                "created" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                "version" = $SCRIPT_VERSION
+                "branchCount" = 0
+            }
+            "branches" = @{}
+        }
+        $initialDb | ConvertTo-Json -Depth 10 | Set-Content -Path $BRANCHES_DB_FILE -Encoding UTF8
+        Write-Verbose "Initialized branches database: $BRANCHES_DB_FILE"
+    }
+    
+    # Initialize pull requests database if it doesn't exist
+    if (-not (Test-Path -Path $PULL_REQUESTS_DB_FILE)) {
+        $initialDb = @{
+            "metadata" = @{
+                "created" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                "version" = $SCRIPT_VERSION
+                "prCount" = 0
+            }
+            "pullRequests" = @{}
+        }
+        $initialDb | ConvertTo-Json -Depth 10 | Set-Content -Path $PULL_REQUESTS_DB_FILE -Encoding UTF8
+        Write-Verbose "Initialized pull requests database: $PULL_REQUESTS_DB_FILE"
+    }
+    
+    Write-Verbose "Branch environment initialized."
+}
+
+# Function to write to log file
+function Write-Log {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("INFO", "WARNING", "ERROR")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logMessage = "[$timestamp] [$Level] $Message"
+    
+    # Append to log file
+    Add-Content -Path $LOG_FILE -Value $logMessage
+    
+    # Also output to console with appropriate color
+    switch ($Level) {
+        "INFO" { Write-Host $logMessage -ForegroundColor Cyan }
+        "WARNING" { Write-Host $logMessage -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logMessage -ForegroundColor Red }
+    }
+}
+
+# Function to load branches database
+function Get-BranchesDatabase {
+    if (Test-Path -Path $BRANCHES_DB_FILE) {
+        $json = Get-Content -Path $BRANCHES_DB_FILE -Raw | ConvertFrom-Json
+        return $json
+    }
+    else {
+        Write-Log "Branches database not found. Initializing new database." -Level "WARNING"
+        Initialize-BranchEnvironment
+        return (Get-Content -Path $BRANCHES_DB_FILE -Raw | ConvertFrom-Json)
+    }
+}
+
+# Function to save branches database
+function Save-BranchesDatabase {
+    param (
+        [Parameter(Mandatory = $true)]
+        [PSCustomObject]$Database
+    )
+    
+    # Update metadata
+    $Database.metadata.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+    $Database.metadata.branchCount = ($Database.branches | Get-Member -MemberType NoteProperty).Count
+    
+    $Database | ConvertTo-Json -Depth 10 | Set-Content -Path $BRANCHES_DB_FILE -Encoding UTF8
+    Write-Verbose "Branches database saved with $($Database.metadata.branchCount) branches."
+}
+
+# Function to load pull requests database
+function Get-PullRequestsDatabase {
+    if (Test-Path -Path $PULL_REQUESTS_DB_FILE) {
+        $json = Get-Content -Path $PULL_REQUESTS_DB_FILE -Raw | ConvertFrom-Json
+        return $json
+    }
+    else {
+        Write-Log "Pull requests database not found. Initializing new database." -Level "WARNING"
+        Initialize-BranchEnvironment
+        return (Get-Content -Path $PULL_REQUESTS_DB_FILE -Raw | ConvertFrom-Json)
+    }
+}
+
+# Function to save pull requests database
+function Save-PullRequestsDatabase {
+    param (
+        [Parameter(Mandatory = $true)]
+        [PSCustomObject]$Database
+    )
+    
+    # Update metadata
+    $Database.metadata.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+    $Database.metadata.prCount = ($Database.pullRequests | Get-Member -MemberType NoteProperty).Count
+    
+    $Database | ConvertTo-Json -Depth 10 | Set-Content -Path $PULL_REQUESTS_DB_FILE -Encoding UTF8
+    Write-Verbose "Pull requests database saved with $($Database.metadata.prCount) pull requests."
+}
+
+# Function to create a new branch
+function New-MemoryBranch {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$BranchName,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$SourceFile,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Description = "",
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Creator = $env:USERNAME
+    )
+    
+    try {
+        Write-Log "Creating new branch: $BranchName"
+        
+        # Validate source file exists
+        if (-not (Test-Path -Path $SourceFile)) {
+            Write-Log "Source file does not exist: $SourceFile" -Level "ERROR"
+            return $false
+        }
+        
+        # Validate branch name
+        if ($BranchName -match '[\\\/\:\*\?"<>\|]') {
+            Write-Log "Branch name contains invalid characters: $BranchName" -Level "ERROR"
+            return $false
+        }
+        
+        # Load branches database
+        $branchesDb = Get-BranchesDatabase
+        
+        # Check if branch already exists
+        if ($branchesDb.branches.$BranchName) {
+            Write-Log "Branch already exists: $BranchName" -Level "ERROR"
+            return $false
+        }
+        
+        # Create branch directory
+        $branchDir = Join-Path -Path $BRANCHES_DIR -ChildPath $BranchName
+        if (Test-Path -Path $branchDir) {
+            Write-Log "Branch directory already exists: $branchDir" -Level "ERROR"
+            return $false
+        }
+        New-Item -Path $branchDir -ItemType Directory -Force | Out-Null
+        
+        # Copy source file to branch directory
+        $sourceFileName = Split-Path -Path $SourceFile -Leaf
+        $branchFile = Join-Path -Path $branchDir -ChildPath $sourceFileName
+        Copy-Item -Path $SourceFile -Destination $branchFile -Force
+        
+        # Create branch metadata
+        $branchMetadata = @{
+            "branchName" = $BranchName
+            "created" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "creator" = $Creator
+            "description" = $Description
+            "sourceFile" = $SourceFile
+            "branchFile" = $branchFile
+            "status" = "active"
+            "lastUpdated" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "pullRequests" = @()
+        }
+        
+        # Add to database
+        $branchesDb.branches | Add-Member -MemberType NoteProperty -Name $BranchName -Value $branchMetadata
+        
+        # Save database
+        Save-BranchesDatabase -Database $branchesDb
+        
+        Write-Log "Branch created successfully: $BranchName" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error creating branch: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to list all branches
+function Get-MemoryBranches {
+    param (
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("all", "active", "merged", "abandoned")]
+        [string]$Status = "all"
+    )
+    
+    try {
+        # Load branches database
+        $branchesDb = Get-BranchesDatabase
+        
+        $branchesList = @()
+        
+        foreach ($branchName in ($branchesDb.branches | Get-Member -MemberType NoteProperty).Name) {
+            $branch = $branchesDb.branches.$branchName
+            
+            # Filter by status if specified
+            if ($Status -ne "all" -and $branch.status -ne $Status) {
+                continue
+            }
+            
+            $branchesList += [PSCustomObject]@{
+                BranchName = $branchName
+                Creator = $branch.creator
+                Created = $branch.created
+                LastUpdated = $branch.lastUpdated
+                Status = $branch.status
+                Description = $branch.description
+                SourceFile = $branch.sourceFile
+                PRCount = $branch.pullRequests.Count
+            }
+        }
+        
+        return $branchesList
+    }
+    catch {
+        Write-Log "Error listing branches: $_" -Level "ERROR"
+        return @()
+    }
+}
+
+# Function to get a specific branch
+function Get-MemoryBranch {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$BranchName
+    )
+    
+    try {
+        # Load branches database
+        $branchesDb = Get-BranchesDatabase
+        
+        if (-not $branchesDb.branches.$BranchName) {
+            Write-Log "Branch not found: $BranchName" -Level "WARNING"
+            return $null
+        }
+        
+        return $branchesDb.branches.$BranchName
+    }
+    catch {
+        Write-Log "Error getting branch: $_" -Level "ERROR"
+        return $null
+    }
+}
+
+# Function to update a branch
+function Update-MemoryBranch {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$BranchName,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Description,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("active", "merged", "abandoned")]
+        [string]$Status,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$UpdatedBy = $env:USERNAME
+    )
+    
+    try {
+        # Load branches database
+        $branchesDb = Get-BranchesDatabase
+        
+        if (-not $branchesDb.branches.$BranchName) {
+            Write-Log "Branch not found: $BranchName" -Level "ERROR"
+            return $false
+        }
+        
+        # Update description if provided
+        if ($Description) {
+            $branchesDb.branches.$BranchName.description = $Description
+        }
+        
+        # Update status if provided
+        if ($Status) {
+            $branchesDb.branches.$BranchName.status = $Status
+        }
+        
+        # Update last updated timestamp
+        $branchesDb.branches.$BranchName.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        $branchesDb.branches.$BranchName.lastUpdatedBy = $UpdatedBy
+        
+        # Save database
+        Save-BranchesDatabase -Database $branchesDb
+        
+        Write-Log "Branch updated successfully: $BranchName" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error updating branch: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to compare branch with source
+function Compare-MemoryBranch {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$BranchName
+    )
+    
+    try {
+        # Get branch information
+        $branch = Get-MemoryBranch -BranchName $BranchName
+        
+        if (-not $branch) {
+            Write-Log "Branch not found: $BranchName" -Level "ERROR"
+            return $null
+        }
+        
+        # Ensure both files exist
+        if (-not (Test-Path -Path $branch.sourceFile)) {
+            Write-Log "Source file not found: $($branch.sourceFile)" -Level "ERROR"
+            return $null
+        }
+        
+        if (-not (Test-Path -Path $branch.branchFile)) {
+            Write-Log "Branch file not found: $($branch.branchFile)" -Level "ERROR"
+            return $null
+        }
+        
+        # Read file contents
+        $sourceContent = Get-Content -Path $branch.sourceFile -Raw
+        $branchContent = Get-Content -Path $branch.branchFile -Raw
+        
+        # Compare files
+        $sourceLines = $sourceContent -split "`n"
+        $branchLines = $branchContent -split "`n"
+        
+        # Create diff object
+        $diff = @{
+            "branchName" = $BranchName
+            "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "sourceOnly" = @()
+            "branchOnly" = @()
+            "inBoth" = @()
+            "hasDifferences" = $false
+        }
+        
+        # Find lines only in source
+        foreach ($line in $sourceLines) {
+            $trimmedLine = $line.TrimEnd()
+            if ($trimmedLine -and $branchLines -notcontains $trimmedLine) {
+                $diff.sourceOnly += $trimmedLine
+                $diff.hasDifferences = $true
+            }
+            else {
+                $diff.inBoth += $trimmedLine
+            }
+        }
+        
+        # Find lines only in branch
+        foreach ($line in $branchLines) {
+            $trimmedLine = $line.TrimEnd()
+            if ($trimmedLine -and $sourceLines -notcontains $trimmedLine) {
+                $diff.branchOnly += $trimmedLine
+                $diff.hasDifferences = $true
+            }
+        }
+        
+        return $diff
+    }
+    catch {
+        Write-Log "Error comparing branch: $_" -Level "ERROR"
+        return $null
+    }
+}
+
+# Function to create a pull request
+function New-MemoryPullRequest {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$BranchName,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Title,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Description = "",
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Creator = $env:USERNAME
+    )
+    
+    try {
+        Write-Log "Creating new pull request for branch: $BranchName"
+        
+        # Get branch information
+        $branch = Get-MemoryBranch -BranchName $BranchName
+        
+        if (-not $branch) {
+            Write-Log "Branch not found: $BranchName" -Level "ERROR"
+            return $false
+        }
+        
+        # Check if branch is active
+        if ($branch.status -ne "active") {
+            Write-Log "Cannot create pull request for branch with status: $($branch.status)" -Level "ERROR"
+            return $false
+        }
+        
+        # Generate unique PR ID
+        $prId = "PR-" + [Guid]::NewGuid().ToString().Substring(0, 8)
+        
+        # Create diff
+        $diff = Compare-MemoryBranch -BranchName $BranchName
+        
+        if (-not $diff) {
+            Write-Log "Failed to compare branch for diff" -Level "ERROR"
+            return $false
+        }
+        
+        if (-not $diff.hasDifferences) {
+            Write-Log "No differences found between branch and source file" -Level "WARNING"
+            return $false
+        }
+        
+        # Load pull requests database
+        $prDb = Get-PullRequestsDatabase
+        
+        # Create pull request metadata
+        $prMetadata = @{
+            "id" = $prId
+            "title" = $Title
+            "description" = $Description
+            "branchName" = $BranchName
+            "creator" = $Creator
+            "created" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "status" = "open"
+            "sourceFile" = $branch.sourceFile
+            "branchFile" = $branch.branchFile
+            "diff" = $diff
+            "reviewers" = @()
+            "comments" = @()
+            "history" = @(
+                @{
+                    "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                    "action" = "created"
+                    "actor" = $Creator
+                    "details" = "Pull request created"
+                }
+            )
+        }
+        
+        # Add to pull requests database
+        $prDb.pullRequests | Add-Member -MemberType NoteProperty -Name $prId -Value $prMetadata
+        
+        # Save pull requests database
+        Save-PullRequestsDatabase -Database $prDb
+        
+        # Update branch with PR reference
+        $branchesDb = Get-BranchesDatabase
+        $branchesDb.branches.$BranchName.pullRequests += $prId
+        $branchesDb.branches.$BranchName.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        Save-BranchesDatabase -Database $branchesDb
+        
+        Write-Log "Pull request created successfully: $prId for branch $BranchName" -Level "INFO"
+        return $prId
+    }
+    catch {
+        Write-Log "Error creating pull request: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to list all pull requests
+function Get-MemoryPullRequests {
+    param (
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("all", "open", "closed", "merged")]
+        [string]$Status = "all"
+    )
+    
+    try {
+        # Load pull requests database
+        $prDb = Get-PullRequestsDatabase
+        
+        $prList = @()
+        
+        foreach ($prId in ($prDb.pullRequests | Get-Member -MemberType NoteProperty).Name) {
+            $pr = $prDb.pullRequests.$prId
+            
+            # Filter by status if specified
+            if ($Status -ne "all" -and $pr.status -ne $Status) {
+                continue
+            }
+            
+            $prList += [PSCustomObject]@{
+                Id = $prId
+                Title = $pr.title
+                BranchName = $pr.branchName
+                Creator = $pr.creator
+                Created = $pr.created
+                Status = $pr.status
+                ReviewerCount = $pr.reviewers.Count
+                CommentCount = $pr.comments.Count
+            }
+        }
+        
+        return $prList
+    }
+    catch {
+        Write-Log "Error listing pull requests: $_" -Level "ERROR"
+        return @()
+    }
+}
+
+# Function to get a specific pull request
+function Get-MemoryPullRequest {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$PullRequestId
+    )
+    
+    try {
+        # Load pull requests database
+        $prDb = Get-PullRequestsDatabase
+        
+        if (-not $prDb.pullRequests.$PullRequestId) {
+            Write-Log "Pull request not found: $PullRequestId" -Level "WARNING"
+            return $null
+        }
+        
+        return $prDb.pullRequests.$PullRequestId
+    }
+    catch {
+        Write-Log "Error getting pull request: $_" -Level "ERROR"
+        return $null
+    }
+}
+
+# Function to update a pull request
+function Update-MemoryPullRequest {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$PullRequestId,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Title,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Description,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("open", "closed", "merged")]
+        [string]$Status,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$UpdatedBy = $env:USERNAME
+    )
+    
+    try {
+        # Load pull requests database
+        $prDb = Get-PullRequestsDatabase
+        
+        if (-not $prDb.pullRequests.$PullRequestId) {
+            Write-Log "Pull request not found: $PullRequestId" -Level "ERROR"
+            return $false
+        }
+        
+        # Update title if provided
+        if ($Title) {
+            $prDb.pullRequests.$PullRequestId.title = $Title
+        }
+        
+        # Update description if provided
+        if ($Description) {
+            $prDb.pullRequests.$PullRequestId.description = $Description
+        }
+        
+        # Update status if provided
+        if ($Status) {
+            $oldStatus = $prDb.pullRequests.$PullRequestId.status
+            $prDb.pullRequests.$PullRequestId.status = $Status
+            
+            # Add history entry
+            $historyEntry = @{
+                "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                "action" = "status-change"
+                "actor" = $UpdatedBy
+                "details" = "Status changed from $oldStatus to $Status"
+            }
+            $prDb.pullRequests.$PullRequestId.history += $historyEntry
+            
+            # If merged, update branch status
+            if ($Status -eq "merged") {
+                $branchName = $prDb.pullRequests.$PullRequestId.branchName
+                Update-MemoryBranch -BranchName $branchName -Status "merged" -UpdatedBy $UpdatedBy
+                
+                # Perform the actual merge
+                $sourceFile = $prDb.pullRequests.$PullRequestId.sourceFile
+                $branchFile = $prDb.pullRequests.$PullRequestId.branchFile
+                
+                # Read branch file
+                $branchContent = Get-Content -Path $branchFile -Raw
+                
+                # Write to source file (actual merge)
+                $branchContent | Set-Content -Path $sourceFile -Encoding UTF8
+                
+                # Update history
+                $historyEntry = @{
+                    "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                    "action" = "merged"
+                    "actor" = $UpdatedBy
+                    "details" = "Changes merged to source file"
+                }
+                $prDb.pullRequests.$PullRequestId.history += $historyEntry
+            }
+        }
+        
+        # Save database
+        Save-PullRequestsDatabase -Database $prDb
+        
+        Write-Log "Pull request updated successfully: $PullRequestId" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error updating pull request: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to add a comment to a pull request
+function Add-PullRequestComment {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$PullRequestId,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Comment,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Author = $env:USERNAME
+    )
+    
+    try {
+        # Load pull requests database
+        $prDb = Get-PullRequestsDatabase
+        
+        if (-not $prDb.pullRequests.$PullRequestId) {
+            Write-Log "Pull request not found: $PullRequestId" -Level "ERROR"
+            return $false
+        }
+        
+        # Create comment object
+        $commentObj = @{
+            "id" = [Guid]::NewGuid().ToString()
+            "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "author" = $Author
+            "text" = $Comment
+        }
+        
+        # Add comment
+        $prDb.pullRequests.$PullRequestId.comments += $commentObj
+        
+        # Add history entry
+        $historyEntry = @{
+            "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "action" = "comment-added"
+            "actor" = $Author
+            "details" = "Comment added"
+        }
+        $prDb.pullRequests.$PullRequestId.history += $historyEntry
+        
+        # Save database
+        Save-PullRequestsDatabase -Database $prDb
+        
+        Write-Log "Comment added to pull request: $PullRequestId" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error adding comment: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to add a reviewer to a pull request
+function Add-PullRequestReviewer {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$PullRequestId,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Reviewer,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$AddedBy = $env:USERNAME
+    )
+    
+    try {
+        # Load pull requests database
+        $prDb = Get-PullRequestsDatabase
+        
+        if (-not $prDb.pullRequests.$PullRequestId) {
+            Write-Log "Pull request not found: $PullRequestId" -Level "ERROR"
+            return $false
+        }
+        
+        # Check if reviewer already exists
+        if ($prDb.pullRequests.$PullRequestId.reviewers -contains $Reviewer) {
+            Write-Log "Reviewer already added: $Reviewer" -Level "WARNING"
+            return $true
+        }
+        
+        # Add reviewer
+        $prDb.pullRequests.$PullRequestId.reviewers += $Reviewer
+        
+        # Add history entry
+        $historyEntry = @{
+            "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "action" = "reviewer-added"
+            "actor" = $AddedBy
+            "details" = "Reviewer added: $Reviewer"
+        }
+        $prDb.pullRequests.$PullRequestId.history += $historyEntry
+        
+        # Save database
+        Save-PullRequestsDatabase -Database $prDb
+        
+        Write-Log "Reviewer added to pull request: $PullRequestId" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error adding reviewer: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to sync a branch with its source file
+function Sync-MemoryBranch {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$BranchName,
+        
+        [Parameter(Mandatory = $false)]
+        [switch]$Force = $false,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$SyncedBy = $env:USERNAME
+    )
+    
+    try {
+        # Get branch information
+        $branch = Get-MemoryBranch -BranchName $BranchName
+        
+        if (-not $branch) {
+            Write-Log "Branch not found: $BranchName" -Level "ERROR"
+            return $false
+        }
+        
+        # Check if branch is active
+        if ($branch.status -ne "active" -and -not $Force) {
+            Write-Log "Cannot sync inactive branch: $BranchName (status: $($branch.status))" -Level "ERROR"
+            return $false
+        }
+        
+        # Ensure both files exist
+        if (-not (Test-Path -Path $branch.sourceFile)) {
+            Write-Log "Source file not found: $($branch.sourceFile)" -Level "ERROR"
+            return $false
+        }
+        
+        if (-not (Test-Path -Path $branch.branchFile)) {
+            Write-Log "Branch file not found: $($branch.branchFile)" -Level "ERROR"
+            return $false
+        }
+        
+        # Create backup of branch file
+        $backupDir = Join-Path -Path $BRANCHES_DIR -ChildPath "_backups"
+        if (-not (Test-Path -Path $backupDir)) {
+            New-Item -Path $backupDir -ItemType Directory -Force | Out-Null
+        }
+        
+        $backupFile = Join-Path -Path $backupDir -ChildPath "$BranchName-$(Get-Date -Format 'yyyyMMddHHmmss').bak"
+        Copy-Item -Path $branch.branchFile -Destination $backupFile -Force
+        
+        # Copy source file to branch file
+        Copy-Item -Path $branch.sourceFile -Destination $branch.branchFile -Force
+        
+        # Update branch metadata
+        $branchesDb = Get-BranchesDatabase
+        $branchesDb.branches.$BranchName.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        $branchesDb.branches.$BranchName.lastUpdatedBy = $SyncedBy
+        $branchesDb.branches.$BranchName.lastSync = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        $branchesDb.branches.$BranchName.lastSyncBy = $SyncedBy
+        Save-BranchesDatabase -Database $branchesDb
+        
+        Write-Log "Branch synced successfully: $BranchName" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error syncing branch: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Initialize the branch environment on script load
+Initialize-BranchEnvironment
+
+# Define public functions for script use
+$PublicFunctions = @{
+    "New-MemoryBranch" = ${function:New-MemoryBranch}
+    "Get-MemoryBranches" = ${function:Get-MemoryBranches}
+    "Update-MemoryBranch" = ${function:Update-MemoryBranch}
+    "Get-MemoryBranchContent" = ${function:Get-MemoryBranchContent}
+    "Compare-MemoryBranches" = ${function:Compare-MemoryBranches}
+    "Sync-MemoryBranch" = ${function:Sync-MemoryBranch}
+    "New-MemoryPullRequest" = ${function:New-MemoryPullRequest}
+    "Get-MemoryPullRequests" = ${function:Get-MemoryPullRequests}
+    "Get-MemoryPullRequestDetails" = ${function:Get-MemoryPullRequestDetails}
+    "Add-MemoryPullRequestComment" = ${function:Add-MemoryPullRequestComment}
+    "Add-MemoryPullRequestReviewer" = ${function:Add-MemoryPullRequestReviewer}
+    "Update-MemoryPullRequestStatus" = ${function:Update-MemoryPullRequestStatus}
+    "Merge-MemoryPullRequest" = ${function:Merge-MemoryPullRequest}
+}
+
+# Return public functions when script is dot-sourced
+return $PublicFunctions 

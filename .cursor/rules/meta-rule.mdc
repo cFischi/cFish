@@ -1,0 +1,71 @@
+---
+description: Core meta-rule that guides Cursor on rule creation and management.
+globs: *
+alwaysApply: true
+---
+
+# Cursor Meta-Rule for cFish.io
+
+## Rule Storage & Organization
+
+- Always store new Cursor rules in the `.cursor/rules` directory
+- Create new rules as separate `.mdc` files with appropriate naming
+- Follow UcF naming conventions for all rule files
+- Store prompt templates in the `.cursor/rules/prompt-templates` directory
+- Organize rules by department and functionality
+
+## Rule Creation Conventions
+
+- Use YAML frontmatter to specify rule scope and behavior:
+  ```markdown
+  ---
+  description: Brief description of rule purpose
+  globs: *.php, *.js  # Apply to specific file patterns
+  alwaysApply: true   # Apply to every request
+  ---
+  ```
+- Prefer department-specific rules for departmental contexts
+- Create specialized rule files for different aspects of projects
+- Keep rules focused and concise for better usability
+- Always follow WordPress coding standards in PHP rule examples
+
+## Departmental Organization
+
+Follow cFish.io's seven-department structure:
+- U1-Administration: Business administration and overhead functions
+- U2-Research: AI integration and R&D functions (tYFeAiz)
+- U3-Operations: Physical operations and facilities management
+- U4-Production: Web presence, operations, and production (WordPress)
+- U5-Data: Dispatch, services, and success functions
+- U6-Marketing: Social media and communications
+- U7-Systems: Development, design, and technical direction
+
+## Rule Priority Order
+
+1. "TASK:" directives (see [task-directives.mdc](mdc:.cursor/rules/task-directives.mdc))
+2. Code generation requests (follow patterns in relevant rule files)
+3. General inquiries (reference [instructions.md](mdc:instructions.md))
+
+## Rule Referencing Syntax
+
+- Reference rules using the syntax `@rule-name.mdc`
+- Use internal links within rules: `[rule-name](mdc:.cursor/rules/rule-name.mdc)`
+- Don't repeat guidance that exists in other rule files - reference instead
+
+## File Naming Conventions
+
+Follow cFish.io standard format:
+`ucf-[department].[function]-[description]-[date].[extension]`
+
+Function codes:
+1. Documentation
+2. Configuration
+3. Tools
+4. Scripts/Development
+5. Testing
+6. Automation
+7. Infrastructure
+8. Integration
+9. Miscellaneous
+
+Example: `ucf-u7.3-directory-visual-order-20250506.ps1` 

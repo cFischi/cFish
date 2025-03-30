@@ -1,0 +1,95 @@
+[2025-03-13 01:07:13] [INFO] ===== cFish.io Daily Health Check - 2025-03-13 01:07:13 =====
+[2025-03-13 01:07:13] [INFO] Checking system resources...
+[2025-03-13 01:07:13] [INFO] Disk space: 34.07 GB free (7.19%)
+[2025-03-13 01:07:13] [INFO] CPU Usage: 34.34%
+[2025-03-13 01:07:13] [INFO] Memory Usage: 45.97% (14.68 GB of 31.93 GB)
+[2025-03-13 01:07:13] [INFO] Checking tYDiSync~ system...
+[2025-03-13 01:07:13] [INFO] Sync log file size: 0.02 MB, last updated 16.24 hours ago
+[2025-03-13 01:07:13] [WARNING] Sync configuration file not found at sync-system\config\tydisync-config.json
+[2025-03-13 01:07:13] [WARNING] Sync system is not currently running
+[2025-03-13 01:07:13] [INFO] Checking content directories...
+[2025-03-13 01:07:13] [INFO] Markdown content directory: 4 files found
+[2025-03-13 01:07:13] [INFO] JSON content directory: 65 files found
+[2025-03-13 01:07:13] [INFO] WordPress content directory: 49629 files found
+[2025-03-13 01:07:13] [INFO] Backup files directory: 702 files found
+[2025-03-13 01:07:13] [INFO] MD Files: 4, JSON Files: 55
+[2025-03-13 01:07:13] [WARNING] Significant difference between MD and JSON file counts. Possible synchronization issue.
+[2025-03-13 01:07:13] [INFO] Checking recent backups...
+[2025-03-13 01:07:13] [INFO] Found 625 backups created in the last 24 hours.
+[2025-03-13 01:07:13] [INFO] ===== Health Check Complete: 0 issues, 3 warnings =====
+[2025-03-13 01:10:24] [INFO] ===== cFish.io Daily Health Check - 2025-03-13 01:10:24 =====
+[2025-03-13 01:10:24] [INFO] Checking system resources...
+[2025-03-13 01:10:24] [INFO] Disk space: 34.07 GB free (7.19%)
+[2025-03-13 01:10:24] [INFO] CPU Usage: 7.27%
+[2025-03-13 01:10:24] [INFO] Memory Usage: 46.25% (14.77 GB of 31.93 GB)
+[2025-03-13 01:10:24] [INFO] Checking tYDiSync~ system...
+[2025-03-13 01:10:24] [INFO] Sync log file size: 0.02 MB, last updated 16.29 hours ago
+[2025-03-13 01:10:24] [WARNING] Sync configuration file not found at sync-system\config\tydisync-config.json
+[2025-03-13 01:10:24] [WARNING] Sync system is not currently running
+[2025-03-13 01:10:24] [INFO] Checking content directories...
+[2025-03-13 01:10:24] [INFO] Markdown content directory: 4 files found
+[2025-03-13 01:10:24] [INFO] JSON content directory: 65 files found
+[2025-03-13 01:10:24] [INFO] WordPress content directory: 49629 files found
+[2025-03-13 01:10:24] [INFO] Backup files directory: 707 files found
+[2025-03-13 01:10:24] [INFO] MD Files: 4, JSON Files: 55
+[2025-03-13 01:10:24] [WARNING] Significant difference between MD and JSON file counts. Possible synchronization issue.
+[2025-03-13 01:10:24] [INFO] Checking recent backups...
+[2025-03-13 01:10:24] [INFO] Found 625 backups created in the last 24 hours.
+[2025-03-13 01:10:24] [INFO] ===== Health Check Complete: 0 issues, 3 warnings =====
+[2025-03-13 01:11:12] [INFO] ===== cFish.io Daily Health Check - 2025-03-13 01:11:12 =====
+[2025-03-13 01:11:12] [INFO] Checking system resources...
+[2025-03-13 01:11:12] [INFO] Disk space: 34.07 GB free (7.19%)
+[2025-03-13 01:11:12] [INFO] CPU Usage: 46.61%
+[2025-03-13 01:11:12] [INFO] Memory Usage: 46.31% (14.79 GB of 31.93 GB)
+[2025-03-13 01:11:12] [INFO] Checking tYDiSync~ system...
+[2025-03-13 01:11:12] [INFO] Sync log file size: 0.02 MB, last updated 16.3 hours ago
+[2025-03-13 01:11:12] [WARNING] Sync configuration file not found at sync-system\config\tydisync-config.json
+[2025-03-13 01:11:12] [WARNING] No Node.js processes found. Sync system is not currently running
+[2025-03-13 01:11:12] [INFO] Checking content directories...
+[2025-03-13 01:11:12] [INFO] Markdown content directory: 4 files found
+[2025-03-13 01:11:12] [INFO] JSON content directory: 65 files found
+[2025-03-13 01:11:12] [INFO] WordPress content directory: 49629 files found
+[2025-03-13 01:11:12] [INFO] Backup files directory: 707 files found
+[2025-03-13 01:11:12] [INFO] MD Files: 4, JSON Files: 55
+[2025-03-13 01:11:12] [WARNING] Significant difference between MD and JSON file counts. Possible synchronization issue.
+[2025-03-13 01:11:12] [INFO] Checking recent backups...
+[2025-03-13 01:11:12] [INFO] Found 625 backups created in the last 24 hours.
+[2025-03-13 01:11:12] [INFO] ===== Health Check Complete: 0 issues, 3 warnings =====
+[2025-03-13 01:37:59] [INFO] ===== cFish.io Daily Health Check - 2025-03-13 01:37:59 =====
+[2025-03-13 01:37:59] [INFO] Checking system resources...
+[2025-03-13 01:37:59] [INFO] Disk space: 34.05 GB free (7.18%)
+[2025-03-13 01:37:59] [INFO] CPU Usage: 20.17%
+[2025-03-13 01:37:59] [INFO] Memory Usage: 46.64% (14.89 GB of 31.93 GB)
+[2025-03-13 01:37:59] [INFO] Checking tYDiSync~ system...
+[2025-03-13 01:37:59] [INFO] Sync log file size: 0.02 MB, last updated 16.75 hours ago
+[2025-03-13 01:37:59] [WARNING] Sync configuration file not found at sync-system\config\tydisync-config.json
+[2025-03-13 01:37:59] [WARNING] No Node.js processes found. Sync system is not currently running
+[2025-03-13 01:37:59] [INFO] Checking content directories...
+[2025-03-13 01:37:59] [INFO] Markdown content directory: 4 files found
+[2025-03-13 01:37:59] [INFO] JSON content directory: 65 files found
+[2025-03-13 01:37:59] [INFO] WordPress content directory: 49629 files found
+[2025-03-13 01:37:59] [INFO] Backup files directory: 708 files found
+[2025-03-13 01:37:59] [INFO] MD Files: 4, JSON Files: 55
+[2025-03-13 01:37:59] [WARNING] Significant difference between MD and JSON file counts. Possible synchronization issue.
+[2025-03-13 01:37:59] [INFO] Checking recent backups...
+[2025-03-13 01:37:59] [INFO] Found 625 backups created in the last 24 hours.
+[2025-03-13 01:37:59] [INFO] ===== Health Check Complete: 0 issues, 3 warnings =====
+[2025-03-13 01:40:05] [INFO] ===== cFish.io Daily Health Check - 2025-03-13 01:40:05 =====
+[2025-03-13 01:40:05] [INFO] Checking system resources...
+[2025-03-13 01:40:05] [INFO] Disk space: 34.05 GB free (7.18%)
+[2025-03-13 01:40:05] [INFO] CPU Usage: 5.6%
+[2025-03-13 01:40:05] [INFO] Memory Usage: 46.98% (15 GB of 31.93 GB)
+[2025-03-13 01:40:05] [INFO] Checking tYDiSync~ system...
+[2025-03-13 01:40:05] [INFO] Sync log file size: 0.02 MB, last updated 16.79 hours ago
+[2025-03-13 01:40:05] [WARNING] Sync configuration file not found at sync-system\config\tydisync-config.json
+[2025-03-13 01:40:05] [WARNING] No Node.js processes found. Sync system is not currently running
+[2025-03-13 01:40:05] [INFO] Checking content directories...
+[2025-03-13 01:40:05] [INFO] Markdown content directory: 4 files found
+[2025-03-13 01:40:05] [INFO] JSON content directory: 65 files found
+[2025-03-13 01:40:05] [INFO] WordPress content directory: 49629 files found
+[2025-03-13 01:40:05] [INFO] Backup files directory: 709 files found
+[2025-03-13 01:40:05] [INFO] MD Files: 4, JSON Files: 55
+[2025-03-13 01:40:05] [WARNING] Significant difference between MD and JSON file counts. Possible synchronization issue.
+[2025-03-13 01:40:05] [INFO] Checking recent backups...
+[2025-03-13 01:40:05] [INFO] Found 625 backups created in the last 24 hours.
+[2025-03-13 01:40:05] [INFO] ===== Health Check Complete: 0 issues, 3 warnings =====

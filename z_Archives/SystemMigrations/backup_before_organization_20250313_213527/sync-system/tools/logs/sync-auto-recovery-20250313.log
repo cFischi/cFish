@@ -1,0 +1,19 @@
+[2025-03-13 07:43:25] [INFO] Auto-recovery mechanism started
+[2025-03-13 07:43:25] [INFO] Monitoring sync system: tydisync
+[2025-03-13 07:43:25] [WARNING] Sync system is not running on startup, attempting to start
+[2025-03-13 07:43:25] [WARNING] Attempting to restart sync system (Attempt 1 of 3)
+[2025-03-13 07:43:25] [WARNING] State directory does not exist: tydisync\state
+[2025-03-13 07:43:25] [SUCCESS] Created state directory: tydisync\state
+[2025-03-13 07:43:25] [WARNING] State file missing: sync-status.json
+[2025-03-13 07:43:25] [SUCCESS] Created placeholder state file: sync-status.json
+[2025-03-13 07:43:25] [WARNING] State file missing: last-sync.timestamp
+[2025-03-13 07:43:25] [SUCCESS] Created placeholder state file: last-sync.timestamp
+[2025-03-13 07:43:25] [WARNING] State file missing: active-files.json
+[2025-03-13 07:43:25] [SUCCESS] Created placeholder state file: active-files.json
+[2025-03-13 07:43:25] [INFO] Starting sync system...
+[2025-03-13 07:43:25] [ERROR] Sync system start script not found at: C:\Users\Chris\cFish.io\tools\tydisync\start-tydisync.bat
+[2025-03-13 07:43:25] [WARNING] Sync system is not running, attempting recovery
+[2025-03-13 07:43:25] [WARNING] Attempting to restart sync system (Attempt 1 of 3)
+[2025-03-13 07:43:25] [INFO] Starting sync system...
+[2025-03-13 07:43:25] [ERROR] Sync system start script not found at: C:\Users\Chris\cFish.io\tools\tydisync\start-tydisync.bat
+[2025-03-13 07:43:25] [ERROR] Recovery failed

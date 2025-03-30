@@ -1,0 +1,103 @@
+[Sat 03/15/2025  2:36:03.31] Starting PowerShell variable reference fix script 
+[Sat 03/15/2025  2:36:03.31] Running: powershell.exe -ExecutionPolicy Bypass -File "C:\Users\Chris\cFish.io\U5-Data\Scripts\fix-variable-references.ps1"  
+[2025-03-15 02:36:03] [INFO] Found 28 PowerShell scripts to process
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\backup-critical-files.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\backup-critical-files.ps1.bak
+[2025-03-15 02:36:03] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\backup-critical-files.ps1
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\begin-service-definition.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\begin-service-definition.ps1.bak
+[2025-03-15 02:36:03] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\begin-service-definition.ps1
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\complete-documentation-reorganization-day3.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\complete-documentation-reorganization-day3.ps1.bak
+[2025-03-15 02:36:03] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\complete-documentation-reorganization-day3.ps1
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\continue-documentation-reorganization.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\continue-documentation-reorganization.ps1.bak
+[2025-03-15 02:36:03] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\continue-documentation-reorganization.ps1
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\convert-md-to-json.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\convert-md-to-json.ps1.bak
+[2025-03-15 02:36:03] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\convert-md-to-json.ps1
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\create-department-memory-files.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\create-department-memory-files.ps1.bak
+[2025-03-15 02:36:03] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\create-department-memory-files.ps1
+[2025-03-15 02:36:03] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-global-validation.ps1
+[2025-03-15 02:36:03] [INFO] Created backup: .\backups\dmms-global-validation.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-global-validation.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\dmms-performance-benchmark.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-optimization.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\dmms-performance-optimization.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-optimization.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-security-enhancement.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\dmms-security-enhancement.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-security-enhancement.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\enhance-error-handling.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\enhance-error-handling.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\enhance-error-handling.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\enhance-service-documentation.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\enhance-service-documentation.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\enhance-service-documentation.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\file-locking.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\file-locking.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\file-locking.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\Fix-IntegrityIssues.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\Fix-IntegrityIssues.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\Fix-IntegrityIssues.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\fix-powershell-syntax.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\fix-powershell-syntax.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\fix-powershell-syntax.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\fix-variable-references.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\fix-variable-references.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\fix-variable-references.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\memory-branches.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\memory-branches.ps1.bak
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$Creator = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$UpdatedBy = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$Creator = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$UpdatedBy = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$Author = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$AddedBy = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$SyncedBy = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable references in: C:\Users\Chris\cFish.io\U5-Data\Scripts\memory-branches.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\repair-integrity.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\repair-integrity.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\repair-integrity.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\scan-integrity.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\scan-integrity.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\scan-integrity.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\schedule-verification.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\schedule-verification.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\schedule-verification.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\simple-backup.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\simple-backup.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\simple-backup.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\simple-verify.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\simple-verify.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\simple-verify.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\sync-bidirectional.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-memory-files.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\sync-memory-files.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-memory-files.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\verify-critical-files.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\verify-critical-files.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\verify-critical-files.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\verify-directory-structure.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\verify-directory-structure.ps1.bak
+[2025-03-15 02:36:04] [INFO] No variable reference issues found in: C:\Users\Chris\cFish.io\U5-Data\Scripts\verify-directory-structure.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\version-history.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\version-history.ps1.bak
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$User = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         [string]$User = $env:USERNAME
+[2025-03-15 02:36:04] [INFO] Fixed variable references in: C:\Users\Chris\cFish.io\U5-Data\Scripts\version-history.ps1
+[2025-03-15 02:36:04] [INFO] Processing script: C:\Users\Chris\cFish.io\U5-Data\Scripts\wordpress-environment-setup.ps1
+[2025-03-15 02:36:04] [INFO] Created backup: .\backups\wordpress-environment-setup.ps1.bak
+[2025-03-15 02:36:04] [INFO] Fixed variable reference in line:         $tempDir = Join-Path -Path $env:TEMP -ChildPath "wpcli-install"
+[2025-03-15 02:36:04] [INFO] Fixed variable references in: C:\Users\Chris\cFish.io\U5-Data\Scripts\wordpress-environment-setup.ps1
+[2025-03-15 02:36:04] [INFO] ===== Summary =====
+[2025-03-15 02:36:04] [INFO] Total scripts processed: 28
+[2025-03-15 02:36:04] [INFO] Scripts with fixes applied: 3
+[2025-03-15 02:36:04] [INFO] Errors encountered: 0
+[2025-03-15 02:36:04] [INFO] Completed successfully. See log file for details: .\fix-variable-references.log
+[Sat 03/15/2025  2:36:04.80] PowerShell variable reference fix completed successfully 

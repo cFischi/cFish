@@ -1,0 +1,94 @@
+---
+description: U2-Research department guidelines focused on AI integration, R&D, and tYFeAiz collaboration.
+globs: U2-Research/*, *.md, *.py
+alwaysApply: false
+---
+
+# U2-Research Department Guidelines
+
+The U2-Research department focuses on AI integration, research and development, and tYFeAiz collaboration for cFish.io.
+
+## Department Role
+
+- Lead AI integration across all cFish.io platforms
+- Manage tYFeAiz collaboration framework
+- Research emerging technologies for potential integration
+- Develop innovative solutions for client needs
+- Establish AI best practices and patterns
+- Align all implementations with the Mind (U2) philosophical principle
+
+## Core Technologies
+
+- **tYFeAiz**: Multi-agent AI collaboration framework
+- **Local LLMs**: Llama 3, Mistral, CodeLlama models
+- **Python**: AI integration and automation tools
+- **AI Platforms**: OpenAI, Anthropic, etc.
+- **Cursor**: Advanced AI programming environment
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u2.4-agent-framework-20250507.py`
+
+- Research-specific organization:
+  ```
+  U2-Research/
+    Models/           # Local AI model configuration
+    Frameworks/       # AI framework implementation
+    Analysis/         # Research analysis and reports
+    Prompts/          # Specialized prompt libraries
+    Agents/           # Agent configuration and definitions
+    Experiments/      # Experimental implementations
+    Documentation/    # Research documentation
+  ```
+
+## Multi-Agent Collaboration
+
+- Implement "Live Boardz" sessions with 3-9 specialized AI agents
+- Assign specific roles based on each agent's strengths
+- Coordinate with human-in-the-loop at key decision points
+- Document all session outcomes and learnings
+- See [tyfeaiz-collaboration.mdc](mdc:.cursor/rules/tyfeaiz-collaboration.mdc) for details
+
+## Agent Roles
+
+The tYFeAiz framework uses these specialized agent roles:
+
+- **Executive Agent**: Strategic planning and high-level direction
+- **Project Architect**: System design and technical architecture
+- **Implementation Engineer**: Code generation and feature development
+- **QA Analyst**: Testing, validation, and quality assurance
+- **Documentation Specialist**: Technical writing and documentation
+- **Security Expert**: Security auditing and vulnerability assessment
+- **UX Designer**: User experience and interface design
+- **Data Analyst**: Data processing and analysis
+- **Integration Specialist**: Cross-platform integration and synchronization
+
+## Local LLM Implementation
+
+- Configure and deploy local language models for development
+- Implement specialized model fine-tuning for cFish.io-specific patterns
+- Establish hybrid cloud-local architecture for optimal performance
+- See [local-llm.mdc](mdc:.cursor/rules/local-llm.mdc) for details
+
+## Philosophical Alignment
+
+As Mind (U2) department, focus on:
+- Creative and innovative thinking
+- Knowledge creation and management
+- Problem-solving excellence
+- Continuous learning and improvement
+- Forward-thinking solutions
+- Technology integration with philosophical principles
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Multi-agent collaboration framework optimization
+- Local LLM implementation for garage-based operations
+- AI capabilities showcase for client demonstrations
+- Integration of AI across all platform touchpoints
+- Documentation of AI practices and patterns for clients
+- Innovative AI solutions for knowledge monetization 

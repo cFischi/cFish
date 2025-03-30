@@ -1,0 +1,94 @@
+---
+description: Guidelines for handling structured task requests with TASK: prefix.
+globs: *
+alwaysApply: true
+---
+
+# Task Directive Handling
+
+When you receive a message with the "TASK:" prefix, follow this structured workflow:
+
+## 1. Initial Task Analysis
+
+- Search all relevant files to understand the task context
+- Write a summary of the task into `scratchpad.md` including:
+  - Task description
+  - Related files and components
+  - Dependencies and prerequisites
+  - Proposed implementation approach
+  - Estimated complexity
+- Wait for review and approval before proceeding with implementation
+
+## 2. Task Implementation Workflow
+
+Upon approval, follow this implementation workflow:
+
+1. **Preparation**:
+   - Create Git branch off main with the feature name
+   - Update status in `scratchpad.md` to "in-progress"
+   
+2. **Execution**:
+   - Work through tasks methodically in order of dependencies
+   - Update `scratchpad.md` with progress after each step
+   - Follow department-specific guidelines based on file location
+   - Implement proper error handling and logging
+   - Add appropriate inline documentation
+   
+3. **Verification**:
+   - Test all changes according to requirements
+   - Run linting and code quality checks
+   - Verify cross-platform compatibility when applicable
+   - Document test results in `scratchpad.md`
+   
+4. **Documentation**:
+   - Update readme.txt with changes when complete
+   - Add entry to changelog.md following the format
+   - Update memory.md with comprehensive entry
+   - Create any additional documentation required
+
+## 3. Task Tracking Format
+
+Use this structured format in `scratchpad.md`:
+
+```markdown
+current_task: "Brief task description"
+status: in-progress|complete
+description: Detailed description of what needs to be done
+
+steps:
+[ ] Step 1 to complete the task
+[ ] Step 2 to complete the task
+[X] Completed step 3
+
+reflections:
+- Important observations about the implementation
+- Challenges encountered and how they were solved
+
+decisions:
+- Implementation decisions made and their rationale
+- Technical choices and their justifications
+```
+
+## 4. UcF Department-Specific Guidelines
+
+- For **U1-Administration** tasks: Focus on system integrity and values
+- For **U2-Research** tasks: Emphasize innovation and AI integration
+- For **U3-Operations** tasks: Focus on physical robustness and coherence
+- For **U4-Production** tasks: Emphasize output efficiency and quality
+- For **U5-Data** tasks: Focus on data flow and integration
+- For **U6-Marketing** tasks: Emphasize documentation and user feedback
+- For **U7-Systems** tasks: Focus on specialized technical solutions
+
+## 5. Task Documentation Requirements
+
+- Include current date in both section title and signature
+- Use bullet points for all major items
+- Keep entries concise and relevant
+- Follow the format:
+  ```
+  ## [Title] (MM-DD-2025)
+  - [Bullet points with key information]
+  - [More bullet points as needed]
+  
+  _Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+  ``` 

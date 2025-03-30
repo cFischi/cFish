@@ -1,0 +1,28 @@
+{
+  "watchDirs": [
+    {
+      "md": "./",
+      "json": "./json"
+    }
+  ],
+  "backupDir": "./backups",
+  "maxBackups": 2,
+  "enableBackups": true,
+  "debounceTime": 300,
+  "exclusions": [
+    "node_modules",
+    ".git",
+    ".cursor",
+    "backups",
+    "wp-content",
+    "wp-admin",
+    "wp-includes",
+    "vendor"
+  ],
+  "conflictResolutionMethod": "timestamp",
+  "criticalFiles": [
+    "memory.md"
+  ],
+  "recursiveWatching": false,
+  "validationThreshold": 0.9
+}

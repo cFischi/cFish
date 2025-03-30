@@ -1,0 +1,112 @@
+{
+    "GlobalRules":  [
+                        {
+                            "Parameters":  {
+                                               "AllowedExtensions":  [
+                                                                         ".ps1",
+                                                                         ".bat",
+                                                                         ".json",
+                                                                         ".md",
+                                                                         ".txt",
+                                                                         ".log",
+                                                                         ".csv"
+                                                                     ]
+                                           },
+                            "Description":  "Ensures file content type matches its extension",
+                            "RuleId":  "GR001",
+                            "Name":  "FileExtensionMatch",
+                            "Severity":  "Error"
+                        },
+                        {
+                            "Parameters":  {
+                                               "Patterns":  [
+                                                                "password\\s*=\\s*[\"\u0027][^\"\u0027]+[\"\u0027]",
+                                                                "pwd\\s*=\\s*[\"\u0027][^\"\u0027]+[\"\u0027]",
+                                                                "apikey\\s*=\\s*[\"\u0027][^\"\u0027]+[\"\u0027]",
+                                                                "secret\\s*=\\s*[\"\u0027][^\"\u0027]+[\"\u0027]"
+                                                            ]
+                                           },
+                            "Description":  "Checks for hardcoded credentials in scripts",
+                            "RuleId":  "GR002",
+                            "Name":  "NoHardcodedCredentials",
+                            "Severity":  "Critical"
+                        },
+                        {
+                            "Parameters":  {
+                                               "SchemaPath":  "config\\schemas\\"
+                                           },
+                            "Description":  "Validates JSON/CSV files against schema",
+                            "RuleId":  "GR003",
+                            "Name":  "DataSchemaValidation",
+                            "Severity":  "Warning"
+                        }
+                    ],
+    "LastUpdated":  "2025-03-15",
+    "Version":  "1.0",
+    "FileTypeRules":  {
+                          "PowerShell":  [
+                                             {
+                                                 "Parameters":  {
+                                                                    "RequiredPatterns":  [
+                                                                                             "try\\s*\\{[\\s\\S]*?catch\\s*\\{[\\s\\S]*?\\}"
+                                                                                         ]
+                                                                },
+                                                 "Description":  "Checks for proper error handling in PowerShell scripts",
+                                                 "RuleId":  "PS001",
+                                                 "Name":  "ProperErrorHandling",
+                                                 "Severity":  "Warning"
+                                             },
+                                             {
+                                                 "Parameters":  {
+                                                                    "RequiredPatterns":  [
+                                                                                             "Write-Log",
+                                                                                             "Add-Content\\s+-Path\\s+.*log"
+                                                                                         ]
+                                                                },
+                                                 "Description":  "Ensures logging is implemented in scripts",
+                                                 "RuleId":  "PS002",
+                                                 "Name":  "LoggingPresent",
+                                                 "Severity":  "Warning"
+                                             }
+                                         ],
+                          "BatchFile":  [
+                                            {
+                                                "Parameters":  {
+                                                                   "RequiredPatterns":  [
+                                                                                            "if\\s+%ERRORLEVEL%\\s+",
+                                                                                            "if\\s+errorlevel\\s+"
+                                                                                        ]
+                                                               },
+                                                "Description":  "Ensures error level checking is implemented",
+                                                "RuleId":  "BAT001",
+                                                "Name":  "ErrorLevelChecking",
+                                                "Severity":  "Warning"
+                                            }
+                                        ],
+                          "Markdown":  [
+                                           {
+                                               "Parameters":  {
+                                                                  "RequiredPatterns":  [
+                                                                                           "^#\\s+",
+                                                                                           "^##\\s+"
+                                                                                       ]
+                                                              },
+                                               "Description":  "Ensures markdown has proper heading structure",
+                                               "RuleId":  "MD001",
+                                               "Name":  "ProperHeadings",
+                                               "Severity":  "Warning"
+                                           }
+                                       ],
+                          "JSON":  [
+                                       {
+                                           "Parameters":  {
+
+                                                          },
+                                           "Description":  "Ensures JSON is valid",
+                                           "RuleId":  "JSON001",
+                                           "Name":  "ValidJSON",
+                                           "Severity":  "Error"
+                                       }
+                                   ]
+                      }
+}

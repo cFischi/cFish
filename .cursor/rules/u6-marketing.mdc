@@ -1,0 +1,95 @@
+---
+description: U6-Marketing department guidelines focused on FischEYe production design and social media communications.
+globs: U6-Marketing/*, *.md, *.css, *.js
+alwaysApply: false
+---
+
+# U6-Marketing Department Guidelines
+
+The U6-Marketing department focuses on FischEYe production design, social media, and communications for cFish.io.
+
+## Department Role
+
+- Lead communications and marketing initiatives
+- Manage FischEYe production design
+- Create and maintain brand identity
+- Develop client-facing materials
+- Coordinate social media presence
+- Align all implementations with the Communicate (U6) philosophical principle
+
+## Core Technologies
+
+- **Design Tools**: Adobe Creative Suite, Figma, etc.
+- **Social Media**: Platform integrations and management
+- **Content Management**: WordPress, media libraries
+- **Analytics**: Tracking and reporting tools
+- **Marketing Automation**: Email and campaign systems
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u6.4-brand-guidelines-20250507.md`
+
+- Marketing-specific organization:
+  ```
+  U6-Marketing/
+    Branding/         # Brand identity and guidelines
+    Media/            # Media assets and resources
+    Campaigns/        # Marketing campaign materials
+    Social/           # Social media content and planning
+    Content/          # Content creation and management
+    Analytics/        # Marketing analytics and reporting
+  ```
+
+## Brand Guidelines
+
+- Maintain consistent brand identity across all platforms:
+  - Typography: [Specify font families and usage]
+  - Color palette: [Specify brand colors with hex values]
+  - Imagery guidelines: [Describe image style and selection criteria]
+  - Voice and tone: [Define communication style]
+  - Logo usage: [Specify rules for logo placement and variations]
+
+- Apply brand guidelines to all client-facing materials:
+  - Documentation
+  - Website and digital platforms
+  - Social media content
+  - Client presentations
+  - Marketing materials
+
+## Documentation-as-Service
+
+- Create professional-grade documentation for clients:
+  - Implement consistent branding across all documentation
+  - Develop templates for different document types
+  - Establish quality metrics for documentation deliverables
+  - Create visually appealing layouts and formatting
+  - Incorporate information design best practices
+
+- Documentation export formats:
+  - PDF with professional formatting
+  - Interactive HTML for digital delivery
+  - Print-optimized versions for physical distribution
+  - Markdown source files for future updates
+
+## Philosophical Alignment
+
+As Communicate (U6) department, focus on:
+- Clear and effective communication
+- Authentic representation of values
+- Engaging and compelling storytelling
+- Building genuine connections
+- Transparent and ethical marketing practices
+- Extending the Dreamflo philosophy to clients
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Documentation-as-service marketing materials
+- Brand refresh aligned with relaunch positioning
+- Client success story documentation
+- Knowledge monetization promotional strategy
+- Enhanced visual identity across all platforms
+- Client-facing examples of multi-platform integration 

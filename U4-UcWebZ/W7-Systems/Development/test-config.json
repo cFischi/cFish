@@ -1,0 +1,45 @@
+{
+  "watchDirs": [
+    { "md": "./test-data/md", "json": "./test-data/json" },
+    { "md": "./test-data/shortlinks", "json": "./test-data/shortlinks/json" }
+  ],
+  "backupDir": "./test-data/backups",
+  "maxBackups": 3,
+  "enableBackups": true,
+  "debounceTime": 100,
+  "exclusions": ["node_modules", ".git", ".cursor"],
+  "conflictResolutionMethod": "timestamp",
+  "criticalFiles": ["memory.md"],
+  "exitWithCursor": false,
+  "recursiveWatching": true,
+  "validationThreshold": 0.9,
+  "parentProcessCheckInterval": 1000,
+  "testing": {
+    "enabled": true,
+    "logLevel": "verbose",
+    "simulateDelays": false,
+    "mockCursor": false
+  },
+  "agents": {
+    "alpha": {
+      "enabled": true,
+      "watchPatterns": ["**/*.md", "**/json/**/*.json", "**/*.nosync"]
+    },
+    "beta": {
+      "enabled": true,
+      "validationLevel": "strict"
+    },
+    "gamma": {
+      "enabled": true,
+      "mergeStrategy": "section-level"
+    },
+    "delta": {
+      "enabled": true,
+      "createTimestampedBackups": true
+    },
+    "epsilon": {
+      "enabled": true,
+      "monitorParentProcess": false
+    }
+  }
+} 

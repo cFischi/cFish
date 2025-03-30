@@ -1,0 +1,86 @@
+---
+description: U4-Production department guidelines focused on WordPress development, UcWebZ, and content production.
+globs: U4-Production/*, *.php
+alwaysApply: false
+---
+
+# U4-Production Department Guidelines
+
+The U4-Production department focuses on web presence, operations, and production for cFish.io using WordPress.
+
+## Department Role
+
+- Lead web presence development through WordPress
+- Manage UcWebZ operations and content production
+- Develop and maintain WordPress themes and plugins
+- Create custom WordPress functionality for client sites
+- Implement cross-platform integration with other cFish.io platforms
+- Align all implementations with the Produce (U4) philosophical principle
+
+## Core Technologies
+
+- **WordPress Core**: 6.0+ compatibility required
+- **PHP**: 7.4+ compliance required
+- **JavaScript**: Modern ES6+ implementation
+- **CSS**: SASS/SCSS preprocessing recommended
+- **Build Tools**: Webpack/Gulp for automation
+- **Version Control**: Git with feature branch workflow
+
+## WordPress Development Standards
+
+- Follow [WordPress coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/)
+- See detailed WordPress guidelines in [wp-development.mdc](mdc:.cursor/rules/wp-development.mdc)
+- Use Object-Oriented Programming for all custom functionality
+- Implement appropriate security practices throughout
+- Create proper documentation for all components
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u4.3-widget-registration-20250507.php`
+
+- WordPress-specific organization:
+  ```
+  U4-Production/
+    WordPress/
+      themes/
+        cfish-theme/
+      plugins/
+        cfish-core/
+      functions/
+      blocks/
+  ```
+
+## Philosophical Alignment
+
+As Produce (U4) department, focus on:
+- Productive output and efficient execution
+- High-quality deliverables that meet client needs
+- Consistent branding and user experience
+- Optimized performance and loading times
+- Cross-platform compatibility
+- Sustainable maintenance practices
+
+## Integration Requirements
+
+- Create WordPress hooks for integration with other platforms:
+  - ClickUp (cFish.App) - Task management integration
+  - Notion (U.cFish.io) - Knowledge base integration
+  - Vendasta (cFish.Vip) - Client solution integration
+
+- Implement tYDiSync~ compatibility:
+  - Add appropriate metadata for cross-platform synchronization
+  - Create data transformation hooks for format conversion
+  - Respect synchronization markers and protocols
+  - Test synchronization across all platforms
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Knowledge monetization features as primary differentiators
+- Documentation excellence as a marketable service offering
+- Partnership enablement through robust APIs
+- Mobile optimization for field operations
+- Performance optimization for expected traffic increase 

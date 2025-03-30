@@ -1,0 +1,176 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+## Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    ## Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        ## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ## Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    ## Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    ## Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    ## Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<## .SYNOPSIS
+    Synchronizes content between master memory.md and department-specific memory files.
+
+.DESCRIPTION
+    This script implements one-way synchronization from the master memory.md file
+    to department-specific memory files based on content categorization rules.
+
+.NOTES
+    File Name      : sync-memory-files.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3
+    Copyright      : cFish.io 2025
+    Date           : March 20, 2025
+#>
+
+## Get workspace root directory
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$workspaceRoot = Split-Path -Parent (Split-Path -Parent $scriptDir)
+
+## Configuration
+$configFile = Join-Path -Path $scriptDir -ChildPath "sync-config.json"
+$config = Get-Content -Raw -Path $configFile | ConvertFrom-Json
+
+## Master file
+$masterFile = Join-Path -Path $workspaceRoot -ChildPath $config.masterFile
+Write-Host "Reading master file: $masterFile"
+$masterContent = Get-Content -Path $masterFile -Raw
+
+## Extract entries from master file
+$entries = [System.Collections.ArrayList]@()
+$regex = [regex]"(?ms)^## (.*?) \((.*?)\)(.*?)(?=^## |\z)"
+$matches = $regex.Matches($masterContent)
+
+Write-Host "Found $($matches.Count) entries in master file."
+
+foreach ($match in $matches) {
+    $title = $match.Groups[1].Value.Trim()
+    $date = $match.Groups[2].Value.Trim()
+    $content = $match.Groups[3].Value.Trim()
+    
+    ## Determine which departments this entry belongs to
+    $relevantDepartments = @()
+    foreach ($dept in $config.departments) {
+        foreach ($keyword in $dept.keywords) {
+            if ($title -match $keyword -or $content -match $keyword) {
+                $relevantDepartments += $dept.name
+                break
+            }
+        }
+    }
+    
+    ## If no specific department matches, assign to Administration
+    if ($relevantDepartments.Count -eq 0) {
+        $relevantDepartments += "U1-Administration"
+    }
+    
+    ## Remove duplicates
+    $relevantDepartments = $relevantDepartments | Select-Object -Unique
+    
+    ## Add to entries collection
+    $entry = [PSCustomObject]@{
+        title = $title
+        date = $date
+        content = $content
+        departments = $relevantDepartments
+    }
+    
+    [void]$entries.Add($entry)
+}
+
+## Department files
+foreach ($dept in $config.departments) {
+    $deptPath = Join-Path -Path $workspaceRoot -ChildPath $dept.path
+    Write-Host "Processing department file: $deptPath"
+    
+    ## Create directory if it doesn't exist
+    $deptDir = Split-Path -Parent $deptPath
+    if (!(Test-Path $deptDir)) {
+        Write-Host "  Creating directory: $deptDir"
+        New-Item -ItemType Directory -Path $deptDir -Force | Out-Null
+    }
+    
+    ## Create file if it doesn't exist
+    if (!(Test-Path $deptPath)) {
+        Write-Host "  Creating new department file: $deptPath"
+        @"
+## $($dept.name) Memory File
+
+This department-specific memory file contains entries related to $($dept.name) activities.
+
+### Table of Contents
+
+"@ | Out-File -FilePath $deptPath -Encoding utf8
+    }
+    
+    $deptContent = Get-Content -Path $deptPath -Raw
+    
+    # Process entries for this department
+    $entriesAdded = 0
+    foreach ($entry in $entries) {
+        if ($entry.departments -contains $dept.name) {
+            # Check if entry already exists in department file
+            $entryPattern = [regex]::Escape("### $($entry.title) ($($entry.date))")
+            if (!($deptContent -match $entryPattern)) {
+                # Add entry to department file
+                Write-Host "  Adding entry: $($entry.title) ($($entry.date))"
+                $newEntry = @"
+
+### $($entry.title) ($($entry.date))
+$($entry.content)
+"@
+                Add-Content -Path $deptPath -Value $newEntry
+                $entriesAdded++
+            }
+        }
+    }
+    
+    Write-Host "  Added $entriesAdded entries to $deptPath"
+}
+
+Write-Host "Synchronization completed successfully." 
+

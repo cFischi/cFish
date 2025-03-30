@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-03-13T08:14:09.107Z",
+  "state": {
+    "status": "running",
+    "discoveredUrls": [
+      [
+        "https://u.cfish.io/u-ucf?v=17c33104429080cc8c82000c89b1f0d4",
+        {
+          "url": "https://u.cfish.io/u-ucf?v=17c33104429080cc8c82000c89b1f0d4",
+          "depth": 0,
+          "parent": null,
+          "discovered": "2025-03-13T08:13:06.238Z"
+        }
+      ]
+    ],
+    "processedUrls": [],
+    "failedUrls": [
+      [
+        "https://u.cfish.io/u-ucf?v=17c33104429080cc8c82000c89b1f0d4",
+        {
+          "url": "https://u.cfish.io/u-ucf?v=17c33104429080cc8c82000c89b1f0d4",
+          "error": "Content extraction failed",
+          "timestamp": "2025-03-13T08:14:09.089Z"
+        }
+      ]
+    ],
+    "startTime": "2025-03-13T08:13:04.694Z",
+    "endTime": null,
+    "lastCheckpoint": "2025-03-13T08:14:09.107Z"
+  }
+}

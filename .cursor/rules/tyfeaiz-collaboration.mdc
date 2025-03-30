@@ -1,0 +1,252 @@
+---
+description: Guidelines for implementing tYFeAiz "Live Boardz" multi-agent collaboration for cFish.io.
+globs: *
+alwaysApply: false
+---
+
+# tYFeAiz Multi-Agent Collaboration Framework
+
+This rule provides guidelines for implementing the tYFeAiz "Live Boardz" multi-agent collaboration framework for cFish.io projects.
+
+## Core Framework Principles
+
+- Implement "Live Boardz" sessions with 3-9 specialized AI agents
+- Assign specific roles based on each agent's strengths and expertise
+- Coordinate with human-in-the-loop at key decision points
+- Document all session outcomes and learnings
+- Maintain clear role boundaries and handoff procedures
+- Follow established communication protocols
+- Create reproducible collaboration patterns
+
+## Agent Role Definitions
+
+### Executive Agent
+- **Primary Function**: Strategic planning and high-level direction
+- **Key Responsibilities**:
+  - Define strategic approach for features and components
+  - Ensure alignment with business objectives and user needs
+  - Make high-level architectural decisions
+  - Prioritize features and components
+  - Establish success criteria for the project
+- **Required Context**:
+  - Business requirements and strategic documents
+  - User research and personas
+  - Competitive analysis and market positioning
+  - High-level system architecture
+
+### Project Architect
+- **Primary Function**: System design and technical architecture
+- **Key Responsibilities**:
+  - Design detailed system components and interfaces
+  - Define data models and flows
+  - Make technology stack recommendations
+  - Ensure scalability, performance, and maintainability
+  - Create architectural documentation
+- **Required Context**:
+  - Technical specifications and constraints
+  - Existing system architecture
+  - Design patterns and best practices
+  - Technical debt considerations
+
+### Implementation Engineer
+- **Primary Function**: Code generation and feature development
+- **Key Responsibilities**:
+  - Implement code based on architectural specifications
+  - Write efficient, maintainable, and secure code
+  - Create automated tests for implemented features
+  - Optimize performance of implemented code
+  - Adhere to coding standards and best practices
+- **Required Context**:
+  - Technical specifications from Project Architect
+  - Codebase structure and conventions
+  - Testing frameworks and methodology
+  - Development environment setup
+
+### QA Analyst
+- **Primary Function**: Testing, validation, and quality assurance
+- **Key Responsibilities**:
+  - Verify code quality and test coverage
+  - Conduct comprehensive testing (unit, integration, system)
+  - Identify edge cases and potential issues
+  - Validate security and performance requirements
+  - Provide detailed feedback for improvements
+- **Required Context**:
+  - Testing plans and standards
+  - Quality metrics and benchmarks
+  - Security best practices
+  - Performance requirements
+
+### Documentation Specialist
+- **Primary Function**: Technical writing and documentation
+- **Key Responsibilities**:
+  - Create comprehensive technical documentation
+  - Document APIs, interfaces, and components
+  - Update user guides and release notes
+  - Maintain consistent documentation style
+  - Ensure documentation is accurate and up-to-date
+- **Required Context**:
+  - Documentation standards and templates
+  - Existing documentation
+  - Technical specifications and implementation details
+  - User personas and use cases
+
+### Security Expert
+- **Primary Function**: Security auditing and vulnerability assessment
+- **Key Responsibilities**:
+  - Identify potential security vulnerabilities
+  - Recommend security best practices
+  - Review code for security issues
+  - Perform threat modeling
+  - Validate security implementations
+- **Required Context**:
+  - Security requirements and standards
+  - Common vulnerability patterns
+  - Industry-specific security concerns
+  - Authentication and authorization systems
+
+### UX Designer
+- **Primary Function**: User experience and interface design
+- **Key Responsibilities**:
+  - Design user interfaces and interaction flows
+  - Ensure usability and accessibility
+  - Create design assets and prototypes
+  - Validate designs against user needs
+  - Maintain design consistency
+- **Required Context**:
+  - User research and personas
+  - Design system and style guides
+  - Usability best practices
+  - Accessibility standards
+
+### Data Analyst
+- **Primary Function**: Data processing and analysis
+- **Key Responsibilities**:
+  - Design data models and structures
+  - Optimize data storage and retrieval
+  - Create data visualization components
+  - Implement analytics tracking
+  - Ensure data integrity and security
+- **Required Context**:
+  - Data requirements and schemas
+  - Analytics systems and metrics
+  - Data security and privacy standards
+  - Reporting requirements
+
+### Integration Specialist
+- **Primary Function**: Cross-platform integration and synchronization
+- **Key Responsibilities**:
+  - Design integration points between platforms
+  - Implement data synchronization
+  - Ensure cross-platform consistency
+  - Optimize integration performance
+  - Troubleshoot integration issues
+- **Required Context**:
+  - Platform API documentation
+  - Integration patterns and best practices
+  - tYDiSync~ system specifications
+  - Data transformation requirements
+
+## Handoff Protocols
+
+When transitioning work between agents, use this structured handoff format:
+
+```
+[HANDOFF FROM: Agent Role]
+
+# Completed Work
+- [List of completed tasks with results]
+
+# Current Status
+- [Summary of current state]
+- [Any unresolved issues or questions]
+
+# Context References
+- [Key files and documents to review]
+- [Important decisions and their rationale]
+
+# Next Steps
+- [Specific tasks for the receiving agent]
+- [Priorities and dependencies]
+
+[HANDOFF TO: Next Agent Role]
+```
+
+## Decision Framework
+
+For decisions requiring input from multiple agents:
+
+```
+[DECISION POINT: Title]
+
+# Options
+1. [Option 1 with description]
+2. [Option 2 with description]
+3. [Option 3 with description]
+
+# Analysis
+- [Pros and cons of each option]
+- [Trade-offs and considerations]
+
+# Recommendation
+- [Recommended option with rationale]
+- [Implementation considerations]
+
+[REQUEST FOR INPUT: Specific Agent or ALL]
+```
+
+## Session Structure
+
+### 1. Planning Phase
+- Executive Agent outlines strategic goals and success criteria
+- Project Architect creates initial technical approach
+- All agents review and provide input on the plan
+- Human Coordinator reviews and approves direction
+
+### 2. Design Phase
+- Project Architect designs system components and interfaces
+- UX Designer creates user interface designs (if applicable)
+- Data Analyst designs data models (if applicable)
+- Security Expert performs threat modeling and security review
+- All agents review and provide feedback on the design
+
+### 3. Implementation Phase
+- Implementation Engineer develops code based on approved designs
+- QA Analyst reviews code quality and test coverage
+- Project Architect verifies architectural alignment
+- Documentation Specialist creates technical documentation
+- Security Expert reviews implementation for security concerns
+
+### 4. Verification Phase
+- QA Analyst conducts comprehensive testing
+- Implementation Engineer addresses identified issues
+- Project Architect validates system integration
+- Security Expert performs final security review
+- Documentation Specialist finalizes documentation
+
+### 5. Delivery Phase
+- Documentation Specialist prepares handoff documentation
+- Implementation Engineer prepares deployment materials
+- Executive Agent validates strategic alignment
+- All agents contribute to the final review
+- Human Coordinator provides final approval
+
+## Collaboration Best Practices
+
+1. **Role Clarity**: Each agent should clearly identify their role when contributing
+2. **Context Sharing**: Provide necessary context when referencing information
+3. **Decision Transparency**: Document the reasoning behind all significant decisions
+4. **Communication Protocol**: Follow standardized communication formats
+5. **Human Oversight**: Identify key points for human review and approval
+6. **Continuous Learning**: Document successful patterns for future reuse
+7. **Error Handling**: Address issues collaboratively and systematically
+8. **Documentation**: Maintain comprehensive documentation of all session activities
+
+## Templates and References
+
+See [live-boardz-template.md](mdc:.cursor/rules/prompt-templates/live-boardz-template.md) for a comprehensive multi-agent session template
+
+For department-specific considerations:
+- U2-Research agents should emphasize innovation and AI integration
+- U4-Production agents should focus on output efficiency and quality
+- U5-Data agents should prioritize data flow and integration
+- U7-Systems agents should consider specialized technical solutions 

@@ -1,0 +1,52 @@
+# Terminal Troubleshooting Guide for Cursor
+
+## Current Issues
+- Terminal in Cursor gets stuck or shows buffer errors
+- PowerShell commands with operators like `&&` fail
+- Console output formatting issues
+
+## Potential Solutions
+
+### 1. Switch from PowerShell to CMD
+We've already created a `.cursorrules` file that configures Cursor to use cmd.exe instead of PowerShell. This should help with compatibility issues, especially with commands that use operators like `&&`.
+
+```json
+{
+  "terminal": {
+    "shell": "cmd.exe",
+    "args": []
+  }
+}
+```
+
+### 2. Avoid Complex Terminal Commands in Cursor
+- Use batch files for complex operations instead of typing them directly in Cursor's terminal
+- Create and run scripts outside of Cursor for terminal-intensive tasks
+- Use the sync batch files we've created for WordPress file synchronization
+
+### 3. Use External Terminal for Complex Commands
+- Open an external Command Prompt or PowerShell window for complex operations
+- Run commands there instead of in Cursor's integrated terminal
+
+### 4. Update Cursor
+- Check for Cursor updates as newer versions might fix terminal integration issues
+- Visit [Cursor's website](https://cursor.sh/) for the latest version
+
+### 5. Alternative Approaches
+- Use Git Bash if available, which often has better compatibility
+- Configure VSCode as an alternative editor when terminal operations are needed
+
+## Testing Terminal Fix
+After applying the `.cursorrules` file, restart Cursor and try these test commands:
+
+```
+echo Hello World
+cd C:\Users\Chris\cFish.io && dir
+```
+
+If successful, the terminal should execute both commands without errors.
+
+## For Future Development
+Consider implementing the WordPress file synchronization as part of your Git workflow:
+- Create a Git hook that automatically syncs files to WordPress Studio after commits
+- Create a GitHub Action to deploy changes to WordPress Studio on push to specific branches 

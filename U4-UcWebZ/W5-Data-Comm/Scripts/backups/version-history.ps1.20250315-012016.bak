@@ -1,0 +1,428 @@
+<#
+.SYNOPSIS
+    Version history management for DMMS memory files
+.DESCRIPTION
+    This script provides functionality for tracking changes to memory entries,
+    storing versions, and retrieving historical versions of entries.
+.NOTES
+    File Name      : version-history.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell 5.1 or later
+    Copyright 2025 - cFish.io
+#>
+
+#Requires -Version 5.1
+
+# Strict mode to catch common errors
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
+# Define constants
+$SCRIPT_VERSION = "1.0.0"
+$SCRIPT_DATE = "2025-03-25"
+$VERSION_HISTORY_DIR = Join-Path -Path $PSScriptRoot -ChildPath "../Data/VersionHistory"
+$VERSION_DB_FILE = Join-Path -Path $VERSION_HISTORY_DIR -ChildPath "version-history.json"
+$LOG_FILE = Join-Path -Path $PSScriptRoot -ChildPath "../Logs/version-history.log"
+
+# Create directories if they don't exist
+function Initialize-VersionHistoryEnvironment {
+    Write-Verbose "Initializing version history environment..."
+    
+    # Create Version History directory if it doesn't exist
+    if (-not (Test-Path -Path $VERSION_HISTORY_DIR)) {
+        New-Item -Path $VERSION_HISTORY_DIR -ItemType Directory -Force | Out-Null
+        Write-Verbose "Created version history directory: $VERSION_HISTORY_DIR"
+    }
+    
+    # Create logs directory if it doesn't exist
+    $logDir = Split-Path -Path $LOG_FILE -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+        Write-Verbose "Created logs directory: $logDir"
+    }
+    
+    # Initialize version history database if it doesn't exist
+    if (-not (Test-Path -Path $VERSION_DB_FILE)) {
+        $initialDb = @{
+            "metadata" = @{
+                "created" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                "version" = $SCRIPT_VERSION
+                "entryCount" = 0
+            }
+            "entries" = @{}
+        }
+        $initialDb | ConvertTo-Json -Depth 10 | Set-Content -Path $VERSION_DB_FILE -Encoding UTF8
+        Write-Verbose "Initialized version history database: $VERSION_DB_FILE"
+    }
+    
+    Write-Verbose "Version history environment initialized."
+}
+
+# Function to write to log file
+function Write-Log {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("INFO", "WARNING", "ERROR")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logMessage = "[$timestamp] [$Level] $Message"
+    
+    # Append to log file
+    Add-Content -Path $LOG_FILE -Value $logMessage
+    
+    # Also output to console with appropriate color
+    switch ($Level) {
+        "INFO" { Write-Host $logMessage -ForegroundColor Cyan }
+        "WARNING" { Write-Host $logMessage -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logMessage -ForegroundColor Red }
+    }
+}
+
+# Function to load version history database
+function Get-VersionDatabase {
+    if (Test-Path -Path $VERSION_DB_FILE) {
+        $json = Get-Content -Path $VERSION_DB_FILE -Raw | ConvertFrom-Json
+        return $json
+    }
+    else {
+        Write-Log "Version history database not found. Initializing new database." -Level "WARNING"
+        Initialize-VersionHistoryEnvironment
+        return (Get-Content -Path $VERSION_DB_FILE -Raw | ConvertFrom-Json)
+    }
+}
+
+# Function to save version database
+function Save-VersionDatabase {
+    param (
+        [Parameter(Mandatory = $true)]
+        [PSCustomObject]$Database
+    )
+    
+    # Update metadata
+    $Database.metadata.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+    $Database.metadata.entryCount = ($Database.entries | Get-Member -MemberType NoteProperty).Count
+    
+    $Database | ConvertTo-Json -Depth 10 | Set-Content -Path $VERSION_DB_FILE -Encoding UTF8
+    Write-Verbose "Version database saved with $($Database.metadata.entryCount) entries."
+}
+
+# Function to extract entry ID from memory entry
+function Get-EntryId {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EntryText
+    )
+    
+    # Extract title and date from first line
+    if ($EntryText -match '^## (.+?) \((\d{2}-\d{2}-\d{4})\)') {
+        $title = $matches[1]
+        $date = $matches[2]
+        $id = "$title-$date"
+        # Clean ID to make it suitable for filesystem and JSON
+        $id = $id -replace '[\\\/\:\*\?"<>\|]', '_'
+        return $id
+    }
+    else {
+        throw "Could not extract ID from entry: $EntryText"
+    }
+}
+
+# Function to calculate entry diff
+function Get-EntryDiff {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$OldContent,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$NewContent
+    )
+    
+    # Split into lines for comparison
+    $oldLines = $OldContent -split "`n"
+    $newLines = $NewContent -split "`n"
+    
+    # Create diff object
+    $diff = @{
+        "removed" = @()
+        "added" = @()
+        "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+    }
+    
+    # Find removed lines (in old but not in new)
+    foreach ($line in $oldLines) {
+        if ($newLines -notcontains $line) {
+            $diff.removed += $line
+        }
+    }
+    
+    # Find added lines (in new but not in old)
+    foreach ($line in $newLines) {
+        if ($oldLines -notcontains $line) {
+            $diff.added += $line
+        }
+    }
+    
+    return $diff
+}
+
+# Function to create version directory for an entry
+function New-VersionDirectory {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EntryId
+    )
+    
+    $versionDir = Join-Path -Path $VERSION_HISTORY_DIR -ChildPath $EntryId
+    if (-not (Test-Path -Path $versionDir)) {
+        New-Item -Path $versionDir -ItemType Directory -Force | Out-Null
+        Write-Verbose "Created version directory for entry: $EntryId"
+    }
+    
+    return $versionDir
+}
+
+# Function to track a new version of an entry
+function Add-VersionHistoryEntry {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EntryText,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Department = "master",
+        
+        [Parameter(Mandatory = $false)]
+        [string]$User = $env:USERNAME
+    )
+    
+    Write-Log "Adding new version history entry..."
+    
+    try {
+        # Get entry ID
+        $entryId = Get-EntryId -EntryText $EntryText
+        Write-Verbose "Processing entry: $entryId"
+        
+        # Load version database
+        $versionDb = Get-VersionDatabase
+        
+        # Create version directory
+        $versionDir = New-VersionDirectory -EntryId $entryId
+        
+        # Get current version number
+        $versionNumber = 1
+        if ($versionDb.entries.$entryId) {
+            $versionNumber = $versionDb.entries.$entryId.currentVersion + 1
+        }
+        
+        # Create new version file
+        $versionFile = Join-Path -Path $versionDir -ChildPath "v$versionNumber.md"
+        $EntryText | Set-Content -Path $versionFile -Encoding UTF8
+        
+        # Create diff if not the first version
+        $diff = $null
+        if ($versionNumber -gt 1) {
+            $previousVersion = Join-Path -Path $versionDir -ChildPath "v$($versionNumber - 1).md"
+            $oldContent = Get-Content -Path $previousVersion -Raw
+            $diff = Get-EntryDiff -OldContent $oldContent -NewContent $EntryText
+            
+            # Save diff
+            $diffFile = Join-Path -Path $versionDir -ChildPath "v$($versionNumber)_diff.json"
+            $diff | ConvertTo-Json -Depth 5 | Set-Content -Path $diffFile -Encoding UTF8
+        }
+        
+        # Update version database
+        if (-not $versionDb.entries.$entryId) {
+            $versionDb.entries | Add-Member -MemberType NoteProperty -Name $entryId -Value @{
+                "title" = $entryId
+                "firstVersion" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+                "currentVersion" = $versionNumber
+                "department" = $Department
+                "versions" = @()
+            }
+        }
+        
+        # Add version info
+        $versionInfo = @{
+            "versionNumber" = $versionNumber
+            "timestamp" = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            "user" = $User
+            "filePath" = $versionFile
+            "hasDiff" = ($diff -ne $null)
+        }
+        
+        $versionDb.entries.$entryId.versions += $versionInfo
+        $versionDb.entries.$entryId.lastUpdated = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        $versionDb.entries.$entryId.currentVersion = $versionNumber
+        
+        # Save database
+        Save-VersionDatabase -Database $versionDb
+        
+        Write-Log "Added new version for entry '$entryId'. Version: $versionNumber" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error adding version history entry: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to get version history for an entry
+function Get-VersionHistory {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EntryId
+    )
+    
+    try {
+        # Load version database
+        $versionDb = Get-VersionDatabase
+        
+        if (-not $versionDb.entries.$EntryId) {
+            Write-Log "No version history found for entry: $EntryId" -Level "WARNING"
+            return $null
+        }
+        
+        return $versionDb.entries.$EntryId
+    }
+    catch {
+        Write-Log "Error retrieving version history: $_" -Level "ERROR"
+        return $null
+    }
+}
+
+# Function to retrieve a specific version of an entry
+function Get-EntryVersion {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EntryId,
+        
+        [Parameter(Mandatory = $true)]
+        [int]$VersionNumber
+    )
+    
+    try {
+        # Get version history
+        $history = Get-VersionHistory -EntryId $EntryId
+        
+        if (-not $history) {
+            Write-Log "No history found for entry: $EntryId" -Level "WARNING"
+            return $null
+        }
+        
+        if ($VersionNumber -lt 1 -or $VersionNumber -gt $history.currentVersion) {
+            Write-Log "Invalid version number. Valid range: 1-$($history.currentVersion)" -Level "ERROR"
+            return $null
+        }
+        
+        # Find version info
+        $versionInfo = $history.versions | Where-Object { $_.versionNumber -eq $VersionNumber }
+        
+        if (-not $versionInfo) {
+            Write-Log "Version info not found for version $VersionNumber of entry $EntryId" -Level "ERROR"
+            return $null
+        }
+        
+        # Get content
+        $content = Get-Content -Path $versionInfo.filePath -Raw
+        
+        return @{
+            "entryId" = $EntryId
+            "versionNumber" = $VersionNumber
+            "timestamp" = $versionInfo.timestamp
+            "user" = $versionInfo.user
+            "content" = $content
+        }
+    }
+    catch {
+        Write-Log "Error retrieving entry version: $_" -Level "ERROR"
+        return $null
+    }
+}
+
+# Function to restore a previous version of an entry
+function Restore-EntryVersion {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EntryId,
+        
+        [Parameter(Mandatory = $true)]
+        [int]$VersionNumber,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$OutputFile,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$User = $env:USERNAME
+    )
+    
+    try {
+        # Get the version to restore
+        $version = Get-EntryVersion -EntryId $EntryId -VersionNumber $VersionNumber
+        
+        if (-not $version) {
+            Write-Log "Failed to restore version $VersionNumber of entry $EntryId" -Level "ERROR"
+            return $false
+        }
+        
+        # Write restored version to output file
+        $version.content | Set-Content -Path $OutputFile -Encoding UTF8
+        
+        # Also track this as a new version (restoration)
+        Add-VersionHistoryEntry -EntryText $version.content -User "$User (restored v$VersionNumber)"
+        
+        Write-Log "Successfully restored version $VersionNumber of entry $EntryId to $OutputFile" -Level "INFO"
+        return $true
+    }
+    catch {
+        Write-Log "Error restoring entry version: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+# Function to list all entries with version history
+function Get-AllVersionedEntries {
+    try {
+        # Load version database
+        $versionDb = Get-VersionDatabase
+        
+        $entrySummary = @()
+        
+        foreach ($entryName in ($versionDb.entries | Get-Member -MemberType NoteProperty).Name) {
+            $entry = $versionDb.entries.$entryName
+            $entrySummary += [PSCustomObject]@{
+                EntryId = $entryName
+                Title = $entry.title
+                CurrentVersion = $entry.currentVersion
+                FirstVersionDate = $entry.firstVersion
+                LastUpdated = $entry.lastUpdated
+                Department = $entry.department
+                VersionCount = $entry.versions.Count
+            }
+        }
+        
+        return $entrySummary
+    }
+    catch {
+        Write-Log "Error listing versioned entries: $_" -Level "ERROR"
+        return @()
+    }
+}
+
+# Initialize environment on module load
+Initialize-VersionHistoryEnvironment
+
+# Define public functions for script use
+$PublicFunctions = @{
+    "Add-VersionHistoryEntry" = ${function:Add-VersionHistoryEntry}
+    "Get-VersionHistory" = ${function:Get-VersionHistory}
+    "Get-EntryVersion" = ${function:Get-EntryVersion}
+    "Restore-EntryVersion" = ${function:Restore-EntryVersion}
+    "Get-AllVersionedEntries" = ${function:Get-AllVersionedEntries}
+}
+
+# Return public functions when script is dot-sourced
+return $PublicFunctions 

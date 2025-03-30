@@ -1,0 +1,10 @@
+[2025-03-14 05:42:39] [INFO] Starting backup verification process
+[2025-03-14 05:42:39] [INFO] Verifying backups for date: 20250314
+[2025-03-14 05:42:39] [WARNING] Source file not found: ../../memory.md
+[2025-03-14 05:42:39] [WARNING] Source file not found: ../../changelog.md
+[2025-03-14 05:42:39] [INFO] ======= VERIFICATION SUMMARY =======
+[2025-03-14 05:42:39] [INFO] Total files checked: 2
+[2025-03-14 05:42:39] [INFO] Successfully verified: 0
+[2025-03-14 05:42:39] [SUCCESS] Corrupted files: 0
+[2025-03-14 05:42:39] [SUCCESS] Missing files: 0
+[2025-03-14 05:42:39] [INFO] Verification process completed. Log saved to: C:\Users\Chris\cFish.io\U5-Data\Backups\backup-verification-20250314-054239.log

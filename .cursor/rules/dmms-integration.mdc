@@ -1,0 +1,94 @@
+---
+description: Guidelines for integrating Distributed Memory Management System (DMMS) with Cursor workflows.
+globs: *.md, memory.md, changelog.md
+alwaysApply: false
+---
+
+# DMMS Integration Guidelines
+
+Integrate the Distributed Memory Management System (DMMS) with Cursor workflows using these guidelines.
+
+## Memory File Updates
+
+When updating memory.md or department-specific memory files:
+
+- Follow the specified format for memory.md updates
+- Include current date in both section title and signature
+- Use bullet points for all major items
+- Keep entries concise and relevant
+- Always conclude with signature line in italic
+- Use format: _Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+Example memory.md entry:
+```markdown
+## Feature Implementation (05-07-2025)
+- Implemented feature X with functionality A, B, and C
+- Added unit tests with 95% coverage
+- Created documentation for client usage
+- Integrated with existing systems
+
+_Updated 05-07-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+```
+
+## Changelog Updates
+
+When updating changelog.md:
+
+- Follow semantic versioning (MAJOR.MINOR.PATCH)
+- Group changes by type: Added, Changed, Fixed, Removed
+- Include date in ISO format (2025-MM-DD)
+- Reference ticket/issue numbers when applicable
+
+Example changelog entry:
+```markdown
+## [1.2.3] - [2025-05-07]
+
+### Added
+- New feature X for improved user experience
+- Additional validation for form inputs
+
+### Changed
+- Enhanced performance of database queries
+- Updated UI components for better readability
+
+### Fixed
+- Resolved issue with user authentication
+- Fixed inconsistent display of metadata
+```
+
+## Department-Specific Memory Files
+
+When updating department-specific memory files:
+
+- Only update relevant sections for the department
+- Maintain consistent formatting across all memory files
+- Reference cross-departmental impacts when appropriate
+- Follow department-specific categorization guidelines
+- Ensure bidirectional sync via tYDiSync~ by preserving metadata
+
+## Automated Updates
+
+Configure Cursor to automatically update memory files:
+
+- Create standardized entry formats for Cursor-driven memory updates
+- Implement proper validation procedures for memory content consistency
+- Respect .nosync marker files to prevent synchronization conflicts
+- Add appropriate metadata for cross-platform compatibility
+- Use SHA-256 fingerprinting for content integrity verification when needed
+
+## Synchronization Best Practices
+
+- Always check for existing memory entries before creating new ones
+- Use consistent terminology across all memory files
+- Reference related entries in other department memory files
+- Create clear cross-references between entries
+- Maintain proper version tracking in all updates
+- Avoid duplicate entries by checking existing content first
+
+## Performance Considerations
+
+- Implement efficient retrieval patterns for large memory files
+- Use progressive loading techniques when appropriate
+- Index memory files for faster search operations
+- Develop compression strategies for memory file storage
+- Consider using JSON format for AI ingestion of large files 

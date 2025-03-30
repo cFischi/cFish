@@ -1,0 +1,83 @@
+---
+description: U1-Administration department guidelines focused on business administration and overhead functions.
+globs: U1-Administration/*, *.md
+alwaysApply: false
+---
+
+# U1-Administration Department Guidelines
+
+The U1-Administration department focuses on business administration, overhead functions, and trust structure for cFish.io.
+
+## Department Role
+
+- Lead business strategy and planning
+- Manage UcFish trust administration
+- Oversee financial operations and planning
+- Establish and maintain organizational policies
+- Coordinate cross-departmental initiatives
+- Maintain alignment with the Soul (U1) philosophical principle
+
+## Core Technologies
+
+- **Documentation Systems**: Markdown-based knowledge repositories
+- **Financial Tools**: Accounting and financial planning systems
+- **Strategic Planning**: Roadmap development and tracking
+- **Policy Framework**: Organizational policy documentation
+- **Trust Structure**: Legal and administrative documentation
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u1.1-strategic-roadmap-20250507.md`
+
+- Administration-specific organization:
+  ```
+  U1-Administration/
+    Documentation/     # Organizational documentation
+    Planning/          # Strategic planning materials
+    Policies/          # Policy documentation
+    Financial/         # Financial planning documents
+    Reports/           # Business reports and analyses
+    Logs/              # Administrative logs
+  ```
+
+## Philosophical Alignment
+
+As Soul (U1) department, focus on:
+- System integrity and core values
+- Ethical business practices
+- Long-term sustainability
+- Balanced growth and stability
+- Philosophical consistency across all departments
+- Strong foundation for all operations
+
+## Documentation Standards
+
+- All strategic documents should include:
+  - Clear purpose and objectives
+  - Timeframe and milestones
+  - Success metrics and evaluation criteria
+  - Cross-departmental implications
+  - Resource requirements and constraints
+  - Alignment with Dreamflo ~ philosophy
+
+- Memory file updates should follow the specified format:
+  ```markdown
+  ## [Title] (MM-DD-2025)
+  - [Bullet points with key information]
+  - [More bullet points as needed]
+  
+  _Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+  ```
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Strategic documentation for all relaunch initiatives
+- Financial planning for relaunch operations
+- Cross-departmental coordination and integration
+- Success metrics definition and tracking
+- Risk management and contingency planning
+- Long-term vision alignment between all departments 

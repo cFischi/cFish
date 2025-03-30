@@ -1,0 +1,40 @@
+﻿[2025-03-18 21:10:22] ==========================================================
+[2025-03-18 21:10:22]   Cursor Extension Inventory Tool
+[2025-03-18 21:10:22] ==========================================================
+[2025-03-18 21:10:22] Start time: 2025-03-18 21:10:22
+[2025-03-18 21:10:22] This tool will inventory Cursor extensions to help identify problematic ones.
+[2025-03-18 21:10:22] ==========================================================
+[2025-03-18 21:10:22] 
+[2025-03-18 21:10:22] Scanning for extensions in Cursor directory: C:\Users\Chris\.cursor\extensions
+[2025-03-18 21:10:22] ERROR: Failed to process extension at C:\Users\Chris\.cursor\extensions\andrejunges.handlebars-0.4.1: The property 'displayName' cannot be found on this object. Verify that the property exists.
+[2025-03-18 21:10:23] Found 40 extensions in Cursor directory.
+[2025-03-18 21:10:23] Scanning for extensions in VSCode directory: C:\Users\Chris\.vscode\extensions
+[2025-03-18 21:10:23] ERROR: Failed to process extension at C:\Users\Chris\.vscode\extensions\andrejunges.handlebars-0.4.1: The property 'displayName' cannot be found on this object. Verify that the property exists.
+[2025-03-18 21:10:25] Found 44 extensions in VSCode directory.
+[2025-03-18 21:10:25] Extension inventory saved to: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\cursor-extensions-inventory-20250318-211022.csv
+[2025-03-18 21:10:25] Created binary search groups:
+[2025-03-18 21:10:25]   Group A: 42 extensions - C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\binary-search\group-A-extensions.csv
+[2025-03-18 21:10:25]   Group B: 42 extensions - C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\binary-search\group-B-extensions.csv
+[2025-03-18 21:10:25] Created binary search scripts:
+[2025-03-18 21:10:25]   Disable Group A: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\binary-search\disable-group-A.bat
+[2025-03-18 21:10:25]   Enable Group A: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\binary-search\enable-group-A.bat
+[2025-03-18 21:10:25]   Disable Group B: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\binary-search\disable-group-B.bat
+[2025-03-18 21:10:25]   Enable Group B: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\binary-search\enable-group-B.bat
+[2025-03-18 21:10:25] Created extension inventory documentation: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\extension-inventory.md
+[2025-03-18 21:10:25] ==========================================================
+[2025-03-18 21:10:25] Extension inventory complete.
+[2025-03-18 21:10:25] Total extensions found: 84
+[2025-03-18 21:10:25] Categories found: 8
+[2025-03-18 21:10:25] Binary search scripts created: 4
+[2025-03-18 21:10:25] ==========================================================
+[2025-03-18 21:10:25] 
+[2025-03-18 21:10:25] Next steps:
+[2025-03-18 21:10:25] 1. Review the extension inventory: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Cursor-Extensions\extension-inventory.md
+[2025-03-18 21:10:25] 2. Start binary search by testing with all extensions disabled:
+[2025-03-18 21:10:25]    .\\U5-Data\\Scripts\\run-cursor-without-extensions.bat
+[2025-03-18 21:10:25] 3. If extensions are the cause, continue with binary search using:
+[2025-03-18 21:10:25]    .\\U5-Data\\Cursor-Extensions\\binary-search\\disable-group-A.bat
+[2025-03-18 21:10:25] 4. Monitor performance using:
+[2025-03-18 21:10:25]    .\\U5-Data\\Scripts\\run-cursor-monitor-safe.bat
+[2025-03-18 21:10:25] 
+[2025-03-18 21:10:25] Created batch wrapper: C:\Users\Chris\cFish.io\U5-Data\Scripts\inventory-cursor-extensions.bat

@@ -1,0 +1,134 @@
+---
+description: Guidelines for implementing Local LLMs for WordPress development in garage-based operations.
+globs: *.php, *.js, *.py
+alwaysApply: false
+---
+
+# Local LLM Implementation for WordPress Development
+
+This rule provides guidelines for implementing local language models for WordPress development in a garage-based environment.
+
+## Hardware Considerations
+
+- **Minimum Requirements**:
+  - 16GB+ RAM for running smaller models (Llama 3 8B)
+  - 4+ CPU cores for inference
+  - 100GB+ free storage for models and cache
+  - GPU with 8GB+ VRAM for hardware acceleration (optional but recommended)
+
+- **Recommended Specifications**:
+  - 32GB+ RAM for optimal performance
+  - 8+ CPU cores for parallel operations
+  - Dedicated GPU with 12GB+ VRAM
+  - SSD storage for model loading and inference
+  - Adequate cooling for extended operations
+
+## Model Selection
+
+- **Core Models**:
+  - Llama 3 8B - Good balance of capabilities vs. resource requirements
+  - CodeLlama 7B - Specialized for code generation
+  - Mistral 7B - Efficient alternative with good performance
+  - Phi-3 - Microsoft's compact but capable model
+
+- **Model Quantization**:
+  - Q4_K_M format for most efficient inference on CPUs
+  - Q5_K_M for better quality with moderate resource usage
+  - Q8_0 for highest quality when resources permit
+  - GGUF format for wide compatibility
+
+## Local Inference Setup
+
+- **Inference Servers**:
+  - Ollama - Simple setup with good performance
+  - LM Studio - User-friendly GUI with visualization
+  - Vllm - High-performance inference
+  - LlamaCPP - Lightweight option for minimal setups
+
+- **Configuration Guidelines**:
+  - Set context window based on available RAM (4K-8K recommended)
+  - Configure temperature setting (0.1-0.3 for precise code generation)
+  - Set top_p to 0.9 for deterministic results
+  - Implement disk caching for repeated operations
+  - Configure resource limits to prevent system overload
+
+## WordPress-Specific Optimization
+
+- **Prompt Techniques**:
+  - Break long files into smaller chunks for context window limits
+  - Use function calling to structure responses
+  - Leverage few-shot examples for WordPress patterns
+  - Implement system prompts with WordPress coding standards
+  - Create template prompts for common WordPress components
+
+- **Pattern Libraries**:
+  - Build prompt templates for WordPress hooks system
+  - Create pattern library for plugin development
+  - Implement theme development templates
+  - Develop custom post type creation patterns
+  - Create database query templates with proper $wpdb usage
+
+## Hybrid Cloud-Local Workflow
+
+- **Task Allocation**:
+  - Use local models for:
+    - Code completion and suggestions
+    - Simple refactoring tasks
+    - Documentation generation
+    - Learning and experimentation
+    - Offline development
+
+  - Reserve cloud services for:
+    - Complex architectural design
+    - Advanced reasoning tasks
+    - Large codebase analysis
+    - Multi-file refactoring
+    - Production-critical code generation
+
+- **Fallback Strategy**:
+  - Implement automatic fallback to cloud when local models fail
+  - Create queueing system for high-priority tasks
+  - Develop caching mechanisms for frequent operations
+  - Implement connection monitoring for service availability
+  - Design graceful degradation for offline scenarios
+
+## Resource Management
+
+- **Memory Optimization**:
+  - Implement progressive loading for large models
+  - Close resource-intensive applications before inference
+  - Use swap space optimization for limited RAM
+  - Monitor memory usage during operations
+  - Implement graceful degradation for low-memory conditions
+
+- **Performance Monitoring**:
+  - Track inference time for different task types
+  - Monitor temperature and thermal throttling
+  - Log resource utilization for capacity planning
+  - Implement performance benchmarking for optimization
+  - Set up alerts for resource constraints
+
+## Security Considerations
+
+- **Data Protection**:
+  - Isolate client codebases during local model usage
+  - Implement access controls for model servers
+  - Configure proper credential management
+  - Establish data retention policies
+  - Create audit logs for model operations
+
+- **Code Validation**:
+  - Implement security scanning for generated code
+  - Create validation pipelines for model outputs
+  - Set up automated testing for generated code
+  - Develop security compliance checking
+  - Implement sanitization for inputs to local models
+
+## Integration with Cursor
+
+- Configure Cursor to work with local models:
+  - Set up model endpoints in Cursor settings
+  - Create fallback sequences for multiple models
+  - Implement context management for limited windows
+  - Configure specialized prompts for WordPress development
+  - Develop response formatting guidelines 

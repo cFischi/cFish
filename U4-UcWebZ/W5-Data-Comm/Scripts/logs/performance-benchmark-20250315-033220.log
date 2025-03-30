@@ -1,0 +1,38 @@
+[2025-03-15 03:32:20] [INFO] Starting DMMS performance benchmark
+[2025-03-15 03:32:20] [INFO] Starting performance measurement for: Sync Memory Files
+[2025-03-15 03:32:21] [INFO] Performance results for Sync Memory Files:
+[2025-03-15 03:32:21] [INFO]   - Execution Time: 339 ms
+[2025-03-15 03:32:21] [INFO]   - Memory Used: 2799.640625 KB
+[2025-03-15 03:32:21] [INFO] Starting performance measurement for: Sync Bidirectional
+[2025-03-15 03:32:21] [ERROR] Error during performance measurement for Sync Bidirectional: At C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1:356 char:77
++ ...                 $pattern = if ("() { ms)######### $([regex] } else {  ...
++                                                                 ~
+Missing closing ')' in subexpression.
+
+At C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1:356 char:191
++ ... $([regex]::Escape($matchingDeptEntry.date))\).*?(?=^######### |\z)" }
++                                                                         ~
+Missing closing ')' after expression in 'if' statement.
+
+At C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1:402 char:73
++ ...                 $pattern = if ("() { ms)######### $([regex] } else {  ...
++                                                                 ~
+Missing closing ')' in subexpression.
+
+At C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1:402 char:191
++ ... [regex]::Escape($matchingMasterEntry.date))\).*?(?=^######### |\z)" }
++                                                                         ~
+Missing closing ')' after expression in 'if' statement.
+
+At C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1:428 char:5
++     }
++     ~
+Unexpected token '}' in expression or statement.
+
+At C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1:449 char:1
++ }
++ ~
+Unexpected token '}' in expression or statement.
+[2025-03-15 03:32:21] [INFO] Starting performance measurement for: Convert MD to JSON
+[2025-03-15 03:32:21] [ERROR] Error during performance measurement for Convert MD to JSON: The term 'param' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[2025-03-15 03:32:21] [INFO] Created benchmark report at C:\Users\Chris\cFish.io\U5-Data\Scripts\logs\performance-benchmark-report-20250315-033221.md

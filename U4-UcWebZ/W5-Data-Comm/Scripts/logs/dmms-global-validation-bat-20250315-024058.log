@@ -1,0 +1,4 @@
+[Sat 03/15/2025  2:40:58.54] Starting DMMS Global Validation 
+[Sat 03/15/2025  2:40:58.54] Parameters: CONFIG_PATH=config\validation-rules.json, LOG_LEVEL=INFO, FIX_ISSUES=false, GENERATE_REPORT=true 
+[Sat 03/15/2025  2:40:58.57] Executing PowerShell command: powershell -NoProfile -ExecutionPolicy Bypass -File ""C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-global-validation.ps1"" -ConfigPath ""config\validation-rules.json"" -LogLevel ""INFO"" 
+[Sat 03/15/2025  2:40:58.91] DMMS Global Validation completed with warnings. 

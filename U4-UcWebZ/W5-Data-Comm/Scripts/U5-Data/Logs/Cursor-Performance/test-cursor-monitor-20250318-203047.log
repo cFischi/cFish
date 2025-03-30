@@ -1,0 +1,23 @@
+﻿=== Simple Cursor Process Monitor Test ===
+Started at: 2025-03-18 20:30:47
+Looking for Cursor-related processes...
+Found 12 Cursor-related processes.
+Top processes by CPU usage:
+Process: Cursor, PID: 11416, CPU: 2300.11%, Memory: 711.57 MB
+Process: Cursor, PID: 12860, CPU: 2027.59%, Memory: 1738.69 MB
+Process: Cursor, PID: 7880, CPU: 1635.56%, Memory: 438.39 MB
+Process: Cursor, PID: 13992, CPU: 467.88%, Memory: 130.75 MB
+Process: Cursor, PID: 16888, CPU: 35.2%, Memory: 253.23 MB
+Process: node, PID: 15220, CPU: 14.05%, Memory: 81.67 MB
+Process: Cursor, PID: 12324, CPU: 12.92%, Memory: 122.82 MB
+Process: Cursor, PID: 6280, CPU: 10%, Memory: 52.4 MB
+Process: Cursor, PID: 13860, CPU: 4.38%, Memory: 124.38 MB
+Process: Cursor, PID: 14884, CPU: 3%, Memory: 94.82 MB
+Process: Cursor, PID: 17432, CPU: 0.47%, Memory: 96.44 MB
+Process: Cursor, PID: 13116, CPU: 0.02%, Memory: 35.47 MB
+Overall Cursor resource usage:
+  Total CPU: 6518.81%
+  Total Memory: 3880.62 MB
+  Process Count: 12
+Test completed successfully at: 2025-03-18 20:30:50
+Log file created at: C:\Users\Chris\cFish.io\U5-Data\Scripts\U5-Data\Logs\Cursor-Performance\test-cursor-monitor-20250318-203047.log

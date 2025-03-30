@@ -1,0 +1,66 @@
+[2025-03-13 07:54:37] [INFO] Auto-recovery mechanism started
+[2025-03-13 07:54:37] [INFO] Monitoring sync system: C:\Users\Chris\cFish.io\cFish.io\U5-Data\Synchronization\tydisync
+[2025-03-13 07:54:37] [WARNING] Sync system is not running on startup, attempting to start
+[2025-03-13 07:54:37] [WARNING] Attempting to restart sync system (Attempt 1 of 3)
+[2025-03-13 07:54:37] [INFO] Starting sync system...
+[2025-03-13 07:54:58] [ERROR] Timeout waiting for sync system to start
+[2025-03-13 07:54:58] [WARNING] Sync system is not running, attempting recovery
+[2025-03-13 07:54:58] [WARNING] Attempting to restart sync system (Attempt 1 of 3)
+[2025-03-13 07:54:58] [INFO] Starting sync system...
+[2025-03-13 07:55:18] [ERROR] Timeout waiting for sync system to start
+[2025-03-13 07:55:18] [ERROR] Recovery failed
+[2025-03-13 07:56:44] [INFO] Auto-recovery mechanism started
+[2025-03-13 07:56:44] [INFO] Monitoring sync system: C:\Users\Chris\cFish.io\cFish.io\U5-Data\Synchronization\tydisync
+[2025-03-13 07:56:44] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:44] [WARNING] Sync system is not running on startup, attempting to start
+[2025-03-13 07:56:44] [WARNING] Attempting to restart sync system (Attempt 1 of 3)
+[2025-03-13 07:56:44] [INFO] Starting sync system...
+[2025-03-13 07:56:44] [INFO] Started process with ID: 12928
+[2025-03-13 07:56:44] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:45] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:46] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:47] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:48] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:49] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:50] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:52] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:53] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:54] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:55] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:56] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:57] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:58] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:56:59] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:00] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:01] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:02] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:03] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:04] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:05] [ERROR] Timeout waiting for sync system to start
+[2025-03-13 07:57:05] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:05] [WARNING] Sync system is not running, attempting recovery
+[2025-03-13 07:57:05] [WARNING] Attempting to restart sync system (Attempt 1 of 3)
+[2025-03-13 07:57:05] [INFO] Starting sync system...
+[2025-03-13 07:57:05] [INFO] Started process with ID: 26072
+[2025-03-13 07:57:05] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:06] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:07] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:08] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:09] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:10] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:11] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:12] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:13] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:14] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:15] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:16] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:17] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:18] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:19] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:20] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:21] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:22] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:23] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:24] [WARNING] No running tYDiSync processes found
+[2025-03-13 07:57:25] [ERROR] Timeout waiting for sync system to start
+[2025-03-13 07:57:25] [ERROR] Recovery failed

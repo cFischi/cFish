@@ -1,0 +1,231 @@
+[2025-03-15 06:38:54] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:54] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:55] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:56] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:57] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:57] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:57] ERROR in Get-MemoryEntries: Cannot index into a null array.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 204
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 315
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:57] ERROR in Get-MemoryEntries: Unable to get content because it is a directory: 'C:\Users\Chris\cFish.io\'. Please use 'Get-ChildItem' instead.
+Exception Type: System.InvalidOperationException
+Stack Trace: at Get-MemoryEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 188
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 316
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------
+[2025-03-15 06:38:57] ERROR in Find-MatchingEntries: Index operation failed; the array index evaluated to null.
+Exception Type: System.Management.Automation.RuntimeException
+Stack Trace: at Find-MatchingEntries, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 242
+at Sync-Bidirectional, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 333
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\sync-bidirectional.ps1: line 531
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 337
+at Measure-Performance, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 100
+at Run-Benchmarks, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 336
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\dmms-performance-benchmark.ps1: line 372
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------

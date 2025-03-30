@@ -1,0 +1,214 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+# Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    # Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    # Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    # Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    # Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    # Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<#
+.SYNOPSIS
+    Verifies the integrity of critical files in the cFish.io system.
+
+.DESCRIPTION
+    This script verifies the integrity of critical files like memory.md and changelog.md
+    using SHA-256 fingerprinting. It compares current file hashes with stored fingerprints
+    to detect unauthorized changes or corruption.
+
+.NOTES
+    File Name      : verify-critical-files.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3
+    Copyright      : cFish.io 2025
+    Date           : March 20, 2025
+#>
+
+# Script configuration
+$criticalFiles = @(
+    "memory.md",
+    "changelog.md"
+)
+$fingerprintDir = "U5-Data\Verification\fingerprints"
+$fingerprintFile = Join-Path -Path $fingerprintDir -ChildPath "critical-files-fingerprints.json"
+$logDir = "U5-Data\Verification\logs"
+
+# Initialize
+$timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
+$logFile = Join-Path -Path $logDir -ChildPath "verification-$timestamp.log"
+$updateFingerprints = $false
+
+# Ensure directories exist
+if (-not (Test-Path -Path $fingerprintDir)) {
+    New-Item -ItemType Directory -Path $fingerprintDir -Force
+}
+if (-not (Test-Path -Path $logDir)) {
+    New-Item -ItemType Directory -Path $logDir -Force
+}
+
+# Start logging
+Start-Transcript -Path $logFile -Append
+Write-Output "============================================="
+Write-Output "Critical File Verification - Started: $(Get-Date)"
+Write-Output "============================================="
+
+# Load existing fingerprints if available
+$fingerprints = $null
+if (Test-Path -Path $fingerprintFile) {
+    try {
+        $fingerprints = Get-Content -Path $fingerprintFile -Raw | ConvertFrom-Json
+        Write-Output "Loaded existing fingerprints from $fingerprintFile"
+    } catch {
+        $errorMessage = $_.Exception.Message
+        Write-Warning "Error loading fingerprints: $errorMessage"
+        $fingerprints = $null
+    }
+} else {
+    Write-Output "No existing fingerprints found. Will create new fingerprints."
+    $updateFingerprints = $true
+}
+
+# If no fingerprints exist, create initial structure
+if ($null -eq $fingerprints) {
+    $fingerprints = [PSCustomObject]@{
+        timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")
+        files = [PSCustomObject]@{}
+    }
+}
+
+# Verify each critical file
+$verificationResults = @()
+foreach ($file in $criticalFiles) {
+    try {
+        if (Test-Path -Path $file) {
+            # Calculate current file hash
+            $currentHash = (Get-FileHash -Path $file -Algorithm SHA256).Hash
+            $fileSize = (Get-Item -Path $file).Length
+            
+            # Check if we have a stored hash for comparison
+            $storedHash = $null
+            $verified = $false
+            
+            if ($fingerprints.files.PSObject.Properties.Name -contains $file) {
+                $storedHash = $fingerprints.files.$file.hash
+                $verified = ($currentHash -eq $storedHash)
+                
+                Write-Output "File: $file (Size: $fileSize bytes)"
+                Write-Output "  Current hash: $currentHash"
+                Write-Output "  Stored hash:  $storedHash"
+                Write-Output "  Verification: $(if ($verified) { "PASSED" } else { "FAILED" })"
+            } else {
+                Write-Output "No stored hash found for $file. Will create one."
+                $updateFingerprints = $true
+            }
+            
+            # Add current hash to fingerprints object
+            if (-not $verified -or $updateFingerprints) {
+                $property = [PSCustomObject]@{
+                    hash = $currentHash
+                    algorithm = "SHA256"
+                    lastVerified = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")
+                }
+                
+                # Use Add-Member if the property doesn't exist
+                if (-not ($fingerprints.files.PSObject.Properties.Name -contains $file)) {
+                    $fingerprints.files | Add-Member -MemberType NoteProperty -Name $file -Value $property
+                } else {
+                    # Update existing property
+                    $propertyPath = $fingerprints.files | Get-Member -Name $file | Select-Object -ExpandProperty Name
+                    $fingerprints.files.$propertyPath = $property
+                }
+            }
+            
+            # Store verification result
+            $verificationResults += [PSCustomObject]@{
+                File = $file
+                Size = $fileSize
+                CurrentHash = $currentHash
+                StoredHash = $storedHash
+                Verified = $verified
+                Timestamp = Get-Date
+            }
+        } else {
+            Write-Warning "File not found: $file"
+        }
+    } catch {
+        $errorMessage = $_.Exception.Message
+        Write-Error "Error verifying $file: $errorMessage"
+    }
+}
+
+# Update fingerprints file if needed
+if ($updateFingerprints) {
+    try {
+        $fingerprints.timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")
+        $fingerprints | ConvertTo-Json -Depth 5 | Out-File -FilePath $fingerprintFile -Encoding utf8
+        Write-Output "Updated fingerprints saved to $fingerprintFile"
+    } catch {
+        $errorMessage = $_.Exception.Message
+        Write-Error "Error saving fingerprints: $errorMessage"
+    }
+}
+
+# Create verification summary file
+$summaryFile = Join-Path -Path $fingerprintDir -ChildPath "verification-summary-$timestamp.json"
+$verificationResults | ConvertTo-Json -Depth 5 | Out-File -FilePath $summaryFile -Encoding utf8
+
+Write-Output "============================================="
+Write-Output "Critical File Verification - Completed: $(Get-Date)"
+Write-Output "============================================="
+
+# Display verification summary
+Write-Output "Verification Summary:"
+$verificationResults | Format-Table -Property File, Size, Verified -AutoSize
+
+# End logging
+Stop-Transcript
+
+# Return verification results
+return $verificationResults 

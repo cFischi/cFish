@@ -1,0 +1,81 @@
+{
+  "metadata": {},
+  "sections": [
+    {
+      "level": 1,
+      "title": "JSON Versions for AI Consumption",
+      "content": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Metadata",
+      "content": [
+        "",
+        "---",
+        "",
+        "---",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Metadata",
+      "content": [
+        "",
+        "",
+        "---",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Purpose",
+      "content": [
+        "",
+        "",
+        "- These JSON files are automatically generated and kept in sync with their Markdown counterparts",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "File Structure",
+      "content": [
+        "",
+        "",
+        "Each JSON file follows this general structure:",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Usage Notes",
+      "content": [
+        "",
+        "",
+        "- **Do not edit these files directly** - they are automatically generated",
+        "",
+        ""
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Learn More",
+      "content": [
+        "",
+        "",
+        "For more information on the MD-to-JSON synchronization system, see:"
+      ]
+    }
+  ],
+  "filePath": "C:\\Users\\Chris\\cFish.io\\docs\\json\\README.md",
+  "lastUpdated": "2025-03-12T07:48:11.453Z"
+}

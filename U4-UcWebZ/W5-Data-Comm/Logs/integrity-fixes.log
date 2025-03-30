@@ -1,0 +1,17 @@
+[2025-03-14 22:36:19] [INFO] Starting integrity fixes based on report: integrity_report_20250314_222601.md
+[2025-03-14 22:36:19] [ERROR] Could not parse issue count from report
+[2025-03-14 22:37:38] [INFO] Starting integrity fixes
+[2025-03-14 22:37:38] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\Scripts\..\Data\Memory\..\memory.md
+[2025-03-14 22:37:38] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\Scripts\..\Data\Memory\..\U1-Administration\memory.md
+[2025-03-14 22:37:38] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\Scripts\..\Data\Memory\..\U2-Research\memory.md
+[2025-03-14 22:37:38] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\Scripts\..\Data\Memory\..\U3-Operations\memory.md
+[2025-03-14 22:37:38] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\Scripts\..\Data\Memory\..\U4-Production\memory.md
+[2025-03-14 22:37:38] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\Scripts\..\Data\Memory\..\U5-Data\memory.md
+[2025-03-14 22:37:38] [INFO] Completed integrity fixes. Files fixed: 0, Issues fixed: 0
+[2025-03-14 22:38:08] [INFO] Starting integrity fixes
+[2025-03-14 22:38:08] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\U1-Administration\memory.md
+[2025-03-14 22:38:08] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\U2-Research\memory.md
+[2025-03-14 22:38:08] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\U3-Operations\memory.md
+[2025-03-14 22:38:08] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\U4-Production\memory.md
+[2025-03-14 22:38:08] [WARNING] File not found: C:\Users\Chris\cFish.io\U5-Data\U5-Data\memory.md
+[2025-03-14 22:38:08] [INFO] Completed integrity fixes. Files fixed: 1, Issues fixed: 1

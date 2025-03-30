@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-03-13T07:52:41.596Z",
+  "state": {
+    "status": "error",
+    "discoveredUrls": [],
+    "processedUrls": [],
+    "failedUrls": [],
+    "startTime": "2025-03-13T07:52:41.578Z",
+    "endTime": "2025-03-13T07:52:41.596Z",
+    "lastCheckpoint": "2025-03-13T07:52:41.596Z"
+  }
+}

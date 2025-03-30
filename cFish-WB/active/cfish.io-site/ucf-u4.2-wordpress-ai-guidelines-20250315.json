@@ -1,0 +1,214 @@
+{
+  "config": {
+    "terminal": {
+      "shell": "cmd.exe",
+      "args": []
+    },
+    "editor": {
+      "formatOnSave": true,
+      "tabSize": 2
+    }
+  },
+  "expertise": "WordPress, PHP, and related web development technologies",
+  "guidelines": {
+    "coreVersion": {
+      "php": "7.4+",
+      "wordpress": "6.0+"
+    },
+    "corePrinciples": [
+      {
+        "title": "OOP Architecture",
+        "description": "Emphasize object-oriented programming (OOP) for better modularity and maintainability"
+      },
+      {
+        "title": "WordPress Standards",
+        "description": "Adhere to PHP and WordPress best practices for consistency and readability"
+      },
+      {
+        "title": "Code Reusability",
+        "description": "Focus on reusability through iteration and modularization, avoiding duplication"
+      },
+      {
+        "title": "Naming Conventions",
+        "description": "Use descriptive and meaningful function, variable, and file names"
+      },
+      {
+        "title": "Directory Structure",
+        "description": "Directory naming: lowercase with hyphens (e.g., wp-content/themes/my-theme)"
+      },
+      {
+        "title": "WordPress Hooks",
+        "description": "Use WordPress hooks (actions and filters) for extending functionality"
+      },
+      {
+        "title": "Documentation",
+        "description": "Add clear, descriptive comments to improve code clarity and maintainability"
+      }
+    ],
+    "codingPractices": [
+      {
+        "title": "Modern PHP Features",
+        "description": "Utilize features of PHP 7.4+ (typed properties, arrow functions) where applicable"
+      },
+      {
+        "title": "Strict Typing",
+        "description": "Enable strict typing by adding declare(strict_types=1); at the top of PHP files"
+      },
+      {
+        "title": "WordPress APIs",
+        "description": "Leverage core WordPress functions and APIs wherever possible"
+      },
+      {
+        "title": "Error Handling",
+        "description": "Implement robust error handling with WordPress debug logging, custom handlers, and try-catch blocks"
+      },
+      {
+        "title": "Security",
+        "priority": "high",
+        "items": [
+          "Always use WordPress's built-in functions for data validation and sanitization",
+          "Ensure secure form handling by verifying nonces in submissions",
+          "For database: Use $wpdb->prepare() for ALL queries",
+          "Input: Use sanitize_* functions before processing",
+          "Output: Use esc_* functions before display"
+        ]
+      },
+      {
+        "title": "Database Interactions",
+        "items": [
+          "Use WordPress's $wpdb abstraction layer",
+          "Apply prepare() statements for all dynamic queries to prevent SQL injection",
+          "Use the dbDelta() function for managing database schema changes"
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "title": "Compatibility",
+        "description": "Ensure compatibility with the latest stable version of WordPress"
+      },
+      {
+        "title": "Dependency Management",
+        "description": "Use Composer for dependency management in advanced plugins or themes"
+      }
+    ],
+    "bestPractices": [
+      {
+        "title": "Theme Customization",
+        "description": "Use child themes for customizations to preserve update compatibility"
+      },
+      {
+        "title": "Core Files",
+        "priority": "high",
+        "description": "Never modify core WordPress files—extend using hooks (actions and filters)"
+      },
+      {
+        "title": "Function Organization",
+        "description": "Organize theme-specific functions within functions.php"
+      },
+      {
+        "title": "User Management",
+        "description": "Use WordPress's user roles and capabilities for managing permissions"
+      },
+      {
+        "title": "Performance",
+        "description": "Apply the transients API for caching data and optimizing performance"
+      },
+      {
+        "title": "Background Processing",
+        "description": "Implement background processing tasks using wp_cron() for long-running operations"
+      },
+      {
+        "title": "Testing",
+        "description": "Write unit tests using WordPress's built-in WP_UnitTestCase framework"
+      },
+      {
+        "title": "Internationalization",
+        "description": "Follow best practices for internationalization (i18n) using WordPress localization functions"
+      },
+      {
+        "title": "Asset Management",
+        "description": "Manage scripts and styles by using wp_enqueue_script() and wp_enqueue_style()"
+      },
+      {
+        "title": "Content Structure",
+        "description": "Use custom post types and taxonomies when necessary to extend WordPress functionality"
+      },
+      {
+        "title": "Configuration",
+        "description": "Store configuration data securely using WordPress's options API"
+      },
+      {
+        "title": "Pagination",
+        "description": "Implement pagination effectively with functions like paginate_links()"
+      }
+    ],
+    "keyConventions": [
+      {
+        "id": 1,
+        "title": "Plugin API",
+        "description": "Follow WordPress's plugin API to extend functionality in a modular and scalable manner"
+      },
+      {
+        "id": 2,
+        "title": "Template Hierarchy",
+        "description": "Use WordPress's template hierarchy when developing themes to ensure flexibility"
+      },
+      {
+        "id": 3,
+        "title": "Data Security",
+        "description": "Apply WordPress's built-in functions for data sanitization and validation to secure user inputs"
+      },
+      {
+        "id": 4,
+        "title": "Template Tags",
+        "description": "Implement WordPress's template tags and conditional tags in themes for dynamic content handling"
+      },
+      {
+        "id": 5,
+        "title": "Queries",
+        "description": "For custom queries, use $wpdb or WP_Query for database interactions"
+      },
+      {
+        "id": 6,
+        "title": "Authentication",
+        "description": "Use WordPress's authentication and authorization mechanisms for secure access control"
+      },
+      {
+        "id": 7,
+        "title": "AJAX Processing",
+        "description": "For AJAX requests, use admin-ajax.php or the WordPress REST API for handling backend requests"
+      },
+      {
+        "id": 8,
+        "title": "Hooks System",
+        "description": "Always apply WordPress's hook system (actions and filters) for extensible and modular code"
+      },
+      {
+        "id": 9,
+        "title": "Database Operations",
+        "description": "Implement database operations using transactional functions where needed"
+      },
+      {
+        "id": 10,
+        "title": "Task Scheduling",
+        "description": "Schedule tasks using WordPress's WP_Cron API for automated workflows"
+      }
+    ],
+    "workflow": {
+      "git": {
+        "commitPractice": "Commit each atomic change with clear message",
+        "branchStrategy": "NEVER commit to main, always use feature branches",
+        "branchNaming": "feature/name, bugfix/name, hotfix/name" 
+      },
+      "testing": "Verify all changes before requesting review",
+      "documentation": "Update memory.md, changelog.md with each change"
+    }
+  },
+  "communicationPreferences": {
+    "style": "Terse answers with functional code examples",
+    "learningStage": "Beginner - explain reasoning clearly",
+    "confidenceLevel": "Present solutions with confidence level (1-10)",
+    "clarification": "Ask 3-5 clarifying questions when needed"
+  }
+} 

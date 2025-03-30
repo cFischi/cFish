@@ -1,0 +1,89 @@
+{
+    "Site":  {
+                 "Title":  "cFish.io",
+                 "Url":  "http://localhost/cfish",
+                 "AdminUser":  "admin",
+                 "AdminPassword":  "PLACEHOLDER_PASSWORD_PROMPT",
+                 "AdminEmail":  "admin@cfish.io"
+             },
+    "Environment":  "development",
+    "Version":  "1.0",
+    "LastUpdated":  "2025-03-15",
+    "Settings":  {
+                     "EmptyTrash":  30,
+                     "MaxRevisions":  5,
+                     "Permalink":  "/%postname%/",
+                     "CommentsEnabled":  false,
+                     "Debugging":  false,
+                     "AutoUpdates":  {
+                                         "Core":  "minor",
+                                         "Plugins":  true,
+                                         "Themes":  true
+                                     }
+                 },
+    "Themes":  [
+                   {
+                       "Path":  "Themes\\cfish-theme",
+                       "IsChildTheme":  false,
+                       "Name":  "cfish-theme",
+                       "Source":  "custom",
+                       "Required":  true
+                   },
+                   {
+                       "IsChildTheme":  false,
+                       "Name":  "twentytwentyfour",
+                       "Source":  "wp-repository",
+                       "Required":  false
+                   }
+               ],
+    "Plugins":  [
+                    {
+                        "Name":  "advanced-custom-fields",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "custom-post-type-ui",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "classic-editor",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "wordfence",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "wp-mail-smtp",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "sucuri-scanner",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "wp-super-cache",
+                        "Version":  "latest",
+                        "Required":  true
+                    },
+                    {
+                        "Name":  "all-in-one-seo-pack",
+                        "Version":  "latest",
+                        "Required":  true
+                    }
+                ],
+    "CoreVersion":  "6.4.3",
+    "Database":  {
+                     "TablePrefix":  "wp_",
+                     "Host":  "localhost",
+                     "Name":  "cfish_wp",
+                     "Password":  "PLACEHOLDER_PASSWORD_PROMPT",
+                     "User":  "cfish_user"
+                 }
+}

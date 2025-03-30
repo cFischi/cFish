@@ -1,0 +1,138 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+# Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    # Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    # Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    # Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    # Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    # Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<#
+.SYNOPSIS
+    Creates department-specific memory.md files for the DMMS.
+
+.DESCRIPTION
+    This script creates memory.md files and corresponding README files
+    in each UcF department directory as part of the DMMS implementation.
+
+.NOTES
+    File Name      : create-department-memory-files.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3
+    Copyright      : cFish.io 2025
+    Date           : March 20, 2025
+#>
+
+# Get workspace root directory
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$workspaceRoot = Split-Path -Parent (Split-Path -Parent $scriptDir)
+
+# Define departments
+$departments = @(
+    "U1-Administration", 
+    "U2-Research", 
+    "U3-Operations", 
+    "U4-Production", 
+    "U5-Data", 
+    "U6-Marketing", 
+    "U7-Systems"
+)
+
+# Create files for each department
+foreach ($dept in $departments) {
+    $deptPath = Join-Path -Path $workspaceRoot -ChildPath $dept
+    $memoryFile = Join-Path -Path $deptPath -ChildPath "memory.md"
+    $readmeFile = Join-Path -Path $deptPath -ChildPath "memory-README.md"
+    
+    # Create department directory if it doesn't exist
+    if (!(Test-Path $deptPath)) {
+        Write-Host "Creating directory $deptPath..."
+        New-Item -ItemType Directory -Path $deptPath -Force | Out-Null
+    }
+    
+    # Create memory file with template if it doesn't exist
+    if (!(Test-Path $memoryFile)) {
+        Write-Host "Creating $memoryFile..."
+        @"
+# $dept Memory File
+
+This department-specific memory file contains entries related to $dept activities.
+
+## Table of Contents
+
+"@ | Out-File -FilePath $memoryFile -Encoding utf8
+        Write-Host "Created $memoryFile successfully."
+    } else {
+        Write-Host "$memoryFile already exists. Skipping."
+    }
+    
+    # Create README file with template if it doesn't exist
+    if (!(Test-Path $readmeFile)) {
+        Write-Host "Creating $readmeFile..."
+        @"
+# $dept Memory File Usage Guide
+
+This document provides guidelines for maintaining the department-specific memory file.
+
+## Overview
+
+The $dept memory file is part of the Distributed Memory Management System (DMMS).
+
+## Usage Guidelines
+
+1. Follow the standard memory entry format
+2. Only add entries related to $dept responsibilities
+3. Ensure proper synchronization with the master memory file
+"@ | Out-File -FilePath $readmeFile -Encoding utf8
+        Write-Host "Created $readmeFile successfully."
+    } else {
+        Write-Host "$readmeFile already exists. Skipping."
+    }
+}
+
+Write-Host "Department memory files creation completed." 

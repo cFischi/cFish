@@ -1,0 +1,75 @@
+{
+  "organizationRules": [
+    {
+      "rule": "DepartmentAlignment",
+      "description": "Files should be placed in directories that align with their UcF department designation",
+      "priority": "High"
+    },
+    {
+      "rule": "NamingConsistency",
+      "description": "Files should follow the naming convention: [CompanyPrefix]-[DeptNumber].[FunctionNumber]-[TaskIdentifier].[extension]",
+      "priority": "High"
+    },
+    {
+      "rule": "FunctionalGrouping",
+      "description": "Files should be grouped by function within department directories",
+      "priority": "Medium"
+    },
+    {
+      "rule": "VersionControl",
+      "description": "Only physical documents should include dates in their filenames. Digital files should rely on metadata and version control systems.",
+      "priority": "Medium"
+    },
+    {
+      "rule": "CriticalFileExemption",
+      "description": "WordPress files, critical tools, legal documents maintain original filenames but should be in appropriate directories",
+      "priority": "High"
+    }
+  ],
+  "fileManagementPractices": [
+    {
+      "practice": "BackupBeforeRename",
+      "description": "Create backups before batch renaming files",
+      "priority": "Critical"
+    },
+    {
+      "practice": "ScheduledChecks",
+      "description": "Run file organization checks daily to maintain compliance",
+      "priority": "High"
+    },
+    {
+      "practice": "DocumentChanges",
+      "description": "Document all organizational changes in memory.md and changelog.md",
+      "priority": "Medium"
+    },
+    {
+      "practice": "UseAutomatedTools",
+      "description": "Use the provided tools for file management rather than manual reorganization",
+      "priority": "High"
+    }
+  ],
+  "complianceMetrics": {
+    "namingConvention": {
+      "target": 95,
+      "excludingCriticalFiles": true
+    },
+    "directoryStructure": {
+      "target": 100,
+      "excludingCriticalDirectories": true
+    },
+    "documentationUpdates": {
+      "target": 100,
+      "includesMemoryChangelog": true
+    }
+  },
+  "sourceDocuments": {
+    "primary": "Documentation/Process/cFish.io File Management System SOP.md",
+    "secondary": [
+      "Documentation/Implementation/file-organization-standards.md",
+      "docs/digital-organization-system-README.md"
+    ]
+  },
+  "lastUpdated": "2025-03-14",
+  "updatedBy": "AI: Cursor (Claude 3.7 Sonnet)",
+  "version": "1.0.1"
+} 

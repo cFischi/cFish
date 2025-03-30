@@ -1,0 +1,5 @@
+[2025-03-14 03:06:02] [Information] Starting directory structure restoration
+[2025-03-14 03:06:02] [Information] Creating backup in C:\Users\Chris\cFish.io\U7-Systems\Tools\backup_before_restoration_20250314_030602
+[2025-03-14 03:06:02] [Information] Backup created at: C:\Users\Chris\cFish.io\U7-Systems\Tools\backup_before_restoration_20250314_030602
+[2025-03-14 03:06:02] [Information] Created directory: C:\Users\Chris\cFish.io\U7-Systems\Tools\_Archives
+[2025-03-14 03:06:02] [Error] Error during directory restoration: Cannot find path 'C:\Users\Chris\cFish.io\U7-Systems\Tools\.cursor' because it does not exist.

@@ -1,0 +1,65 @@
+[2025-03-15 03:56:11] [INFO] Starting directory structure verification
+[2025-03-15 03:56:11] [INFO] Workspace root: C:\Users\Chris\cFish.io
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\config (Configuration directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\config
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\logs (Logs directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\logs
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\backups (Backups directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\backups
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\reports (Reports directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\reports
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\Templates (Templates directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\Templates
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\Services (Services directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\Services
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Scripts\Services\Documentation (Services documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Scripts\Services\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\Documentation\Core (Core documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\Documentation\Core
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\Documentation\Organization (Organization documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\Documentation\Organization
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\Documentation\Implementation (Implementation documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\Documentation\Implementation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\Documentation\tYDiSync (tYDiSync documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\Documentation\tYDiSync
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\Documentation\Tools (Tools documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\Documentation\Tools
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\Documentation\Reference (Reference documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\Documentation\Reference
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U1-Administration\Documentation (U1 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U1-Administration\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U2-Research\Documentation (U2 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U2-Research\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U3-Operations\Documentation (U3 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U3-Operations\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U3-Operations\Documentation\SOPs (U3 SOPs directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U3-Operations\Documentation\SOPs
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U4-Production\Documentation (U4 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U4-Production\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U4-Production\Documentation\WordPress (U4 WordPress documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U4-Production\Documentation\WordPress
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U5-Data\Documentation (U5 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U5-Data\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U6-Marketing\Documentation (U6 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U6-Marketing\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\U7-Systems\Documentation (U7 documentation directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\U7-Systems\Documentation
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\WordPress (WordPress root directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\WordPress
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\WordPress\wp-content (WordPress content directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\WordPress\wp-content
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\WordPress\wp-content\themes (WordPress themes directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\WordPress\wp-content\themes
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\WordPress\wp-content\plugins (WordPress plugins directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\WordPress\wp-content\plugins
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\cFish-WB\active (Master workbench active directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\cFish-WB\active
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\cFish-WB\WB-readme (Master workbench readme directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\cFish-WB\WB-readme
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\cFish-WB\next-WB (Master workbench next directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\cFish-WB\next-WB
+[2025-03-15 03:56:11] [INFO] Verifying directory: C:\Users\Chris\cFish.io\cFish-WB\next-readme (Master workbench next readme directory)
+[2025-03-15 03:56:11] [INFO] Directory exists: C:\Users\Chris\cFish.io\cFish-WB\next-readme
+[2025-03-15 03:56:11] [INFO] Directory verification completed. Success: 30, Failure: 0
+[2025-03-15 03:56:11] [INFO] Created directory structure report at C:\Users\Chris\cFish.io\U5-Data\Scripts\logs\directory-structure-report-20250315-035611.md
+[2025-03-15 03:56:11] [INFO] Directory structure verification completed. Success: 30, Failure: 0

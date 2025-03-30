@@ -1,0 +1,13 @@
+[2025-03-14 05:49:39] [INFO] Starting backup verification process
+[2025-03-14 05:49:39] [INFO] Verifying backups for date: 20250314
+[2025-03-14 05:49:39] [ERROR] Error verifying file: memory.md (20250314) - The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[2025-03-14 05:49:39] [ERROR] Error verifying file: changelog.md (20250314) - The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[2025-03-14 05:49:39] [INFO] ======= VERIFICATION SUMMARY =======
+[2025-03-14 05:49:39] [INFO] Total files checked: 2
+[2025-03-14 05:49:39] [INFO] Successfully verified: 0
+[2025-03-14 05:49:39] [ERROR] Corrupted files: 2
+[2025-03-14 05:49:39] [SUCCESS] Missing files: 0
+[2025-03-14 05:49:39] [INFO] ==== RECOMMENDED ACTIONS ====
+[2025-03-14 05:49:39] [WARNING] 1. Check backup procedure for potential issues
+[2025-03-14 05:49:39] [WARNING] 2. Restore corrupted files from alternative backup sources
+[2025-03-14 05:49:39] [INFO] Verification process completed. Log saved to: C:\Users\Chris\cFish.io\U5-Data\Backups\backup-verification-20250314-054939.log

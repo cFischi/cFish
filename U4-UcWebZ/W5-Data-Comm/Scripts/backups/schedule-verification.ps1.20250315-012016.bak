@@ -1,0 +1,95 @@
+<#
+.SYNOPSIS
+    Schedules regular verification tasks for critical files.
+
+.DESCRIPTION
+    This script creates scheduled tasks to verify the integrity of critical files
+    at regular intervals. It schedules daily backups and multiple verification checks
+    throughout the day.
+
+.NOTES
+    File Name      : schedule-verification.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3 (Run as Administrator)
+    Copyright      : cFish.io 2025
+    Date           : March 20, 2025
+#>
+
+# Script configuration
+$backupScriptPath = Join-Path -Path $PSScriptRoot -ChildPath "backup-critical-files.ps1"
+$verifyScriptPath = Join-Path -Path $PSScriptRoot -ChildPath "verify-critical-files.ps1"
+
+# Check for administrator rights
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) {
+    Write-Warning "This script requires administrator privileges to create scheduled tasks."
+    Write-Warning "Please run PowerShell as Administrator and try again."
+    exit 1
+}
+
+# Ensure scripts exist
+if (-not (Test-Path -Path $backupScriptPath)) {
+    Write-Error "Backup script not found: $backupScriptPath"
+    exit 1
+}
+if (-not (Test-Path -Path $verifyScriptPath)) {
+    Write-Error "Verification script not found: $verifyScriptPath"
+    exit 1
+}
+
+# Get absolute paths
+$backupScriptPath = (Resolve-Path $backupScriptPath).Path
+$verifyScriptPath = (Resolve-Path $verifyScriptPath).Path
+
+Write-Output "============================================="
+Write-Output "Scheduling Critical File Verification Tasks"
+Write-Output "============================================="
+
+# Create daily backup task
+try {
+    $taskName = "cFish.io-Critical-Files-Daily-Backup"
+    $action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$backupScriptPath`""
+    $trigger = New-ScheduledTaskTrigger -Daily -At "01:00AM"
+    $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -DontStopOnIdleEnd -RestartInterval (New-TimeSpan -Minutes 5) -RestartCount 3
+    
+    # Remove existing task if it exists
+    Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
+    
+    # Create new task
+    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Settings $settings -Description "Daily backup of cFish.io critical files"
+    Write-Output "Created scheduled task: $taskName"
+} catch {
+    $errorMessage = $_.Exception.Message
+    Write-Error "Error creating daily backup task: $errorMessage"
+}
+
+# Create verification tasks (4 times daily)
+$verificationTimes = @("06:00AM", "12:00PM", "06:00PM", "11:00PM")
+foreach ($time in $verificationTimes) {
+    try {
+        $taskName = "cFish.io-Critical-Files-Verify-$($time.Replace(':', ''))"
+        $action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$verifyScriptPath`""
+        $trigger = New-ScheduledTaskTrigger -Daily -At $time
+        $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -DontStopOnIdleEnd
+        
+        # Remove existing task if it exists
+        Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
+        
+        # Create new task
+        Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Settings $settings -Description "Verification of cFish.io critical files at $time"
+        Write-Output "Created scheduled task: $taskName"
+    } catch {
+        $errorMessage = $_.Exception.Message
+        Write-Error "Error creating verification task for $time: $errorMessage"
+    }
+}
+
+Write-Output "============================================="
+Write-Output "Scheduled Tasks Created Successfully"
+Write-Output "============================================="
+Write-Output "Daily backup at: 01:00 AM"
+Write-Output "Verification schedule:"
+foreach ($time in $verificationTimes) {
+    Write-Output "  - $time"
+}
+Write-Output "=============================================" 

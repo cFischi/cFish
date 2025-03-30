@@ -1,0 +1,6 @@
+[2025-03-15 06:40:46] ERROR in Convert-MD-to-JSON-Main: Cannot bind argument to parameter 'Path' because it is null.
+Exception Type: System.Management.Automation.ParameterBindingValidationException
+Stack Trace: at Resolve-CFishPath, C:\Users\Chris\cFish.io\U5-Data\Scripts\convert-md-to-json.ps1: line 87
+at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\convert-md-to-json.ps1: line 216
+at <ScriptBlock>, <No file>: line 1
+----------------------------------------

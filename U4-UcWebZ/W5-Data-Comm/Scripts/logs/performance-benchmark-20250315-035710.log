@@ -1,0 +1,19 @@
+[2025-03-15 03:57:10] [INFO] Starting DMMS performance benchmark
+[2025-03-15 03:57:10] [INFO] Starting performance measurement for: Sync Memory Files
+[2025-03-15 03:57:11] [INFO] Performance results for Sync Memory Files:
+[2025-03-15 03:57:11] [INFO]   - Execution Time: 367 ms
+[2025-03-15 03:57:11] [INFO]   - Memory Used: 2831.15625 KB
+[2025-03-15 03:57:11] [INFO] Starting performance measurement for: Sync Bidirectional
+[2025-03-15 03:57:12] [INFO] Performance results for Sync Bidirectional:
+[2025-03-15 03:57:12] [INFO]   - Execution Time: 921 ms
+[2025-03-15 03:57:12] [INFO]   - Memory Used: 817.6484375 KB
+[2025-03-15 03:57:12] [INFO] Starting performance measurement for: Convert MD to JSON
+[2025-03-15 03:57:12] [INFO] Performance results for Convert MD to JSON:
+[2025-03-15 03:57:12] [INFO]   - Execution Time: 260 ms
+[2025-03-15 03:57:12] [INFO]   - Memory Used: 557.296875 KB
+[2025-03-15 03:57:12] [INFO] Created benchmark report at C:\Users\Chris\cFish.io\U5-Data\Scripts\logs\performance-benchmark-report-20250315-035712.md
+[2025-03-15 03:57:12] [INFO] Starting performance measurement for: Sync Bidirectional
+[2025-03-15 03:57:13] [INFO] Performance results for Sync Bidirectional:
+[2025-03-15 03:57:13] [INFO]   - Execution Time: 713.9998 ms
+[2025-03-15 03:57:13] [INFO]   - Memory Used: 527.046875 KB
+[2025-03-15 03:57:13] [ERROR] Error during performance measurement for Sync Bidirectional: You cannot call a method on a null-valued expression.

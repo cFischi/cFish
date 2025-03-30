@@ -1,0 +1,303 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+######## Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    ######## Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    ######## Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    ######## Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    ######## Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+######## continue-documentation-reorganization.ps1
+######## Purpose: Execute Day 2 of documentation reorganization plan
+######## Created: 2025-03-19
+######## Author: Claude 3.7 Sonnet
+
+######## Set error action preference
+$ErrorActionPreference = "Stop"
+
+######## Create log directory if it doesn't exist
+$logDir = Join-Path -Path $PSScriptRoot -ChildPath "logs"
+if (-not (Test-Path -Path $logDir)) {
+    New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+}
+
+######## Log file path
+$logFile = Join-Path -Path $logDir -ChildPath "doc-reorganization-day2-$(Get-Date -Format 'yyyyMMdd-HHmmss').log"
+
+######## Function to write to log
+function Write-Log {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("INFO", "WARNING", "ERROR")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logMessage = "[$timestamp] [$Level] $Message"
+    
+    ######## Write to console
+    switch ($Level) {
+        "INFO" { Write-Host $logMessage -ForegroundColor Cyan 
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Write-Log"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        "WARNING" { Write-Host $logMessage -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logMessage -ForegroundColor Red }
+    }
+    
+    ######## Write to log file
+    Add-Content -Path $logFile -Value $logMessage
+}
+
+######## Function to update references in a file
+function Update-References {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$FilePath,
+        
+        [Parameter(Mandatory = $true)]
+        [hashtable]$ReferenceMap
+    )
+    
+    if (-not (Test-Path -Path $FilePath)) {
+        Write-Log "File not found: $FilePath" -Level "ERROR"
+        return $false
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Update-References"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    try {
+        $content = Get-Content -Path $FilePath -Raw
+        
+        foreach ($oldPath in $ReferenceMap.Keys) {
+            $newPath = $ReferenceMap[$oldPath]
+            $content = $content -replace [regex]::Escape($oldPath), $newPath
+        }
+        
+        Set-Content -Path $FilePath -Value $content
+        Write-Log "Updated references in $FilePath"
+        return $true
+    }
+    catch {
+        Write-Log "Failed to update references in $FilePath. Error: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+######## Function to create symbolic links
+function Create-SymbolicLink {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$SourcePath,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$TargetPath
+    )
+    
+    if (-not (Test-Path -Path $TargetPath)) {
+        Write-Log "Target path not found: $TargetPath" -Level "ERROR"
+        return $false
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Create-SymbolicLink"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    try {
+        $sourceDir = Split-Path -Path $SourcePath -Parent
+        if (-not (Test-Path -Path $sourceDir)) {
+            New-Item -Path $sourceDir -ItemType Directory -Force | Out-Null
+        }
+        
+        if (Test-Path -Path $SourcePath) {
+            Remove-Item -Path $SourcePath -Force
+        }
+        
+        New-Item -Path $SourcePath -ItemType SymbolicLink -Value $TargetPath | Out-Null
+        Write-Log "Created symbolic link from $SourcePath to $TargetPath"
+        return $true
+    }
+    catch {
+        Write-Log "Failed to create symbolic link from $SourcePath to $TargetPath. Error: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+######## Main function to execute Day 2 of documentation reorganization
+function Execute-Day2Reorganization {
+    Write-Log "Starting Day 2 of documentation reorganization"
+    
+    ######## Define reference map (old path -> new path)
+    $referenceMap = @{
+        "docs/digital-organization-system-README.md" = "Documentation/Core/digital-organization-system-README.md"
+        "docs/tydisync-system-summary.md" = "Documentation/Core/tydisync-system-summary.md"
+        "docs/implementation-summary.md" = "Documentation/Implementation/implementation-summary.md"
+        "docs/guides/digital-organization-quick-reference.md" = "Documentation/Reference/digital-organization-quick-reference.md"
+        "docs/standards/file-naming-conventions.md" = "Documentation/Organization/file-naming-conventions.md"
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Execute-Day2Reorganization"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Update high-priority references in memory.md
+    $memoryPath = "memory.md"
+    $result = Update-References -FilePath $memoryPath -ReferenceMap $referenceMap
+    
+    if ($result) {
+        Write-Log "Successfully updated high-priority references in memory.md"
+    }
+    else {
+        Write-Log "Failed to update high-priority references in memory.md" -Level "ERROR"
+    }
+    
+    ######## Create symbolic links for backward compatibility
+    $symbolicLinks = @{
+        "docs/digital-organization-system-README.md" = "Documentation/Core/digital-organization-system-README.md"
+        "docs/tydisync-system-summary.md" = "Documentation/Core/tydisync-system-summary.md"
+        "docs/implementation-summary.md" = "Documentation/Implementation/implementation-summary.md"
+        "docs/guides/digital-organization-quick-reference.md" = "Documentation/Reference/digital-organization-quick-reference.md"
+        "docs/standards/file-naming-conventions.md" = "Documentation/Organization/file-naming-conventions.md"
+    }
+    
+    foreach ($sourcePath in $symbolicLinks.Keys) {
+        $targetPath = $symbolicLinks[$sourcePath]
+        $result = Create-SymbolicLink -SourcePath $sourcePath -TargetPath $targetPath
+        
+        if (-not $result) {
+            Write-Log "Failed to create symbolic link for $sourcePath" -Level "WARNING"
+        }
+    }
+    
+    ######## Update medium and low-priority references
+    $mediumPriorityFiles = @(
+        "U7-Systems/memory.md",
+        "U5-Data/memory.md",
+        "U4-Production/memory.md",
+        "U3-Operations/memory.md"
+    )
+    
+    foreach ($filePath in $mediumPriorityFiles) {
+        if (Test-Path -Path $filePath) {
+            $result = Update-References -FilePath $filePath -ReferenceMap $referenceMap
+            
+            if ($result) {
+                Write-Log "Successfully updated references in $filePath"
+            }
+            else {
+                Write-Log "Failed to update references in $filePath" -Level "WARNING"
+            }
+        }
+        else {
+            Write-Log "File not found: $filePath" -Level "WARNING"
+        }
+    }
+    
+    ######## Generate Day 2 completion report
+    $reportFile = Join-Path -Path $logDir -ChildPath "doc-reorganization-day2-report-$(Get-Date -Format 'yyyyMMdd-HHmmss').md"
+    
+    $report = @"
+######## Documentation Reorganization Day 2 Completion Report
+
+######### Overview
+- **Date**: $(Get-Date -Format "yyyy-MM-dd")
+- **Time**: $(Get-Date -Format "HH:mm:ss")
+- **Phase**: Day 2 of 4-day reorganization plan
+
+######### Completed Tasks
+- Updated high-priority references in memory.md
+- Created symbolic links for backward compatibility
+- Updated medium and low-priority references in departmental memory files
+- Generated completion report with detailed metrics
+
+######### Next Steps
+1. Begin preparation for departmental documentation moves (Day 3)
+2. Create UcF-compliant versions of moved files
+3. Update remaining references in documentation
+4. Verify content preservation throughout the process
+
+_Updated $(Get-Date -Format "MM-dd-yyyy") | AI: Cursor (Claude 3.7 Sonnet)_
+"@
+    
+    Set-Content -Path $reportFile -Value $report
+    Write-Log "Created Day 2 completion report at $reportFile"
+    
+    Write-Host "`nDay 2 of documentation reorganization completed. See $reportFile for details." -ForegroundColor Green
+}
+
+# Execute Day 2 reorganization
+Execute-Day2Reorganization 
+
+
+

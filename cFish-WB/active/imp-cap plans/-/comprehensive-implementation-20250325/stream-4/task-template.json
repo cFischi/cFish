@@ -1,0 +1,13 @@
+{
+  "id": "task-template",
+  "dueDate": "",
+  "priority": "medium",
+  "notes": "",
+  "dependencies": [],
+  "name": "Template Task",
+  "description": "This is a template for creating new tasks",
+  "startDate": "",
+  "assignee": "",
+  "status": "not-started",
+  "completedDate": ""
+}

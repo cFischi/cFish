@@ -1,0 +1,12 @@
+[Wed 03/12/2025 19:27:49.29] Starting tYDiSync~ functional tests 
+[Wed 03/12/2025 19:27:49.29] Test 1: Basic Markdown to JSON Conversion 
+[Wed 03/12/2025 19:27:49.64] Test 1: PASSED - Successfully created JSON file in root test directory 
+[Wed 03/12/2025 19:27:49.65] Test 2: JSON to Markdown Conversion 
+[Wed 03/12/2025 19:27:50.02] Test 2: PASSED - Successfully created Markdown file in root test directory 
+[Wed 03/12/2025 19:27:50.03] Test 3: Watch Mode Functionality 
+[Wed 03/12/2025 19:27:50.04] SKIPPED - Watch Mode Test requires manual verification 
+[Wed 03/12/2025 19:27:50.06] Test 4: Error Handling 
+[Wed 03/12/2025 19:27:50.41] Test 4: PASSED - Error was properly reported 
+[Wed 03/12/2025 19:27:50.41] Test 5: Backup System 
+[Wed 03/12/2025 19:27:50.84] Test 5: PASSED - Backup file was created 
+[Wed 03/12/2025 19:27:51.03] All tests PASSED 

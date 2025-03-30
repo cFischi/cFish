@@ -1,0 +1,10 @@
+This file tells the MD-JSON sync system to ignore memory.md
+
+Reason: memory.md contains critical historical content that should not be modified automatically
+Created: 2025-03-13
+
+The memory.md file has previously experienced data loss during synchronization.
+This nosync marker prevents the file from being included in the bidirectional
+synchronization process to ensure content integrity.
+
+To re-enable synchronization, simply delete this file. 

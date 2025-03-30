@@ -1,0 +1,24 @@
+{
+  "Results": [
+    {
+      "MemoryUsed": 260.5703125,
+      "OperationName": "Sync Memory Files",
+      "ExecutionTime": 357
+    },
+    {
+      "MemoryUsed": 1556.1484375,
+      "OperationName": "Sync Bidirectional",
+      "ExecutionTime": 2842
+    },
+    {
+      "MemoryUsed": 16.6328125,
+      "OperationName": "Convert MD to JSON",
+      "ExecutionTime": 114
+    }
+  ],
+  "Averages": {
+    "MemoryUsed": 611.0,
+    "ExecutionTime": 1104.0
+  },
+  "Timestamp": "2025-03-15 06:38:57"
+}

@@ -1,0 +1,760 @@
+# Enhanced error handling added 2025-03-15
+$ErrorActionPreference = "Stop"
+
+######## Error handling function
+function Handle-Error {
+    param (
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.ErrorRecord]$Error,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$Operation,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$LogFile = "$PSScriptRoot\logs\$PSCommandPath-error-log.txt"
+    )
+    
+    ######## Create log directory if it doesn't exist
+    $logDir = Split-Path -Path $LogFile -Parent
+    if (-not (Test-Path -Path $logDir)) {
+        New-Item -Path $logDir -ItemType Directory -Force | Out-Null
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Handle-Error"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Format error message
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $errorMessage = "[$timestamp] ERROR in $Operation: $($Error.Exception.Message)"
+    $errorDetails = "Exception Type: $($Error.Exception.GetType().FullName)
+Stack Trace: $($Error.ScriptStackTrace)"
+    
+    ######## Write to log file
+    Add-Content -Path $LogFile -Value $errorMessage
+    Add-Content -Path $LogFile -Value $errorDetails
+    Add-Content -Path $LogFile -Value "----------------------------------------"
+    
+    ######## Display error message
+    Write-Host $errorMessage -ForegroundColor Red
+    
+    ######## Return error information
+    return @{
+        Message = $Error.Exception.Message
+        Type = $Error.Exception.GetType().FullName
+        Operation = $Operation
+        Time = $timestamp
+    }
+}
+
+<######## .SYNOPSIS
+    Repairs integrity issues in DMMS memory files detected by the scanner.
+
+.DESCRIPTION
+    This script fixes common integrity issues in memory files that were detected
+    by the scan-integrity.ps1 script. It can repair missing signature lines,
+    fix date formats, synchronize missing entries, and address other structural issues.
+
+.NOTES
+    File Name      : repair-integrity.ps1
+    Author         : tY FischEYe via Cursor/Claude
+    Prerequisite   : PowerShell V3
+    Copyright      : cFish.io 2025
+    Date           : March 24, 2025
+    Version        : 1.0
+#>
+
+######## Get workspace root directory
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$workspaceRoot = Split-Path -Parent (Split-Path -Parent $scriptDir)
+
+######## Import configuration
+$configFile = Join-Path -Path $scriptDir -ChildPath "sync-config.json"
+$config = Get-Content -Raw -Path $configFile | ConvertFrom-Json
+
+######## Log directory
+$logDir = Join-Path -Path $scriptDir -ChildPath "logs"
+if (!(Test-Path $logDir)) {
+    New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+}
+$logFile = Join-Path -Path $logDir -ChildPath "integrity_repair_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+
+######## Backup directory
+$backupDir = Join-Path -Path $scriptDir -ChildPath "backups"
+if (!(Test-Path $backupDir)) {
+    New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
+}
+
+######## Results directory for reports
+$reportDir = Join-Path -Path $scriptDir -ChildPath "reports"
+if (!(Test-Path $reportDir)) {
+    New-Item -ItemType Directory -Path $reportDir -Force | Out-Null
+}
+$reportFile = Join-Path -Path $reportDir -ChildPath "integrity_repair_report_$(Get-Date -Format 'yyyyMMdd_HHmmss').md"
+
+######## Function to write to log
+function Write-Log {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory=$false)]
+        [ValidateSet("INFO", "WARNING", "ERROR", "SUCCESS")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logEntry = "[$timestamp] [$Level] $Message"
+    
+    Add-Content -Path $logFile -Value $logEntry
+    
+    ######## Also write to console with appropriate color
+    switch ($Level) {
+        "INFO" { Write-Host $logEntry -ForegroundColor White 
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Write-Log"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        "WARNING" { Write-Host $logEntry -ForegroundColor Yellow }
+        "ERROR" { Write-Host $logEntry -ForegroundColor Red }
+        "SUCCESS" { Write-Host $logEntry -ForegroundColor Green }
+    }
+}
+
+######## Function to extract entries from a memory file
+function Get-MemoryEntries {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath
+    )
+    
+    $entries = [System.Collections.ArrayList]@()
+    
+    if (Test-Path $FilePath) {
+        $content = Get-Content -Path $FilePath -Raw
+        $regex = [regex]"(?ms)^## (.*?) \((.*?)\)(.*?)(?=^## |\z)"
+        $matches = $regex.Matches($content)
+        
+        foreach ($match in $matches) {
+            $title = $match.Groups[1].Value.Trim()
+            $date = $match.Groups[2].Value.Trim()
+            $content = $match.Groups[3].Value.Trim()
+            
+            ######## Calculate SHA-256 hash of the entry for verification
+            $contentBytes = [System.Text.Encoding]::UTF8.GetBytes("$title|$date|$content")
+            $sha256 = [System.Security.Cryptography.SHA256]::Create()
+            $hashBytes = $sha256.ComputeHash($contentBytes)
+            $hash = [System.BitConverter]::ToString($hashBytes).Replace("-", "").ToLower()
+            
+            $entry = [PSCustomObject]@{
+                title = $title
+                date = $date
+                content = $content
+                hash = $hash
+                fullEntry = "######### $title ($date)$content"
+            
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Get-MemoryEntries"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+            
+            [void]$entries.Add($entry)
+        }
+    }
+    
+    return $entries
+}
+
+######## Function to create a backup of a file
+function Backup-File {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath
+    )
+    
+    if (!(Test-Path $FilePath)) {
+        Write-Log "File not found for backup: $FilePath" -Level "ERROR"
+        return $false
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Backup-File"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    $fileName = Split-Path -Leaf $FilePath
+    $backupPath = Join-Path -Path $backupDir -ChildPath "$fileName.$(Get-Date -Format 'yyyyMMdd_HHmmss').bak"
+    
+    try {
+        Copy-Item -Path $FilePath -Destination $backupPath -Force
+        Write-Log "Created backup: $backupPath" -Level "INFO"
+        return $true
+    } catch {
+        Write-Log "Failed to create backup of $FilePath: $_" -Level "ERROR"
+        return $false
+    }
+}
+
+######## Function to fix date format in entries
+function Repair-DateFormat {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath
+    )
+    
+    if (!(Test-Path $FilePath)) {
+        Write-Log "File not found: $FilePath" -Level "ERROR"
+        return 0
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Repair-DateFormat"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Create backup
+    if (!(Backup-File -FilePath $FilePath)) {
+        Write-Log "Aborting date format repair due to backup failure" -Level "ERROR"
+        return 0
+    }
+    
+    $content = Get-Content -Path $FilePath -Raw
+    $fixCount = 0
+    
+    ######## Find entries with invalid date formats and fix them
+    $regex = [regex]"(?ms)^## (.*?) \((.*?)\)(.*?)(?=^## |\z)"
+    
+    $newContent = $regex.Replace($content, {
+        param($match)
+        
+        $title = $match.Groups[1].Value.Trim()
+        $date = $match.Groups[2].Value.Trim()
+        $entryContent = $match.Groups[3].Value
+        
+        ######## Check if date has correct format MM-DD-YYYY
+        if ($date -match "^\d{1,2}-\d{1,2}-\d{4}$") {
+            ######## Already correctly formatted
+            return $match.Value
+        }
+        
+        ######## Try to convert various date formats to MM-DD-YYYY
+        $newDate = $date
+        
+        ######## Format: YYYY-MM-DD or YYYY/MM/DD
+        if ($date -match "^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$") {
+            $year = $matches[1]
+            $month = $matches[2].PadLeft(2, '0')
+            $day = $matches[3].PadLeft(2, '0')
+            $newDate = "$month-$day-$year"
+            $fixCount++
+        }
+        ######## Format: DD/MM/YYYY or DD-MM-YYYY
+        elseif ($date -match "^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$") {
+            $day = $matches[1].PadLeft(2, '0')
+            $month = $matches[2].PadLeft(2, '0')
+            $year = $matches[3]
+            $newDate = "$month-$day-$year"
+            $fixCount++
+        }
+        ######## Format: MM/DD/YYYY (just need to replace / with -)
+        elseif ($date -match "^(\d{1,2})/(\d{1,2})/(\d{4})$") {
+            $month = $matches[1].PadLeft(2, '0')
+            $day = $matches[2].PadLeft(2, '0')
+            $year = $matches[3]
+            $newDate = "$month-$day-$year"
+            $fixCount++
+        }
+        ######## If we couldn't fix the date, use today's date
+        else {
+            $newDate = Get-Date -Format "MM-dd-yyyy"
+            $fixCount++
+        }
+        
+        Write-Log "Fixed date format in entry '$title': '$date' -> '$newDate'" -Level "INFO"
+        return "######### $title ($newDate)$entryContent"
+    })
+    
+    # Save changes
+    if ($fixCount -gt 0) {
+        Set-Content -Path $FilePath -Value $newContent
+        Write-Log "Fixed $fixCount date format issues in $FilePath" -Level "SUCCESS"
+    } else {
+        Write-Log "No date format issues found in $FilePath" -Level "INFO"
+    }
+    
+    return $fixCount
+}
+
+######## Function to fix missing signature lines
+function Repair-SignatureLines {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$FilePath,
+        
+        [Parameter(Mandatory=$false)]
+        [string]$DefaultSignature = "AI: Cursor (Claude 3.7 Sonnet)"
+    )
+    
+    if (!(Test-Path $FilePath)) {
+        Write-Log "File not found: $FilePath" -Level "ERROR"
+        return 0
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Repair-SignatureLines"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Create backup
+    if (!(Backup-File -FilePath $FilePath)) {
+        Write-Log "Aborting signature line repair due to backup failure" -Level "ERROR"
+        return 0
+    }
+    
+    $content = Get-Content -Path $FilePath -Raw
+    $fixCount = 0
+    
+    ######## Find entries with missing signature lines and fix them
+    $regex = [regex]"(?ms)^## (.*?) \((.*?)\)(.*?)(?=^## |\z)"
+    
+    $newContent = $regex.Replace($content, {
+        param($match)
+        
+        $title = $match.Groups[1].Value.Trim()
+        $date = $match.Groups[2].Value.Trim()
+        $entryContent = $match.Groups[3].Value
+        
+        ######## Check if entry already has a signature line
+        if ($entryContent -match "_Updated \d{2}-\d{2}-\d{4} \| (?:AI|Human): .*?_") {
+            ######## Already has a signature line
+            return $match.Value
+        }
+        
+        ######## Add signature line
+        $currentDate = Get-Date -Format "MM-dd-yyyy"
+        $signatureLine = "`n`n_Updated $currentDate | $DefaultSignature_"
+        
+        ######## If content ends with newlines, remove them before adding signature
+        $trimmedContent = $entryContent.TrimEnd()
+        
+        Write-Log "Added signature line to entry '$title'" -Level "INFO"
+        $fixCount++
+        
+        return "######### $title ($date)$trimmedContent$signatureLine"
+    })
+    
+    # Save changes
+    if ($fixCount -gt 0) {
+        Set-Content -Path $FilePath -Value $newContent
+        Write-Log "Added $fixCount signature lines in $FilePath" -Level "SUCCESS"
+    } else {
+        Write-Log "No missing signature lines found in $FilePath" -Level "INFO"
+    }
+    
+    return $fixCount
+}
+
+######## Function to add missing entries from master to department files
+function Sync-MissingEntries {
+    param (
+        [Parameter(Mandatory=$false)]
+        [switch]$TwoWaySync
+    )
+    
+    $masterFile = Join-Path -Path $workspaceRoot -ChildPath $config.masterFile
+    $masterEntries = Get-MemoryEntries -FilePath $masterFile
+    $totalSyncCount = 0
+    
+    Write-Log "Starting synchronization of missing entries..." -Level "INFO"
+    
+    ######## For each department
+    foreach ($dept in $config.departments) {
+        $deptPath = Join-Path -Path $workspaceRoot -ChildPath $dept.path
+        $deptName = $dept.name
+        
+        if (!(Test-Path $deptPath)) {
+            Write-Log "Department file not found: $deptPath" -Level "WARNING"
+            continue
+        
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Sync-MissingEntries"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+        
+        ######## Create backup
+        if (!(Backup-File -FilePath $deptPath)) {
+            Write-Log "Skipping synchronization for $deptName due to backup failure" -Level "ERROR"
+            continue
+        }
+        
+        $deptEntries = Get-MemoryEntries -FilePath $deptPath
+        $syncCount = 0
+        
+        ######## Check for missing entries from master to department
+        foreach ($masterEntry in $masterEntries) {
+            $shouldBeInDept = $false
+            
+            ######## Check if entry is relevant for this department based on keywords
+            foreach ($keyword in $dept.keywords) {
+                if ($masterEntry.title -match $keyword -or $masterEntry.content -match $keyword) {
+                    $shouldBeInDept = $true
+                    break
+                }
+            }
+            
+            if ($shouldBeInDept) {
+                ######## Check if entry exists in department file
+                $matchingDeptEntry = $deptEntries | Where-Object { $_.title -eq $masterEntry.title -and $_.date -eq $masterEntry.date }
+                
+                if ($null -eq $matchingDeptEntry) {
+                    ######## Add missing entry to department file
+                    Write-Log "Adding missing entry '$($masterEntry.title) ($($masterEntry.date))' to $deptName" -Level "INFO"
+                    Add-Content -Path $deptPath -Value "`n$($masterEntry.fullEntry)"
+                    $syncCount++
+                    $totalSyncCount++
+                }
+            }
+        }
+        
+        ######## If two-way sync is enabled, check for entries in department file not in master
+        if ($TwoWaySync) {
+            ######## Create backup of master file if not already done
+            $masterBackedUp = $false
+            
+            foreach ($deptEntry in $deptEntries) {
+                $matchingMasterEntry = $masterEntries | Where-Object { $_.title -eq $deptEntry.title -and $_.date -eq $deptEntry.date }
+                
+                if ($null -eq $matchingMasterEntry) {
+                    ######## Backup master file before first modification
+                    if (!$masterBackedUp) {
+                        if (!(Backup-File -FilePath $masterFile)) {
+                            Write-Log "Aborting two-way sync due to master file backup failure" -Level "ERROR"
+                            break
+                        }
+                        $masterBackedUp = $true
+                    }
+                    
+                    ######## Add missing entry to master file
+                    Write-Log "Adding missing entry '$($deptEntry.title) ($($deptEntry.date))' to master file from $deptName" -Level "INFO"
+                    Add-Content -Path $masterFile -Value "`n$($deptEntry.fullEntry)"
+                    $syncCount++
+                    $totalSyncCount++
+                    
+                    ######## Update master entries collection
+                    $masterEntries = Get-MemoryEntries -FilePath $masterFile
+                }
+            }
+        }
+        
+        if ($syncCount -gt 0) {
+            Write-Log "Synchronized $syncCount entries for $deptName" -Level "SUCCESS"
+        } else {
+            Write-Log "No missing entries found for $deptName" -Level "INFO"
+        }
+    }
+    
+    return $totalSyncCount
+}
+
+######## Function to generate a repair report
+function New-RepairReport {
+    param (
+        [Parameter(Mandatory=$true)]
+        [hashtable]$Results
+    )
+    
+    $report = @"
+# DMMS Integrity Repair Report
+
+Generated: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+
+######### Summary
+
+- **Repair Time**: $($Results.repairTime)
+- **Files Processed**: $($Results.fileCount)
+- **Total Issues Fixed**: $($Results.totalFixed)
+- **Backup Files Created**: $($Results.backupCount)
+
+######### Detailed Results
+
+"@
+    
+    foreach ($fileResult in $Results.fileResults) {
+        $report += @"
+
+########## $($fileResult.fileName)
+
+- **Issues Fixed**: $($fileResult.issuesFixed)
+- **Repairs Performed**:
+  - Date Format Fixes: $($fileResult.dateFormatFixed)
+  - Signature Line Fixes: $($fileResult.signatureLineFixed)
+  - Missing Entries Added: $($fileResult.missingEntriesAdded)
+
+"@
+    
+    try {
+        # Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "New-RepairReport"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    $report += @"
+
+######### Backup Information
+
+All modified files were backed up before changes were made. Backups are stored in:
+`$scriptDir/backups/`
+
+Total backups created: $($Results.backupCount)
+
+"@
+    
+    return $report
+}
+
+# Main repair function
+function Repair-IntegrityIssues {
+    param (
+        [Parameter(Mandatory=$false)]
+        [switch]$FixDateFormat,
+        
+        [Parameter(Mandatory=$false)]
+        [switch]$FixSignatureLines,
+        
+        [Parameter(Mandatory=$false)]
+        [switch]$SyncMissingEntries,
+        
+        [Parameter(Mandatory=$false)]
+        [switch]$TwoWaySync,
+        
+        [Parameter(Mandatory=$false)]
+        [switch]$FixAll
+    )
+    
+    $startTime = Get-Date
+    Write-Log "Starting DMMS integrity repair..." -Level "INFO"
+    
+    ######## If FixAll is specified, enable all repair options
+    if ($FixAll) {
+        $FixDateFormat = $true
+        $FixSignatureLines = $true
+        $SyncMissingEntries = $true
+    
+    try {
+        ######## Original function body is above
+    }
+    catch {
+        $errorInfo = Handle-Error -Error $_ -Operation "Repair-IntegrityIssues"
+        Write-Warning "Operation failed. See error log for details."
+        return $false
+    }
+}
+    
+    ######## Initialize results
+    $results = @{
+        repairTime = "{0:hh\:mm\:ss}" -f (New-TimeSpan)
+        fileCount = 1 + $config.departments.Count
+        totalFixed = 0
+        backupCount = 0
+        fileResults = @()
+    }
+    
+    ######## Master file
+    $masterFile = Join-Path -Path $workspaceRoot -ChildPath $config.masterFile
+    Write-Log "Processing master file: $masterFile" -Level "INFO"
+    
+    $masterResults = @{
+        fileName = "memory.md (Master)"
+        issuesFixed = 0
+        dateFormatFixed = 0
+        signatureLineFixed = 0
+        missingEntriesAdded = 0
+    }
+    
+    ######## Fix date format in master file
+    if ($FixDateFormat) {
+        $fixCount = Repair-DateFormat -FilePath $masterFile
+        $masterResults.dateFormatFixed = $fixCount
+        $masterResults.issuesFixed += $fixCount
+        $results.totalFixed += $fixCount
+        if ($fixCount -gt 0) {
+            $results.backupCount++
+        }
+    }
+    
+    ######## Fix signature lines in master file
+    if ($FixSignatureLines) {
+        $fixCount = Repair-SignatureLines -FilePath $masterFile
+        $masterResults.signatureLineFixed = $fixCount
+        $masterResults.issuesFixed += $fixCount
+        $results.totalFixed += $fixCount
+        if ($fixCount -gt 0 -and $masterResults.dateFormatFixed -eq 0) {
+            $results.backupCount++
+        }
+    }
+    
+    $results.fileResults += $masterResults
+    
+    ######## Department files
+    foreach ($dept in $config.departments) {
+        $deptPath = Join-Path -Path $workspaceRoot -ChildPath $dept.path
+        $deptName = $dept.name
+        
+        Write-Log "Processing department file: $deptPath" -Level "INFO"
+        
+        $deptResults = @{
+            fileName = "$($dept.path) ($deptName)"
+            issuesFixed = 0
+            dateFormatFixed = 0
+            signatureLineFixed = 0
+            missingEntriesAdded = 0
+        }
+        
+        ######## Fix date format in department file
+        if ($FixDateFormat) {
+            $fixCount = Repair-DateFormat -FilePath $deptPath
+            $deptResults.dateFormatFixed = $fixCount
+            $deptResults.issuesFixed += $fixCount
+            $results.totalFixed += $fixCount
+            if ($fixCount -gt 0) {
+                $results.backupCount++
+            }
+        }
+        
+        ######## Fix signature lines in department file
+        if ($FixSignatureLines) {
+            $fixCount = Repair-SignatureLines -FilePath $deptPath
+            $deptResults.signatureLineFixed = $fixCount
+            $deptResults.issuesFixed += $fixCount
+            $results.totalFixed += $fixCount
+            if ($fixCount -gt 0 -and $deptResults.dateFormatFixed -eq 0) {
+                $results.backupCount++
+            }
+        }
+        
+        $results.fileResults += $deptResults
+    }
+    
+    ######## Synchronize missing entries
+    if ($SyncMissingEntries) {
+        $syncCount = Sync-MissingEntries -TwoWaySync:$TwoWaySync
+        
+        ######## Distribute sync count across results
+        if ($syncCount -gt 0) {
+            Write-Log "Synchronized a total of $syncCount entries" -Level "SUCCESS"
+            $results.totalFixed += $syncCount
+            
+            ######## Count backups - always one for department files
+            $backupCount = 1
+            
+            ######## Add one more if two-way sync (for master file backup)
+            if ($TwoWaySync) {
+                $backupCount += 1
+            }
+            
+            $results.backupCount += $backupCount
+            
+            ######## Update department results (approximate distribution)
+            foreach ($fileResult in $results.fileResults) {
+                if ($fileResult.fileName -ne "memory.md (Master)") {
+                    $fileResult.missingEntriesAdded = [math]::Round($syncCount / ($results.fileCount - 1))
+                    $fileResult.issuesFixed += $fileResult.missingEntriesAdded
+                }
+            }
+        } else {
+            Write-Log "No missing entries to synchronize" -Level "INFO"
+        }
+    }
+    
+    ######## Calculate repair time
+    $endTime = Get-Date
+    $repairDuration = $endTime - $startTime
+    $results.repairTime = "{0:hh\:mm\:ss}" -f $repairDuration
+    
+    ######## Generate report
+    $report = New-RepairReport -Results $results
+    $report | Out-File -FilePath $reportFile -Encoding utf8
+    
+    ######## Log completion
+    Write-Log "Integrity repair completed in $($results.repairTime). Fixed $($results.totalFixed) issues." -Level "SUCCESS"
+    Write-Log "Report saved to: $reportFile" -Level "INFO"
+    
+    return $results
+}
+
+######## Main execution
+try {
+    ######## Set error action preference to stop on any error
+    $ErrorActionPreference = "Stop"
+    
+    ######## Parse command-line parameters
+    $fixDateFormat = $false
+    $fixSignatureLines = $false
+    $syncMissingEntries = $false
+    $twoWaySync = $false
+    $fixAll = $false
+    
+    for ($i = 0; $i -lt $args.Count; $i++) {
+        switch ($args[$i]) {
+            "-dates" { $fixDateFormat = $true }
+            "-signatures" { $fixSignatureLines = $true }
+            "-sync" { $syncMissingEntries = $true }
+            "-twoway" { $syncMissingEntries = $true; $twoWaySync = $true }
+            "-all" { $fixAll = $true }
+        }
+    }
+    
+    ######## Default to fix all if no specific options are provided
+    if (!$fixDateFormat -and !$fixSignatureLines -and !$syncMissingEntries) {
+        $fixAll = $true
+    }
+    
+    ######## Run integrity repair
+    $results = Repair-IntegrityIssues -FixDateFormat:$fixDateFormat -FixSignatureLines:$fixSignatureLines -SyncMissingEntries:$syncMissingEntries -TwoWaySync:$twoWaySync -FixAll:$fixAll
+    
+    ######## Return success
+    exit 0
+} catch {
+    Write-Log "Error during execution: $_" -Level "ERROR"
+    Write-Log "Stack Trace: $($_.ScriptStackTrace)" -Level "ERROR"
+    exit 1
+} 
+
+
+

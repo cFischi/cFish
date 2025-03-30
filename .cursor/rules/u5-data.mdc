@@ -1,0 +1,140 @@
+---
+description: U5-Data department guidelines focused on DMMS, data management, and DSS operations.
+globs: U5-Data/*, *.md, *.json
+alwaysApply: false
+---
+
+# U5-Data Department Guidelines
+
+The U5-Data department focuses on Dispatch, Services, and Success (DSS) operations, with a primary emphasis on data management and the Distributed Memory Management System (DMMS).
+
+## Department Role
+
+- Lead data flow and integration across all cFish.io platforms
+- Manage the Distributed Memory Management System (DMMS)
+- Ensure data integrity and synchronization 
+- Implement efficient data retrieval and storage patterns
+- Develop and maintain data transformation processes
+- Support cross-departmental data needs
+- Align all implementations with the Connect (U5) philosophical principle
+
+## Core Technologies
+
+- **DMMS**: Distributed Memory Management System
+- **tYDiSync~**: Cross-platform synchronization system
+- **PowerShell**: Script automation for data operations
+- **Markdown/JSON**: Primary data storage formats
+- **WordPress Database**: Custom tables and meta
+- **API Integrations**: ClickUp, Notion, Vendasta
+
+## File Organization
+
+- Follow UcF file organization patterns:
+  - Store files in appropriate departmental directories
+  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
+  - Example: `ucf-u5.3-memory-sync-20250507.ps1`
+
+- Data-specific organization:
+  ```
+  U5-Data/
+    Scripts/           # PowerShell and batch scripts
+    Documentation/     # System documentation
+    JSON/              # JSON storage for AI ingestion
+    Backups/           # Data backups
+    Migration/         # Data migration tools
+    Templates/         # Data templates
+    Logs/              # Operation logs
+  ```
+
+## DMMS Implementation Guidelines
+
+### Memory File Management
+
+- Always update memory.md following the specified format:
+  ```markdown
+  ## [Title] (MM-DD-2025)
+  - [Bullet points with key information]
+  - [More bullet points as needed]
+  
+  _Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+  ```
+
+- Department-specific memory files should be updated when relevant content is added
+- Follow department-specific categorization guidelines
+- Reference cross-departmental impacts when appropriate
+- Ensure bidirectional sync via tYDiSync~ by preserving metadata
+
+### Synchronization Operations
+
+- Always check for `.nosync` marker files before synchronization
+- Implement content fingerprinting for integrity verification
+- Use bidirectional synchronization protocols for markdown/JSON
+- Validate synchronized content for format compliance
+- Log all synchronization operations for auditing
+- Implement conflict resolution for concurrent edits
+
+### Data Processing Best Practices
+
+- Always sanitize and validate input data
+- Implement proper error handling for data operations
+- Create cached data access patterns for frequently accessed information
+- Use progressive loading techniques for large data sets
+- Implement appropriate indexing for faster data retrieval
+- Document all data transformations and workflows
+
+## Philosophical Alignment
+
+As Connect (U5) department, focus on:
+- Data flow and integration excellence
+- Connecting disparate systems seamlessly
+- Providing reliable data access and transformation
+- Ensuring data integrity and security
+- Creating sustainable data management practices
+- Building bridges between departments through data
+
+## Integration Requirements
+
+- Create data connectors for all four cFish.io platforms:
+  - WordPress (cFish.io) - Content and user data
+  - ClickUp (cFish.App) - Task and project data
+  - Notion (U.cFish.io) - Knowledge and documentation data
+  - Vendasta (cFish.Vip) - Client and CRM data
+
+- Implement tYDiSync~ protocols:
+  - Bidirectional MD-JSON synchronization
+  - Change detection and differential updates
+  - Cross-platform compatibility
+  - Customizable transformation rules
+  - Error handling and recovery
+  - Performance optimization
+
+## DMMS Phase Completion
+
+### Phase 1 (Completed)
+- Department-specific memory.md files in all 7 UcF departments
+- One-way synchronization from master memory.md to department files
+- Comprehensive configuration with department-specific keywords
+- Intelligent content categorization based on keyword matching
+
+### Phase 2 (Current Focus)
+- Bidirectional synchronization between master and department files
+- Performance optimization for large file handling
+- Enhanced error handling and recovery
+- Automated memory.md updates from Cursor workflow
+- JSON conversion optimization for AI ingestion
+
+### Phase 3 (Upcoming)
+- Enhanced security framework implementation
+- Role-based access controls
+- Comprehensive audit logging
+- Content integrity verification
+- Recovery mechanisms for unauthorized changes
+
+## Relaunch Priorities
+
+For the April 2025 relaunch, focus on:
+- Complete DMMS Phase 2 implementation
+- Optimize performance for expected data volume
+- Implement comprehensive data integrity verification
+- Create client-facing data visualization components
+- Develop data integration documentation for partners 

@@ -1,0 +1,26 @@
+﻿[
+    {
+        "File":  "memory.md",
+        "Size":  51823,
+        "CurrentHash":  "95810C1FEA63759994371C10698F5F4F0FF32AE93F35A99C3C9F7FD1A1273426",
+        "StoredHash":  "4F372F12707FD9967BCBB45D7235DEEA660B88E433C0076933E68204A6EEE5E4",
+        "Verified":  false,
+        "Timestamp":  {
+                          "value":  "\/Date(1741999815196)\/",
+                          "DisplayHint":  2,
+                          "DateTime":  "Friday, March 14, 2025 8:50:15 PM"
+                      }
+    },
+    {
+        "File":  "changelog.md",
+        "Size":  31095,
+        "CurrentHash":  "00D791D7107CE5D4CC73E778E997E1A0C19A59C7FD977966D9037DF6DFDFCA1B",
+        "StoredHash":  "C760BF242F0389379D3ED574F4C1A7FF4E8D00714CC08A1C1F3350950850D6F5",
+        "Verified":  false,
+        "Timestamp":  {
+                          "value":  "\/Date(1741999815207)\/",
+                          "DisplayHint":  2,
+                          "DateTime":  "Friday, March 14, 2025 8:50:15 PM"
+                      }
+    }
+]

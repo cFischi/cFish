@@ -1,0 +1,7 @@
+[Sat 03/15/2025  2:32:08.46] Starting PowerShell syntax fix script 
+[Sat 03/15/2025  2:32:08.46] Running: powershell.exe -ExecutionPolicy Bypass -File "C:\Users\Chris\cFish.io\U5-Data\Scripts\fix-powershell-syntax.ps1"  
+A parameter with the name 'WhatIf' was defined multiple times for the command.
+    + CategoryInfo          : MetadataError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ParameterNameAlreadyExistsForCommand
+ 
+[Sat 03/15/2025  2:32:08.94] PowerShell syntax fix failed with error code 1 

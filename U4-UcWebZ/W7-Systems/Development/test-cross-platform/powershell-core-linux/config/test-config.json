@@ -1,0 +1,7 @@
+﻿{
+    "environment":  "powershell-core-linux",
+    "created":  "2025-03-12 23:04:31",
+    "logPath":  "test-cross-platform\\powershell-core-linux\\logs",
+    "testDataPath":  "test-cross-platform\\powershell-core-linux\\data",
+    "outputPath":  "test-cross-platform\\powershell-core-linux\\output"
+}

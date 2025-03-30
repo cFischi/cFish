@@ -1,0 +1,36 @@
+[2025-03-13 02:01:37] [INFO] Starting sync system verification
+[2025-03-13 02:01:37] [WARNING] Sync system is not running, attempting to start it
+[2025-03-13 02:01:37] [INFO] Starting sync system...
+[2025-03-13 02:01:37] [ERROR] Sync system start script not found at: C:\Users\Chris\cFish.io\tools\sync-system\start-optimized-sync.bat
+[2025-03-13 02:01:37] [ERROR] Failed to start sync system
+[2025-03-13 02:01:37] [ERROR] State directory not found: sync-system\state
+[2025-03-13 02:01:37] [ERROR] Some state files are missing
+[2025-03-13 02:01:37] [ERROR] Test file not found: memory.md
+[2025-03-13 02:01:37] [ERROR] Test file not found: changelog.md
+[2025-03-13 02:01:37] [ERROR] Sync functionality test failed
+[2025-03-13 02:01:37] [INFO] Successfully updated memory.md with verification results
+[2025-03-13 02:01:37] [INFO] Sync system verification completed with 0 successes and 3 errors
+[2025-03-13 02:04:48] [INFO] Starting sync system verification
+[2025-03-13 02:04:48] [WARNING] Sync system is not running, attempting to start it
+[2025-03-13 02:04:48] [INFO] Starting sync system...
+[2025-03-13 02:04:48] [ERROR] Sync system start script not found at: C:\Users\Chris\cFish.io\tools\sync-system\start-optimized-sync.bat
+[2025-03-13 02:04:48] [ERROR] Failed to start sync system
+[2025-03-13 02:04:48] [ERROR] State directory not found: sync-system\state
+[2025-03-13 02:04:48] [ERROR] Some state files are missing
+[2025-03-13 02:04:48] [ERROR] Test file not found: memory.md
+[2025-03-13 02:04:48] [ERROR] Test file not found: changelog.md
+[2025-03-13 02:04:48] [ERROR] Sync functionality test failed
+[2025-03-13 02:04:48] [INFO] Successfully updated memory.md with verification results
+[2025-03-13 02:04:48] [INFO] Sync system verification completed with 0 successes and 3 errors
+[2025-03-13 02:14:50] [INFO] Starting sync system verification
+[2025-03-13 02:14:50] [WARNING] Sync system is not running, attempting to start it
+[2025-03-13 02:14:50] [INFO] Starting sync system...
+[2025-03-13 02:14:50] [ERROR] Sync system start script not found at: C:\Users\Chris\cFish.io\tools\sync-system\start-optimized-sync.bat
+[2025-03-13 02:14:50] [ERROR] Failed to start sync system
+[2025-03-13 02:14:50] [ERROR] State directory not found: sync-system\state
+[2025-03-13 02:14:50] [ERROR] Some state files are missing
+[2025-03-13 02:14:50] [ERROR] Test file not found: memory.md
+[2025-03-13 02:14:50] [ERROR] Test file not found: changelog.md
+[2025-03-13 02:14:50] [ERROR] Sync functionality test failed
+[2025-03-13 02:14:50] [INFO] Successfully updated memory.md with verification results
+[2025-03-13 02:14:50] [INFO] Sync system verification completed with 0 successes and 3 errors
