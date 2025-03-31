@@ -51,4 +51,5 @@ if %ERRORLEVEL% neq 0 (
 echo.
 echo Success! Changes pushed to GitHub.
 echo Remember to run 'cursor-pull.bat' on your other computer.
-echo. 
+echo.
+echo [Script executed via Ctrl+Alt+P shortcut] 

@@ -32,4 +32,5 @@ if %ERRORLEVEL% neq 0 (
 
 echo.
 echo Success! You now have the latest changes from GitHub.
-echo. 
+echo.
+echo [Script executed via Ctrl+Alt+L shortcut] 
