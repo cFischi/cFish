@@ -1,0 +1,6 @@
+@echo off
+echo Syncing Assembler Child Theme to WordPress Studio...
+node sync-to-studio.js
+echo.
+echo Press any key to close this window...
+pause > nul 

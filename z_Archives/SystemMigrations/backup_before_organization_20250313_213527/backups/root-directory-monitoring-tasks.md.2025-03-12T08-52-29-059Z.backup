@@ -1,0 +1,115 @@
+# Root Directory Monitoring Implementation Tasks
+
+## Overview
+
+This document outlines the specific tasks needed to implement proper root directory monitoring in the MD-JSON synchronization system. The current limitation prevents Markdown files in the root directory from being properly synchronized with their JSON counterparts.
+
+## Prerequisites
+
+1. Install required dependencies:
+   ```bash
+   npm install chokidar fs-extra node-watch path moment
+   ```
+
+## Task List
+
+### Phase 1: Immediate Fix (1-2 hours)
+
+1. **Update Configuration**
+   - [ ] Add root directory to `watchDirs` in `config.json`:
+     ```javascript
+     {
+       "watchDirs": [
+         { "md": "./", "json": "./json" },
+         // existing entries...
+       ]
+     }
+     ```
+   - [ ] Add exclusion patterns for `node_modules`, `.git`, etc.
+
+2. **Test Basic Functionality**
+   - [ ] Create a test Markdown file in the root directory
+   - [ ] Start the sync system with the updated configuration
+   - [ ] Verify that changes to the root MD file are detected
+   - [ ] Verify JSON creation works for root files
+   - [ ] Verify JSON-to-MD synchronization works for root files
+
+### Phase 2: Alpha Agent Enhancement (2-3 hours)
+
+1. **Modify Root Directory Handling**
+   - [ ] Update `alpha-agent.js` to handle potential recursive watching conflicts
+   - [ ] Add special case for watching root directory files
+   - [ ] Implement improved path resolution for root files
+   - [ ] Add safeguards to prevent recursive events for the same file
+
+2. **Update File Path Resolution**
+   - [ ] Update `getCorrespondingJsonPath` to handle root directory files
+   - [ ] Update `getCorrespondingMdPath` to handle root directory files
+   - [ ] Ensure proper path normalization to prevent duplicate events
+
+3. **Test Enhanced Functionality**
+   - [ ] Verify directory overlapping doesn't cause duplicate events
+   - [ ] Check that recursive file changes are properly handled
+   - [ ] Validate performance impact of enhanced monitoring
+
+### Phase 3: Long-term Solution (3-4 hours)
+
+1. **Implement Recursive Workspace Monitoring**
+   - [ ] Refactor Alpha Agent to use chokidar's recursive watching
+   - [ ] Implement comprehensive exclusion patterns
+   - [ ] Add additional event debouncing for nested directories
+
+2. **Optimize Performance**
+   - [ ] Profile file watching performance
+   - [ ] Implement smarter file filtering
+   - [ ] Add configuration options for watch depth and patterns
+
+3. **Advanced Testing**
+   - [ ] Test with large directory structures
+   - [ ] Validate CPU and memory usage
+   - [ ] Verify behavior with various file system operations (rename, move, delete)
+
+## Verification Checklist
+
+After implementation, verify:
+
+- [ ] Root Markdown files are correctly synchronized to JSON
+- [ ] JSON changes properly propagate to root Markdown files
+- [ ] Nested directory synchronization works without conflicts
+- [ ] No duplicate events for the same file
+- [ ] No significant performance degradation
+- [ ] Backup and protection mechanisms still work correctly
+- [ ] No regression in existing functionality
+
+## Dependencies
+
+- Node.js module: chokidar (file watching)
+- Node.js module: fs-extra (enhanced file operations)
+- Node.js module: node-watch (fallback watcher)
+- Node.js module: path (path manipulation)
+- Node.js module: moment (timestamp formatting)
+
+## Documentation Updates
+
+After implementation, update:
+
+- [ ] README-md-json-sync.md to remove the limitation notice
+- [ ] memory.md to document the implementation
+- [ ] docs/implementation-status.md to mark root directory monitoring as complete
+- [ ] Update any configuration guides with new options
+
+## Future Improvements
+
+- Consider implementing a configuration UI for watch directories
+- Add performance metrics collection for optimizing file watching
+- Develop smart throttling based on file size and change frequency
+
+_Updated 03-14-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 
+
+_Updated 03-14-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-14-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-14-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-14-2025 | AI: Cursor (Claude 3.7 Sonnet)_

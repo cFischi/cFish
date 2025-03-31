@@ -1,0 +1,219 @@
+# cFish.io WordPress Backup & Recovery Plan
+
+This document outlines the procedures for backing up the cFish.io WordPress website and recovering from potential disasters.
+
+## Backup Strategy
+
+### Regular Backup Schedule
+
+| Type | Frequency | Retention | Storage Location |
+|------|-----------|-----------|------------------|
+| Full Site | Weekly | 1 month | WordPress.com Jetpack Backups |
+| Database | Daily | 2 weeks | WordPress.com Jetpack Backups |
+| Manual | Before major changes | 3 months | Local Storage + External Drive |
+| Code Repository | Continuous | Indefinite | GitHub |
+
+### What to Back Up
+
+1. **WordPress Database**
+   - All content (posts, pages, comments)
+   - WordPress settings
+   - User accounts
+   - Plugin/theme settings
+
+2. **WordPress Files**
+   - Theme files (including customizations)
+   - Plugin files
+   - Uploads directory (images, media)
+   - Custom code
+
+3. **Configuration Files**
+   - wp-config.php (sensitive - store securely)
+   - .htaccess files
+   - robots.txt
+
+4. **Development Environment**
+   - Local database
+   - Local files
+   - Environment configuration
+
+## Backup Tools & Methods
+
+### WordPress.com/Jetpack Backups
+- Primary backup method
+- Automatic daily and weekly backups
+- One-click restore functionality
+- Verify backups monthly for integrity
+
+### Manual Backups
+- Perform before major site changes
+- Generate database SQL export
+- Export WordPress XML content
+- Download wp-content directory
+- Store in multiple locations
+
+### Code Repository Backup
+- All custom code in GitHub
+- Regular commits to development branch
+- Stable releases merged to main branch
+- Repositories configured with appropriate .gitignore
+
+## Disaster Recovery Procedures
+
+### Site Compromise (Hacking/Malware)
+
+1. **Immediate Actions**
+   - Take site offline if necessary
+   - Change all passwords (WordPress, hosting, FTP)
+   - Document what happened
+   - Notify required stakeholders
+
+2. **Assessment**
+   - Identify compromised files/database entries
+   - Check access logs for unauthorized entries
+   - Determine extent of the breach
+   - Evaluate most recent clean backup
+
+3. **Recovery**
+   - Restore from most recent clean backup
+   - Scan restored files for remaining issues
+   - Update all software (WordPress, plugins, themes)
+   - Check file permissions
+   - Implement additional security measures
+
+4. **Post-Recovery**
+   - Change all passwords again
+   - Document incident and response
+   - Review and improve security measures
+   - Perform full security audit
+
+### Data Loss/Corruption
+
+1. **Immediate Actions**
+   - Assess extent of data loss
+   - Document what data was affected
+   - Determine cause (user error, system failure, etc.)
+   - Take site offline if necessary
+
+2. **Recovery Options**
+   - Restore from WordPress.com/Jetpack backup
+   - Restore from manual backup if needed
+   - Restore code from GitHub repository
+   - Recreate any lost configuration
+
+3. **Verification**
+   - Test site functionality
+   - Verify data integrity
+   - Check for missing content or customizations
+   - Restore any missing elements manually
+
+4. **Post-Recovery**
+   - Document incident and response
+   - Improve backup procedures if needed
+   - Address root cause of data loss
+
+### Server/Hosting Failure
+
+1. **Immediate Actions**
+   - Contact WordPress.com support
+   - Document issue and response
+   - Assess expected downtime
+
+2. **Temporary Measures**
+   - Consider emergency temporary site if needed
+   - Communicate status to users via alternate channels
+
+3. **Recovery**
+   - Work with WordPress.com to restore service
+   - Verify site functionality after restoration
+   - Restore from backups if necessary
+
+4. **Post-Recovery**
+   - Document incident and response
+   - Evaluate hosting provider reliability
+   - Consider redundancy options if needed
+
+## Local Development Recovery
+
+1. **Loss of Local Environment**
+   - Clone repository from GitHub
+   - Create fresh local WordPress installation
+   - Import database from production or backup
+   - Configure wp-config.php for local environment
+   - Update site URLs in database
+
+2. **Synchronization After Recovery**
+   - Pull latest code from GitHub
+   - Export fresh database from production
+   - Import production database to local environment
+   - Update site URLs for local development
+
+## Testing Recovery Procedures
+
+To ensure recovery procedures work when needed:
+
+1. **Quarterly Testing**
+   - Test database restore process
+   - Verify file restoration
+   - Practice local environment recreation
+   - Document any issues and improve procedures
+
+2. **Annual Full Recovery Test**
+   - Simulate full disaster recovery
+   - Create test environment from backups
+   - Verify full functionality
+   - Document recovery time and any issues
+
+## Password Recovery & Access Management
+
+### Recovery Access Documentation
+
+Maintain secure documentation of:
+- Admin account recovery procedures
+- Database access credentials
+- WordPress.com account recovery options
+- GitHub access recovery
+- Hosting control panel access
+
+### Access Redundancy
+
+- Multiple admin users with appropriate permissions
+- Multiple team members with GitHub access
+- Documented procedures for credential recovery
+- Secure sharing of recovery information
+
+## Recovery Documentation
+
+After any recovery operation, document:
+1. Incident details (what happened, when, impact)
+2. Recovery steps taken
+3. Time to recovery
+4. Any data or functionality loss
+5. Lessons learned
+6. Improvements to implement
+
+## Appendices
+
+### A. Backup Verification Checklist
+
+- [ ] Database backup contains all tables
+- [ ] File backup includes all themes
+- [ ] File backup includes all plugins
+- [ ] File backup includes all uploads
+- [ ] Custom code backed up to GitHub
+- [ ] Backup storage verified and secure
+
+### B. Emergency Contact Information
+
+- WordPress.com Support: https://wordpress.com/support/
+- Domain Registrar: [Your Registrar Info]
+- Team Emergency Contacts: [Team Member List]
+- Technical Support Lead: [Name/Contact]
+
+### C. Recovery Testing Log
+
+| Date | Test Type | Result | Issues Identified | Improvements Made |
+|------|-----------|--------|-------------------|-------------------|
+|      |           |        |                   |                   |
+|      |           |        |                   |                   |
+</rewritten_file>

@@ -1,0 +1,82 @@
+# MD-JSON Sync System - Cursor Integration
+
+This document explains how to use the MD-JSON Synchronization System with Cursor IDE integration.
+
+## Overview
+
+The MD-JSON Sync System is designed to maintain perfect synchronization between Markdown (.md) files and their corresponding JSON representations. This Cursor integration ensures that the system:
+
+1. Only runs when Cursor is active
+2. Automatically starts and stops with Cursor
+3. Avoids modifying files when the Windows environment (outside Cursor) is actively using them
+
+## Installation
+
+1. Ensure you have Node.js installed (version 14.0.0 or higher)
+2. Clone or download this repository
+3. Install dependencies:
+   ```
+   npm install
+   ```
+4. Run the setup script to configure the Cursor integration (requires administrator privileges):
+   ```
+   powershell -ExecutionPolicy Bypass -File setup-cursor-integration.ps1
+   ```
+
+## Manual Usage
+
+If you prefer to start the system manually when using Cursor:
+
+1. **Basic Version**: Run `start-md-json-sync.bat`
+2. **Enhanced Version**: Run `start-enhanced-sync.bat`
+
+The enhanced version includes:
+- Memory management with automatic garbage collection
+- Improved lock management with stale lock detection
+- JSON validation and automatic repair
+- Low CPU mode for reduced resource usage
+
+## Troubleshooting
+
+### Missing Dependencies
+
+If you encounter errors about missing dependencies (like `chokidar`):
+
+1. Run `npm install` to reinstall all dependencies
+2. Restart Cursor and try again
+
+### System Not Starting
+
+If the system doesn't start automatically with Cursor:
+
+1. Check that the scheduled task was created correctly
+2. Try running the batch file manually
+3. Check for any error messages in the console output
+
+### Memory Issues
+
+If you encounter memory issues, the enhanced version includes automatic memory management. However, you can also:
+
+1. Add `--max-old-space-size=4096` to the Node.js command to increase available memory
+2. Reduce the number of directories being monitored
+
+## How It Works
+
+The integration uses:
+
+1. **Wrapper Scripts**: `cursor-md-json-sync.js` and `cursor-md-json-enhanced.js` that explicitly load all dependencies
+2. **Flag Files**: `.cursor-running` indicates the system is active
+3. **Clean Shutdown**: Proper cleanup when Cursor is closed
+
+## Configuration
+
+You can modify the configuration in the wrapper scripts:
+
+- `watchDirectories`: Specify which directories to monitor
+- `excludePatterns`: Directories/files to exclude from monitoring
+- `lowCpuMode`: Reduces CPU usage by batching operations
+- Memory management, lock management, and backup settings
+
+## License
+
+MIT License 

@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "path": "memory.md",
+      "lastModified": "2025-03-14T08:00:00.000Z",
+      "size": 48000,
+      "status": "synchronized"
+    },
+    {
+      "path": "changelog.md",
+      "lastModified": "2025-03-14T08:00:00.000Z",
+      "size": 21000,
+      "status": "synchronized"
+    }
+  ],
+  "lastUpdated": "2025-03-14T08:00:00.000Z",
+  "totalFiles": 2,
+  "totalSize": 69000
+} 

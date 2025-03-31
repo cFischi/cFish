@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "baseUrl": "https://u.cfish.io/u-ucf",
+  "maxDepth": 5,
+  "startTime": "2025-03-13T07:56:03.640Z",
+  "endTime": "2025-03-13T07:57:08.609Z",
+  "duration": "1 minutes",
+  "statistics": {
+    "discovered": 1,
+    "processed": 0,
+    "failed": 1,
+    "successRate": 0
+  },
+  "outputDir": "C:\\Users\\Chris\\cFish.io\\output\\ucfish-scrape-2025-03-13-035603"
+}

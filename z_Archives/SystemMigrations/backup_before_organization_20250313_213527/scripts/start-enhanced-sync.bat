@@ -1,0 +1,3 @@
+@echo off
+echo Starting Enhanced MD-JSON Sync System for Cursor...
+node cursor-md-json-enhanced.js 

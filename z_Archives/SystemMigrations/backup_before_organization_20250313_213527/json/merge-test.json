@@ -1,0 +1,32 @@
+{
+  "metadata": {},
+  "sections": [
+    {
+      "level": 0,
+      "title": "Content",
+      "content": [
+        "## Test Section 1\r",
+        "This is test content 1 updated while watch mode is running.\r",
+        "\r",
+        "## Test Section 2\r",
+        "This is test content 2.\r",
+        "This is additional content in section 2.\r",
+        "\r",
+        "## Test Section 4\r",
+        "This is content in section 4 added to the Markdown file.\r",
+        "It should be preserved during merging and detected by watch mode.  \r",
+        "",
+        "",
+        "This is test content 1 updated while watch mode is running.",
+        "",
+        "This is test content 2.",
+        "This is additional content in section 2.",
+        "",
+        "This is content in section 4 added to the Markdown file.",
+        "It should be preserved during merging and detected by watch mode."
+      ]
+    }
+  ],
+  "filePath": "C:\\Users\\Chris\\cFish.io\\merge-test.md",
+  "lastUpdated": "2025-03-12T08:52:50.542Z"
+}

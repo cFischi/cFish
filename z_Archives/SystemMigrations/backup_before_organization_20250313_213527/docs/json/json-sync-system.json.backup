@@ -1,0 +1,71 @@
+{
+  "id": "json-sync-system",
+  "title": "MD-to-JSON Synchronization System",
+  "url": "",
+  "metadata": {},
+  "sections": [
+    {
+      "title": "Overview",
+      "content": [
+        "The MD-to-JSON synchronization system automatically converts human-readable Markdown files into structured JSON files optimized for AI consumption. This system ensures that:"
+      ]
+    },
+    {
+      "title": "Components",
+      "content": [
+        "The system consists of the following components:"
+      ]
+    },
+    {
+      "title": "How It Works",
+      "content": [
+        "The system monitors changes to Markdown files in specified directories (`shortlinks`, `docs`, etc.) and automatically generates/updates corresponding JSON files in a `json` subdirectory."
+      ]
+    },
+    {
+      "title": "JSON Structure",
+      "content": [
+        "The JSON structure is optimized for AI consumption with the following format:"
+      ]
+    },
+    {
+      "title": "Usage Instructions",
+      "content": [
+        {
+          "subtitle": "One-time Conversion",
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "AI Usage Guidelines",
+      "content": [
+        "AI assistants should:"
+      ]
+    },
+    {
+      "title": "Configuration",
+      "content": [
+        "The system can be configured by modifying the `config` object in `md-to-json.js`:"
+      ]
+    },
+    {
+      "title": "Cursor Rules Integration",
+      "content": [
+        "The system includes Cursor rules that instruct AI assistants to:"
+      ]
+    },
+    {
+      "title": "Troubleshooting",
+      "content": [
+        "If JSON files are not being generated:"
+      ]
+    },
+    {
+      "title": "Future Enhancements",
+      "content": [
+        "- Add more sophisticated Markdown parsing for complex documents"
+      ]
+    }
+  ]
+}

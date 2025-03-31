@@ -1,0 +1,129 @@
+# Recursive Directory Monitoring
+
+## Overview
+
+This document explains the implementation of recursive directory scanning and monitoring in the MD-JSON synchronization system, which significantly improves file tracking and synchronization capabilities.
+
+## Key Improvements
+
+### 1. Enhanced Directory Scanning
+
+The system now implements a robust recursive directory scanning approach with the following features:
+
+- **Configurable Depth**: Control how deep the system should scan directories with the `--depth=N` parameter
+- **Improved Path Handling**: Normalized path handling for cross-platform compatibility (Windows/Unix)
+- **File Type Filtering**: Targeted scanning for specific file extensions
+- **Exclusion Pattern Support**: Skip specific directories and files during scanning
+- **Performance Optimization**: Limit depth for specific directories to improve performance
+
+### 2. Improved File Watching
+
+File watching has been enhanced with:
+
+- **Recursive Monitoring**: Watch entire directory trees with the `recursive: true` option
+- **Compatibility Mode**: Option to disable recursive watching with `--non-recursive-watch` for platforms with fs.watch limitations
+- **Targeted Watchers**: Separate watchers for Markdown and JSON directories
+- **Proper Event Handling**: Improved handling of file change events
+
+### 3. Better File Path Detection
+
+- **Normalized Path Handling**: Convert backslashes to forward slashes for consistent path detection
+- **Improved shouldProcessFile**: Enhanced logic to accurately determine if a file should be processed
+- **Special Case Handling**: Better handling of root JSON directory and nested JSON subdirectories
+
+## Command Line Options
+
+The system now supports the following command line options for recursive scanning:
+
+- `--recursive`: Enable recursive directory scanning (enabled by default)
+- `--depth=N`: Set maximum directory depth for recursive scanning (-1 for unlimited)
+- `--non-recursive-watch`: Disable recursive watching for fs.watch compatibility issues
+- `--no-backups`: Disable automatic backups before modifying files
+
+## Usage Examples
+
+```bash
+# Basic recursive scanning with unlimited depth
+node md-json-sync.js --watch
+
+# Limit recursive scanning to 3 directory levels
+node md-json-sync.js --depth=3
+
+# Watch mode with limited directory depth
+node md-json-sync.js --watch --depth=2
+
+# Watch without recursive monitoring (for compatibility issues)
+node md-json-sync.js --watch --non-recursive-watch
+```
+
+## Implementation Details
+
+### Recursive Directory Scanner
+
+The new `scanDirectoryRecursively` function provides a flexible way to traverse directories:
+
+```javascript
+async function scanDirectoryRecursively(dirPath, fileProcessor, options = {}) {
+  const {
+    maxDepth = -1,         // Maximum depth to scan
+    extensions = ['.md', '.json'],  // File extensions to process
+    skipJsonDirs = true,   // Whether to skip json directories
+    currentDepth = 0       // Current depth (for internal use)
+  } = options;
+
+  // Stop if we've reached the maximum depth
+  if (maxDepth !== -1 && currentDepth > maxDepth) {
+    return 0;
+  }
+
+  // ... implementation details ...
+}
+```
+
+### Enhanced Path Normalization
+
+All path handling uses normalized paths for cross-platform compatibility:
+
+```javascript
+function shouldProcessFile(filePath) {
+  // Convert backslashes to forward slashes for consistent path handling
+  const normalizedPath = filePath.replace(/\\/g, '/');
+  
+  // ... improved path detection logic ...
+}
+```
+
+### Improved File Watchers
+
+File watchers now use the recursive option when appropriate:
+
+```javascript
+fs.watch(dirPath, { recursive: config.watchOptions.recursive }, async (eventType, filename) => {
+  await handleFileChange(dirPath, filename);
+});
+```
+
+## Benefits
+
+1. **Complete Synchronization**: Ensures all files in subdirectories are properly synchronized
+2. **Flexible Control**: Allows configuring how deep to scan based on performance needs
+3. **Improved Validation**: Better detection of missing or orphaned files
+4. **Performance Optimization**: Ability to limit depth for better performance in large repositories
+5. **Cross-Platform Compatibility**: Works consistently across Windows, macOS, and Linux
+
+## Future Enhancements
+
+1. **Pattern-based Exclusions**: Add support for glob-based exclusion patterns
+2. **Directory-specific Depths**: Allow specifying different depths for different directories
+3. **Incremental Scanning**: Implement incremental scanning for large repositories
+4. **Better Change Detection**: Improve detection of renamed and moved files
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+_Updated 03-13-2025 | AI: Cursor (Claude 3.7 Sonnet)_

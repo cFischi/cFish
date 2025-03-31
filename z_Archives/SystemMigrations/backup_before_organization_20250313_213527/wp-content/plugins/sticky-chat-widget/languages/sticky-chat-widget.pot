@@ -1,0 +1,1961 @@
+# Copyright (C) 2025 Ginger Plugins
+# This file is distributed under the GPL3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sticky Chat Widget 1.3.5\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/sticky-chat-widget-free\n"
+"POT-Creation-Date: 2025-02-20 04:12:51+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: admin/admin-common.php:120 admin/admin-common.php:273
+#: admin/admin-common.php:385
+msgid "%1$s is required"
+msgstr ""
+
+#: admin/admin-common.php:284 admin/admin-common.php:401
+#: admin/templates/admin-help.php:40 admin/templates/admin-help.php:43
+#: admin/templates/scw-leads.php:148 includes/social-icons.php:2204
+msgid "Email"
+msgstr ""
+
+#: admin/admin-common.php:289 admin/admin-common.php:406
+msgid "Email address is not valid"
+msgstr ""
+
+#: admin/admin-common.php:299 admin/admin-common.php:414
+#: admin/templates/admin-help.php:48 admin/templates/admin-help.php:51
+#: admin/templates/scw-leads.php:150 includes/social-icons.php:2218
+msgid "Message"
+msgstr ""
+
+#: admin/admin-common.php:307 admin/admin-common.php:421
+#: admin/admin-common.php:423
+msgid "Your request is not valid"
+msgstr ""
+
+#: admin/admin-common.php:336 admin/admin-common.php:499
+msgid "Your message has been sent successfully"
+msgstr ""
+
+#: admin/admin-common.php:393 admin/templates/admin-help.php:32
+#: admin/templates/admin-help.php:35 admin/templates/scw-leads.php:147
+#: includes/social-icons.php:2197
+msgid "Name"
+msgstr ""
+
+#: admin/admin-common.php:537
+msgid "Your comment is required"
+msgstr ""
+
+#: admin/admin-common.php:583 admin/admin.php:1676
+msgid "%s is required"
+msgstr ""
+
+#: admin/admin-common.php:605 admin/admin-common.php:606
+#: admin/templates/premium-features.php:38 admin/templates/pro-features.php:33
+msgid "Go Pro"
+msgstr ""
+
+#: admin/admin-common.php:697
+msgid ""
+"Show different widgets for different pages based on page targeting rules. "
+"You can also show different channels on desktop and mobile"
+msgstr ""
+
+#: admin/admin-common.php:698
+msgid "Multiple widgets"
+msgstr ""
+
+#: admin/admin-common.php:701
+msgid "Upload custom icon, choose custom color for your widget button"
+msgstr ""
+
+#: admin/admin-common.php:702
+msgid "Widget customization"
+msgstr ""
+
+#: admin/admin-common.php:705
+msgid "Select from 26 channels also upload custom icon"
+msgstr ""
+
+#: admin/admin-common.php:706
+msgid "Channel customization"
+msgstr ""
+
+#: admin/admin-common.php:709
+msgid ""
+"Add custom fields like text, textarea, number, date, website, dropdown, "
+"file upload to contact form"
+msgstr ""
+
+#: admin/admin-common.php:710
+msgid "Custom fields for contact forms"
+msgstr ""
+
+#: admin/admin-common.php:713
+msgid ""
+"Get leads directly to your Mailchimp or Mailpoet lists when customers "
+"submit their emails through contact form"
+msgstr ""
+
+#: admin/admin-common.php:714
+msgid "Integrate contact form data with Mailchimp & Mailpoet"
+msgstr ""
+
+#: admin/admin-common.php:717
+msgid "Get the your contact form leads to your email address"
+msgstr ""
+
+#: admin/admin-common.php:718
+msgid "Get contact form leads to email"
+msgstr ""
+
+#: admin/admin-common.php:721
+msgid "Select pages where you like to show or hide Sticky Chat Widget"
+msgstr ""
+
+#: admin/admin-common.php:722
+msgid "Page targeting"
+msgstr ""
+
+#: admin/admin-common.php:725
+msgid "Insert custom IDs and class name to each chat channel"
+msgstr ""
+
+#: admin/admin-common.php:726
+msgid "Custom IDs and class"
+msgstr ""
+
+#: admin/admin-common.php:729
+msgid "Select week day and time when you like to show Sticky Chat Widget"
+msgstr ""
+
+#: admin/admin-common.php:730
+msgid "Days and time selection"
+msgstr ""
+
+#: admin/admin-common.php:733
+msgid "Show Sticky Chat Widget for selected countries"
+msgstr ""
+
+#: admin/admin-common.php:734
+msgid "Country targeting"
+msgstr ""
+
+#: admin/admin-common.php:737
+msgid "Show Sticky Chat Widget between selected dates and time"
+msgstr ""
+
+#: admin/admin-common.php:738
+msgid "Date and time selection"
+msgstr ""
+
+#: admin/admin-common.php:741
+msgid "Display Sticky Chat Widget on custom location"
+msgstr ""
+
+#: admin/admin-common.php:742
+msgid "Custom location"
+msgstr ""
+
+#: admin/admin-common.php:745
+msgid "Track each channel's click on google analytics"
+msgstr ""
+
+#: admin/admin-common.php:746 admin/templates/analytics-settings.php:24
+msgid "Google analytics"
+msgstr ""
+
+#: admin/admin-common.php:752
+msgid "Can I cancel my account at any time?"
+msgstr ""
+
+#: admin/admin-common.php:753
+msgid ""
+"Yes, if you ever decide that Sticky Chat Widget isn't the best plugin for "
+"you, simply cancel your account from your Account panel. You'll still be "
+"able to use the plugin without updates or support."
+msgstr ""
+
+#: admin/admin-common.php:756
+msgid "Can I change my plan later on?"
+msgstr ""
+
+#: admin/admin-common.php:757
+msgid "Absolutely! You can upgrade or downgrade your plan at any time."
+msgstr ""
+
+#: admin/admin-common.php:760
+msgid "What payment methods are accepted?"
+msgstr ""
+
+#: admin/admin-common.php:761
+msgid ""
+"We accept all major credit cards including Visa, Mastercard, American "
+"Express, as well as PayPal payments."
+msgstr ""
+
+#: admin/admin-common.php:764
+msgid "Do I get updates for the premium plugin?"
+msgstr ""
+
+#: admin/admin-common.php:765
+msgid ""
+"Yes! Automatic updates to our premium plugin are available free of charge "
+"as long as you stay our paying customer. If you cancel your subscription, "
+"you'll still be able to use our plugin without updates or support."
+msgstr ""
+
+#: admin/admin-common.php:768
+msgid "Do you offer support if I need help?"
+msgstr ""
+
+#: admin/admin-common.php:769
+msgid ""
+"Yes! Top-notch customer support for our paid as well as free customers. "
+"We'll do our very best to resolve any issues you encounter while using "
+"sticky chat widget."
+msgstr ""
+
+#: admin/admin.php:457
+msgid "On hover text"
+msgstr ""
+
+#: admin/admin.php:460 admin/templates/admin-lists.php:28
+msgid "Title"
+msgstr ""
+
+#: admin/admin.php:480
+msgid "WhatsApp Widget"
+msgstr ""
+
+#: admin/admin.php:486 admin/admin.php:493
+msgid "Settings"
+msgstr ""
+
+#: admin/admin.php:506 admin/admin.php:770
+msgid "Form Fields"
+msgstr ""
+
+#: admin/admin.php:512 admin/admin.php:771
+msgid "Form Setting"
+msgstr ""
+
+#: admin/admin.php:518 admin/admin.php:528 admin/admin.php:772
+msgid "Icon Setting"
+msgstr ""
+
+#: admin/admin.php:527
+msgid "Whatsapp Widget"
+msgstr ""
+
+#: admin/admin.php:537
+msgid "Show WhatsApp chat widget 🗨️"
+msgstr ""
+
+#: admin/admin.php:543
+msgid "WhatsApp icon"
+msgstr ""
+
+#: admin/admin.php:547 admin/admin.php:599 admin/admin.php:655
+#: admin/admin.php:804 admin/admin.php:1235
+msgid " Upload"
+msgstr ""
+
+#: admin/admin.php:554 admin/admin.php:606 admin/templates/admin-lists.php:160
+#: admin/templates/common.php:124 admin/templates/scw-leads.php:249
+#: admin/templates/scw-leads.php:285 admin/templates/scw-leads.php:309
+#: admin/templates/scw-leads.php:333
+msgid "Remove"
+msgstr ""
+
+#: admin/admin.php:559
+msgid "Header title"
+msgstr ""
+
+#: admin/admin.php:565
+msgid "Sub header title"
+msgstr ""
+
+#: admin/admin.php:571
+msgid "Welcome message"
+msgstr ""
+
+#: admin/admin.php:595
+msgid "Profile image"
+msgstr ""
+
+#: admin/admin.php:611
+msgid "Name to display"
+msgstr ""
+
+#: admin/admin.php:618
+msgid "Whatsapp chat widget is disabled"
+msgstr ""
+
+#: admin/admin.php:619
+msgid "Click here"
+msgstr ""
+
+#: admin/admin.php:620
+msgid "to enable WhatsApp chat widget"
+msgstr ""
+
+#: admin/admin.php:634 admin/admin.php:783 admin/admin.php:1214
+msgid "Desktop"
+msgstr ""
+
+#: admin/admin.php:641 admin/admin.php:790 admin/admin.php:1221
+msgid "Mobile"
+msgstr ""
+
+#: admin/admin.php:646 admin/admin.php:795 admin/admin.php:1226
+msgid "Custom image"
+msgstr ""
+
+#: admin/admin.php:651 admin/admin.php:800 admin/admin.php:1231
+#: admin/admin.php:1242 admin/templates/admin-mail-integration.php:336
+#: admin/templates/customize-widget-button.php:194
+#: admin/templates/widget-analytics.php:52
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: admin/admin.php:660 admin/admin.php:809 admin/admin.php:1168
+#: admin/admin.php:1258
+msgid "Background color"
+msgstr ""
+
+#: admin/admin.php:666 admin/admin.php:695 admin/admin.php:815
+#: admin/admin.php:844 admin/admin.php:1144 admin/admin.php:1173
+#: admin/admin.php:1264 admin/admin.php:1293
+#: admin/templates/customize-widget-button.php:490
+msgid "Default"
+msgstr ""
+
+#: admin/admin.php:676 admin/admin.php:705 admin/admin.php:825
+#: admin/admin.php:854 admin/admin.php:1154 admin/admin.php:1183
+#: admin/admin.php:1274 admin/admin.php:1303
+msgid "On hover"
+msgstr ""
+
+#: admin/admin.php:690 admin/admin.php:839 admin/admin.php:1288
+msgid "Icon color"
+msgstr ""
+
+#: admin/admin.php:720 admin/admin.php:1343
+msgid "Pre defined message"
+msgstr ""
+
+#: admin/admin.php:724 admin/admin.php:1336 admin/admin.php:1347
+#: admin/templates/customize-widget-button.php:98
+#: admin/templates/customize-widget-button.php:154
+msgid "{page_url}"
+msgstr ""
+
+#: admin/admin.php:725 admin/admin.php:1337 admin/admin.php:1348
+#: admin/templates/customize-widget-button.php:99
+#: admin/templates/customize-widget-button.php:155
+msgid "{page_title}"
+msgstr ""
+
+#: admin/admin.php:735 admin/admin.php:1324
+msgid "Use "
+msgstr ""
+
+#: admin/admin.php:735
+msgid "whatsapp://send "
+msgstr ""
+
+#: admin/admin.php:735
+msgid "as a link in mobile"
+msgstr ""
+
+#: admin/admin.php:736
+msgid ""
+"when this option is enabled, it will open WhatsApp app in mobile if "
+"installed , if WhatsApp app is not installed this option will not work."
+msgstr ""
+
+#: admin/admin.php:741 admin/admin.php:868 admin/admin.php:1409
+msgid "Custom ID"
+msgstr ""
+
+#: admin/admin.php:751 admin/admin.php:878 admin/admin.php:1419
+msgid "Custom class"
+msgstr ""
+
+#: admin/admin.php:895 includes/social-icons.php:2225
+msgid "Consent Checkbox"
+msgstr ""
+
+#: admin/admin.php:896 includes/social-icons.php:2226
+msgid "I accept terms & conditions"
+msgstr ""
+
+#: admin/admin.php:899 admin/templates/admin-mail-integration.php:143
+#: includes/social-icons.php:2201 includes/social-icons.php:2208
+#: includes/social-icons.php:2215 includes/social-icons.php:2222
+#: includes/social-icons.php:2229
+msgid "This field is required"
+msgstr ""
+
+#: admin/admin.php:916
+msgid "Field label"
+msgstr ""
+
+#: admin/admin.php:919
+msgid "Enter label"
+msgstr ""
+
+#: admin/admin.php:924
+msgid "Field message text"
+msgstr ""
+
+#: admin/admin.php:945
+msgid "Enter placeholder text"
+msgstr ""
+
+#: admin/admin.php:951
+msgid "Is required?"
+msgstr ""
+
+#: admin/admin.php:963 admin/admin.php:966
+msgid "Required error message"
+msgstr ""
+
+#: admin/admin.php:972
+msgid "Show email suggestion"
+msgstr ""
+
+#: admin/admin.php:986
+msgid "Show country dropdown"
+msgstr ""
+
+#: admin/admin.php:1006
+msgid "Add custom field"
+msgstr ""
+
+#: admin/admin.php:1017 admin/admin.php:1019
+msgid "Form title"
+msgstr ""
+
+#: admin/admin.php:1023 admin/admin.php:1025
+msgid "Success message"
+msgstr ""
+
+#: admin/admin.php:1033
+msgid "Redirect visitor after submit"
+msgstr ""
+
+#: admin/admin.php:1038
+msgid "Redirect URL"
+msgstr ""
+
+#: admin/admin.php:1040
+msgid "Redirect Url"
+msgstr ""
+
+#: admin/admin.php:1049
+msgid "Open in new tab"
+msgstr ""
+
+#: admin/admin.php:1058
+msgid "Close form after submit"
+msgstr ""
+
+#: admin/admin.php:1064
+msgid "Close after "
+msgstr ""
+
+#: admin/admin.php:1066
+msgid " seconds"
+msgstr ""
+
+#: admin/admin.php:1074
+msgid "Send leads to mail"
+msgstr ""
+
+#: admin/admin.php:1086
+msgid "Auto responder"
+msgstr ""
+
+#: admin/admin.php:1098 admin/templates/admin-mail-integration.php:255
+msgid "Enable reCAPTCHA"
+msgstr ""
+
+#: admin/admin.php:1110
+msgid "Sends leads to mailchimp"
+msgstr ""
+
+#: admin/admin.php:1122
+msgid "Sends leads to mailpoet"
+msgstr ""
+
+#: admin/admin.php:1131
+msgid "Button Settings"
+msgstr ""
+
+#: admin/admin.php:1133 admin/admin.php:1135
+msgid "Button text"
+msgstr ""
+
+#: admin/admin.php:1139
+msgid "Text color"
+msgstr ""
+
+#: admin/admin.php:1240
+msgid "Media library"
+msgstr ""
+
+#: admin/admin.php:1245
+msgid "Icon"
+msgstr ""
+
+#: admin/admin.php:1324
+msgid "https://ig.me/m "
+msgstr ""
+
+#: admin/admin.php:1324
+msgid "as a link"
+msgstr ""
+
+#: admin/admin.php:1332
+msgid "Email subject"
+msgstr ""
+
+#: admin/admin.php:1361
+msgid "Open in a new tab"
+msgstr ""
+
+#: admin/admin.php:1369
+msgid "Upload QR code"
+msgstr ""
+
+#: admin/admin.php:1385
+msgid "Heading"
+msgstr ""
+
+#: admin/admin.php:1393
+msgid "Header background"
+msgstr ""
+
+#: admin/admin.php:1400
+msgid "QR code heading"
+msgstr ""
+
+#: admin/admin.php:1459
+msgid "Sticky Widgets"
+msgstr ""
+
+#: admin/admin.php:1460
+msgid "Sticky Widget"
+msgstr ""
+
+#: admin/admin.php:1677
+msgid "Font size must be smaller than icon size"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Sticky Chat Widget"
+msgstr ""
+
+#: admin/admin.php:1777 admin/admin.php:1779 admin/templates/admin-lists.php:15
+msgid "Dashboard"
+msgstr ""
+
+#: admin/admin.php:1796 admin/admin.php:1798
+msgid "Analytics"
+msgstr ""
+
+#: admin/admin.php:1815 admin/admin.php:1817
+msgid "Form Leads"
+msgstr ""
+
+#: admin/admin.php:1834 admin/admin.php:1836
+#: admin/templates/admin-mail-integration.php:35
+msgid "Integrations"
+msgstr ""
+
+#: admin/admin.php:2058 admin/admin.php:2287 includes/front-end.php:123
+#: includes/front-end.php:219
+msgid "Invalid Request, Please try again"
+msgstr ""
+
+#: admin/admin.php:2127
+msgid "Widget is updated successfully"
+msgstr ""
+
+#: admin/admin.php:2138
+msgid "Please select at least one field for the contact form"
+msgstr ""
+
+#: admin/admin.php:2231
+msgid "Widget is removed successfully"
+msgstr ""
+
+#: admin/admin.php:2339 admin/admin.php:2389 admin/admin.php:2562
+#: admin/admin.php:2615 admin/admin.php:2660
+msgid "Invalid request, Please try again"
+msgstr ""
+
+#: admin/templates/admin-help.php:16 admin/templates/admin-help.php:68
+msgid "Need help?"
+msgstr ""
+
+#: admin/templates/admin-help.php:55
+msgid "Send message"
+msgstr ""
+
+#: admin/templates/admin-lists.php:20 admin/templates/common.php:22
+#: admin/templates/common.php:35
+msgid "Create Widget"
+msgstr ""
+
+#: admin/templates/admin-lists.php:27
+msgid "Status"
+msgstr ""
+
+#: admin/templates/admin-lists.php:29
+msgid "Channels"
+msgstr ""
+
+#: admin/templates/admin-lists.php:30
+msgid "Analytics "
+msgstr ""
+
+#: admin/templates/admin-lists.php:31
+msgid "Created On"
+msgstr ""
+
+#: admin/templates/admin-lists.php:32
+msgid "Action"
+msgstr ""
+
+#: admin/templates/admin-lists.php:140
+msgid "Edit"
+msgstr ""
+
+#: admin/templates/admin-lists.php:149
+msgid "Clone (Pro)"
+msgstr ""
+
+#: admin/templates/admin-lists.php:153
+msgid "Clone"
+msgstr ""
+
+#: admin/templates/admin-lists.php:157
+msgid "Rename"
+msgstr ""
+
+#: admin/templates/admin-lists.php:330
+msgid " Add and display "
+msgstr ""
+
+#: admin/templates/admin-lists.php:331
+msgid "multi social"
+msgstr ""
+
+#: admin/templates/admin-lists.php:331
+msgid " channels on your website so that your visitors can "
+msgstr ""
+
+#: admin/templates/admin-lists.php:332
+msgid "quickly contact"
+msgstr ""
+
+#: admin/templates/admin-lists.php:332
+msgid " you and share their "
+msgstr ""
+
+#: admin/templates/admin-lists.php:333
+msgid "requirements."
+msgstr ""
+
+#: admin/templates/admin-lists.php:336
+msgid " Customize"
+msgstr ""
+
+#: admin/templates/admin-lists.php:336
+msgid " your "
+msgstr ""
+
+#: admin/templates/admin-lists.php:337
+msgid "widget"
+msgstr ""
+
+#: admin/templates/admin-lists.php:337
+msgid " channels style according to your "
+msgstr ""
+
+#: admin/templates/admin-lists.php:338
+msgid "requirement."
+msgstr ""
+
+#: admin/templates/admin-lists.php:341
+msgid " Display  your channels on "
+msgstr ""
+
+#: admin/templates/admin-lists.php:342
+msgid "mobile, desktop"
+msgstr ""
+
+#: admin/templates/admin-lists.php:342
+msgid " or "
+msgstr ""
+
+#: admin/templates/admin-lists.php:343
+msgid "both."
+msgstr ""
+
+#: admin/templates/admin-lists.php:349
+msgid " Create Your First Widget"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:38
+msgid "Connect sticky chat widget contact form to other apps"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:45
+#: admin/templates/admin-mail-integration.php:99
+#: admin/templates/admin-mail-integration.php:112
+msgid "Mailchimp"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:48
+#: admin/templates/admin-mail-integration.php:64
+#: admin/templates/admin-mail-integration.php:102
+#: admin/templates/admin-mail-integration.php:165
+msgid "Add and update contacts in your email lists"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:61
+#: admin/templates/admin-mail-integration.php:162
+msgid "MailPoet"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:77
+#: admin/templates/admin-mail-integration.php:234
+msgid "Google reCAPTCHA"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:80
+#: admin/templates/admin-mail-integration.php:237
+msgid "Enhance Security with Google reCAPTCHA"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:107
+#: admin/templates/admin-mail-integration.php:170
+#: admin/templates/admin-mail-integration.php:242
+msgid "Back to List"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:112
+msgid ""
+" is a marketing automation platform designed to help small businesses. "
+"Integrate Contact form with Mailchimp to automatically send\r\n"
+"                new leads, customers, and subscribers to your mailing lists."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:117
+#: admin/templates/admin-mail-integration.php:180
+msgid "Use this integration to"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:119
+#: admin/templates/admin-mail-integration.php:182
+msgid "Add new subscribers to your email lists"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:120
+#: admin/templates/admin-mail-integration.php:183
+msgid "Update existing subscriber data"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:121
+#: admin/templates/admin-mail-integration.php:184
+msgid "Add contacts"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:123
+msgid ""
+"Get more email signups to your announcements, newsletters, and more with "
+"Contact form’s Mailchimp integration."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:124
+msgid ""
+"Your Mailchimp contacts will automatically be updated with each form "
+"submission, so you can spend less time manually transferring information "
+"and\r\n"
+"                more time growing your business."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:129
+#: admin/templates/admin-mail-integration.php:192
+#: admin/templates/admin-mail-integration.php:249
+msgid "Learn: "
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:129
+msgid "How to create your Mailchimp API key?"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:133
+msgid "Authentication"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:136
+msgid "Authenticate your MailChimp account in order to create an integration."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:139
+msgid "Enter Mailchimp API Key"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:175
+msgid "Mailpoet"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:175
+msgid ""
+" is a marketing automation platform designed to help small businesses. "
+"Integrate Contact form with Mailpoet to automatically send\r\n"
+"                new leads, customers, and subscribers to your mailing lists."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:186
+msgid ""
+"Get more email signups to your announcements, newsletters, and more with "
+"Contact form’s Mailpoet integration."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:187
+msgid ""
+"Your Mailpoet contacts will automatically be updated with each form "
+"submission, so you can spend less time manually transferring information "
+"and\r\n"
+"                more time growing your business."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:192
+msgid "How to connect with Mailpoet?"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:196
+msgid "Connect your forms to MailPoet"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:199
+msgid "Install MailPoet plugin to connect your forms"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:200
+msgid "Activate MailPoet plugin to connect your forms"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:201
+msgid "Connect sticky chat widget with MailPoet"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:207
+msgid "Install MailPoet"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:211
+msgid "Activate MailPoet"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:247
+msgid ""
+"Protect your form from spam and automated abuse by integrating Google "
+"reCAPTCHA. By enabling this feature, you ensure that only legitimate users "
+"can submit the form, enhancing the overall security of your website. Google "
+"reCAPTCHA helps distinguish between humans and bots, providing an "
+"additional layer of defense against malicious activities."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:248
+msgid ""
+"Follow the instructions below to set up and configure Google reCAPTCHA for "
+"your form."
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:249
+msgid "How to get Google reCAPTCHA API key?"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:269
+msgid "reCAPTCHA type"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:287
+#: admin/templates/admin-mail-integration.php:305
+msgid "Site Key"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:295
+#: admin/templates/admin-mail-integration.php:313
+msgid "Secret Key"
+msgstr ""
+
+#: admin/templates/admin-mail-integration.php:327
+#: admin/templates/admin-settings.php:58
+msgid "Save Changes"
+msgstr ""
+
+#: admin/templates/admin-notice.php:93
+msgid ""
+"We hope you're enjoying Sticky Chat Widget! Could you please do us a Big "
+"favor and give it 5 Star rating on WordPress to help us spread the word and "
+"boost our motivation?"
+msgstr ""
+
+#: admin/templates/admin-notice.php:97
+msgid "Ok, you deserve it!"
+msgstr ""
+
+#: admin/templates/admin-notice.php:98
+msgid "I already did"
+msgstr ""
+
+#: admin/templates/admin-notice.php:99
+msgid "Maybe Later"
+msgstr ""
+
+#: admin/templates/admin-notice.php:100 admin/templates/review-popup.php:215
+msgid "Never show again"
+msgstr ""
+
+#: admin/templates/admin-settings.php:40 admin/templates/social-channels.php:31
+msgid "Select Channels"
+msgstr ""
+
+#: admin/templates/admin-settings.php:41
+#: admin/templates/customize-widget-button.php:27
+msgid "Customize Widget"
+msgstr ""
+
+#: admin/templates/admin-settings.php:42 admin/templates/triggers.php:18
+msgid "Triggers"
+msgstr ""
+
+#: admin/templates/admin-settings.php:43
+#: admin/templates/time-and-page-rules.php:21
+msgid "Targeting"
+msgstr ""
+
+#: admin/templates/admin-settings.php:54
+msgid "Back"
+msgstr ""
+
+#: admin/templates/admin-settings.php:55
+msgid "Next"
+msgstr ""
+
+#: admin/templates/admin-settings.php:61
+msgid "Save and View Dashboard"
+msgstr ""
+
+#: admin/templates/admin-settings.php:86
+msgid "Sticky Chat Widget is disabled"
+msgstr ""
+
+#: admin/templates/admin-settings.php:89
+msgid "Sticky Chat Widget is currently disabled."
+msgstr ""
+
+#: admin/templates/admin-settings.php:90
+msgid "Would you like to show it on your website?"
+msgstr ""
+
+#: admin/templates/admin-settings.php:93
+msgid "Yes, enable and save it"
+msgstr ""
+
+#: admin/templates/admin-settings.php:94
+msgid "No, just save changes"
+msgstr ""
+
+#: admin/templates/admin-settings.php:102 admin/templates/common.php:143
+#: admin/templates/widget-preview.php:11
+msgid "Preview"
+msgstr ""
+
+#: admin/templates/analytics-settings.php:16
+msgid "Analytics Settings"
+msgstr ""
+
+#: admin/templates/analytics-settings.php:39
+msgid "Widget analytics"
+msgstr ""
+
+#: admin/templates/common.php:27 admin/templates/common.php:59
+#: admin/templates/common.php:91
+msgid "Widget title :"
+msgstr ""
+
+#: admin/templates/common.php:30 admin/templates/common.php:62
+msgid "Enter widget title"
+msgstr ""
+
+#: admin/templates/common.php:36 admin/templates/common.php:68
+#: admin/templates/common.php:100 admin/templates/common.php:125
+#: admin/templates/common.php:190 admin/templates/plugin-deactivate.php:34
+#: admin/templates/premium-features.php:37 admin/templates/pro-features.php:32
+#: admin/templates/scw-leads.php:286 admin/templates/scw-leads.php:310
+#: admin/templates/scw-leads.php:334
+msgid "Cancel"
+msgstr ""
+
+#: admin/templates/common.php:54 admin/templates/common.php:67
+msgid "Rename Widget"
+msgstr ""
+
+#: admin/templates/common.php:86 admin/templates/common.php:99
+msgid "Clone Widget"
+msgstr ""
+
+#: admin/templates/common.php:118
+msgid "Remove Widget"
+msgstr ""
+
+#: admin/templates/common.php:121
+msgid "Are you sure, you want to remove this widget?"
+msgstr ""
+
+#: admin/templates/custom-css.php:16
+msgid "Custom CSS"
+msgstr ""
+
+#: admin/templates/custom-css.php:19
+msgid "Button CSS:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:30
+msgid "Select view:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:38
+msgid "Icon view"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:44
+msgid "List view"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:50
+msgid "Grid view"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:56
+msgid "Corner circle"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:62
+msgid "Menu view"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:70
+#: admin/templates/customize-widget-button.php:120
+msgid "Header text:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:78
+#: admin/templates/customize-widget-button.php:128
+msgid "Body text:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:112
+msgid "WooCommerce Customization"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:150
+msgid "Add Tags"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:156
+msgid "{product-name}"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:157
+msgid "{product-sku}"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:158
+msgid "{product-price}"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:167
+msgid "Header background color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:175
+msgid "Header text color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:185
+msgid "Icon:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:216
+msgid "Position:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:222
+msgid "Left"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:226
+msgid "Right"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:232
+msgid "Custom (Pro)"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:234
+msgid "Custom"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:248
+msgid "Position in mobile"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:257
+msgid "Icons view: "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:257
+msgid "You can display chat buttons menu by vertical or horizontal"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:263
+msgid "Vertical"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:267
+msgid "Horizontal"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:274
+msgid "Call to action:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:304
+msgid "Show greeting message"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:311
+msgid "Greeting text"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:337
+msgid "Show Greeting message after "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:339
+msgid "  seconds"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:346
+msgid "Greeting background color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:354
+msgid "Greeting text color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:364
+msgid "Show CTA text: "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:364
+msgid ""
+"Choose how the CTA button text would appear. \n"
+" All time: always show CTA button text \n"
+"Until first click: hides the CTA button text after the first click."
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:370
+msgid "All time"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:374
+msgid "Until first click"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:382
+#: admin/templates/pending-messages.php:34
+#: admin/templates/tooltip-settings.php:45
+msgid "Background color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:390
+msgid "Background hover color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:400
+msgid "Icon color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:408
+msgid "Icon hover color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:417
+msgid "Menu animation: "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:417
+msgid ""
+"Display social chat button menu using different animations. for preview "
+"click on widget button in preview section"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:429
+msgid "Attention effect: "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:429
+msgid "Use different kind of attention effects for widget button"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:441
+msgid "Icon size:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:444
+msgid "Icon size"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:449
+#: admin/templates/tooltip-settings.php:36
+msgid "Border radius:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:457
+msgid "Default state:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:463
+msgid "Click to open "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:467
+msgid "Open by default "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:467
+msgid ""
+"Chat buttons menu will be opened by default when website visitor will visit "
+"your website"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:476
+msgid "Show close button "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:476
+msgid ""
+"You can show/hide Widget close button when Default state is opened by "
+"default"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:481
+msgid "Hide menu on close button click "
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:481
+msgid ""
+"Menu will be not opened by default once website visitor will click on "
+"widget close button"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:486
+msgid "Font family:"
+msgstr ""
+
+#: admin/templates/pending-messages.php:15
+msgid "Pending Messages"
+msgstr ""
+
+#: admin/templates/pending-messages.php:20
+msgid "Show pending message "
+msgstr ""
+
+#: admin/templates/pending-messages.php:20
+msgid ""
+"Increase your click rate by displaying a pending messages (bubble) on "
+"widget button"
+msgstr ""
+
+#: admin/templates/pending-messages.php:26
+msgid "Number of messages:"
+msgstr ""
+
+#: admin/templates/pending-messages.php:42
+#: admin/templates/tooltip-settings.php:53
+msgid "Text color:"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:16
+msgid "Quick feedback"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:19
+msgid ""
+"If you have a moment, please share why you are deactivating Sticky chat "
+"Widget. Your feedback will help us to improve our product"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:21
+#: admin/templates/plugin-deactivate.php:22
+msgid "Email address"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:25
+msgid "Your comment"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:26
+msgid "I need help with Sticky Chat Widget"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:30
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: admin/templates/plugin-deactivate.php:33
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: admin/templates/premium-features.php:14
+msgid "Premium Features"
+msgstr ""
+
+#: admin/templates/premium-features.php:18
+msgid "What you get as a Pro user:"
+msgstr ""
+
+#: admin/templates/premium-features.php:20
+msgid "Create multiple widgets for different pages and languages"
+msgstr ""
+
+#: admin/templates/premium-features.php:21
+msgid "Upload custom images for Widget button and Social channel buttons"
+msgstr ""
+
+#: admin/templates/premium-features.php:22
+msgid "Choose custom color for widget button and tooltip"
+msgstr ""
+
+#: admin/templates/premium-features.php:23
+msgid "Show Sticky Chat Widget using the advanced time schedules"
+msgstr ""
+
+#: admin/templates/premium-features.php:24
+msgid "Show Sticky Chat Widget on specific pages using advanced page rules"
+msgstr ""
+
+#: admin/templates/premium-features.php:25
+msgid "Track events on google analytics"
+msgstr ""
+
+#: admin/templates/premium-features.php:26
+msgid "Set custom IDs and CSS class names"
+msgstr ""
+
+#: admin/templates/premium-features.php:27
+msgid "Add your own CSS to Sticky Chat Widget"
+msgstr ""
+
+#: admin/templates/premium-features.php:28 admin/templates/pro-features.php:26
+msgid "Show widget based on visitors country"
+msgstr ""
+
+#: admin/templates/premium-features.php:29 admin/templates/pro-features.php:27
+msgid "Show widget by scheduling dates and time"
+msgstr ""
+
+#: admin/templates/premium-features.php:30
+msgid ""
+"Add custom fields like text, phone, textarea, select, date etc in contact "
+"form"
+msgstr ""
+
+#: admin/templates/premium-features.php:31
+msgid ""
+"Integrate contact form leads with marketing platform like Mailchimp, "
+"Mailpoet"
+msgstr ""
+
+#: admin/templates/pro-features.php:14
+msgid "Creating multiple widgets is a Pro feature"
+msgstr ""
+
+#: admin/templates/pro-features.php:18
+msgid "Create multiple widgets for your website, where you can use it?"
+msgstr ""
+
+#: admin/templates/pro-features.php:20
+msgid "Create separate widget for desktop and mobile"
+msgstr ""
+
+#: admin/templates/pro-features.php:21
+msgid "Create different size's widget for desktop and mobile"
+msgstr ""
+
+#: admin/templates/pro-features.php:22
+msgid "Create different widgets for different languages"
+msgstr ""
+
+#: admin/templates/pro-features.php:23
+msgid "Show different widgets based on your availability"
+msgstr ""
+
+#: admin/templates/pro-features.php:24
+msgid "Show different widgets on different pages"
+msgstr ""
+
+#: admin/templates/pro-features.php:25
+msgid "Hide or Show widgets on selected pages"
+msgstr ""
+
+#: admin/templates/review-popup.php:214
+msgid "Ask me later"
+msgstr ""
+
+#: admin/templates/review-popup.php:220
+msgid "Enjoying the Sticky Chat Widget?"
+msgstr ""
+
+#: admin/templates/review-popup.php:221
+msgid ""
+"Can you please show us some love and rate Sticky Chat Widget? It'll really "
+"help us a lot 🙏"
+msgstr ""
+
+#: admin/templates/review-popup.php:258
+msgid "Share your experience"
+msgstr ""
+
+#: admin/templates/review-popup.php:277
+msgid "Review (optional)"
+msgstr ""
+
+#: admin/templates/review-popup.php:284 includes/social-icons.php:2183
+msgid "Submit"
+msgstr ""
+
+#: admin/templates/scw-leads.php:92
+msgid "Leads"
+msgstr ""
+
+#: admin/templates/scw-leads.php:108
+msgid "Start date"
+msgstr ""
+
+#: admin/templates/scw-leads.php:116
+msgid "End date"
+msgstr ""
+
+#: admin/templates/scw-leads.php:125
+msgid "Search"
+msgstr ""
+
+#: admin/templates/scw-leads.php:128
+msgid "Search..."
+msgstr ""
+
+#: admin/templates/scw-leads.php:131
+msgid "Apply"
+msgstr ""
+
+#: admin/templates/scw-leads.php:146
+msgid "Date"
+msgstr ""
+
+#: admin/templates/scw-leads.php:149
+msgid "Phone number"
+msgstr ""
+
+#: admin/templates/scw-leads.php:151
+msgid "Page Url"
+msgstr ""
+
+#: admin/templates/scw-leads.php:152
+msgid "Delete"
+msgstr ""
+
+#: admin/templates/scw-leads.php:237
+msgid "Prev"
+msgstr ""
+
+#: admin/templates/scw-leads.php:238
+msgid "Next "
+msgstr ""
+
+#: admin/templates/scw-leads.php:248
+msgid "Download CSV"
+msgstr ""
+
+#: admin/templates/scw-leads.php:250
+msgid "Remove all records"
+msgstr ""
+
+#: admin/templates/scw-leads.php:257
+msgid "No records found"
+msgstr ""
+
+#: admin/templates/scw-leads.php:279
+msgid "Remove Leads"
+msgstr ""
+
+#: admin/templates/scw-leads.php:282
+msgid "Are you sure, you want to remove selected record(s)?"
+msgstr ""
+
+#: admin/templates/scw-leads.php:303
+msgid "Remove All Records"
+msgstr ""
+
+#: admin/templates/scw-leads.php:306
+msgid "Are you sure, you want to remove all record(s)?"
+msgstr ""
+
+#: admin/templates/scw-leads.php:327
+msgid "Remove Lead"
+msgstr ""
+
+#: admin/templates/scw-leads.php:330
+msgid "Are you sure, you want to remove this record?"
+msgstr ""
+
+#: admin/templates/social-channels.php:61
+msgid "The channel '"
+msgstr ""
+
+#: admin/templates/social-channels.php:61
+msgid "', you are looking for is not available in Sticky Chat Widget."
+msgstr ""
+
+#: admin/templates/social-channels.php:63
+msgid "Please"
+msgstr ""
+
+#: admin/templates/social-channels.php:64
+msgid "contact us"
+msgstr ""
+
+#: admin/templates/social-channels.php:65
+msgid ", if we can help you 🙂"
+msgstr ""
+
+#: admin/templates/social-channels.php:94
+msgid "Select Channel"
+msgstr ""
+
+#: admin/templates/subscribe.php:20
+msgid "Updated with All the Latest Implementations and Tips by Subscribing Here. 💼"
+msgstr ""
+
+#: admin/templates/subscribe.php:23
+msgid ""
+"Subscribe now to get quick updates regarding our new features, the latest "
+"developments, exciting offers and discounts."
+msgstr ""
+
+#: admin/templates/subscribe.php:30
+msgid ""
+"If you don't want updates in future from us, you can easily unsubscribe "
+"with a single click."
+msgstr ""
+
+#: admin/templates/subscribe.php:33
+msgid "Skip for now"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:22
+msgid "On which pages should it show?"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:26
+msgid "On all pages "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:30
+msgid "On selected pages only "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:61
+msgid "Show on pages those matching at least one of the following condition(s) "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:71
+#: admin/templates/time-and-page-rules.php:108
+msgid "URL of page"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:81
+#: admin/templates/time-and-page-rules.php:118
+msgid "page rule"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:94
+#: admin/templates/time-and-page-rules.php:130
+msgid "+ Add another condition"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:100
+msgid "Hide on pages those matching at least one of the following condition(s) "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:136
+#: admin/templates/time-and-page-rules.php:205
+#: admin/templates/time-and-page-rules.php:256
+#: admin/templates/time-and-page-rules.php:290
+#: admin/templates/time-and-page-rules.php:324
+msgid "Upgrade to Pro "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:140
+msgid "On which days should it show?"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:144
+msgid "On all days "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:148
+msgid "On selected days only "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:167
+#: admin/templates/time-and-page-rules.php:229
+msgid "Timezone:"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:177
+msgid "Weekdays:"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:210
+msgid "On which dates should it show?"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:214
+msgid "For all dates "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:218
+msgid "For selected dates "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:239
+msgid "Start date and time:"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:247
+msgid "End date and time:"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:261
+msgid "For which countries should it show?"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:265
+msgid "For all countries "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:269
+msgid "For selected countries "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:279
+msgid "Select country:"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:283
+msgid "Select countries"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:295
+msgid "For which users should it show?"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:299
+msgid "For all users "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:303
+msgid "For selected users "
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:313
+msgid "Select user:"
+msgstr ""
+
+#: admin/templates/time-and-page-rules.php:317
+msgid "Select user"
+msgstr ""
+
+#: admin/templates/tooltip-settings.php:15
+msgid "Customize on Hover Text"
+msgstr ""
+
+#: admin/templates/tooltip-settings.php:20
+msgid "Font size:"
+msgstr ""
+
+#: admin/templates/tooltip-settings.php:28
+msgid "Tooltip height:"
+msgstr ""
+
+#: admin/templates/triggers.php:19
+msgid "When should it show?"
+msgstr ""
+
+#: admin/templates/triggers.php:25
+msgid "After visitor scrolled down "
+msgstr ""
+
+#: admin/templates/triggers.php:25
+msgid "  % on the page "
+msgstr ""
+
+#: admin/templates/triggers.php:25
+msgid "Sticky Chat Widget will be displayed after specified scroll on page"
+msgstr ""
+
+#: admin/templates/triggers.php:34
+msgid "After visitor has been on the page for at least  "
+msgstr ""
+
+#: admin/templates/triggers.php:34
+msgid "  seconds "
+msgstr ""
+
+#: admin/templates/triggers.php:34
+msgid ""
+"Sticky Chat Widget will be displayed after user spent specific time(in "
+"seconds) on page"
+msgstr ""
+
+#: admin/templates/triggers.php:43
+msgid "On exit intent"
+msgstr ""
+
+#: admin/templates/triggers.php:43
+msgid ""
+"Sticky Chat Widget will be displayed when visitor is about to leave the "
+"page or ideal for some time"
+msgstr ""
+
+#: admin/templates/triggers.php:53
+msgid "Trigger when leaving browser window"
+msgstr ""
+
+#: admin/templates/triggers.php:60
+msgid "Trigger on inactivity (1 minutes)"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:13
+msgid "What is your refund and return policy for Sticky Chat Widget purchases?"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:14
+msgid ""
+"We are committed to giving you the best plugin experience to help you "
+"improve your business. If you find that Sticky Chat Widget is not suitable "
+"for your business needs, we offer a hassle-free 100% money-back guarantee "
+"within 30 days of purchase"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:17
+msgid "Will Sticky Chat Widget stop working if I don’t renew my license?"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:18
+msgid ""
+"Of course NOT!, Sticky Chat Widget plugin and all your settings will "
+"continue to work as before; however, you will no longer receive plugin "
+"updates including feature additions, improvements, and support"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:21
+msgid "Do I need separate license key for my staging or development site?"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:22
+msgid ""
+"No, we do not consider domains like staging.*, dev.*, local.*, localhost in "
+"activation domain list"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:25
+msgid "Can I upgrade my plan in future if needed?"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:26
+msgid ""
+"Yes, you can upgrade your plan from Basic to Business or Enterprise and "
+"Business to Enterprise"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:29
+msgid "Can I use Sticky chat widget on multiple domains?"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:30
+msgid ""
+"Yes, you can use free version on any numbers of domains, while for Pro "
+"version you need to buy Business or Enterprise plan"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:39
+msgid "Choose the best plan which is suitable to you"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:42
+msgid "Yearly Plan"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:43
+msgid "Lifetime Plan"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:52
+msgid "Basic Plan"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:53 admin/templates/upgrade-to-pro.php:73
+#: admin/templates/upgrade-to-pro.php:102
+#: admin/templates/upgrade-to-pro.php:122
+#: admin/templates/upgrade-to-pro.php:151
+#: admin/templates/upgrade-to-pro.php:171
+msgid "/year"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:55 admin/templates/upgrade-to-pro.php:73
+#: admin/templates/upgrade-to-pro.php:104
+#: admin/templates/upgrade-to-pro.php:122
+#: admin/templates/upgrade-to-pro.php:153
+#: admin/templates/upgrade-to-pro.php:171
+msgid "Renewals at 25% off"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:76 admin/templates/upgrade-to-pro.php:125
+#: admin/templates/upgrade-to-pro.php:174
+msgid "per year"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:83 admin/templates/upgrade-to-pro.php:132
+#: admin/templates/upgrade-to-pro.php:181
+msgid "/lifetime"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:83 admin/templates/upgrade-to-pro.php:132
+#: admin/templates/upgrade-to-pro.php:181
+msgid "Lifetime updates & support"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:86 admin/templates/upgrade-to-pro.php:135
+#: admin/templates/upgrade-to-pro.php:184
+msgid "lifetime"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:91 admin/templates/upgrade-to-pro.php:140
+#: admin/templates/upgrade-to-pro.php:189
+msgid "Get started"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:101
+msgid "Business Plan"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:150
+msgid "Enterprise Plan"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:205
+msgid "Support"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:208
+msgid "FAQs"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:211
+msgid ""
+"Everything you need to know about product and billing. Can't find answer "
+"what you're looking for?"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:212
+msgid "Please %1$s"
+msgstr ""
+
+#: admin/templates/upgrade-to-pro.php:212
+msgid "chat to our friendly team"
+msgstr ""
+
+#: admin/templates/widget-analytics.php:15
+msgid "Unlock Widget Analytics"
+msgstr ""
+
+#: admin/templates/widget-analytics.php:23
+msgid "What can you use it for?"
+msgstr ""
+
+#: admin/templates/widget-analytics.php:30
+msgid "Discover the most frequently used channels"
+msgstr ""
+
+#: admin/templates/widget-analytics.php:38
+msgid "Keep track of how each widget performs"
+msgstr ""
+
+#: admin/templates/widget-analytics.php:46
+msgid "Analyze the number of unique clicks and the click-through rate"
+msgstr ""
+
+#: includes/social-icons.php:2152
+msgid "Need any help?"
+msgstr ""
+
+#: includes/social-icons.php:2153
+msgid "Let's chat on WhatsApp"
+msgstr ""
+
+#: includes/social-icons.php:2182
+msgid "Form Submitted Successfully!"
+msgstr ""
+
+#: includes/social-icons.php:2184
+msgid "Contact Form"
+msgstr ""
+
+#: includes/social-icons.php:2211
+msgid "Mobile number"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Connect with your valuable website visitors through Sticky Chat Widget that "
+"consist of current trendy chat options"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Ginger Plugins"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.gingerplugins.com/downloads/sticky-chat-widget/"
+msgstr ""
