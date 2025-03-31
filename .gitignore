@@ -4,6 +4,9 @@ WordPress/wp-content/*/backup*
 z_Archives/Unsorted/wp-includes/
 z_backups/*/backup*
 
+# Exclude all Z_Archives folder completely
+z_Archives/
+
 # Exclude any .bak files
 *.bak
 
