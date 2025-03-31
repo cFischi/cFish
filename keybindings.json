@@ -1,0 +1,36 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+alt+u",
+        "command": "composer.openAddContextMenu",
+        "when": "composerFocused"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "-composer.openAddContextMenu",
+        "when": "composerFocused"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "pieces-vscode.search",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "-pieces-vscode.search"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": ".\\cursor-pull.bat\n"
+        }
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "powershell -ExecutionPolicy Bypass -File .\\push-helper.ps1\n"
+        }
+    }
+]
