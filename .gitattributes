@@ -1,0 +1,15 @@
+# Set default behavior to maintain consistent line endings
+* text=auto
+
+# Force text files to use LF
+*.php text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.svg text eol=lf
+
+# Denote binary files (no line-ending conversion)
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary 

@@ -1,7 +1,0 @@
-﻿{
-    "environment":  "powershell-core-windows",
-    "created":  "2025-03-12 23:04:31",
-    "logPath":  "test-cross-platform\\powershell-core-windows\\logs",
-    "testDataPath":  "test-cross-platform\\powershell-core-windows\\data",
-    "outputPath":  "test-cross-platform\\powershell-core-windows\\output"
-}

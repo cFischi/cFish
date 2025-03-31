@@ -1,5 +1,0 @@
-[2025-03-13 02:22:26] [ERROR] Failed to get information for task 'cFish.io Daily Health Check': No MSFT_ScheduledTask objects found with property 'TaskName' equal to 'cFish.io Daily Health Check'.  Verify the value of the property and retry.
-[2025-03-13 02:22:26] [ERROR] Task 'cFish.io Daily Health Check' has never run or was not found
-[2025-03-13 02:22:26] [ERROR] Failed to get information for task 'cFish.io Daily Backup': No MSFT_ScheduledTask objects found with property 'TaskName' equal to 'cFish.io Daily Backup'.  Verify the value of the property and retry.
-[2025-03-13 02:22:26] [ERROR] Task 'cFish.io Daily Backup' has never run or was not found
-[2025-03-13 02:22:26] [ERROR] Failed to update memory.md: Cannot find path 'C:\Users\Chris\memory.md' because it does not exist.

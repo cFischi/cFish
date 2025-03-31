@@ -1,2 +1,0 @@
-# EDD User Downloads
-
