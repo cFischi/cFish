@@ -34,13 +34,23 @@ This shortcut executes `cursor-pull.bat` which:
 
 ### `Ctrl+Alt+K` (Push to GitHub)
 This shortcut executes `push-helper-fixed.ps1` which:
-- Prompts for a commit message
+- Checks if there are any changes to commit (shows a helpful message if no changes found)
+- Prompts for a commit message if changes exist
 - Shows current branch
 - Displays Git status
 - Selectively adds changes (avoiding long paths)
+- Verifies valid files are available to commit
 - Commits with your message
 - Pushes to GitHub
 - Displays success message
+
+## Common Messages and What They Mean
+
+### "No changes detected. Nothing to commit."
+This means the push script didn't find any modified files. Make sure you've saved your changes after editing files. If you just pulled changes and haven't modified anything, this is normal.
+
+### "No valid files to commit. All changes might be in excluded directories."
+This means the only changes found were in directories excluded from being committed (like z_Archives with long paths). Consider moving these files to a different location if they need to be committed.
 
 ## Troubleshooting
 
