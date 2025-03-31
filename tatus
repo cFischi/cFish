@@ -1,8 +1,44 @@
-  development[m
-  feature/assembler-footer-update[m
-  feature/footer-update[m
-* [32mfix/include-parent-theme[m
-  [31mremotes/origin/development[m
-  [31mremotes/origin/feature/assembler-footer-update[m
-  [31mremotes/origin/feature/footer-update[m
-  [31mremotes/origin/fix/include-parent-theme[m
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+core.editor=notepad
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+core.autocrlf=false
+core.eol=lf
+core.hidedotfiles=false
+user.name=cFischi
+user.email=i@cFish.io
+credential.helper=wincred
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+remote.origin.url=https://github.com/cFischi/cFish.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.development.remote=origin
+branch.development.merge=refs/heads/development
+branch.feature/footer-update.vscode-merge-base=origin/development
+branch.feature/footer-update.remote=origin
+branch.feature/footer-update.merge=refs/heads/feature/footer-update
+branch.feature/assembler-footer-update.vscode-merge-base=origin/feature/footer-update
+branch.feature/assembler-footer-update.remote=origin
+branch.feature/assembler-footer-update.merge=refs/heads/feature/assembler-footer-update
+lfs.repositoryformatversion=0
+lfs.https://github.com/cFischi/cFish.git/info/lfs.access=basic
+branch.fix/include-parent-theme.vscode-merge-base=origin/Main-_-cFish
+branch.fix/include-parent-theme.remote=origin
+branch.fix/include-parent-theme.merge=refs/heads/fix/include-parent-theme
+branch.temp-branch.remote=origin
+branch.temp-branch.merge=refs/heads/fix/include-parent-theme
+branch.temp-branch.vscode-merge-base=origin/fix/include-parent-theme
