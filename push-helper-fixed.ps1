@@ -1,6 +1,14 @@
 # Improved helper script to prompt for commit message and run git commands directly
 # This version handles long filenames by avoiding global git add .
 
+# First, check if there are any changes to commit
+$hasChanges = git status --porcelain
+if (-not $hasChanges) {
+    Write-Host "No changes detected. Nothing to commit."
+    Write-Host "If you've just made changes, make sure they're saved."
+    exit
+}
+
 $commitMessage = Read-Host "Enter commit message"
 
 if ($commitMessage -eq "") {
@@ -22,6 +30,13 @@ Write-Host "Adding changes selectively (avoiding z_Archives directories with lon
 
 # Get a list of modified files
 $changedFiles = git status --porcelain | Where-Object { $_ -notmatch "z_Archives/" } | ForEach-Object { $_.Substring(3) }
+
+# Check if there are any files to add after filtering
+if ($changedFiles.Count -eq 0) {
+    Write-Host "No valid files to commit. All changes might be in excluded directories."
+    Write-Host "Nothing to push. Operation cancelled."
+    exit
+}
 
 # Add each file individually, skipping long paths
 foreach ($file in $changedFiles) {
