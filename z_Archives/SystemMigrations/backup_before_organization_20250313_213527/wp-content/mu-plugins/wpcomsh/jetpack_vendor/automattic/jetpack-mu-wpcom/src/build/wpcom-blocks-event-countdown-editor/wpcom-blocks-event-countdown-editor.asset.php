@@ -1,1 +1,0 @@
-<?php return array('dependencies' => array('jetpack-connection', 'lodash', 'moment', 'wp-api-fetch', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-date', 'wp-element', 'wp-hooks', 'wp-i18n', 'wp-plugins', 'wp-polyfill', 'wp-url'), 'version' => '86fc40c1f9b50b6ce8a5');

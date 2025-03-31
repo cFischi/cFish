@@ -19,6 +19,10 @@ z_backups/*/backup*
 # Exclude any files with excessively long paths
 WordPress/wp-content/*/jetpack_vendor/automattic/backups/*.json.*
 
+# Exclude specific directories with extremely long paths
+z_Archives/SystemMigrations/backup_before_organization_20250313_213527/wp-content/mu-plugins/wpcomsh/jetpack_vendor/
+z_Archives/SystemMigrations/backup_before_organization_20250313_213527/wp-content/plugins/jetpack/jetpack_vendor/
+
 # Large files exceeding GitHub's 100MB limit
 U4-UcWebZ/WordPress/d749a-60fps-hd-motion-background-deep-blue-portal-1.png
 z_Archives/SystemMigrations/backup_before_organization_20250313_213527/temp/powershell7-setup/PowerShell-7.3.4-win-x64.msi
