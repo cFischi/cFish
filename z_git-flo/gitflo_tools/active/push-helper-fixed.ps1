@@ -31,18 +31,30 @@ try {
         exit 0
     }
 
+    # Show what's changed
+    Write-Host "`nChanges detected:"
+    git status --short
+    Write-Host ""
+
     $commitMessage = Read-Host "Enter commit message"
 
     if ($commitMessage -ne "") {
         if ($TestMode) {
             Write-Host "Test mode: Would execute the following commands:"
-            Write-Host "git add ."
+            Write-Host "git add -A"
             Write-Host "git commit -n -m `"$commitMessage`""
             Write-Host "git push origin HEAD"
         } else {
-            Write-Host "Adding changes..."
-            git add .
-            if ($LASTEXITCODE -eq 0) {
+            Write-Host "`nAdding all changes..."
+            git add -A
+            
+            # Verify changes were added
+            $stagedChanges = git diff --cached --name-only
+            if ($stagedChanges) {
+                Write-Host "`nStaged for commit:"
+                $stagedChanges | ForEach-Object { Write-Host "  $_" }
+                Write-Host ""
+                
                 Write-Host "Committing changes with -n flag to bypass hooks..."
                 git commit -n -m "$commitMessage"
                 if ($LASTEXITCODE -eq 0) {
@@ -56,9 +68,12 @@ try {
                     }
                 } else {
                     Write-Host "Error: Failed to commit changes."
+                    Write-Host "Git output:"
+                    git status
                 }
             } else {
-                Write-Host "Error: Failed to add changes."
+                Write-Host "Error: No changes were staged. Git status:"
+                git status
             }
         }
     } else {
