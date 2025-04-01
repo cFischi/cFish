@@ -64,49 +64,12 @@ try {
         Write-Host "Using default commit message: $commitMessage`n"
     }
 
-    # Add all changes (avoiding lengthy paths)
-    $files = git status --porcelain | ForEach-Object { $_.Substring(3) }
-    $validFiles = @()
-    $excludedDirs = @(
-        "*node_modules*",
-        "*_Archives*", 
-        "*z_Archives*", 
-        "*.git*", 
-        "*.next*", 
-        "*dist*",
-        "*build*",
-        "*vendor*"
-    )
+    # Add all changes using git add -A instead of individual files
+    # This handles renames and moves properly
+    Write-Host "Adding all changes to commit...`n"
+    git add -A
 
-    foreach ($file in $files) {
-        $excluded = $false
-        
-        # Check each exclusion pattern
-        foreach ($pattern in $excludedDirs) {
-            if ($file -like $pattern) {
-                $excluded = $true
-                break
-            }
-        }
-        
-        # Also exclude files with very long paths
-        if (-not $excluded -and $file.Length -lt 260) {
-            $validFiles += $file
-        }
-    }
-
-    if ($validFiles.Count -eq 0) {
-        Write-Host "No valid files to commit. All changes might be in excluded directories.`n" -ForegroundColor Yellow
-        exit 0
-    }
-
-    # Add the valid files
-    Write-Host "Adding files to commit...`n"
-    foreach ($file in $validFiles) {
-        git add "$file"
-    }
-
-    # Commit and push
+    # Commit with -n flag to bypass pre-commit hooks
     Write-Host "Committing with message: $commitMessage`n"
     $commitResult = git commit -n -m "$commitMessage"
     
