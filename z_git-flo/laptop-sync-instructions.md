@@ -10,6 +10,9 @@ This guide provides instructions for synchronizing your cFish.io repository betw
 - Keyboard shortcuts:
   - `Ctrl+Alt+L`: Pull latest changes from GitHub
   - `Ctrl+Alt+K`: Push local changes to GitHub
+- Script locations (updated):
+  - Primary scripts: `z_git-flo\gitflo_tools\`
+  - Wrapper scripts: Root directory
 
 ## Repository Structure Requirements
 - **Critical**: Ensure proper repository structure on both machines
@@ -25,7 +28,7 @@ This guide provides instructions for synchronizing your cFish.io repository betw
 
 ### After Making Changes
 1. Press `Ctrl+Alt+K` to push changes to GitHub
-2. Enter a commit message when prompted
+2. Enter a commit message when prompted (or leave blank for auto-generated timestamp message)
 3. Wait for confirmation: "Success! Changes pushed to GitHub."
 4. Remember to press `Ctrl+Alt+L` on your other computer before working there
 
@@ -33,6 +36,7 @@ This guide provides instructions for synchronizing your cFish.io repository betw
 
 ### `Ctrl+Alt+L` (Pull from GitHub)
 This shortcut executes `cursor-pull.bat` which:
+- Determines the workspace root directory (location-aware)
 - Shows the current branch
 - Fetches latest changes
 - Pulls changes from the current branch
@@ -40,15 +44,31 @@ This shortcut executes `cursor-pull.bat` which:
 
 ### `Ctrl+Alt+K` (Push to GitHub)
 This shortcut executes `push-helper-fixed.ps1` which:
+- Determines the workspace root directory (location-aware)
 - Checks if there are any changes to commit (shows a helpful message if no changes found)
-- Prompts for a commit message if changes exist
+- Prompts for a commit message if changes exist (generates default if blank)
 - Shows current branch
 - Displays Git status
-- Selectively adds changes (avoiding long paths)
+- Selectively adds changes (avoiding long paths and excluded directories)
 - Verifies valid files are available to commit
 - Commits with your message
 - Pushes to GitHub
 - Displays success message
+
+## Script Locations
+
+The synchronization scripts have been moved to a more organized location:
+
+- Main scripts: `z_git-flo\gitflo_tools\`
+  - `cursor-pull.bat`: Main pull script
+  - `push-helper-fixed.ps1`: Main push script
+  - Plus documentation and other Git-related files
+
+- Wrapper scripts (for backward compatibility): Root directory
+  - `cursor-pull.bat`: Redirects to the main script
+  - `push-helper-fixed.ps1`: Redirects to the main script
+
+Both locations will work properly, as the scripts have been enhanced to be location-aware.
 
 ## Troubleshooting Common Issues
 
@@ -146,4 +166,4 @@ This downloads the full repository history which can help avoid memory issues du
 - Avoid committing extremely large files (>100MB)
 - Verify proper repository structure if synchronization issues occur
 
-_Updated 05-28-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 
+_Updated 05-29-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 

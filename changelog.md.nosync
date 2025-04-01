@@ -1,5 +1,0 @@
-This file tells the MD-JSON sync system to ignore changelog.md
-
-Reason: changelog.md contains critical version history that should not be modified automatically
-Created: 03-20-2025
-The changelog.md file has previously experienced data loss during synchronization.

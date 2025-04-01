@@ -1,0 +1,168 @@
+{
+  "document_type": "validation_plan",
+  "title": "Git Workflow Implementation Validation Plan",
+  "date": "2025-05-29",
+  "version": "1.0.0",
+  "priority": "High",
+  "status": "Required",
+  "immediate_next_steps": [
+    {
+      "action": "Fix VS Code Keybindings",
+      "description": "Ensure keybindings.json has correct syntax and paths to relocated scripts",
+      "steps": [
+        "Create a valid keybindings.json without comments",
+        "Copy file to VS Code user settings directory",
+        "Restart VS Code to apply changes"
+      ],
+      "code": {
+        "powershell": "$keybindings = '[{\"key\":\"ctrl+alt+l\",\"command\":\"workbench.action.terminal.sendSequence\",\"args\":{\"text\":\"powershell -Command \\\"& {.\\\\z_git-flo\\\\gitflo_tools\\\\cursor-pull.bat | Out-Host}\\\"\\n\"}},{\"key\":\"ctrl+alt+k\",\"command\":\"workbench.action.terminal.sendSequence\",\"args\":{\"text\":\"powershell -ExecutionPolicy Bypass -File .\\\\z_git-flo\\\\gitflo_tools\\\\push-helper-fixed.ps1\\n\"}}]'; Set-Content -Path $env:APPDATA\\Code\\User\\keybindings.json -Value $keybindings -Force"
+      },
+      "priority": 1
+    },
+    {
+      "action": "Fix Wrapper Scripts",
+      "description": "Ensure wrapper scripts correctly redirect to relocated scripts",
+      "steps": [
+        "Update cursor-pull.bat wrapper with direct path",
+        "Update push-helper-fixed.ps1 wrapper with direct path",
+        "Test wrapper execution directly"
+      ],
+      "code": {
+        "batch": "@echo off\nREM Wrapper script for backward compatibility\necho Redirecting to z_git-flo\\gitflo_tools\\cursor-pull.bat...\nz_git-flo\\gitflo_tools\\cursor-pull.bat",
+        "powershell": "# Wrapper script for backward compatibility\nWrite-Host \"Redirecting to z_git-flo\\gitflo_tools\\push-helper-fixed.ps1...\"\n& \".\\z_git-flo\\gitflo_tools\\push-helper-fixed.ps1\""
+      },
+      "priority": 2
+    },
+    {
+      "action": "Run Validation Tests",
+      "description": "Execute validation scripts to verify implementation",
+      "steps": [
+        "Run check-script-existence.ps1 to verify script presence",
+        "Run test-git-shortcuts.ps1 to validate execution flow",
+        "Manually test keyboard shortcuts in VS Code"
+      ],
+      "code": {
+        "powershell": ".\\check-script-existence.ps1\n.\\test-git-shortcuts.ps1"
+      },
+      "priority": 3
+    },
+    {
+      "action": "Fix Git Tracking",
+      "description": "Ensure Git properly tracks relocated files",
+      "steps": [
+        "Check Git status for deleted files",
+        "Re-add relocated files to Git tracking",
+        "Commit changes to preserve file history"
+      ],
+      "code": {
+        "shell": "git status\ngit add z_git-flo/gitflo_tools/\ngit commit -m \"Re-add relocated Git workflow files\""
+      },
+      "priority": 4
+    },
+    {
+      "action": "Cross-Environment Testing",
+      "description": "Test implementation on both desktop and laptop",
+      "steps": [
+        "Push changes to GitHub",
+        "Pull changes on the other machine",
+        "Verify all scripts exist in both environments",
+        "Test keyboard shortcuts on both machines"
+      ],
+      "priority": 5
+    },
+    {
+      "action": "Update Documentation",
+      "description": "Finalize documentation with troubleshooting findings",
+      "steps": [
+        "Complete git-workflow-troubleshooting-guide.md",
+        "Update laptop-sync-instructions.md with new findings",
+        "Add troubleshooting section to implementation plan"
+      ],
+      "priority": 6
+    }
+  ],
+  "validation_criteria": {
+    "script_existence": {
+      "description": "All scripts exist in their expected locations",
+      "check_method": "check-script-existence.ps1",
+      "pass_criteria": "All files reported as existing"
+    },
+    "execution_flow": {
+      "description": "All scripts execute correctly from all access paths",
+      "check_method": "test-git-shortcuts.ps1",
+      "pass_criteria": "All execution paths function without errors"
+    },
+    "keybinding_functionality": {
+      "description": "Keyboard shortcuts correctly trigger script execution",
+      "check_method": "Manual testing in VS Code terminal",
+      "pass_criteria": "Shortcuts execute correct scripts without errors"
+    },
+    "cross_environment": {
+      "description": "Implementation works consistently across machines",
+      "check_method": "Testing on both desktop and laptop",
+      "pass_criteria": "Identical behavior on both environments"
+    }
+  },
+  "common_issues": [
+    {
+      "issue": "Keybinding not working",
+      "causes": [
+        "Keybindings.json syntax errors",
+        "VS Code not restarted after changes",
+        "Incorrect paths in keybindings"
+      ],
+      "solutions": [
+        "Fix keybindings.json format",
+        "Restart VS Code",
+        "Verify script paths"
+      ]
+    },
+    {
+      "issue": "Script execution failure",
+      "causes": [
+        "PowerShell execution policy",
+        "Incorrect paths in wrappers",
+        "Working directory issues"
+      ],
+      "solutions": [
+        "Set execution policy to Bypass",
+        "Fix path references",
+        "Implement path-agnostic scripts"
+      ]
+    },
+    {
+      "issue": "Git tracking problems",
+      "causes": [
+        "Files moved without Git tracking",
+        "Repository structure differences"
+      ],
+      "solutions": [
+        "Re-add moved files to Git",
+        "Use git mv for relocations",
+        "Verify repository structure"
+      ]
+    }
+  ],
+  "future_enhancements": [
+    {
+      "enhancement": "VS Code Extension Development",
+      "description": "Create dedicated VS Code extension for Git operations",
+      "timeframe": "Medium-term (30 days)"
+    },
+    {
+      "enhancement": "Cross-Platform Compatibility",
+      "description": "Ensure scripts work on Windows, macOS, and Linux",
+      "timeframe": "Long-term (90+ days)"
+    },
+    {
+      "enhancement": "Automated Testing Framework",
+      "description": "Implement comprehensive testing for all Git operations",
+      "timeframe": "Medium-term (30 days)"
+    }
+  ],
+  "meta": {
+    "author": "AI: Cursor (Claude 3.7 Sonnet)",
+    "updated": "2025-05-29",
+    "priority": "High"
+  }
+} 

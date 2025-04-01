@@ -1,0 +1,16 @@
+[
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "powershell -Command \"& {.\\z_git-flo\\gitflo_tools\\cursor-pull.bat | Out-Host}\"\n"
+        }
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "powershell -ExecutionPolicy Bypass -File .\\z_git-flo\\gitflo_tools\\push-helper-fixed.ps1\n"
+        }
+    }
+] 
