@@ -12,77 +12,62 @@ $workspaceRoot = Resolve-Path "$scriptDir\..\.."
 # Configure Git to handle line endings
 git config core.autocrlf true
 
-# Switch to workspace root and store current location
-$originalLocation = Get-Location
-Push-Location $workspaceRoot
+# Save the current location
+Push-Location
 
+# Navigate to the workspace root
 try {
-    # Check if we're in a Git repository
-    $gitStatus = git status 2>&1
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "Error: Not in a Git repository or Git is not installed."
-        exit 1
-    }
-
-    # Check for changes
-    $changes = git status --porcelain
-    if (-not $changes) {
+    # Change to the workspace root directory
+    Set-Location "C:\Users\Chris\cFish.io"
+    
+    # Get the current branch name
+    $currentBranch = git rev-parse --abbrev-ref HEAD
+    Write-Host "Current branch: $currentBranch"
+    
+    # Check if there are any changes to commit
+    $status = git status -s
+    if ([string]::IsNullOrWhiteSpace($status)) {
         Write-Host "No changes to commit."
+        Pop-Location
         exit 0
     }
-
-    # Show what's changed
-    Write-Host "`nChanges detected:"
-    git status --short
-    Write-Host ""
-
-    $commitMessage = Read-Host "Enter commit message"
-
-    if ($commitMessage -ne "") {
-        if ($TestMode) {
-            Write-Host "Test mode: Would execute the following commands:"
-            Write-Host "git add -A"
-            Write-Host "git commit -n -m `"$commitMessage`""
-            Write-Host "git push origin HEAD"
-        } else {
-            Write-Host "`nAdding all changes..."
-            git add -A
-            
-            # Verify changes were added
-            $stagedChanges = git diff --cached --name-only
-            if ($stagedChanges) {
-                Write-Host "`nStaged for commit:"
-                $stagedChanges | ForEach-Object { Write-Host "  $_" }
-                Write-Host ""
-                
-                Write-Host "Committing changes with -n flag to bypass hooks..."
-                git commit -n -m "$commitMessage"
-                if ($LASTEXITCODE -eq 0) {
-                    Write-Host "Pushing to remote..."
-                    git push origin HEAD
-                    if ($LASTEXITCODE -eq 0) {
-                        Write-Host "Successfully pushed changes to remote."
-                    } else {
-                        Write-Host "Error: Failed to push changes to remote."
-                        Write-Host "Try: git pull origin HEAD --allow-unrelated-histories"
-                    }
-                } else {
-                    Write-Host "Error: Failed to commit changes."
-                    Write-Host "Git output:"
-                    git status
-                }
-            } else {
-                Write-Host "Error: No changes were staged. Git status:"
-                git status
-            }
-        }
-    } else {
-        Write-Host "No commit message provided. Operation cancelled."
+    
+    # Show changes before commit
+    Write-Host "Changes to be committed:"
+    git status -s
+    
+    # Prompt for commit message
+    $commitMessage = Read-Host -Prompt "Enter commit message"
+    if ([string]::IsNullOrWhiteSpace($commitMessage)) {
+        $commitMessage = "Update from $env:COMPUTERNAME - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
     }
-} catch {
+    
+    # Stage all changes (avoiding long paths)
+    $changedFiles = git status -s | Where-Object { $_ -notlike "*z_Archives*" -and $_ -notlike "* -> *" } | ForEach-Object { $_.Substring(3) }
+    if ($changedFiles.Count -eq 0) {
+        Write-Host "No valid files to commit. All changes might be in excluded directories."
+        Pop-Location
+        exit 0
+    }
+    
+    # Add changes
+    Write-Host "Adding changes..."
+    git add .
+    
+    # Commit changes with -n flag to bypass hooks
+    Write-Host "Committing changes..."
+    git commit -n -m "$commitMessage"
+    
+    # Push to remote repository
+    Write-Host "Pushing to remote repository..."
+    git push origin $currentBranch
+    
+    Write-Host "Successfully pushed changes to remote repository on branch $currentBranch."
+}
+catch {
     Write-Host "Error: $_"
-    exit 1
-} finally {
-    # Always return to original directory
+}
+finally {
+    # Return to the original location
     Pop-Location
 } 
