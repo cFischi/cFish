@@ -23,14 +23,14 @@
         "key": "ctrl+alt+l",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "powershell -Command \"& {.\\z_git-flo\\gitflo_tools\\cursor-pull.bat | Out-Host}\"\n"
+            "text": "cd ${workspaceFolder} && powershell -NoProfile -Command \"& {${workspaceFolder}\\z_git-flo\\gitflo_tools\\active\\cursor-pull.bat | Out-Host}\"\n"
         }
     },
     {
         "key": "ctrl+alt+k",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "powershell -ExecutionPolicy Bypass -File .\\z_git-flo\\gitflo_tools\\push-helper-fixed.ps1\n"
+            "text": "cd ${workspaceFolder} && powershell -NoProfile -ExecutionPolicy Bypass -File ${workspaceFolder}\\z_git-flo\\gitflo_tools\\active\\push-helper-fixed.ps1\n"
         }
     }
 ]

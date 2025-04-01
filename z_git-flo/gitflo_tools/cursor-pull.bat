@@ -1,36 +1,39 @@
 @echo off
-REM Script for pulling the latest changes from GitHub
-REM Updated to be location-aware and work regardless of where it's called from
+setlocal enabledelayedexpansion
 
-SETLOCAL EnableDelayedExpansion
+REM Keyboard Shortcut Configuration
+REM Ctrl+Alt+L for Pull
+REM Ctrl+Alt+K for Push
 
-REM Check for test mode
-set "TEST_MODE=false"
-if "%1"=="-test" set "TEST_MODE=true"
-
-REM Determine the script's directory even if called from elsewhere
+REM Get the script's directory and workspace root
 set "SCRIPT_DIR=%~dp0"
-set "ORIGINAL_DIR=%CD%"
+set "WORKSPACE_ROOT=%SCRIPT_DIR%..\..\"
+cd /d "%WORKSPACE_ROOT%"
 
-REM Navigate to workspace root
-cd /d "%SCRIPT_DIR%\..\..\"
-set "WORKSPACE_ROOT=%CD%"
+REM Verify environment
+if not exist ".git" (
+    echo Error: Not in a Git repository root
+    echo Current directory: %CD%
+    exit /b 1
+)
 
-echo.
+REM Get current branch
+for /f "tokens=*" %%a in ('git rev-parse --abbrev-ref HEAD') do set BRANCH=%%a
+
 echo ======================================================
 echo                 CURSOR PULL OPERATION
-echo              Working Directory: [%WORKSPACE_ROOT%]
-if "%TEST_MODE%"=="true" echo                   [TEST MODE]
+echo              Working Directory: [%CD%]
+echo                 Branch: [%BRANCH%]
+if "%1"=="-test" echo                   [TEST MODE]
 echo ======================================================
 echo.
 
-if "%TEST_MODE%"=="true" (
+REM Check for test mode
+if "%1"=="-test" (
     echo Test mode activated. No Git operations will be performed.
     echo.
     echo Script location: %SCRIPT_DIR%
-    echo Workspace root: %WORKSPACE_ROOT%
-    echo Original directory: %ORIGINAL_DIR%
-    echo Test successful!
+    echo Workspace root: %CD%
     goto :end
 )
 
@@ -48,7 +51,4 @@ echo ======================================================
 echo.
 
 :end
-REM Return to original directory
-cd /d "%ORIGINAL_DIR%"
-
-ENDLOCAL 
+endlocal 
