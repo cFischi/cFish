@@ -11,6 +11,12 @@ This guide provides instructions for synchronizing your cFish.io repository betw
   - `Ctrl+Alt+L`: Pull latest changes from GitHub
   - `Ctrl+Alt+K`: Push local changes to GitHub
 
+## Repository Structure Requirements
+- **Critical**: Ensure proper repository structure on both machines
+  - Desktop: `C:\Users\Chris\cFish.io` (with `.git` directory directly inside)
+  - Laptop: `C:\Users\Chris\cFish.io` (with `.git` directory directly inside)
+  - **Avoid nested repositories**: Do not create `C:\Users\Chris\cFish.io\cFish`
+
 ## Workflow
 
 ### Before Starting Work on Either Machine
@@ -44,15 +50,68 @@ This shortcut executes `push-helper-fixed.ps1` which:
 - Pushes to GitHub
 - Displays success message
 
-## Common Messages and What They Mean
+## Troubleshooting Common Issues
 
-### "No changes detected. Nothing to commit."
+### Unfinished Merge Errors
+If you see "error: You have not concluded your merge (MERGE_HEAD exists)":
+
+1. Option 1: Complete the merge (if you want to keep local changes)
+   ```
+   git status
+   ```
+   - Edit conflicted files to resolve conflicts
+   - Add resolved files with `git add <filename>`
+   - Complete the merge with `git commit -m "Merge resolved"`
+   - Then try pulling again with `git pull`
+
+2. Option 2: Abort the merge (if you want to discard local changes)
+   ```
+   git merge --abort
+   git pull
+   ```
+
+3. Option 3: Stash local changes and try again
+   ```
+   git stash
+   git pull
+   git stash apply
+   ```
+
+### Repository Structure Issues
+If you encounter persistent synchronization problems:
+
+1. Verify repository structure
+   ```
+   cd C:\Users\Chris\cFish.io
+   dir .git
+   ```
+   - Ensure .git directory exists directly in C:\Users\Chris\cFish.io
+   - If repository is nested (C:\Users\Chris\cFish.io\cFish), fix with:
+
+2. Fix nested repository (if needed)
+   ```
+   cd C:\Users\Chris
+   mkdir cFish.io.backup
+   xcopy /E /I /H C:\Users\Chris\cFish.io\cFish\* C:\Users\Chris\cFish.io.backup
+   rmdir /S /Q C:\Users\Chris\cFish.io
+   mkdir C:\Users\Chris\cFish.io
+   cd C:\Users\Chris\cFish.io
+   git clone https://github.com/cFischi/cFish.git .
+   git checkout fix/include-parent-theme
+   ```
+
+### Common Messages and What They Mean
+
+#### "No changes detected. Nothing to commit."
 This means the push script didn't find any modified files. Make sure you've saved your changes after editing files. If you just pulled changes and haven't modified anything, this is normal.
 
-### "No valid files to commit. All changes might be in excluded directories."
+#### "No valid files to commit. All changes might be in excluded directories."
 This means the only changes found were in directories excluded from being committed (like z_Archives with long paths). Consider moving these files to a different location if they need to be committed.
 
-## Troubleshooting
+#### "You have not concluded your merge (MERGE_HEAD exists)"
+You have an unfinished merge that needs to be resolved. See "Unfinished Merge Errors" section above.
+
+## Additional Troubleshooting
 
 ### If You Get File Size Errors
 If you encounter any issues with file sizes being too large:
@@ -73,8 +132,18 @@ If you encounter issues with pre-commit hooks (like MD-JSON sync), use:
 git commit -n -m "Your commit message"
 ```
 
+### For Large Repositories With Memory Issues
+If you encounter memory issues with large repositories:
+```
+git fetch --unshallow
+```
+This downloads the full repository history which can help avoid memory issues during push/pull operations.
+
 ## Important Notes
 - Always ensure you're working in the same branch on both machines
 - Pull before starting work to avoid merge conflicts
 - Use descriptive commit messages
-- Avoid committing extremely large files (>100MB) 
+- Avoid committing extremely large files (>100MB)
+- Verify proper repository structure if synchronization issues occur
+
+_Updated 05-28-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 
