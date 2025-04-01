@@ -1,0 +1,28 @@
+{
+  "id": "merge-test",
+  "title": "",
+  "url": "",
+  "metadata": {},
+  "sections": [
+    {
+      "title": "Test Section 1",
+      "content": [
+        "This is test content 1 updated while watch mode is running."
+      ]
+    },
+    {
+      "title": "Test Section 2",
+      "content": [
+        "This is test content 2.",
+        "This is additional content in section 2."
+      ]
+    },
+    {
+      "title": "Test Section 4",
+      "content": [
+        "This is content in section 4 added to the Markdown file.",
+        "It should be preserved during merging and detected by watch mode."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "title": "Test JSON Document"
+  },
+  "sections": [
+    {
+      "level": 1,
+      "title": "JSON Test",
+      "content": [
+        "This is a test JSON document."
+      ]
+    },
+    {
+      "level": 2,
+      "title": "JSON Section",
+      "content": [
+        "This is content from a JSON file."
+      ]
+    }
+  ],
+  "lastUpdated": "2025-03-12T07:32:08.349Z"
+}

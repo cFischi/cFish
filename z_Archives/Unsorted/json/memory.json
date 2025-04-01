@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "title": "Test Memory Document"
+  },
+  "sections": [
+    {
+      "level": 1,
+      "title": "Test Memory Document",
+      "content": []
+    },
+    {
+      "level": 2,
+      "title": "First Section",
+      "content": [
+        "- Item one",
+        "- Item two",
+        "- Item three"
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Second Section",
+      "content": [
+        "This is UPDATED content in the second section.",
+        "It spans multiple lines.",
+        "With an additional line."
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Third Section",
+      "content": [
+        "- Another item",
+        "- More content here"
+      ]
+    },
+    {
+      "level": 2,
+      "title": "New Section",
+      "content": [
+        "This is a completely new section added in the JSON."
+      ]
+    }
+  ],
+  "lastUpdated": "2025-03-12T07:32:40.793Z",
+  "signature": "_Updated 03-14-2025 | Test: Updated via JSON_"
+}

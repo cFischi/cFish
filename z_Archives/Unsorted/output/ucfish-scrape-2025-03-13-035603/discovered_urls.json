@@ -1,0 +1,14 @@
+{
+  "baseUrl": "https://u.cfish.io/u-ucf?v=17c33104429080cc8c82000c89b1f0d4&pvs=4",
+  "maxDepth": 5,
+  "totalDiscovered": 1,
+  "discoveredAt": "2025-03-13T07:56:38.140Z",
+  "urls": [
+    {
+      "url": "https://u.cfish.io/u-ucf?v=17c33104429080cc8c82000c89b1f0d4",
+      "depth": 0,
+      "parent": null,
+      "discovered": "2025-03-13T07:56:05.697Z"
+    }
+  ]
+}

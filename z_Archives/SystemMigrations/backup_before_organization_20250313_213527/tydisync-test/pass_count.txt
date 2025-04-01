@@ -1,0 +1,4 @@
+[Wed 03/12/2025 19:27:49.64] Test 1: PASSED - Successfully created JSON file in root test directory 
+[Wed 03/12/2025 19:27:50.02] Test 2: PASSED - Successfully created Markdown file in root test directory 
+[Wed 03/12/2025 19:27:50.41] Test 4: PASSED - Error was properly reported 
+[Wed 03/12/2025 19:27:50.84] Test 5: PASSED - Backup file was created 

@@ -1,0 +1,45 @@
+.edd-section-content__fields--custom {
+	display: grid;
+	gap: 20px;
+}
+
+.edd-custom-price-option {
+	&-sections-wrap {
+		display: none;
+		border-width: 0 1px 1px;
+		border-style: solid;
+		border-color: $wp-border;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	&-section {
+		display: block;
+		padding: .5em .5em 20px .5em;
+		border-bottom: 1px solid $wp-border;
+
+		&-title {
+			display: block;
+			font-weight: 600;
+			padding: 0 0 10px;
+		}
+
+		&-content {
+			display: flex;
+			gap: 12px;
+			margin-bottom: 6px;
+		}
+	}
+}
+
+.toggle-custom-price-option-section {
+	color: $wp-gray-40;
+
+	&:hover {
+		color: $wp-text;
+	}
+}
+
+.edd-variable-prices__default input:checked {
+	opacity: .5;
+}

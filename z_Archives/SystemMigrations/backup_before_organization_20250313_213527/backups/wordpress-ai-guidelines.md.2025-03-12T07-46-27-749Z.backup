@@ -1,0 +1,248 @@
+# WordPress Development Guidelines v1.0
+
+**Target:** PHP 7.4+, WordPress 6.0+  
+**Editor Config:** formatOnSave: true, tabSize: 2  
+**Terminal:** cmd.exe  
+
+## Core Principles (HIGH PRIORITY)
+
+- **OOP Architecture**: Use object-oriented programming for better modularity and maintainability
+- **WordPress Standards**: Follow WordPress coding standards consistently
+- **Hooks System**: Leverage WordPress hooks (actions/filters) appropriately
+- **Security**: Implement proper security practices (nonce, sanitize, escape)
+- **Core Integrity**: Never modify core/parent theme files directly
+
+## Code Organization
+
+- Directory naming: lowercase with hyphens (wp-content/themes/my-theme)
+- File naming: descriptive, purpose-based (class-user-profile.php)
+- Enable strict typing: `declare(strict_types=1);`
+- Header format: [Description, @package, @since, @author]
+- Branch naming: feature/name, bugfix/name, hotfix/name
+
+## Data & Security (HIGH PRIORITY)
+
+- **Database**: Use `$wpdb->prepare()` for ALL queries
+- **Input**: `sanitize_*` functions before processing
+- **Output**: `esc_*` functions before display
+- **Forms**: `wp_nonce_*` functions for verification
+- **APIs**: `wp_remote_*` for external requests
+
+## WordPress Best Practices
+
+- **Theme Development**:
+  - Use child themes for customizations
+  - Follow template hierarchy
+  - Implement template tags appropriately
+  
+- **Plugin Development**:
+  - Register hooks in a main plugin class
+  - Separate functionality into logical components
+  - Follow the singleton pattern when appropriate
+  
+- **Performance**:
+  - Use transients API for caching
+  - Implement proper database indexing
+  - Optimize queries with `WP_Query`
+  
+- **Content Management**:
+  - Use custom post types for specialized content
+  - Implement custom taxonomies for relationships
+  - Leverage post meta for additional attributes
+
+## Documentation Practices
+
+- **Memory.md Updates**:
+  - Format section titles as: `## [Title] (MM-DD-2025)`
+  - Use bullet points for all major items
+  - Keep entries concise and relevant
+  - Place new entries before the "Next Steps" section
+  - **ALWAYS** conclude entries with the appropriate signature:
+    - For AI updates: `_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_`
+    - For human updates: `_Updated MM-DD-2025 | Human: tY FischEYe_`
+  - Include same date in both section title and signature line
+  - This signature system is automatically enforced through .cursorrules configuration
+  - Example format:
+    ```markdown
+    ## Feature Implementation (MM-DD-2025)
+    - Added new functionality to handle user authentication
+    - Implemented secure password reset flow
+    - Updated database schema with new user fields
+    
+    _Updated MM-DD-2025 | Human: tY FischEYe_
+    ```
+
+- **Changelog.md Updates**:
+  - Document all significant code changes
+  - Follow semantic versioning (MAJOR.MINOR.PATCH)
+  - Group changes by type: Added, Changed, Fixed, Removed
+  - Include date in ISO format (2025-MM-DD)
+  - Reference ticket/issue numbers when applicable
+  - Example format:
+    ```markdown
+    ## [1.2.0] - [2025-MM-DD]
+    
+    ### Added
+    - New admin dashboard widget for quick access to settings
+    
+    ### Changed
+    - Improved login form validation with better error messages
+    
+    ### Fixed
+    - Fixed issue with password reset emails not being sent correctly (#45)
+    ```
+
+## Key Coding Conventions
+
+1. **Database Interactions**:
+   ```php
+   global $wpdb;
+   $results = $wpdb->get_results(
+       $wpdb->prepare("SELECT * FROM {$wpdb->posts} WHERE post_author = %d", $user_id)
+   );
+   ```
+
+2. **Hooks Implementation**:
+   ```php
+   // Adding hooks
+   add_action('init', [$this, 'register_post_types'], 10);
+   add_filter('the_content', [$this, 'filter_content']);
+   
+   // Creating hook
+   do_action('my_plugin_action', $context);
+   $value = apply_filters('my_plugin_filter', $value, $context);
+   ```
+
+3. **Security Implementation**:
+   ```php
+   // Nonce
+   wp_nonce_field('my_action', 'my_nonce');
+   if (!wp_verify_nonce($_POST['my_nonce'], 'my_action')) {
+       wp_die('Security check failed');
+   }
+   
+   // Sanitizing input
+   $title = sanitize_text_field($_POST['title']);
+   
+   // Escaping output
+   echo esc_html($title);
+   ```
+
+## Workflow Requirements
+
+- **Git**: Commit each atomic change with clear message
+- **Branches**: NEVER commit to main, always feature branches
+- **Testing**: Verify all changes before requesting review
+- **Documentation**: Update memory.md, changelog.md with each change
+
+## Communications Preferences
+
+- Prefer terse answers with functional code examples
+- Explain reasoning clearly for beginners
+- Present solutions with confidence level (1-10)
+- Ask 3-5 clarifying questions when needed
+
+---
+
+## Architecture Patterns
+
+### Class Structure Example
+
+```php
+<?php
+/**
+ * User profile handler.
+ *
+ * @package     MyPlugin
+ * @since       1.0.0
+ * @author      Developer Name
+ */
+
+declare(strict_types=1);
+
+namespace MyPlugin\User;
+
+use MyPlugin\Core\BaseController;
+
+class User_Profile extends BaseController {
+    /**
+     * User ID.
+     *
+     * @var int
+     */
+    private int $user_id;
+    
+    /**
+     * Constructor.
+     *
+     * @param int $user_id User ID.
+     */
+    public function __construct(int $user_id) {
+        $this->user_id = $user_id;
+        $this->register_hooks();
+    }
+    
+    /**
+     * Register hooks.
+     *
+     * @return void
+     */
+    private function register_hooks(): void {
+        add_action('show_user_profile', [$this, 'add_profile_fields']);
+        add_action('edit_user_profile', [$this, 'add_profile_fields']);
+        add_action('personal_options_update', [$this, 'save_profile_fields']);
+        add_action('edit_user_profile_update', [$this, 'save_profile_fields']);
+    }
+    
+    /**
+     * Add custom profile fields.
+     *
+     * @param \WP_User $user User object.
+     * @return void
+     */
+    public function add_profile_fields(\WP_User $user): void {
+        // Security check
+        wp_nonce_field('my_plugin_user_profile', 'my_plugin_user_profile_nonce');
+        
+        // Output fields
+        ?>
+        <h3><?php esc_html_e('Additional Information', 'my-plugin'); ?></h3>
+        <table class="form-table">
+            <tr>
+                <th>
+                    <label for="bio"><?php esc_html_e('Biography', 'my-plugin'); ?></label>
+                </th>
+                <td>
+                    <textarea name="bio" id="bio" rows="5" cols="30"><?php echo esc_textarea(get_user_meta($user->ID, 'bio', true)); ?></textarea>
+                </td>
+            </tr>
+        </table>
+        <?php
+    }
+    
+    /**
+     * Save custom profile fields.
+     *
+     * @param int $user_id User ID.
+     * @return bool
+     */
+    public function save_profile_fields(int $user_id): bool {
+        // Security checks
+        if (!current_user_can('edit_user', $user_id)) {
+            return false;
+        }
+        
+        if (!isset($_POST['my_plugin_user_profile_nonce']) || !wp_verify_nonce($_POST['my_plugin_user_profile_nonce'], 'my_plugin_user_profile')) {
+            return false;
+        }
+        
+        // Sanitize and save data
+        if (isset($_POST['bio'])) {
+            update_user_meta($user_id, 'bio', sanitize_textarea_field($_POST['bio']));
+        }
+        
+        return true;
+    }
+} 
+
+_Updated MM-DD-2025 | Human: tY FischEYe_

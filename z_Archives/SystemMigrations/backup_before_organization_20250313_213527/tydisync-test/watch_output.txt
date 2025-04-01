@@ -1,0 +1,42 @@
+=========================================
+cFish.io MD-JSON Two-Way Sync
+=========================================
+DEBUG: Arguments: --watch --verbose
+DEBUG: After parsing:
+DEBUG: WATCH_MODE=--watch
+DEBUG: VERBOSE_MODE=--verbose
+DEBUG: PREFER_MODE=
+DEBUG: RECURSIVE_MODE=
+DEBUG: DEPTH_PARAM=
+DEBUG: NON_RECURSIVE_WATCH=
+DEBUG: NO_BACKUPS=
+DEBUG: HELP_MODE=
+DEBUG: CONVERT_MODE=
+DEBUG: CONVERT_FILE=
+DEBUG: JS_PATH = ..\sync-system\core\tydisync.js
+DEBUG: CONVERT_MODE = 
+DEBUG: CONVERT_FILE = 
+DEBUG: VERBOSE_MODE = --verbose
+Running two-way Markdown-JSON synchronization...
+Watch mode enabled - Press Ctrl+C to stop
+DEBUG: Command = 
+DEBUG: Executing command: node ..\sync-system\core\tydisync.js --watch --verbose     
+tYDiSync~ starting with options: {
+  watch: true,
+  verbose: true,
+  force: false,
+  preferMarkdown: false,
+  preferJson: false,
+  configPath: './config.json',
+  convert: false,
+  convertFile: null,
+  noBackups: false
+}
+Starting watch mode...
+Watching directories: [{"md":"../../tydisync-test/md","json":"../../tydisync-test/json"}]
+Initial files: ["backup_test.md","test1.md","watch_test.md"]
+File changed: watch_test.md
+Created backup: C:\Users\Chris\cFish.io\backups\watch_test.md.2025-03-12T23-24-58.848Z.bak
+Converting Markdown to JSON: C:\Users\Chris\cFish.io\tydisync-test\md\watch_test.md -> C:\Users\Chris\cFish.io\tydisync-test\watch_test.json
+Successfully converted C:\Users\Chris\cFish.io\tydisync-test\md\watch_test.md to C:\Users\Chris\cFish.io\tydisync-test\watch_test.json
+ERROR: Synchronization failed with error code 1

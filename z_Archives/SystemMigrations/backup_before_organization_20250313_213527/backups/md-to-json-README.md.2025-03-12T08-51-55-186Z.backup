@@ -1,0 +1,76 @@
+# MD-to-JSON System
+
+This system automatically converts Markdown files to JSON format optimized for AI consumption.
+
+## Components
+
+- **md-to-json.js** - Node.js script that converts Markdown to JSON
+- **md-to-json.bat** - Windows batch script to run the converter
+- **start-md-to-json-watcher.bat** - Script to start the watcher in background
+- **start-md-to-json-silent.vbs** - Silent runner for Windows Task Scheduler
+- **setup-md-to-json-startup.bat** - Sets up automatic startup
+- **remove-md-to-json-startup.bat** - Removes the startup task
+
+## Basic Usage
+
+### One-time Conversion
+```
+md-to-json.bat
+```
+
+### Watch Mode (Manual)
+```
+md-to-json.bat --watch
+```
+
+### Background Watch Mode
+```
+start-md-to-json-watcher.bat
+```
+
+## Automatic Startup
+
+To configure the MD-to-JSON watcher to start automatically when Windows starts:
+
+1. Right-click **setup-md-to-json-startup.bat**
+2. Select **Run as administrator**
+3. Follow the prompts
+
+This will create a Windows Task Scheduler task that runs the watcher on login.
+
+## Remove Automatic Startup
+
+To remove the automatic startup configuration:
+
+1. Right-click **remove-md-to-json-startup.bat**
+2. Select **Run as administrator**
+3. Follow the prompts
+
+## Checking Status
+
+To check if the watcher is currently running:
+
+1. Open Task Manager
+2. Look for **cmd.exe** processes
+3. One of them should show "MD-to-JSON Watcher" in the command line
+
+## Troubleshooting
+
+If the watcher is not working correctly:
+
+1. Check that Node.js is installed and in your PATH
+2. Try running `md-to-json.bat --verbose` to see detailed output
+3. Verify the directories in the config section of md-to-json.js
+
+## Manually Stopping the Watcher
+
+To stop the watcher process:
+
+1. Open Task Manager
+2. Find the CMD window with "MD-to-JSON Watcher" in the command line
+3. Select it and click "End task"
+
+## More Information
+
+For more details about the MD-to-JSON system, see:
+- [JSON Sync System Documentation](./docs/json-sync-system.md)
