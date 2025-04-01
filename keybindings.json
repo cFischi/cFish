@@ -30,7 +30,7 @@
         "key": "ctrl+alt+k",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "powershell -ExecutionPolicy Bypass -Command \"& {.\\push-helper-fixed.ps1 | Out-Host}\"\n"
+            "text": "powershell -ExecutionPolicy Bypass -File .\\push-helper-fixed.ps1\n"
         }
     }
 ]
