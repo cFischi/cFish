@@ -1,4 +1,9 @@
 ---
+description: 
+globs: 
+alwaysApply: false
+---
+---
 description: Guidelines for handling structured task requests with TASK: prefix.
 globs: *
 alwaysApply: true
@@ -71,13 +76,13 @@ decisions:
 
 ## 4. UcF Department-Specific Guidelines
 
-- For **U1-Administration** tasks: Focus on system integrity and values
-- For **U2-Research** tasks: Emphasize innovation and AI integration
-- For **U3-Operations** tasks: Focus on physical robustness and coherence
-- For **U4-Production** tasks: Emphasize output efficiency and quality
-- For **U5-Data** tasks: Focus on data flow and integration
-- For **U6-Marketing** tasks: Emphasize documentation and user feedback
-- For **U7-Systems** tasks: Focus on specialized technical solutions
+- For **U1-Administration** tasks: Focus on UcF office mgmt,inventory, sales, CRM &or system integrity and values
+- For **U2-Research** tasks: Emphasize tYFeAiz/UcF innovation, tY/UcF/client reseach & development, and AI adaptations, and integrations.
+- For **U3-Operations** tasks: Focus on FiscHouse physical House upkeep, UcF operative physical robustness, regular tY/UcF/FH operations, and coherence
+- For **U4-Production** tasks: Emphasize UcWebZ UcF/client deliverables, output efficiency, and quality
+- For **U5-Data** tasks: Focus on the UZ UcF/client DSS "Dispatch Support Services," data flow, integration, &or communications
+- For **U6-Marketing** tasks: Emphasize FischEYe multi-media content, social/local connenctions, reach documentation and user feedback
+- For **U7-Systems** tasks: Focus on tY/Tek911/HeArt or specialized branding &or technical solutions: tY/UcF/clients
 
 ## 5. Task Documentation Requirements
 
