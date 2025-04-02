@@ -1,0 +1,322 @@
+{
+  "version": "1.0.1",
+  "lastUpdated": "2025-04-02",
+  "operationalPhase": {
+    "enabled": true,
+    "dataCollection": {
+      "usagePatterns": {
+        "interval": "5m",
+        "retention": "90d",
+        "metrics": [
+          "token_usage",
+          "response_times",
+          "resource_utilization",
+          "optimization_impact"
+        ]
+      },
+      "performanceBaselines": {
+        "establishment": {
+          "period": "30d",
+          "metrics": [
+            "average_response_time",
+            "peak_token_usage",
+            "resource_efficiency",
+            "optimization_effectiveness"
+          ]
+        },
+        "thresholds": {
+          "dynamic": true,
+          "adjustmentPeriod": "7d",
+          "minSamples": 1000
+        }
+      }
+    },
+    "reviewCycles": {
+      "weekly": {
+        "focus": ["performance_metrics", "usage_patterns"],
+        "outputs": ["trend_analysis", "action_items"]
+      },
+      "monthly": {
+        "focus": ["system_optimization", "resource_allocation"],
+        "outputs": ["optimization_report", "resource_planning"]
+      },
+      "quarterly": {
+        "focus": ["strategic_enhancements", "pillar_alignment"],
+        "outputs": ["enhancement_proposals", "roadmap_updates"]
+      }
+    }
+  },
+  "monitoringComponents": {
+    "tokenTracker": {
+      "priority": "CRITICAL",
+      "metrics": {
+        "usage": {
+          "current": 0,
+          "threshold": 150000,
+          "warning": 120000,
+          "interval": "real-time"
+        },
+        "allocation": {
+          "tracking": ["pillar", "relaunch", "system"],
+          "aggregation": "5min",
+          "retention": "24h"
+        },
+        "pillar_distribution": {
+          "tracking": "per_department",
+          "balancing": true,
+          "thresholds": {
+            "U1": 40000,
+            "U2": 60000,
+            "U3": 50000,
+            "U4": 50000,
+            "U5": 50000,
+            "U6": 40000,
+            "U7": 60000
+          }
+        }
+      },
+      "alerts": {
+        "threshold": {
+          "conditions": ["usage > 80%", "pillar_overload", "relaunch_critical"],
+          "channels": ["console", "log", "status"],
+          "cooldown": "5min"
+        },
+        "optimization": {
+          "triggers": ["inefficient_allocation", "context_bloat", "priority_misalignment"],
+          "actions": ["auto_prune", "rebalance", "priority_adjust"]
+        },
+        "relaunch_impact": {
+          "monitoring": ["critical_path", "dependencies", "resource_availability"],
+          "thresholds": {
+            "delay": "5min",
+            "degradation": "20%",
+            "recovery": "10min"
+          }
+        }
+      },
+      "integration": {
+        "wordpress": {
+          "hooks": ["pre_update", "post_update", "error_handling"],
+          "metrics": ["performance", "resource_usage", "errors"]
+        },
+        "pillar_system": {
+          "sync": "bidirectional",
+          "metrics": ["allocation", "usage", "efficiency"],
+          "optimization": "automatic"
+        },
+        "relaunch": {
+          "priority": "critical",
+          "monitoring": ["progress", "dependencies", "blockers"],
+          "alerts": "immediate"
+        }
+      }
+    },
+    "contextOptimizer": {
+      "priority": "HIGH",
+      "strategies": {
+        "progressive_load": {
+          "stages": ["essential", "important", "optional"],
+          "timing": {
+            "essential": "immediate",
+            "important": "5s",
+            "optional": "on_demand"
+          }
+        },
+        "pillar_aware": {
+          "active_pillars": 3,
+          "rotation": "automatic",
+          "priority_boost": "relaunch_critical"
+        },
+        "relaunch_priority": {
+          "override": true,
+          "boost_factor": 1.5,
+          "critical_path": ["U4", "U7", "U2"]
+        }
+      },
+      "thresholds": {
+        "base": {
+          "limit": 10000,
+          "warning": 8000,
+          "critical": 9500
+        },
+        "pillar": {
+          "limit": 5000,
+          "warning": 4000,
+          "critical": 4800
+        },
+        "relaunch": {
+          "limit": 15000,
+          "warning": 12000,
+          "critical": 14000
+        }
+      }
+    },
+    "performanceMonitor": {
+      "priority": "HIGH",
+      "metrics": {
+        "load_time": {
+          "threshold": "2s",
+          "warning": "1.5s",
+          "critical": "1.8s"
+        },
+        "response_time": {
+          "threshold": "1s",
+          "warning": "0.8s",
+          "critical": "0.95s"
+        },
+        "token_efficiency": {
+          "optimal": "90%",
+          "warning": "75%",
+          "critical": "60%"
+        }
+      },
+      "optimization": {
+        "auto_prune": {
+          "trigger": "usage > 85%",
+          "strategy": "lru",
+          "preserve": ["critical", "active"]
+        },
+        "context_shift": {
+          "trigger": "performance < 70%",
+          "strategy": "priority_based",
+          "cooldown": "1min"
+        },
+        "priority_adjust": {
+          "trigger": "efficiency < 80%",
+          "strategy": "dynamic",
+          "interval": "5min"
+        }
+      }
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "logLevel": "INFO",
+    "logFile": "./.cursor/performance-tools/test.log",
+    "metrics": {
+      "collection": {
+        "interval": "1s",
+        "retention": "7d"
+      },
+      "thresholds": {
+        "token_usage": {
+          "warning": "80%",
+          "critical": "90%"
+        },
+        "response_time": {
+          "warning": "250ms",
+          "critical": "500ms"
+        },
+        "memory_usage": {
+          "warning": "15MB",
+          "critical": "25MB"
+        }
+      }
+    },
+    "alerts": {
+      "enabled": true,
+      "channels": {
+        "console": true,
+        "log": true
+      },
+      "rules": {
+        "threshold_breach": {
+          "enabled": true,
+          "cooldown": "5m"
+        },
+        "performance_degradation": {
+          "enabled": true,
+          "window": "1h",
+          "threshold": "20%"
+        }
+      }
+    }
+  },
+  "monitoringSystem": {
+    "predictiveAnalytics": {
+      "tokenTrends": {
+        "samplingRate": "5m",
+        "aggregationWindow": "15m",
+        "retentionPeriod": "90d",
+        "metrics": {
+          "usage": ["peak", "average", "idle"],
+          "efficiency": ["by_pillar", "by_function"],
+          "optimization": ["savings", "performance"]
+        },
+        "alerts": {
+          "tokenExhaustion": {
+            "forecastWindow": "7d",
+            "thresholds": {
+              "warning": 0.8,
+              "critical": 0.9
+            }
+          },
+          "efficiencyDrop": {
+            "threshold": 0.85,
+            "window": "1h"
+          }
+        }
+      },
+      "performanceTracking": {
+        "samplingRate": "1m",
+        "aggregationWindow": "5m",
+        "retentionPeriod": "30d",
+        "metrics": {
+          "responseTimes": {
+            "p95": true,
+            "p99": true,
+            "average": true
+          },
+          "throughput": {
+            "requests": true,
+            "optimizations": true
+          }
+        },
+        "alerts": {
+          "degradation": {
+            "responseTime": {
+              "warning": 200,
+              "critical": 300
+            },
+            "efficiency": {
+              "warning": 0.85,
+              "critical": 0.8
+            }
+          }
+        }
+      }
+    },
+    "continuousVerification": {
+      "tokenHealth": {
+        "sampling": {
+          "rate": "5m",
+          "aggregation": "15m",
+          "retention": "90d"
+        },
+        "thresholds": {
+          "usage": {
+            "warning": 0.8,
+            "critical": 0.9
+          },
+          "efficiency": {
+            "warning": 0.85,
+            "critical": 0.8
+          }
+        }
+      },
+      "systemHealth": {
+        "sampling": {
+          "rate": "15m",
+          "aggregation": "1h",
+          "retention": "180d"
+        },
+        "metrics": [
+          "memory_usage",
+          "cpu_utilization",
+          "disk_io",
+          "error_rates"
+        ]
+      }
+    }
+  }
+} 

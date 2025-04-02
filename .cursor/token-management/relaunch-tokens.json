@@ -1,0 +1,76 @@
+{
+  "version": "1.0.1",
+  "lastUpdated": "2025-04-02",
+  "relaunchOptimization": {
+    "knowledgeBase": 20000,
+    "crossPlatform": 15000,
+    "pillarSync": 10000,
+    "documentation": 5000
+  },
+  "relaunchPriorities": {
+    "knowledgeMonetization": {
+      "allocation": 40000,
+      "priority": 1,
+      "tokenAllocation": 25000,
+      "pillarDependencies": ["U2", "U4", "U5"],
+      "loadPriority": "immediate",
+      "components": [
+        "documentation",
+        "templates",
+        "export-systems",
+        "quality-assurance"
+      ]
+    },
+    "crossPlatformIntegration": {
+      "allocation": 35000,
+      "priority": 1,
+      "tokenAllocation": 20000,
+      "pillarDependencies": ["U4", "U7"],
+      "loadPriority": "high",
+      "components": [
+        "wordpress",
+        "clickup",
+        "notion",
+        "vendasta"
+      ]
+    },
+    "multiAgentCollaboration": {
+      "allocation": 30000,
+      "priority": 2,
+      "tokenAllocation": 15000,
+      "pillarDependencies": ["U2", "U5"],
+      "loadPriority": "medium",
+      "components": [
+        "live-boardz",
+        "agent-roles",
+        "session-management"
+      ]
+    }
+  },
+  "phaseAllocations": {
+    "foundation": {
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-15",
+      "baseAllocation": 50000,
+      "priorityScale": "critical"
+    },
+    "optimization": {
+      "startDate": "2025-03-16",
+      "endDate": "2025-03-31",
+      "baseAllocation": 40000,
+      "priorityScale": "high"
+    },
+    "security": {
+      "startDate": "2025-04-01",
+      "endDate": "2025-04-15",
+      "baseAllocation": 35000,
+      "priorityScale": "high"
+    },
+    "launch": {
+      "startDate": "2025-04-16",
+      "endDate": "2025-04-30",
+      "baseAllocation": 45000,
+      "priorityScale": "critical"
+    }
+  }
+} 
