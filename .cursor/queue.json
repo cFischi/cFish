@@ -1,0 +1,16 @@
+{
+  "queue": [],
+  "completed": [],
+  "failed": [
+    "blessed@0.1.81",
+    "colors@1.4.0"
+  ],
+  "installing": [],
+  "systemState": {
+    "sessionId": "1743653937632",
+    "timestamp": 1743662095577,
+    "recoveryPoint": {
+      "inProgressPackages": []
+    }
+  }
+}

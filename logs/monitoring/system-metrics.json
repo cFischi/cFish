@@ -1,0 +1,213 @@
+{
+  "Timestamp": "2025-04-04T03:36:45",
+  "ApplicationMetrics": {
+    "Components": []
+  },
+  "SystemMetrics": {
+    "CPU": {
+      "Temperature": 0,
+      "LoadPercent": 33.0
+    },
+    "Disk": {
+      "Total": 474.11,
+      "UsedPercent": 84.51,
+      "Used": 400.65,
+      "Available": 73.47
+    },
+    "Network": {
+      "ConnectionCount": 203,
+      "BytesSent": 7208836.0,
+      "BytesReceived": 31042314.0
+    },
+    "Memory": {
+      "Total": 8037.55,
+      "UsedPercent": 73.48,
+      "Used": 5905.950000000001,
+      "Available": 2131.6
+    }
+  },
+  "AlertHistory": [
+    {
+      "Rule": "ProcessCountWarning",
+      "Timestamp": "2025-04-04T03:36:48",
+      "Message": "Process count is 258 (threshold: 200)",
+      "Level": "WARNING"
+    },
+    {
+      "Rule": "ProcessCountCritical",
+      "Timestamp": "2025-04-04T03:36:48",
+      "Message": "CRITICAL: Process count is 258 (threshold: 250)",
+      "Level": "CRITICAL"
+    }
+  ],
+  "ProcessMetrics": {
+    "CursorCount": 16,
+    "HighMemoryCount": 1,
+    "NodeCount": 1,
+    "SystemCount": 5,
+    "TotalCount": 258,
+    "HighCpuCount": 0,
+    "ProcessList": [
+      {
+        "MemoryMB": 1348.16,
+        "Protected": false,
+        "CPU": 1083.15625,
+        "Name": "Cursor",
+        "Id": 14920,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 382.44,
+        "Protected": false,
+        "CPU": 133.84375,
+        "Name": "Cursor",
+        "Id": 12356,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 341.37,
+        "Protected": false,
+        "CPU": 16.875,
+        "Name": "Cursor",
+        "Id": 18392,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 337.46,
+        "Protected": false,
+        "CPU": null,
+        "Name": "Memory Compression",
+        "Id": 3824,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 253.57,
+        "Protected": false,
+        "CPU": null,
+        "Name": "MsMpEng",
+        "Id": 8268,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 182.41,
+        "Protected": false,
+        "CPU": 17.96875,
+        "Name": "pwsh",
+        "Id": 10512,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 165.57,
+        "Protected": false,
+        "CPU": 72.1875,
+        "Name": "Cursor",
+        "Id": 15716,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 136.93,
+        "Protected": false,
+        "CPU": 1.609375,
+        "Name": "PhoneExperienceHost",
+        "Id": 14320,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 131.49,
+        "Protected": false,
+        "CPU": 18.15625,
+        "Name": "pwsh",
+        "Id": 14856,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 102.69,
+        "Protected": false,
+        "CPU": 585.9375,
+        "Name": "Cursor",
+        "Id": 12916,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 88.39,
+        "Protected": true,
+        "CPU": 60.375,
+        "Name": "explorer",
+        "Id": 6412,
+        "Type": "system"
+      },
+      {
+        "MemoryMB": 82.68,
+        "Protected": false,
+        "CPU": 3.21875,
+        "Name": "HPPrinterHealthMonitor",
+        "Id": 17868,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 65.52,
+        "Protected": false,
+        "CPU": null,
+        "Name": "Registry",
+        "Id": 156,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 53.13,
+        "Protected": false,
+        "CPU": 0.21875,
+        "Name": "backgroundTaskHost",
+        "Id": 7900,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 46.1,
+        "Protected": false,
+        "CPU": null,
+        "Name": "svchost",
+        "Id": 18576,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 42.18,
+        "Protected": false,
+        "CPU": 3.59375,
+        "Name": "Cursor",
+        "Id": 2632,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 41.78,
+        "Protected": false,
+        "CPU": null,
+        "Name": "dwm",
+        "Id": 2412,
+        "Type": "other"
+      },
+      {
+        "MemoryMB": 41.5,
+        "Protected": false,
+        "CPU": 7.8125,
+        "Name": "Cursor",
+        "Id": 16204,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 40.55,
+        "Protected": false,
+        "CPU": 0.734375,
+        "Name": "Cursor",
+        "Id": 17508,
+        "Type": "cursor"
+      },
+      {
+        "MemoryMB": 38.04,
+        "Protected": false,
+        "CPU": 7.734375,
+        "Name": "Cursor",
+        "Id": 16912,
+        "Type": "cursor"
+      }
+    ]
+  }
+}

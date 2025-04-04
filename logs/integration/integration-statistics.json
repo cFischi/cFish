@@ -1,0 +1,144 @@
+{
+  "WarningCount": 11,
+  "RecommendationCount": 17,
+  "SuccessRate": 100.0,
+  "TestCount": 24,
+  "Timestamp": "2025-04-04T03:36:13",
+  "ErrorCount": 6,
+  "PlatformStats": {
+    "Cross-Platform": {
+      "Errors": 2,
+      "Tests": 4,
+      "Issues": [
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "WordPress featured images sync to Notion with reduced resolution",
+          "Level": "WARNING"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Vendasta custom fields not mapping correctly to ClickUp custom fields",
+          "Level": "ERROR"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Test failed: Vendasta to ClickUp Integration",
+          "Level": "ERROR"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Cross-platform integration tests completed with issues",
+          "Level": "WARNING"
+        }
+      ],
+      "Warnings": 2,
+      "Success": 3
+    },
+    "tYDiSync": {
+      "Errors": 0,
+      "Tests": 4,
+      "Issues": [
+        {
+          "Timestamp": "2025-04-04T03:36:13",
+          "Message": "Conflict resolution strategy prioritizing newest change needs refinement",
+          "Level": "WARNING"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:13",
+          "Message": "Synchronization rate: 950 files/minute (target: 1000)",
+          "Level": "WARNING"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:13",
+          "Message": "Memory usage during peak: 125MB (target: <100MB)",
+          "Level": "WARNING"
+        }
+      ],
+      "Warnings": 3,
+      "Success": 5
+    },
+    "Vendasta": {
+      "Errors": 0,
+      "Tests": 4,
+      "Issues": [
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Order notification emails have 3-5 minute delay",
+          "Level": "WARNING"
+        }
+      ],
+      "Warnings": 1,
+      "Success": 5
+    },
+    "ClickUp": {
+      "Errors": 2,
+      "Tests": 4,
+      "Issues": [
+        {
+          "Timestamp": "2025-04-04T03:36:11",
+          "Message": "Task synchronization working but with 2.5s latency (target: <1s)",
+          "Level": "WARNING"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:11",
+          "Message": "Custom field type 'date range' not properly syncing",
+          "Level": "ERROR"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:11",
+          "Message": "Test failed: Custom Field Synchronization",
+          "Level": "ERROR"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:11",
+          "Message": "ClickUp integration tests completed with issues",
+          "Level": "WARNING"
+        }
+      ],
+      "Warnings": 2,
+      "Success": 3
+    },
+    "WordPress": {
+      "Errors": 0,
+      "Tests": 4,
+      "Issues": [
+        {
+          "Timestamp": "2025-04-04T03:36:11",
+          "Message": "Webhook received but payload format needs optimization",
+          "Level": "WARNING"
+        }
+      ],
+      "Warnings": 1,
+      "Success": 5
+    },
+    "Notion": {
+      "Errors": 2,
+      "Tests": 4,
+      "Issues": [
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Table block content sync has formatting inconsistencies",
+          "Level": "WARNING"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Nested toggle blocks not converting correctly",
+          "Level": "ERROR"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Test failed: Format Conversion",
+          "Level": "ERROR"
+        },
+        {
+          "Timestamp": "2025-04-04T03:36:12",
+          "Message": "Notion integration tests completed with issues",
+          "Level": "WARNING"
+        }
+      ],
+      "Warnings": 2,
+      "Success": 3
+    }
+  },
+  "SuccessCount": 24
+}

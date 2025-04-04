@@ -1,0 +1,206 @@
+# API Integration Feature Rules
+
+---
+description: API integration guidelines and best practices for cFish.io
+globs: ["*/api/*", "*/integrations/*"]
+alwaysApply: true
+priority: high
+---
+
+## API Integration Requirements
+
+### Core Features
+- RESTful API endpoints
+- GraphQL integration
+- Authentication handling
+- Rate limiting
+- Response caching
+- Error handling
+
+### Security Requirements
+- API authentication
+- Request validation
+- Response sanitization
+- Rate limiting
+- IP whitelisting
+- Security logging
+
+### Performance Requirements
+- Response caching
+- Query optimization
+- Batch operations
+- Asynchronous processing
+- Resource optimization
+- Performance monitoring
+
+## Implementation Guidelines
+
+### API Base Class
+```php
+abstract class APIBase {
+  protected $version = 'v1';
+  protected $namespace = 'cfish/v1';
+  
+  public function register_routes() {
+    register_rest_route($this->namespace, $this->get_base_path(), [
+      [
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => [$this, 'get_items'],
+        'permission_callback' => [$this, 'check_permissions'],
+        'args' => $this->get_collection_params()
+      ],
+      [
+        'methods' => WP_REST_Server::CREATABLE,
+        'callback' => [$this, 'create_item'],
+        'permission_callback' => [$this, 'check_permissions'],
+        'args' => $this->get_endpoint_args_for_item_schema(true)
+      ]
+    ]);
+  }
+  
+  protected function check_permissions($request) {
+    // Verify API key
+    $api_key = $request->get_header('X-API-Key');
+    if (!$this->validate_api_key($api_key)) {
+      return new WP_Error(
+        'invalid_api_key',
+        'Invalid API key provided',
+        ['status' => 401]
+      );
+    }
+    
+    return true;
+  }
+  
+  protected function validate_api_key($key) {
+    // Implement API key validation
+    return true;
+  }
+}
+```
+
+### API Response Handler
+```php
+class APIResponseHandler {
+  public function format_response($data, $status = 200) {
+    return new WP_REST_Response([
+      'success' => $status >= 200 && $status < 300,
+      'data' => $data,
+      'timestamp' => current_time('mysql')
+    ], $status);
+  }
+  
+  public function handle_error($error, $status = 400) {
+    if (is_wp_error($error)) {
+      $message = $error->get_error_message();
+      $code = $error->get_error_code();
+    } else {
+      $message = $error;
+      $code = 'general_error';
+    }
+    
+    return new WP_REST_Response([
+      'success' => false,
+      'error' => [
+        'code' => $code,
+        'message' => $message
+      ],
+      'timestamp' => current_time('mysql')
+    ], $status);
+  }
+}
+```
+
+### Rate Limiting
+```php
+class RateLimiter {
+  private $cache_key_prefix = 'rate_limit_';
+  
+  public function check_rate_limit($api_key, $endpoint) {
+    $cache_key = $this->cache_key_prefix . md5($api_key . $endpoint);
+    $limit = $this->get_rate_limit($api_key);
+    
+    $current = get_transient($cache_key) ?: 0;
+    
+    if ($current >= $limit) {
+      return new WP_Error(
+        'rate_limit_exceeded',
+        'Rate limit exceeded',
+        ['status' => 429]
+      );
+    }
+    
+    set_transient($cache_key, $current + 1, HOUR_IN_SECONDS);
+    return true;
+  }
+  
+  private function get_rate_limit($api_key) {
+    // Implement rate limit retrieval based on API key tier
+    return 1000;
+  }
+}
+```
+
+## Integration Points
+
+### WordPress Integration
+- Register REST routes
+- Use WordPress REST API
+- Implement authentication
+- Handle permissions
+- Manage caching
+- Error handling
+
+### External Services
+- Third-party APIs
+- Payment gateways
+- Email services
+- Analytics services
+- Monitoring services
+- Logging services
+
+## Testing Requirements
+
+### Unit Tests
+- Endpoint testing
+- Authentication testing
+- Rate limiting testing
+- Response format testing
+- Error handling testing
+- Cache testing
+
+### Integration Tests
+- API workflow testing
+- Third-party integration
+- Performance testing
+- Security testing
+- Load testing
+- End-to-end testing
+
+## Security Measures
+- API key validation
+- Request signing
+- IP whitelisting
+- Rate limiting
+- Input validation
+- Output sanitization
+
+## Performance Optimization
+- Response caching
+- Query optimization
+- Connection pooling
+- Batch processing
+- Asynchronous operations
+- Resource management
+
+## Implementation Checklist
+- [ ] API endpoints implemented
+- [ ] Authentication configured
+- [ ] Rate limiting active
+- [ ] Caching implemented
+- [ ] Error handling complete
+- [ ] Security measures active
+- [ ] Testing suite created
+- [ ] Documentation complete
+- [ ] Monitoring configured
+- [ ] Performance optimized 

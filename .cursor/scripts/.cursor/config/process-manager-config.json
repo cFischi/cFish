@@ -1,0 +1,37 @@
+{
+  "EmergencyConfig": {
+    "LogEmergencyActions": true,
+    "ValidationPrompts": true,
+    "CriticalSystemServices": [
+      "wuauserv",
+      "WinRM",
+      "spooler",
+      "LanmanServer",
+      "W32Time",
+      "RpcSs",
+      "DHCP",
+      "EventLog",
+      "PlugPlay",
+      "Power",
+      "Dnscache"
+    ],
+    "ProtectedProcesses": [
+      "explorer",
+      "svchost",
+      "lsass",
+      "csrss",
+      "wininit",
+      "services",
+      "smss",
+      "winlogon",
+      "dwm",
+      "taskmgr",
+      "powershell",
+      "cmd",
+      "conhost"
+    ],
+    "ConfirmationKeyword": "CONFIRM-TERMINATE",
+    "RequireKeywordConfirmation": true,
+    "EmergencyCooldownMinutes": 15
+  }
+}

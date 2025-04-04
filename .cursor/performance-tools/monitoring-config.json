@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "lastUpdated": "2025-04-02",
+  "version": "1.0.2",
+  "lastUpdated": "2025-05-07",
   "operationalPhase": {
     "enabled": true,
     "dataCollection": {
@@ -33,16 +33,16 @@
     },
     "reviewCycles": {
       "weekly": {
-        "focus": ["performance_metrics", "usage_patterns"],
-        "outputs": ["trend_analysis", "action_items"]
+        "focus": ["performance", "token usage"],
+        "output": "metrics-report"
       },
       "monthly": {
-        "focus": ["system_optimization", "resource_allocation"],
-        "outputs": ["optimization_report", "resource_planning"]
+        "focus": ["optimization", "trends"],
+        "output": "optimization-report"
       },
       "quarterly": {
-        "focus": ["strategic_enhancements", "pillar_alignment"],
-        "outputs": ["enhancement_proposals", "roadmap_updates"]
+        "focus": ["strategy", "scaling"],
+        "output": "strategy-report"
       }
     }
   },
@@ -210,6 +210,19 @@
         "memory_usage": {
           "warning": "15MB",
           "critical": "25MB"
+        },
+        "token": {
+          "critical": 55000,
+          "warning": 45000,
+          "interval": 60
+        },
+        "context": {
+          "efficiency": {
+            "target": 92,
+            "warning": 90,
+            "critical": 85
+          },
+          "interval": 300
         }
       }
     },
@@ -229,6 +242,63 @@
           "window": "1h",
           "threshold": "20%"
         }
+      }
+    },
+    "tokenTracker": {
+      "enabled": true,
+      "metrics": ["usage", "efficiency", "trends"],
+      "thresholds": {
+        "usage": {
+          "warning": 45000,
+          "critical": 55000
+        },
+        "efficiency": {
+          "warning": 85,
+          "target": 92
+        }
+      },
+      "alerts": {
+        "channels": ["email", "slack"],
+        "escalation": {
+          "warning": 30,
+          "critical": 15
+        }
+      }
+    },
+    "contextOptimizer": {
+      "enabled": true,
+      "metrics": ["efficiency", "memory", "tokens"],
+      "thresholds": {
+        "efficiency": {
+          "warning": 90,
+          "target": 92
+        },
+        "memory": {
+          "warning": 85,
+          "critical": 95
+        }
+      },
+      "optimization": {
+        "autoTune": true,
+        "interval": 300
+      }
+    },
+    "performanceMonitor": {
+      "enabled": true,
+      "metrics": ["response", "resources", "errors"],
+      "thresholds": {
+        "response": {
+          "warning": 200,
+          "critical": 500
+        },
+        "resources": {
+          "warning": 80,
+          "critical": 90
+        }
+      },
+      "integration": {
+        "alertManager": true,
+        "dashboard": true
       }
     }
   },

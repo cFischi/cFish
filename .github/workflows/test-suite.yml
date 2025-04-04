@@ -1,0 +1,48 @@
+name: Test Suite
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run unit tests
+      run: node .cursor/scripts/run-tests.js -t unit
+    
+    - name: Run integration tests
+      run: node .cursor/scripts/run-tests.js -t integration
+    
+    - name: Run E2E tests
+      run: node .cursor/scripts/run-tests.js -t e2e
+    
+    - name: Run chaos tests
+      if: github.event_name == 'schedule'
+      run: node .cursor/scripts/run-tests.js -t chaos
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-reports
+        path: test-reports/ 

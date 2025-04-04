@@ -1,0 +1,81 @@
+{
+  "Dashboard": {
+    "AvailableViews": [
+      "System",
+      "Process",
+      "Application",
+      "Integration"
+    ],
+    "DataRetentionDays": 7,
+    "RefreshInterval": 5,
+    "DefaultView": "System"
+  },
+  "Logging": {
+    "LogLevel": "INFO",
+    "RotateCount": 5,
+    "MaxLogSizeMB": 10,
+    "Enabled": true,
+    "RetentionDays": 7
+  },
+  "Thresholds": {
+    "Process": {
+      "Warning": 200,
+      "Critical": 250
+    },
+    "Disk": {
+      "Warning": 80,
+      "Critical": 90
+    },
+    "CPU": {
+      "Warning": 70,
+      "Critical": 85
+    },
+    "Memory": {
+      "Warning": 75,
+      "Critical": 85
+    }
+  },
+  "Monitoring": {
+    "Resources": {
+      "Enabled": true,
+      "MonitorItems": [
+        "memory",
+        "cpu",
+        "disk",
+        "network"
+      ]
+    },
+    "Applications": {
+      "MonitoredApps": [
+        "ProcessTreeVisualization",
+        "AlertCorrelationEngine",
+        "QueuePrioritySystem",
+        "MonitoringDashboard"
+      ],
+      "Enabled": true
+    },
+    "Processes": {
+      "Enabled": true,
+      "IncludedTypes": [
+        "cursor",
+        "node",
+        "system"
+      ],
+      "ProtectedProcesses": [
+        "explorer",
+        "winlogon",
+        "wininit",
+        "services",
+        "lsass"
+      ]
+    }
+  },
+  "Reporting": {
+    "IntervalHours": 24,
+    "Format": "HTML",
+    "Enabled": true,
+    "IncludeMetrics": true,
+    "IncludeCharts": true
+  },
+  "UpdateInterval": 30
+}

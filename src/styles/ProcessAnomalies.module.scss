@@ -1,0 +1,86 @@
+.processAnomalies {
+  background: var(--bg-dark);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  color: var(--text-dark);
+
+  h3 {
+    margin: 0 0 16px;
+    font-size: 1.2em;
+  }
+}
+
+.anomaliesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.anomalyItem {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.anomalyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.processName {
+  font-weight: 500;
+}
+
+.severityBadge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 500;
+
+  &.high {
+    background: var(--error-color);
+    color: white;
+  }
+
+  &.medium {
+    background: var(--warning-color);
+    color: white;
+  }
+
+  &.low {
+    background: var(--pending-color);
+    color: black;
+  }
+}
+
+.anomalyReasons {
+  font-size: 0.9em;
+  margin: 8px 0;
+}
+
+.reasonItem {
+  margin: 4px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.anomalyTimestamp {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+}
+
+.anomaliesMore {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.6);
+} 

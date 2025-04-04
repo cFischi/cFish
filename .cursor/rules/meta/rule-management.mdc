@@ -1,0 +1,232 @@
+# Rule Management Meta Rules
+
+---
+description: Guidelines for managing and organizing Cursor rules for cFish.io
+globs: ["*.mdc"]
+alwaysApply: true
+priority: critical
+---
+
+## Rule Organization
+
+### Directory Structure
+```
+.cursor/
+├── rules/
+│   ├── base/              # Core functionality rules
+│   ├── departments/       # Department-specific rules
+│   ├── features/         # Feature-specific rules
+│   ├── meta/            # Meta rules for management
+│   ├── validation/      # Validation and testing rules
+│   └── prompt-templates/ # Reusable prompt templates
+```
+
+### File Naming Conventions
+- Use kebab-case for file names
+- Include category prefix when appropriate
+- Use descriptive names that indicate purpose
+- Always use .mdc extension
+- Follow pattern: `[category]-[description].mdc`
+
+### Rule Categories
+- Base Rules: Core functionality and standards
+- Department Rules: Department-specific guidelines
+- Feature Rules: Feature-specific implementations
+- Meta Rules: Rule management and organization
+- Validation Rules: Testing and verification
+- Templates: Reusable prompt patterns
+
+## Rule Structure
+
+### YAML Frontmatter
+```yaml
+---
+description: Clear description of rule purpose
+globs: ["*.php", "*.js"]  # File patterns
+alwaysApply: true/false   # Always apply rule
+priority: low/medium/high/critical
+---
+```
+
+### Content Sections
+- Overview/Purpose
+- Requirements/Guidelines
+- Implementation Examples
+- Integration Points
+- Testing Requirements
+- Checklists/Validation
+
+### Code Examples
+- Include practical implementation examples
+- Use proper syntax highlighting
+- Add explanatory comments
+- Show best practices
+- Include error handling
+- Demonstrate proper patterns
+
+## Rule Management
+
+### Version Control
+- Track rule changes in version control
+- Use semantic versioning for rules
+- Document changes in changelog
+- Maintain rule history
+- Review rule updates
+- Archive obsolete rules
+
+### Quality Control
+- Validate rule syntax
+- Check for conflicts
+- Verify glob patterns
+- Test rule effectiveness
+- Monitor rule usage
+- Update based on feedback
+
+### Documentation
+- Maintain clear descriptions
+- Document dependencies
+- Include usage examples
+- Provide context
+- Update regularly
+- Cross-reference related rules
+
+## Rule Creation Guidelines
+
+### New Rule Checklist
+- [ ] Clear purpose defined
+- [ ] Proper categorization
+- [ ] YAML frontmatter complete
+- [ ] Implementation examples included
+- [ ] Integration points documented
+- [ ] Testing requirements specified
+- [ ] Validation criteria established
+- [ ] Dependencies documented
+- [ ] Conflicts checked
+- [ ] Documentation complete
+
+### Rule Template
+```markdown
+# Rule Title
+
+---
+description: Rule purpose and scope
+globs: ["file patterns"]
+alwaysApply: boolean
+priority: level
+---
+
+## Purpose
+[Clear description of rule purpose]
+
+## Requirements
+- Requirement 1
+- Requirement 2
+- Requirement 3
+
+## Implementation
+```[language]
+[Code example]
+```
+
+## Integration
+- Integration point 1
+- Integration point 2
+
+## Testing
+- Test requirement 1
+- Test requirement 2
+
+## Checklist
+- [ ] Item 1
+- [ ] Item 2
+```
+
+## Rule Validation
+
+### Syntax Validation
+- Check YAML frontmatter
+- Verify markdown syntax
+- Validate code examples
+- Check file references
+- Verify glob patterns
+- Test rule application
+
+### Content Validation
+- Check completeness
+- Verify accuracy
+- Test examples
+- Validate integration
+- Check dependencies
+- Review documentation
+
+### Conflict Detection
+- Check glob pattern conflicts
+- Verify priority levels
+- Test rule combinations
+- Check dependencies
+- Validate overrides
+- Monitor interactions
+
+## Rule Optimization
+
+### Performance
+- Optimize glob patterns
+- Minimize rule complexity
+- Reduce redundancy
+- Improve efficiency
+- Monitor impact
+- Regular review
+
+### Maintenance
+- Regular updates
+- Remove obsolete rules
+- Update dependencies
+- Improve documentation
+- Optimize structure
+- Version control
+
+### Monitoring
+- Track rule usage
+- Monitor effectiveness
+- Collect feedback
+- Analyze patterns
+- Identify issues
+- Implement improvements
+
+## Implementation Process
+
+### Adding New Rules
+1. Identify rule purpose
+2. Choose appropriate category
+3. Create rule file
+4. Add YAML frontmatter
+5. Write implementation
+6. Add examples
+7. Document integration
+8. Specify testing
+9. Create checklist
+10. Review and validate
+
+### Updating Rules
+1. Review current version
+2. Identify changes needed
+3. Update content
+4. Test changes
+5. Update documentation
+6. Version control
+7. Changelog update
+8. Review process
+9. Deploy updates
+10. Monitor effects
+
+### Removing Rules
+1. Identify obsolete rules
+2. Check dependencies
+3. Plan removal
+4. Update documentation
+5. Archive if needed
+6. Remove references
+7. Update indexes
+8. Test impact
+9. Document removal
+10. Monitor effects 

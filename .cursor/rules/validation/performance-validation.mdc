@@ -1,0 +1,331 @@
+# Performance Validation Rules
+
+---
+description: Performance testing and validation guidelines for cFish.io
+globs: ["*/performance/*", "*/tests/performance/*"]
+alwaysApply: true
+priority: high
+---
+
+## Performance Testing Framework
+
+### Core Performance Areas
+- Response Time
+- Resource Usage
+- Scalability
+- Load Testing
+- Stress Testing
+- Endurance Testing
+- Capacity Planning
+- Optimization
+
+### Performance Standards
+- Page Load Time
+- API Response Time
+- Database Performance
+- Cache Efficiency
+- Resource Utilization
+- Network Performance
+
+### Performance Tools
+- Apache JMeter
+- New Relic
+- WebPageTest
+- Lighthouse
+- MySQL Slow Query Log
+- Query Monitor
+
+## Implementation Guidelines
+
+### Performance Test Framework
+```php
+abstract class PerformanceTestCase extends TestCase {
+  protected $metrics = [];
+  
+  protected function setUp(): void {
+    parent::setUp();
+    $this->initializePerformanceTest();
+  }
+  
+  protected function initializePerformanceTest() {
+    // Configure performance monitoring
+    // Set up benchmarking tools
+    // Initialize metrics collection
+    // Configure thresholds
+  }
+  
+  protected function measurePerformance($callback, $iterations = 100) {
+    $metrics = [
+      'duration' => [],
+      'memory' => [],
+      'queries' => []
+    ];
+    
+    for ($i = 0; $i < $iterations; $i++) {
+      $start_time = microtime(true);
+      $start_memory = memory_get_usage();
+      $start_queries = $this->getQueryCount();
+      
+      $callback();
+      
+      $metrics['duration'][] = microtime(true) - $start_time;
+      $metrics['memory'][] = memory_get_usage() - $start_memory;
+      $metrics['queries'][] = $this->getQueryCount() - $start_queries;
+    }
+    
+    return [
+      'duration' => [
+        'avg' => array_sum($metrics['duration']) / $iterations,
+        'max' => max($metrics['duration']),
+        'min' => min($metrics['duration'])
+      ],
+      'memory' => [
+        'avg' => array_sum($metrics['memory']) / $iterations,
+        'max' => max($metrics['memory']),
+        'min' => min($metrics['memory'])
+      ],
+      'queries' => [
+        'avg' => array_sum($metrics['queries']) / $iterations,
+        'max' => max($metrics['queries']),
+        'min' => min($metrics['queries'])
+      ]
+    ];
+  }
+  
+  protected function assertPerformanceMetrics($metrics, $thresholds) {
+    foreach ($thresholds as $metric => $threshold) {
+      $this->assertLessThan(
+        $threshold,
+        $metrics[$metric]['avg'],
+        "Average {$metric} exceeded threshold"
+      );
+      
+      $this->assertLessThan(
+        $threshold * 1.5,
+        $metrics[$metric]['max'],
+        "Maximum {$metric} exceeded threshold"
+      );
+    }
+  }
+}
+```
+
+### Load Testing
+```php
+class LoadTest extends PerformanceTestCase {
+  public function testConcurrentUsers($userCount = 100) {
+    $results = [];
+    
+    // Simulate concurrent users
+    $pool = new Pool($userCount);
+    
+    for ($i = 0; $i < $userCount; $i++) {
+      $pool->add(function() use (&$results) {
+        $start = microtime(true);
+        $response = $this->makeRequest();
+        $duration = microtime(true) - $start;
+        
+        $results[] = [
+          'duration' => $duration,
+          'status' => $response->getStatusCode(),
+          'memory' => memory_get_usage()
+        ];
+      });
+    }
+    
+    $pool->wait();
+    
+    return $this->analyzeLoadResults($results);
+  }
+  
+  protected function analyzeLoadResults($results) {
+    return [
+      'response_time' => [
+        'avg' => array_sum(array_column($results, 'duration')) / count($results),
+        'max' => max(array_column($results, 'duration')),
+        'min' => min(array_column($results, 'duration'))
+      ],
+      'success_rate' => count(array_filter($results, function($r) {
+        return $r['status'] === 200;
+      })) / count($results) * 100,
+      'memory_usage' => [
+        'avg' => array_sum(array_column($results, 'memory')) / count($results),
+        'peak' => max(array_column($results, 'memory'))
+      ]
+    ];
+  }
+}
+```
+
+## Performance Testing Categories
+
+### Response Time Testing
+- Page Load Time
+- API Response Time
+- Database Query Time
+- Cache Response Time
+- Network Latency
+- Processing Time
+
+### Resource Usage Testing
+- Memory Usage
+- CPU Utilization
+- Database Connections
+- File Handles
+- Network Bandwidth
+- Cache Usage
+
+### Scalability Testing
+- Concurrent Users
+- Transaction Volume
+- Data Volume
+- Request Rate
+- Resource Scaling
+- Performance Degradation
+
+### Endurance Testing
+- Long-duration Tests
+- Memory Leaks
+- Resource Exhaustion
+- Performance Stability
+- Error Accumulation
+- Recovery Testing
+
+## Performance Standards
+
+### Response Time Standards
+```json
+{
+  "responseTime": {
+    "api": {
+      "p50": "100ms",
+      "p90": "200ms",
+      "p99": "500ms"
+    },
+    "web": {
+      "firstPaint": "1s",
+      "firstContentfulPaint": "1.5s",
+      "timeToInteractive": "2s"
+    },
+    "database": {
+      "query": "50ms",
+      "transaction": "100ms"
+    }
+  }
+}
+```
+
+### Resource Usage Standards
+```json
+{
+  "resourceUsage": {
+    "memory": {
+      "perRequest": "1MB",
+      "peak": "256MB"
+    },
+    "cpu": {
+      "average": "50%",
+      "peak": "80%"
+    },
+    "database": {
+      "connections": "100",
+      "queryCount": "50"
+    }
+  }
+}
+```
+
+## Performance Monitoring
+
+### Real-time Monitoring
+```json
+{
+  "monitoring": {
+    "metrics": {
+      "response_time": "tracked",
+      "error_rate": "alerted",
+      "resource_usage": "monitored"
+    },
+    "thresholds": {
+      "response_time": "200ms",
+      "error_rate": "1%",
+      "cpu_usage": "80%"
+    },
+    "alerts": {
+      "critical": "immediate",
+      "warning": "15 minutes",
+      "info": "hourly"
+    }
+  }
+}
+```
+
+### Performance Analytics
+```json
+{
+  "analytics": {
+    "trends": {
+      "daily": "averaged",
+      "weekly": "analyzed",
+      "monthly": "reported"
+    },
+    "patterns": {
+      "peak_usage": "identified",
+      "bottlenecks": "analyzed",
+      "optimizations": "suggested"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Performance testing framework installed
+- [ ] Monitoring tools configured
+- [ ] Benchmarks established
+- [ ] Thresholds defined
+- [ ] Alerts configured
+- [ ] Baseline metrics collected
+
+### Testing
+- [ ] Response time tests implemented
+- [ ] Resource usage tests created
+- [ ] Scalability tests configured
+- [ ] Load tests developed
+- [ ] Endurance tests established
+- [ ] Stress tests implemented
+
+### Validation
+- [ ] Performance standards met
+- [ ] Resource usage optimized
+- [ ] Scalability verified
+- [ ] Load capacity confirmed
+- [ ] Endurance validated
+- [ ] Monitoring active
+
+## Continuous Improvement
+
+### Review Process
+1. Collect performance data
+2. Analyze metrics
+3. Identify bottlenecks
+4. Plan improvements
+5. Implement changes
+6. Validate results
+7. Update standards
+8. Monitor impact
+9. Document changes
+10. Regular review
+
+### Optimization Cycle
+1. Monitor performance
+2. Analyze patterns
+3. Identify issues
+4. Plan solutions
+5. Implement changes
+6. Test results
+7. Document updates
+8. Monitor effects
+9. Adjust approach
+10. Regular review 

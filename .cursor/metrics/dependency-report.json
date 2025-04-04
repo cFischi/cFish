@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-04-03T07:52:50.142Z",
+  "nodeVersion": "v22.12.0",
+  "results": {
+    "verified": [
+      "express",
+      "ws",
+      "cli-progress",
+      "lru-cache",
+      "systeminformation",
+      "node-os-utils",
+      "blessed",
+      "blessed-contrib",
+      "rimraf",
+      "glob"
+    ],
+    "missing": [
+      "process-list"
+    ],
+    "outdated": [
+      {
+        "name": "lru-cache",
+        "current": "10.2.0",
+        "latest": "11.1.0"
+      },
+      {
+        "name": "systeminformation",
+        "current": "5.21.22",
+        "latest": "5.25.11"
+      }
+    ],
+    "errors": []
+  }
+}

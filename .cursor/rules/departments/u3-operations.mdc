@@ -1,98 +1,372 @@
 ---
-description: U3-Operations department guidelines focused on physical operations and facilities management.
-globs: U3-Operations/*, *.md, *.ps1
-alwaysApply: false
+description: Guidelines for U3-Operations department focusing on physical operations and facilities management
+globs: ["*/u3-operations/*", "*/operations/*"]
+alwaysApply: true
+priority: high
+version: 1.0
 ---
 
-# U3-Operations Department Guidelines
+# U3-Operations Department Rules
 
-The U3-Operations department focuses on physical operations, FiscHouse management, and facility coordination for cFish.io.
+## Department Overview
 
-## Department Role
+### Core Responsibilities
+- Physical infrastructure management
+- FiscHouse operations and maintenance
+- Hardware resource allocation
+- Physical security implementation
+- Cross-departmental resource coordination
+- Facility optimization
 
-- Manage physical infrastructure and facilities
-- Oversee FiscHouse operations and maintenance
-- Coordinate hardware and physical resource allocation
-- Implement physical security measures
-- Support cross-departmental physical resource needs
-- Align all implementations with the Body (U3) philosophical principle
-
-## Core Technologies
-
-- **PowerShell**: Automation for physical systems
-- **Hardware Management**: System configuration and maintenance
-- **Facility Systems**: Physical space management
-- **Resource Tracking**: Inventory and asset management
-- **Physical Security**: Access control and security systems
-
-## File Organization
-
-- Follow UcF file organization patterns:
-  - Store files in appropriate departmental directories
-  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
-  - Example: `ucf-u3.3-system-maintenance-20250507.ps1`
-
-- Operations-specific organization:
-  ```
-  U3-Operations/
-    Scripts/          # PowerShell automation scripts
-    Documentation/    # System documentation
-    Inventory/        # Resource tracking
-    Maintenance/      # Maintenance schedules and logs
-    Security/         # Physical security documentation
-    Configurations/   # System configuration files
-  ```
-
-## Hardware Resources
-
-- Manage resources for garage-based operations:
-  - Server infrastructure
-  - Workstation configurations
-  - Network equipment
-  - Storage systems
-  - Local model hardware requirements
-  - Physical security devices
-
-- Document resource allocation and requirements:
-  - Hardware specifications
-  - Resource utilization metrics
-  - Capacity planning
-  - Upgrade schedules
-  - Maintenance logs
-
-## Philosophical Alignment
-
-As Body (U3) department, focus on:
+### Department Alignment
+- Body (U3) philosophical principle
 - Physical robustness and coherence
-- Practical implementation of systems
 - Resource efficiency and optimization
 - Environmental sustainability
-- Reliable and consistent operations
-- Physical manifestation of philosophical principles
+- Reliable operations
+- Physical manifestation of principles
 
-## System Maintenance
+## Agent Configuration
 
-- Implement regular maintenance procedures:
-  - Hardware diagnostics and health monitoring
-  - Software updates and patch management
-  - Performance optimization
-  - Security audits and updates
-  - Environmental monitoring (temperature, humidity, etc.)
-  - Power management and optimization
+### Agent Roles
+```json
+{
+  "operationsAgent": {
+    "role": "Operations Coordinator",
+    "responsibilities": [
+      "Infrastructure management",
+      "Resource allocation",
+      "Maintenance coordination",
+      "Security implementation"
+    ],
+    "context": {
+      "required": [
+        "Facility documentation",
+        "Resource inventory",
+        "Security protocols",
+        "Maintenance schedules"
+      ],
+      "optional": [
+        "Historical records",
+        "Performance metrics",
+        "Upgrade plans"
+      ]
+    }
+  },
+  "facilityAgent": {
+    "role": "Facility Manager",
+    "responsibilities": [
+      "Physical space management",
+      "Environmental control",
+      "Security systems",
+      "Resource tracking"
+    ],
+    "context": {
+      "required": [
+        "Facility layouts",
+        "Security systems",
+        "Environmental controls",
+        "Access protocols"
+      ],
+      "optional": [
+        "Maintenance history",
+        "Upgrade records",
+        "Incident logs"
+      ]
+    }
+  }
+}
+```
 
-- Document all maintenance activities:
-  - Date and time of maintenance
-  - Systems affected
-  - Actions performed
-  - Results and observations
-  - Follow-up requirements
+### Role-Specific Templates
 
-## Relaunch Priorities
+#### Operations Management Template
+```markdown
+# [Operation Name]
 
-For the April 2025 relaunch, focus on:
-- Hardware resource optimization for increased traffic
-- Local infrastructure requirements for AI operations
-- Physical security enhancement for client data
-- Facility optimization for client demonstrations
-- Resource planning for future growth
-- Environmental improvements to physical workspace 
+## Overview
+[Brief description of operation]
+
+## Requirements
+- Physical requirements
+- Resource requirements
+- Security requirements
+- Timeline requirements
+
+## Implementation
+### Setup
+- Infrastructure setup
+- Resource allocation
+- Security measures
+- Environmental controls
+
+### Maintenance
+- Regular checks
+- Preventive maintenance
+- Performance monitoring
+- Security updates
+
+### Validation
+- Performance metrics
+- Security validation
+- Resource efficiency
+- Environmental impact
+```
+
+#### Facility Management Template
+```markdown
+# [Facility Component]
+
+## Purpose
+[Component purpose and benefits]
+
+## Specifications
+- Physical specifications
+- Resource requirements
+- Security requirements
+- Environmental requirements
+
+## Management
+### Setup
+- Component installation
+- Resource allocation
+- Security configuration
+- Environmental setup
+
+### Maintenance
+- Regular maintenance
+- Performance checks
+- Security validation
+- Environmental monitoring
+
+### Validation
+- Performance verification
+- Security assessment
+- Resource efficiency
+- Environmental impact
+```
+
+## Integration Patterns
+
+### Resource Management
+```json
+{
+  "resourceTypes": {
+    "hardware": {
+      "type": "Physical Infrastructure",
+      "components": [
+        "Server infrastructure",
+        "Network equipment",
+        "Storage systems",
+        "Security devices"
+      ]
+    },
+    "facility": {
+      "type": "Physical Space",
+      "components": [
+        "Work areas",
+        "Storage spaces",
+        "Security zones",
+        "Environmental controls"
+      ]
+    },
+    "security": {
+      "type": "Physical Security",
+      "components": [
+        "Access control",
+        "Surveillance systems",
+        "Environmental monitoring",
+        "Emergency response"
+      ]
+    }
+  }
+}
+```
+
+### Infrastructure Management
+```json
+{
+  "infrastructureComponents": {
+    "servers": {
+      "type": "Computing Resources",
+      "management": [
+        "Performance monitoring",
+        "Resource allocation",
+        "Maintenance scheduling",
+        "Security implementation"
+      ]
+    },
+    "network": {
+      "type": "Connectivity",
+      "management": [
+        "Bandwidth allocation",
+        "Equipment maintenance",
+        "Security measures",
+        "Performance optimization"
+      ]
+    },
+    "storage": {
+      "type": "Data Storage",
+      "management": [
+        "Capacity planning",
+        "Performance monitoring",
+        "Security measures",
+        "Backup systems"
+      ]
+    }
+  }
+}
+```
+
+## Success Metrics
+
+### Operational Metrics
+```json
+{
+  "metrics": {
+    "infrastructure": {
+      "target": "99.9%",
+      "measurement": "System uptime",
+      "reporting": "Daily monitoring"
+    },
+    "resourceUtilization": {
+      "target": "85%",
+      "measurement": "Resource efficiency",
+      "reporting": "Weekly analysis"
+    },
+    "securityCompliance": {
+      "target": "100%",
+      "measurement": "Security standards",
+      "reporting": "Daily checks"
+    },
+    "environmentalEfficiency": {
+      "target": "90%",
+      "measurement": "Energy efficiency",
+      "reporting": "Monthly assessment"
+    }
+  }
+}
+```
+
+### Facility Metrics
+```json
+{
+  "facilityMetrics": {
+    "spaceUtilization": {
+      "efficiency": "85%",
+      "optimization": "90%",
+      "satisfaction": "95%"
+    },
+    "environmentalControl": {
+      "accuracy": "98%",
+      "efficiency": "90%",
+      "reliability": "99%"
+    },
+    "securitySystems": {
+      "coverage": "100%",
+      "reliability": "99.9%",
+      "response": "< 5min"
+    }
+  }
+}
+```
+
+## Quality Assurance
+
+### Operations QA
+```json
+{
+  "operationsQA": {
+    "infrastructure": {
+      "monitoring": "24/7 system monitoring",
+      "maintenance": "Scheduled maintenance",
+      "validation": "Performance testing"
+    },
+    "resources": {
+      "tracking": "Real-time monitoring",
+      "allocation": "Dynamic allocation",
+      "optimization": "Resource optimization"
+    },
+    "security": {
+      "monitoring": "Continuous surveillance",
+      "validation": "Regular audits",
+      "response": "Incident response"
+    }
+  }
+}
+```
+
+### Facility QA
+```json
+{
+  "facilityQA": {
+    "environmental": {
+      "monitoring": "Environmental controls",
+      "efficiency": "Energy efficiency",
+      "compliance": "Standards compliance"
+    },
+    "maintenance": {
+      "scheduling": "Preventive maintenance",
+      "tracking": "Maintenance logs",
+      "validation": "Quality checks"
+    },
+    "security": {
+      "access": "Access control",
+      "monitoring": "Security systems",
+      "response": "Emergency procedures"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Infrastructure configuration
+- [ ] Resource allocation
+- [ ] Security implementation
+- [ ] Environmental controls
+- [ ] Monitoring systems
+- [ ] Documentation standards
+
+### Validation
+- [ ] Infrastructure testing
+- [ ] Resource verification
+- [ ] Security validation
+- [ ] Environmental checks
+- [ ] System monitoring
+- [ ] Documentation review
+
+### Maintenance
+- [ ] Regular infrastructure review
+- [ ] Resource optimization
+- [ ] Security updates
+- [ ] Environmental adjustments
+- [ ] System improvements
+- [ ] Documentation updates
+
+## Review Process
+
+### Infrastructure Review
+1. System performance assessment
+2. Resource utilization analysis
+3. Security evaluation
+4. Environmental impact
+5. Documentation check
+6. Maintenance review
+7. Optimization planning
+8. Implementation validation
+9. Performance monitoring
+10. Documentation update
+
+### Facility Review
+1. Space utilization
+2. Environmental controls
+3. Security systems
+4. Resource efficiency
+5. Maintenance status
+6. Documentation accuracy
+7. Improvement planning
+8. Implementation verification
+9. Performance validation
+10. Documentation update 

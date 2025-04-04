@@ -91,4 +91,381 @@ For the April 2025 relaunch, focus on:
 - AI capabilities showcase for client demonstrations
 - Integration of AI across all platform touchpoints
 - Documentation of AI practices and patterns for clients
-- Innovative AI solutions for knowledge monetization 
+- Innovative AI solutions for knowledge monetization
+
+# U2-Research Department Rules
+
+---
+description: Guidelines for U2-Research department operations in cFish.io
+globs: ["*/u2-research/*", "*/research/*"]
+alwaysApply: true
+priority: high
+---
+
+## Department Overview
+
+### Core Responsibilities
+- AI integration research
+- tYFeAiz framework development
+- Emerging technology research
+- Innovation implementation
+- Cross-platform integration
+- Research documentation
+
+### Department Alignment
+- Mind (U2) philosophical principle
+- Creative and innovative thinking
+- Knowledge creation and management
+- Problem-solving excellence
+- Continuous learning
+- Forward-thinking solutions
+
+## Agent Configuration
+
+### Agent Roles
+```json
+{
+  "researchAgent": {
+    "role": "Research Coordinator",
+    "responsibilities": [
+      "AI integration research",
+      "Innovation tracking",
+      "Technology evaluation",
+      "Research documentation"
+    ],
+    "context": {
+      "required": [
+        "tYFeAiz framework docs",
+        "Research methodologies",
+        "AI integration patterns",
+        "Innovation tracking system"
+      ],
+      "optional": [
+        "Historical research",
+        "Technology trends",
+        "Market analysis"
+      ]
+    }
+  },
+  "aiAgent": {
+    "role": "AI Integration Specialist",
+    "responsibilities": [
+      "Model evaluation",
+      "Integration design",
+      "Performance optimization",
+      "Security validation"
+    ],
+    "context": {
+      "required": [
+        "AI model specifications",
+        "Integration patterns",
+        "Security protocols",
+        "Performance benchmarks"
+      ],
+      "optional": [
+        "Model training data",
+        "Historical performance",
+        "Usage patterns"
+      ]
+    }
+  }
+}
+```
+
+### Role-Specific Templates
+
+#### Research Project Template
+```markdown
+# [Research Project Name]
+
+## Overview
+[Brief description of research project]
+
+## Objectives
+- Primary objective
+- Secondary objectives
+- Success criteria
+
+## Methodology
+### Research Design
+- Approach
+- Methods
+- Tools
+- Timeline
+
+### Data Collection
+- Sources
+- Methods
+- Validation
+
+### Analysis
+- Techniques
+- Tools
+- Validation
+
+## Implementation
+### Requirements
+- Technical requirements
+- Resource requirements
+- Timeline requirements
+
+### Process
+1. [Phase 1]
+2. [Phase 2]
+3. [Phase 3]
+
+### Validation
+- Success metrics
+- Validation methods
+- Review process
+```
+
+#### AI Integration Template
+```markdown
+# [AI Integration Component]
+
+## Purpose
+[Component purpose and benefits]
+
+## Architecture
+- System design
+- Integration points
+- Data flow
+
+## Implementation
+### Requirements
+- Model requirements
+- System requirements
+- Performance requirements
+
+### Process
+1. [Implementation step 1]
+2. [Implementation step 2]
+3. [Implementation step 3]
+
+### Validation
+- Performance metrics
+- Security validation
+- Integration testing
+```
+
+## Integration Patterns
+
+### Cross-Platform Integration
+```json
+{
+  "integrationPoints": {
+    "wordpress": {
+      "type": "Content Management",
+      "components": [
+        "AI-powered editing",
+        "Content optimization",
+        "Automated workflows"
+      ]
+    },
+    "clickup": {
+      "type": "Task Management",
+      "components": [
+        "AI task assignment",
+        "Workflow optimization",
+        "Resource prediction"
+      ]
+    },
+    "notion": {
+      "type": "Knowledge Management",
+      "components": [
+        "AI content organization",
+        "Knowledge synthesis",
+        "Automated documentation"
+      ]
+    },
+    "vendasta": {
+      "type": "Client Management",
+      "components": [
+        "AI client insights",
+        "Service optimization",
+        "Predictive analytics"
+      ]
+    }
+  }
+}
+```
+
+### AI Model Integration
+```json
+{
+  "modelIntegration": {
+    "localModels": {
+      "types": [
+        "Llama 3",
+        "Mistral",
+        "CodeLlama"
+      ],
+      "deployment": "Hybrid cloud-local",
+      "optimization": "Hardware-specific"
+    },
+    "cloudModels": {
+      "types": [
+        "Claude",
+        "GPT-4",
+        "PaLM"
+      ],
+      "integration": "API-based",
+      "fallback": "Local models"
+    }
+  }
+}
+```
+
+## Success Metrics
+
+### Research Metrics
+```json
+{
+  "metrics": {
+    "innovationSuccess": {
+      "target": "85%",
+      "measurement": "Implementation success",
+      "reporting": "Monthly review"
+    },
+    "aiPerformance": {
+      "target": "95%",
+      "measurement": "Model accuracy",
+      "reporting": "Weekly analysis"
+    },
+    "integrationEfficiency": {
+      "target": "90%",
+      "measurement": "System performance",
+      "reporting": "Daily monitoring"
+    },
+    "researchImpact": {
+      "target": "80%",
+      "measurement": "Business value",
+      "reporting": "Quarterly assessment"
+    }
+  }
+}
+```
+
+### Innovation Metrics
+```json
+{
+  "innovationMetrics": {
+    "researchOutput": {
+      "papers": "12/year",
+      "patents": "4/year",
+      "implementations": "24/year"
+    },
+    "aiIntegration": {
+      "accuracy": "95%",
+      "efficiency": "90%",
+      "adoption": "85%"
+    },
+    "technologyTransfer": {
+      "success": "80%",
+      "timeToMarket": "3 months",
+      "roi": "200%"
+    }
+  }
+}
+```
+
+## Quality Assurance
+
+### Research QA
+```json
+{
+  "researchQA": {
+    "methodology": {
+      "review": "Peer review process",
+      "validation": "External expert review",
+      "replication": "Independent verification"
+    },
+    "results": {
+      "analysis": "Statistical validation",
+      "verification": "Practical testing",
+      "documentation": "Comprehensive reporting"
+    },
+    "implementation": {
+      "testing": "Systematic validation",
+      "monitoring": "Continuous assessment",
+      "feedback": "Stakeholder input"
+    }
+  }
+}
+```
+
+### AI Integration QA
+```json
+{
+  "aiQA": {
+    "modelValidation": {
+      "accuracy": "Performance testing",
+      "reliability": "Stability assessment",
+      "security": "Vulnerability testing"
+    },
+    "integrationTesting": {
+      "functionality": "Feature testing",
+      "performance": "Load testing",
+      "compatibility": "System testing"
+    },
+    "monitoring": {
+      "performance": "Real-time metrics",
+      "issues": "Alert system",
+      "improvements": "Optimization tracking"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Research methodology defined
+- [ ] AI models selected
+- [ ] Integration patterns established
+- [ ] Metrics framework created
+- [ ] QA procedures documented
+- [ ] Documentation standards set
+
+### Validation
+- [ ] Research methods validated
+- [ ] AI performance verified
+- [ ] Integration tested
+- [ ] Metrics baseline established
+- [ ] QA procedures tested
+- [ ] Standards compliance verified
+
+### Maintenance
+- [ ] Regular methodology review
+- [ ] Model updates
+- [ ] Integration optimization
+- [ ] Metrics refinement
+- [ ] QA improvement
+- [ ] Standards evolution
+
+## Review Process
+
+### Research Review
+1. Methodology assessment
+2. Data validation
+3. Results analysis
+4. Implementation review
+5. Documentation check
+6. Peer review
+7. Expert consultation
+8. Stakeholder feedback
+9. Final validation
+10. Knowledge transfer
+
+### AI Integration Review
+1. Model performance
+2. Integration efficiency
+3. Security assessment
+4. Scalability testing
+5. Resource utilization
+6. Error analysis
+7. Optimization planning
+8. Documentation review
+9. Deployment validation
+10. Monitoring setup 

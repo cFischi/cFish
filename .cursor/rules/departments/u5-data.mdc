@@ -1,7 +1,9 @@
 ---
 description: U5-Data department guidelines focused on DMMS, data management, and DSS operations.
-globs: U5-Data/*, *.md, *.json
-alwaysApply: false
+globs: ["*/u5-data/*", "*.md", "*.json", "*/dmms/*"]
+alwaysApply: true
+priority: high
+version: 1.0
 ---
 
 # U5-Data Department Guidelines
@@ -26,6 +28,347 @@ The U5-Data department focuses on Dispatch, Services, and Success (DSS) operatio
 - **Markdown/JSON**: Primary data storage formats
 - **WordPress Database**: Custom tables and meta
 - **API Integrations**: ClickUp, Notion, Vendasta
+
+## Agent Configuration
+
+### Agent Roles
+```json
+{
+  "dataCoordinator": {
+    "role": "Data Operations Coordinator",
+    "responsibilities": [
+      "DMMS implementation oversight",
+      "Data flow management",
+      "Integration coordination",
+      "Performance optimization"
+    ],
+    "context": {
+      "required": [
+        "DMMS documentation",
+        "Integration specifications",
+        "Performance metrics",
+        "System architecture"
+      ],
+      "optional": [
+        "Historical data patterns",
+        "Usage analytics",
+        "Performance baselines"
+      ]
+    }
+  },
+  "syncSpecialist": {
+    "role": "Synchronization Specialist",
+    "responsibilities": [
+      "Cross-platform synchronization",
+      "Data transformation",
+      "Conflict resolution",
+      "Format conversion"
+    ],
+    "context": {
+      "required": [
+        "Platform APIs",
+        "Data schemas",
+        "Sync protocols",
+        "Error handling patterns"
+      ],
+      "optional": [
+        "Historical sync logs",
+        "Performance metrics",
+        "Error patterns"
+      ]
+    }
+  },
+  "memoryManager": {
+    "role": "Memory Management Specialist",
+    "responsibilities": [
+      "Memory file maintenance",
+      "Content categorization",
+      "Metadata management",
+      "Version control"
+    ],
+    "context": {
+      "required": [
+        "Memory file structure",
+        "Categorization rules",
+        "Metadata schema",
+        "Version control system"
+      ],
+      "optional": [
+        "Historical versions",
+        "Usage patterns",
+        "Content analytics"
+      ]
+    }
+  }
+}
+```
+
+### Role-Specific Templates
+
+#### Data Integration Template
+```markdown
+# [Integration Component]
+
+## Overview
+[Brief description of integration]
+
+## Requirements
+- Data format specifications
+- Platform requirements
+- Performance targets
+- Security requirements
+
+## Implementation
+### Setup
+- Connection configuration
+- Authentication setup
+- Error handling
+- Monitoring configuration
+
+### Development
+- Data transformation logic
+- Synchronization protocols
+- Validation procedures
+- Performance optimization
+
+### Validation
+- Data integrity checks
+- Performance testing
+- Security validation
+- Integration testing
+```
+
+#### Memory Management Template
+```markdown
+# [Memory Component]
+
+## Overview
+[Brief description of component]
+
+## Requirements
+- File structure specifications
+- Content requirements
+- Performance targets
+- Sync requirements
+
+## Implementation
+### Setup
+- File organization
+- Metadata configuration
+- Sync setup
+- Monitoring implementation
+
+### Management
+- Content categorization
+- Version control
+- Conflict resolution
+- Performance optimization
+
+### Validation
+- Content integrity
+- Sync verification
+- Performance testing
+- Security validation
+```
+
+## DMMS Phase 2 Implementation
+
+### Architecture
+```json
+{
+  "components": {
+    "bidirectionalSync": {
+      "implementation": {
+        "changeDetection": "Real-time monitoring",
+        "conflictResolution": "Version vectors",
+        "stateManagement": "Distributed state machine",
+        "errorHandling": "Comprehensive recovery"
+      },
+      "optimization": {
+        "caching": "Multi-level cache",
+        "compression": "Content-aware compression",
+        "batching": "Smart batch processing",
+        "prefetching": "Predictive loading"
+      }
+    },
+    "performanceOptimization": {
+      "fileHandling": {
+        "chunking": "Dynamic size adjustment",
+        "streaming": "Progressive processing",
+        "caching": "Intelligent cache layers",
+        "compression": "Adaptive compression"
+      },
+      "monitoring": {
+        "metrics": "Real-time performance tracking",
+        "alerts": "Threshold-based notifications",
+        "analysis": "Pattern recognition",
+        "optimization": "Automated tuning"
+      }
+    },
+    "errorHandling": {
+      "detection": {
+        "monitoring": "Continuous state tracking",
+        "validation": "Multi-level checks",
+        "logging": "Comprehensive logging",
+        "analysis": "Pattern detection"
+      },
+      "recovery": {
+        "strategies": "Context-aware recovery",
+        "rollback": "Safe state restoration",
+        "reconciliation": "Automated healing",
+        "notification": "Intelligent alerting"
+      }
+    }
+  }
+}
+```
+
+### Integration Patterns
+
+#### Cross-Platform Synchronization
+```json
+{
+  "syncPatterns": {
+    "markdown": {
+      "conversion": {
+        "toJson": "Structure preservation",
+        "fromJson": "Format restoration",
+        "validation": "Schema verification"
+      },
+      "optimization": {
+        "diffing": "Efficient change detection",
+        "merging": "Smart content merging",
+        "conflict": "Resolution strategies"
+      }
+    },
+    "platformSpecific": {
+      "wordpress": {
+        "content": "Post/page synchronization",
+        "meta": "Metadata handling",
+        "media": "Asset management"
+      },
+      "clickup": {
+        "tasks": "Task synchronization",
+        "status": "State management",
+        "attachments": "File handling"
+      },
+      "notion": {
+        "pages": "Page synchronization",
+        "databases": "Structure mapping",
+        "blocks": "Content handling"
+      },
+      "vendasta": {
+        "products": "Product synchronization",
+        "orders": "Order management",
+        "clients": "Client data handling"
+      }
+    }
+  }
+}
+```
+
+## Success Metrics
+
+### Performance Metrics
+```json
+{
+  "metrics": {
+    "syncPerformance": {
+      "target": "99.9%",
+      "measurement": "Success rate",
+      "reporting": "Real-time"
+    },
+    "responseTime": {
+      "target": "< 200ms",
+      "measurement": "Average latency",
+      "reporting": "Continuous"
+    },
+    "dataIntegrity": {
+      "target": "100%",
+      "measurement": "Validation checks",
+      "reporting": "Per operation"
+    },
+    "errorRecovery": {
+      "target": "99%",
+      "measurement": "Recovery success",
+      "reporting": "Per incident"
+    }
+  }
+}
+```
+
+### Quality Assurance
+
+#### Data Validation
+```json
+{
+  "validation": {
+    "content": {
+      "integrity": "Hash verification",
+      "format": "Schema validation",
+      "consistency": "Cross-reference checks"
+    },
+    "sync": {
+      "bidirectional": "Two-way verification",
+      "consistency": "State validation",
+      "completeness": "Content verification"
+    },
+    "performance": {
+      "response": "Latency monitoring",
+      "throughput": "Capacity testing",
+      "resource": "Usage tracking"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Phase 2 Setup
+- [ ] Bidirectional sync implementation
+- [ ] Performance optimization deployment
+- [ ] Enhanced error handling setup
+- [ ] Monitoring system configuration
+- [ ] Documentation updates
+- [ ] Testing framework implementation
+
+### Validation
+- [ ] Sync functionality verification
+- [ ] Performance benchmark testing
+- [ ] Error recovery validation
+- [ ] Security assessment
+- [ ] Integration testing
+- [ ] Documentation review
+
+### Monitoring
+- [ ] Performance metrics tracking
+- [ ] Error detection system
+- [ ] Resource usage monitoring
+- [ ] Sync status dashboard
+- [ ] Alert system configuration
+- [ ] Reporting automation
+
+## Review Process
+
+### Implementation Review
+1. Architecture validation
+2. Performance verification
+3. Security assessment
+4. Integration testing
+5. Documentation review
+6. Error handling validation
+7. Monitoring verification
+8. Final approval
+
+### Operational Review
+1. Performance analysis
+2. Resource utilization
+3. Error rate assessment
+4. Recovery effectiveness
+5. Integration health
+6. Documentation accuracy
+7. Monitoring effectiveness
+8. Optimization planning
 
 ## File Organization
 

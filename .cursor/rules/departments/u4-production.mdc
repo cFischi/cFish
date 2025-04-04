@@ -1,86 +1,403 @@
 ---
-description: U4-Production department guidelines focused on WordPress development, UcWebZ, and content production.
-globs: U4-Production/*, *.php
-alwaysApply: false
+description: U4-Production department guidelines focused on WordPress development, UcWebZ, and content production
+globs: ["*/u4-production/*", "*.php", "*/themes/*", "*/plugins/*"]
+alwaysApply: true
+priority: high
+version: 1.0
 ---
 
 # U4-Production Department Guidelines
 
-The U4-Production department focuses on web presence, operations, and production for cFish.io using WordPress.
+## Department Overview
 
-## Department Role
+### Core Responsibilities
+- WordPress development and maintenance
+- UcWebZ operations and content production
+- Theme and plugin development
+- Custom functionality implementation
+- Cross-platform integration
+- Quality assurance and testing
 
-- Lead web presence development through WordPress
-- Manage UcWebZ operations and content production
-- Develop and maintain WordPress themes and plugins
-- Create custom WordPress functionality for client sites
-- Implement cross-platform integration with other cFish.io platforms
-- Align all implementations with the Produce (U4) philosophical principle
-
-## Core Technologies
-
-- **WordPress Core**: 6.0+ compatibility required
-- **PHP**: 7.4+ compliance required
-- **JavaScript**: Modern ES6+ implementation
-- **CSS**: SASS/SCSS preprocessing recommended
-- **Build Tools**: Webpack/Gulp for automation
-- **Version Control**: Git with feature branch workflow
-
-## WordPress Development Standards
-
-- Follow [WordPress coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/)
-- See detailed WordPress guidelines in [wp-development.mdc](mdc:.cursor/rules/wp-development.mdc)
-- Use Object-Oriented Programming for all custom functionality
-- Implement appropriate security practices throughout
-- Create proper documentation for all components
-
-## File Organization
-
-- Follow UcF file organization patterns:
-  - Store files in appropriate departmental directories
-  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
-  - Example: `ucf-u4.3-widget-registration-20250507.php`
-
-- WordPress-specific organization:
-  ```
-  U4-Production/
-    WordPress/
-      themes/
-        cfish-theme/
-      plugins/
-        cfish-core/
-      functions/
-      blocks/
-  ```
-
-## Philosophical Alignment
-
-As Produce (U4) department, focus on:
-- Productive output and efficient execution
-- High-quality deliverables that meet client needs
-- Consistent branding and user experience
-- Optimized performance and loading times
+### Department Alignment
+- Produce (U4) philosophical principle
+- Production excellence and efficiency
+- High-quality deliverables
+- Performance optimization
 - Cross-platform compatibility
-- Sustainable maintenance practices
+- Sustainable development
 
-## Integration Requirements
+## Agent Configuration
 
-- Create WordPress hooks for integration with other platforms:
-  - ClickUp (cFish.App) - Task management integration
-  - Notion (U.cFish.io) - Knowledge base integration
-  - Vendasta (cFish.Vip) - Client solution integration
+### Agent Roles
+```json
+{
+  "productionAgent": {
+    "role": "Production Coordinator",
+    "responsibilities": [
+      "WordPress development oversight",
+      "Production workflow management",
+      "Quality assurance coordination",
+      "Integration management"
+    ],
+    "context": {
+      "required": [
+        "WordPress development standards",
+        "Production workflows",
+        "Quality metrics",
+        "Integration specifications"
+      ],
+      "optional": [
+        "Historical implementations",
+        "Performance metrics",
+        "Client feedback"
+      ]
+    }
+  },
+  "wordpressAgent": {
+    "role": "WordPress Development Specialist",
+    "responsibilities": [
+      "Theme development",
+      "Plugin development",
+      "Custom functionality",
+      "Performance optimization"
+    ],
+    "context": {
+      "required": [
+        "WordPress coding standards",
+        "Theme requirements",
+        "Plugin architecture",
+        "Security practices"
+      ],
+      "optional": [
+        "Legacy code",
+        "Plugin compatibility",
+        "Theme customizations"
+      ]
+    }
+  },
+  "qaAgent": {
+    "role": "Quality Assurance Specialist",
+    "responsibilities": [
+      "Code review",
+      "Testing coordination",
+      "Performance validation",
+      "Security assessment"
+    ],
+    "context": {
+      "required": [
+        "Testing standards",
+        "Quality metrics",
+        "Security requirements",
+        "Performance targets"
+      ],
+      "optional": [
+        "Test history",
+        "Issue logs",
+        "Performance baselines"
+      ]
+    }
+  }
+}
+```
 
-- Implement tYDiSync~ compatibility:
-  - Add appropriate metadata for cross-platform synchronization
-  - Create data transformation hooks for format conversion
-  - Respect synchronization markers and protocols
-  - Test synchronization across all platforms
+### Role-Specific Templates
 
-## Relaunch Priorities
+#### WordPress Development Template
+```markdown
+# [Component Name]
 
-For the April 2025 relaunch, focus on:
-- Knowledge monetization features as primary differentiators
-- Documentation excellence as a marketable service offering
-- Partnership enablement through robust APIs
-- Mobile optimization for field operations
-- Performance optimization for expected traffic increase 
+## Overview
+[Brief description of component]
+
+## Requirements
+- WordPress compatibility
+- Feature requirements
+- Performance requirements
+- Security requirements
+
+## Implementation
+### Setup
+- Component registration
+- Dependency management
+- Hook implementation
+- Security measures
+
+### Development
+- Feature implementation
+- Testing procedures
+- Documentation
+- Performance optimization
+
+### Validation
+- Code review
+- Security audit
+- Performance testing
+- Integration testing
+```
+
+#### Quality Assurance Template
+```markdown
+# [QA Process]
+
+## Scope
+[Testing scope and objectives]
+
+## Requirements
+- Testing requirements
+- Performance targets
+- Security standards
+- Compatibility needs
+
+## Process
+### Testing
+- Unit tests
+- Integration tests
+- Performance tests
+- Security tests
+
+### Validation
+- Code review
+- Standards compliance
+- Security validation
+- Performance verification
+
+### Documentation
+- Test results
+- Issue tracking
+- Resolution steps
+- Future improvements
+```
+
+## Development Standards
+
+### WordPress Core
+```json
+{
+  "requirements": {
+    "wordpress": "6.0+",
+    "php": "7.4+",
+    "mysql": "5.7+",
+    "javascript": "ES6+",
+    "css": "SASS/SCSS"
+  },
+  "compatibility": {
+    "browsers": [
+      "Chrome 80+",
+      "Firefox 75+",
+      "Safari 13+",
+      "Edge 80+"
+    ],
+    "devices": [
+      "Desktop",
+      "Tablet",
+      "Mobile"
+    ]
+  }
+}
+```
+
+### Code Organization
+```json
+{
+  "structure": {
+    "themes": {
+      "template_hierarchy": true,
+      "modular_components": true,
+      "asset_optimization": true
+    },
+    "plugins": {
+      "namespaced_classes": true,
+      "modular_architecture": true,
+      "dependency_management": true
+    }
+  }
+}
+```
+
+## Integration Patterns
+
+### Cross-Platform Integration
+```json
+{
+  "platforms": {
+    "clickup": {
+      "integration": "Task Management",
+      "sync_type": "Bidirectional",
+      "data_format": "JSON",
+      "update_frequency": "Real-time"
+    },
+    "notion": {
+      "integration": "Knowledge Base",
+      "sync_type": "Bidirectional",
+      "data_format": "Markdown",
+      "update_frequency": "5 minutes"
+    },
+    "vendasta": {
+      "integration": "Client Solutions",
+      "sync_type": "Unidirectional",
+      "data_format": "REST API",
+      "update_frequency": "15 minutes"
+    }
+  }
+}
+```
+
+### WordPress Integration
+```json
+{
+  "hooks": {
+    "actions": [
+      "init",
+      "admin_init",
+      "wp_enqueue_scripts",
+      "save_post",
+      "custom_sync_event"
+    ],
+    "filters": [
+      "the_content",
+      "the_title",
+      "post_class",
+      "custom_sync_data"
+    ]
+  }
+}
+```
+
+## Success Metrics
+
+### Development Metrics
+```json
+{
+  "metrics": {
+    "codeQuality": {
+      "target": "95%",
+      "measurement": "Static analysis",
+      "reporting": "Per commit"
+    },
+    "testCoverage": {
+      "target": "90%",
+      "measurement": "Unit tests",
+      "reporting": "Daily"
+    },
+    "performance": {
+      "target": "95%",
+      "measurement": "PageSpeed",
+      "reporting": "Weekly"
+    }
+  }
+}
+```
+
+### Production Metrics
+```json
+{
+  "productionMetrics": {
+    "deploymentSuccess": {
+      "target": "99%",
+      "frequency": "Per deployment",
+      "validation": "Automated tests"
+    },
+    "uptime": {
+      "target": "99.9%",
+      "monitoring": "Continuous",
+      "reporting": "Real-time"
+    },
+    "responseTime": {
+      "target": "< 200ms",
+      "monitoring": "Continuous",
+      "alerting": "> 500ms"
+    }
+  }
+}
+```
+
+## Quality Assurance
+
+### Testing Requirements
+```json
+{
+  "testingLevels": {
+    "unit": {
+      "coverage": "90%",
+      "automation": true,
+      "frequency": "Per commit"
+    },
+    "integration": {
+      "coverage": "85%",
+      "automation": true,
+      "frequency": "Daily"
+    },
+    "e2e": {
+      "coverage": "75%",
+      "automation": true,
+      "frequency": "Weekly"
+    }
+  }
+}
+```
+
+### Code Review Process
+```json
+{
+  "reviewProcess": {
+    "static": {
+      "tools": ["PHPStan", "PHPCS", "ESLint"],
+      "standards": ["WordPress", "PSR-12"],
+      "automation": true
+    },
+    "manual": {
+      "reviewers": 2,
+      "checklist": true,
+      "documentation": true
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Development
+- [ ] WordPress standards compliance
+- [ ] Security measures implemented
+- [ ] Performance optimization complete
+- [ ] Cross-platform integration tested
+- [ ] Documentation updated
+- [ ] Tests written and passing
+
+### Deployment
+- [ ] Build process verified
+- [ ] Dependencies checked
+- [ ] Assets optimized
+- [ ] Cache configured
+- [ ] Backup completed
+- [ ] Monitoring active
+
+### Validation
+- [ ] Code review completed
+- [ ] Security audit passed
+- [ ] Performance verified
+- [ ] Integration tested
+- [ ] Documentation reviewed
+- [ ] QA approved
+
+## Review Process
+
+### Code Review
+1. Static analysis
+2. Standards compliance
+3. Security review
+4. Performance check
+5. Documentation review
+6. Test coverage
+7. Integration validation
+8. Final approval
+
+### Deployment Review
+1. Build verification
+2. Dependency check
+3. Asset validation
+4. Cache configuration
+5. Backup verification
+6. Monitoring setup
+7. Performance validation
+8. Security confirmation 

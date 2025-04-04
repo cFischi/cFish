@@ -13,6 +13,8 @@ alwaysApply: true
 - Follow UcF naming conventions for all rule files
 - Store prompt templates in the `.cursor/rules/prompt-templates` directory
 - Organize rules by department and functionality
+- Implement hierarchical rule structure for better organization
+- Use version control to track rule evolution
 
 ## Rule Creation Conventions
 
@@ -22,12 +24,27 @@ alwaysApply: true
   description: Brief description of rule purpose
   globs: *.php, *.js  # Apply to specific file patterns
   alwaysApply: true   # Apply to every request
+  priority: high      # Rule priority level
+  version: 1.0       # Rule version number
   ---
   ```
 - Prefer department-specific rules for departmental contexts
 - Create specialized rule files for different aspects of projects
 - Keep rules focused and concise for better usability
 - Always follow WordPress coding standards in PHP rule examples
+- Implement feedback loops for continuous rule improvement
+- Document successful patterns for reuse
+- Create rules that solve entire classes of problems
+
+## Rule Evolution Strategy
+
+- Monitor rule effectiveness and update based on outcomes
+- Track successful patterns and document learnings
+- Remove ineffective or outdated rules
+- Merge complementary rules when appropriate
+- Document rule history and evolution
+- Implement automated rule validation where possible
+- Create feedback loops for continuous improvement
 
 ## Departmental Organization
 
@@ -45,12 +62,47 @@ Follow cFish.io's seven-department structure:
 1. "TASK:" directives (see [task-directives.mdc](mdc:.cursor/rules/task-directives.mdc))
 2. Code generation requests (follow patterns in relevant rule files)
 3. General inquiries (reference [instructions.md](mdc:instructions.md))
+4. Department-specific rules
+5. Feature-specific rules
+6. Override rules for special cases
+
+## Rule Interaction Management
+
+- Define clear rule precedence hierarchy
+- Implement conflict resolution protocols
+- Document rule dependencies explicitly
+- Track interaction effects between rules
+- Create interaction maps for complex rule sets
+- Define composition rules for rule combinations
+- Document override patterns clearly
+
+## Context-Aware Rule Application
+
+- Implement context-sensitive rule selection
+- Define context categories and priorities
+- Create selection criteria for rule application
+- Monitor rule effectiveness in different contexts
+- Adjust rule priorities based on context
+- Document context-specific patterns
+- Track adaptation results
+
+## Rule Performance Monitoring
+
+- Track rule application and effectiveness
+- Monitor context fit and interaction impact
+- Measure adaptation success
+- Document performance metrics
+- Implement continuous optimization
+- Create performance profiles
+- Track resource utilization
 
 ## Rule Referencing Syntax
 
 - Reference rules using the syntax `@rule-name.mdc`
 - Use internal links within rules: `[rule-name](mdc:.cursor/rules/rule-name.mdc)`
 - Don't repeat guidance that exists in other rule files - reference instead
+- Implement clear cross-referencing standards
+- Maintain dependency documentation
 
 ## File Naming Conventions
 
@@ -68,4 +120,26 @@ Function codes:
 8. Integration
 9. Miscellaneous
 
-Example: `ucf-u7.3-directory-visual-order-20250506.ps1` 
+Example: `ucf-u7.3-directory-visual-order-20250506.ps1`
+
+## Validation Framework
+
+- Implement comprehensive rule validation
+- Create validation criteria and test scenarios
+- Define verification procedures
+- Document validation processes
+- Automate testing where possible
+- Monitor performance impact
+- Detect potential conflicts
+- Perform regression analysis
+
+## Continuous Optimization
+
+- Monitor rule effectiveness continuously
+- Identify optimization opportunities
+- Track improvement impact
+- Document success patterns
+- Review performance regularly
+- Refine rules based on feedback
+- Assess impact systematically
+- Recognize emerging patterns 

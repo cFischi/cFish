@@ -1,0 +1,257 @@
+# Optimization Meta Rules
+
+---
+description: Guidelines for optimizing Cursor rules and workflows for cFish.io
+globs: ["*.mdc"]
+alwaysApply: true
+priority: high
+---
+
+## Token Optimization
+
+### Context Management
+- Clear context when changing topics
+- Keep essential project context
+- Focus on current file/function
+- Maintain minimal working context
+- Prioritize recent information
+- Remove redundant context
+
+### Language Optimization
+- Use concise, direct language
+- Implement structured formats
+- Avoid unnecessary pleasantries
+- Remove redundant information
+- Use lists over paragraphs
+- Maintain clear hierarchy
+
+### Content Organization
+- Group related information
+- Use logical hierarchies
+- Implement clear structure
+- Remove duplicate content
+- Optimize references
+- Maintain clarity
+
+## Performance Optimization
+
+### Rule Processing
+- Optimize glob patterns
+- Minimize rule complexity
+- Reduce rule overlap
+- Improve pattern matching
+- Optimize validation
+- Regular performance review
+
+### Memory Management
+- Implement efficient caching
+- Optimize resource usage
+- Clear unused resources
+- Manage context size
+- Monitor memory usage
+- Regular cleanup
+
+### Response Time
+- Minimize processing time
+- Optimize rule matching
+- Reduce validation overhead
+- Improve response handling
+- Monitor latency
+- Regular optimization
+
+## Workflow Optimization
+
+### Task Management
+```json
+{
+  "taskOptimization": {
+    "breakdown": {
+      "maxSize": "manageable units",
+      "dependencies": "clearly defined",
+      "priority": "properly ordered",
+      "context": "minimal necessary"
+    },
+    "execution": {
+      "sequence": "logical order",
+      "validation": "each step",
+      "feedback": "immediate",
+      "adjustment": "as needed"
+    }
+  }
+}
+```
+
+### Session Management
+```json
+{
+  "sessionOptimization": {
+    "context": {
+      "initialization": "minimal required",
+      "maintenance": "regular cleanup",
+      "restoration": "when needed"
+    },
+    "workflow": {
+      "steps": "clearly defined",
+      "validation": "continuous",
+      "adjustment": "based on feedback"
+    }
+  }
+}
+```
+
+### Resource Management
+```json
+{
+  "resourceOptimization": {
+    "allocation": {
+      "memory": "efficient usage",
+      "processing": "optimized paths",
+      "storage": "minimal required"
+    },
+    "monitoring": {
+      "usage": "continuous tracking",
+      "performance": "regular review",
+      "optimization": "as needed"
+    }
+  }
+}
+```
+
+## Implementation Optimization
+
+### Code Generation
+- Use efficient patterns
+- Implement best practices
+- Optimize for readability
+- Maintain consistency
+- Regular refactoring
+- Performance monitoring
+
+### Documentation
+- Clear, concise format
+- Essential information only
+- Structured organization
+- Regular updates
+- Version tracking
+- Efficient references
+
+### Testing
+- Efficient test suites
+- Optimized validation
+- Quick feedback loops
+- Automated processes
+- Regular review
+- Performance metrics
+
+## Monitoring and Analysis
+
+### Performance Metrics
+```json
+{
+  "metrics": {
+    "response": {
+      "time": "milliseconds",
+      "threshold": "acceptable range",
+      "optimization": "when exceeded"
+    },
+    "memory": {
+      "usage": "bytes",
+      "threshold": "maximum allowed",
+      "optimization": "when exceeded"
+    },
+    "efficiency": {
+      "ratio": "output/input",
+      "threshold": "minimum acceptable",
+      "optimization": "when below"
+    }
+  }
+}
+```
+
+### Usage Analysis
+```json
+{
+  "analysis": {
+    "patterns": {
+      "tracking": "continuous",
+      "evaluation": "regular",
+      "optimization": "based on data"
+    },
+    "improvements": {
+      "identification": "data-driven",
+      "implementation": "systematic",
+      "validation": "measured"
+    }
+  }
+}
+```
+
+### Optimization Cycles
+```json
+{
+  "cycles": {
+    "review": {
+      "frequency": "regular",
+      "scope": "comprehensive",
+      "action": "based on data"
+    },
+    "implementation": {
+      "approach": "systematic",
+      "validation": "continuous",
+      "adjustment": "as needed"
+    }
+  }
+}
+```
+
+## Optimization Checklist
+
+### Performance
+- [ ] Token usage optimized
+- [ ] Context management efficient
+- [ ] Rule processing optimized
+- [ ] Memory usage minimized
+- [ ] Response time improved
+- [ ] Resource usage optimized
+
+### Workflow
+- [ ] Task management streamlined
+- [ ] Session handling optimized
+- [ ] Resource allocation efficient
+- [ ] Documentation optimized
+- [ ] Testing efficient
+- [ ] Monitoring active
+
+### Implementation
+- [ ] Code generation optimized
+- [ ] Documentation streamlined
+- [ ] Testing efficient
+- [ ] Metrics tracked
+- [ ] Analysis ongoing
+- [ ] Improvements implemented
+
+## Continuous Improvement
+
+### Review Process
+1. Monitor performance metrics
+2. Analyze usage patterns
+3. Identify bottlenecks
+4. Plan improvements
+5. Implement changes
+6. Validate results
+7. Document updates
+8. Regular review
+9. Adjust as needed
+10. Maintain optimization
+
+### Optimization Cycle
+1. Collect metrics
+2. Analyze data
+3. Identify issues
+4. Plan solutions
+5. Implement changes
+6. Test results
+7. Document updates
+8. Monitor effects
+9. Adjust approach
+10. Regular review 

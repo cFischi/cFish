@@ -1,0 +1,344 @@
+# Validation Template
+
+---
+description: Template for implementing validation in cFish.io
+globs: ["*/validation/*", "*/tests/validation/*"]
+alwaysApply: true
+priority: high
+---
+
+## Validation Framework
+
+### Core Validation Types
+- Input Validation
+- Data Validation
+- Business Rule Validation
+- Security Validation
+- Performance Validation
+- Integration Validation
+
+### Validation Standards
+- Data Type Validation
+- Format Validation
+- Range Validation
+- Pattern Validation
+- Dependency Validation
+- Cross-field Validation
+
+### Validation Tools
+- Laravel Validator
+- PHPUnit
+- PHPStan
+- PHPCS
+- Security Tools
+- Performance Tools
+
+## Implementation Guidelines
+
+### Base Validator
+```php
+abstract class BaseValidator {
+    protected $rules = [];
+    protected $messages = [];
+    protected $customRules = [];
+    
+    public function validate($data) {
+        $validator = Validator::make(
+            $data,
+            $this->getRules(),
+            $this->getMessages()
+        );
+        
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+        
+        return $validator->validated();
+    }
+    
+    protected function getRules() {
+        return array_merge(
+            $this->rules,
+            $this->customRules
+        );
+    }
+    
+    protected function getMessages() {
+        return $this->messages;
+    }
+    
+    protected function addCustomRule($field, $rule) {
+        $this->customRules[$field] = $rule;
+        return $this;
+    }
+}
+```
+
+### Feature Validator
+```php
+class FeatureValidator extends BaseValidator {
+    protected $rules = [
+        'name' => 'required|string|max:255',
+        'type' => 'required|in:type1,type2',
+        'status' => 'required|in:active,inactive',
+        'configuration' => 'required|array'
+    ];
+    
+    protected $messages = [
+        'name.required' => 'Feature name is required',
+        'name.max' => 'Feature name cannot exceed 255 characters',
+        'type.in' => 'Invalid feature type selected',
+        'status.in' => 'Invalid status selected'
+    ];
+    
+    public function validateCreate($data) {
+        $this->addCustomRule('code', 'unique:features,code');
+        return $this->validate($data);
+    }
+    
+    public function validateUpdate($data, $id) {
+        $this->addCustomRule('code', "unique:features,code,{$id}");
+        return $this->validate($data);
+    }
+}
+```
+
+### Business Rule Validator
+```php
+class BusinessRuleValidator extends BaseValidator {
+    public function validateBusinessRules($data) {
+        // Validate dependencies
+        $this->validateDependencies($data);
+        
+        // Validate business logic
+        $this->validateBusinessLogic($data);
+        
+        // Validate constraints
+        $this->validateConstraints($data);
+        
+        return true;
+    }
+    
+    protected function validateDependencies($data) {
+        foreach ($data['dependencies'] as $dependency) {
+            if (!$this->dependencyExists($dependency)) {
+                throw new ValidationException(
+                    "Required dependency {$dependency} not found"
+                );
+            }
+        }
+    }
+    
+    protected function validateBusinessLogic($data) {
+        // Implement business logic validation
+        if (!$this->isBusinessLogicValid($data)) {
+            throw new ValidationException(
+                'Business logic validation failed'
+            );
+        }
+    }
+}
+```
+
+## Validation Categories
+
+### Input Validation
+```php
+class InputValidator {
+    public function validateInput($input) {
+        // Sanitize input
+        $sanitized = $this->sanitize($input);
+        
+        // Validate data types
+        $this->validateDataTypes($sanitized);
+        
+        // Validate formats
+        $this->validateFormats($sanitized);
+        
+        // Validate ranges
+        $this->validateRanges($sanitized);
+        
+        return $sanitized;
+    }
+    
+    protected function sanitize($input) {
+        return array_map(function($value) {
+            if (is_string($value)) {
+                return strip_tags(trim($value));
+            }
+            return $value;
+        }, $input);
+    }
+}
+```
+
+### Security Validation
+```php
+class SecurityValidator {
+    public function validateSecurity($data) {
+        // Validate authentication
+        $this->validateAuthentication();
+        
+        // Validate authorization
+        $this->validateAuthorization($data);
+        
+        // Validate input security
+        $this->validateInputSecurity($data);
+        
+        // Validate data security
+        $this->validateDataSecurity($data);
+        
+        return true;
+    }
+    
+    protected function validateAuthentication() {
+        if (!auth()->check()) {
+            throw new SecurityException('Authentication required');
+        }
+    }
+}
+```
+
+### Performance Validation
+```php
+class PerformanceValidator {
+    public function validatePerformance($operation) {
+        $metrics = $this->measurePerformance($operation);
+        
+        // Validate response time
+        $this->validateResponseTime($metrics['response_time']);
+        
+        // Validate resource usage
+        $this->validateResourceUsage($metrics['resource_usage']);
+        
+        // Validate efficiency
+        $this->validateEfficiency($metrics['efficiency']);
+        
+        return $metrics;
+    }
+    
+    protected function measurePerformance($operation) {
+        $start = microtime(true);
+        $startMemory = memory_get_usage();
+        
+        $result = $operation();
+        
+        return [
+            'response_time' => microtime(true) - $start,
+            'resource_usage' => memory_get_usage() - $startMemory,
+            'efficiency' => $this->calculateEfficiency($result)
+        ];
+    }
+}
+```
+
+## Validation Standards
+
+### Data Type Standards
+```json
+{
+    "types": {
+        "string": {
+            "maxLength": 255,
+            "encoding": "UTF-8",
+            "allowNull": false
+        },
+        "integer": {
+            "min": 0,
+            "max": 2147483647,
+            "allowNull": false
+        },
+        "float": {
+            "precision": 2,
+            "allowNull": false
+        },
+        "boolean": {
+            "allowNull": false
+        },
+        "date": {
+            "format": "Y-m-d",
+            "allowNull": true
+        }
+    }
+}
+```
+
+### Format Standards
+```json
+{
+    "formats": {
+        "email": {
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+            "maxLength": 255
+        },
+        "phone": {
+            "pattern": "^\\+?[1-9][0-9]{7,14}$",
+            "allowNull": true
+        },
+        "url": {
+            "pattern": "^https?:\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+[\\w\\-\\.,@?^=%&:/~\\+#]*$",
+            "maxLength": 2083
+        }
+    }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Validation framework installed
+- [ ] Rules defined
+- [ ] Messages configured
+- [ ] Custom rules created
+- [ ] Testing environment prepared
+- [ ] Documentation started
+
+### Validation Implementation
+- [ ] Input validation
+- [ ] Data validation
+- [ ] Business rules
+- [ ] Security validation
+- [ ] Performance validation
+- [ ] Integration validation
+
+### Testing
+- [ ] Unit tests
+- [ ] Integration tests
+- [ ] Security tests
+- [ ] Performance tests
+- [ ] Edge cases
+- [ ] Documentation
+
+### Review
+- [ ] Code review
+- [ ] Security review
+- [ ] Performance review
+- [ ] Documentation review
+- [ ] Test coverage
+- [ ] Final validation
+
+## Validation Process
+
+### Review Process
+1. Requirements review
+2. Rule definition
+3. Implementation
+4. Unit testing
+5. Integration testing
+6. Security testing
+7. Performance testing
+8. Documentation
+9. Code review
+10. Final approval
+
+### Maintenance Process
+1. Monitor validation
+2. Collect feedback
+3. Identify issues
+4. Plan updates
+5. Implement changes
+6. Test updates
+7. Document changes
+8. Review results
+9. Deploy updates
+10. Monitor effects 

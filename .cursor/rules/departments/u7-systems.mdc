@@ -1,92 +1,626 @@
 ---
-description: U7-Systems department guidelines focused on development, design, and technical direction.
-globs: U7-Systems/*, *.js, *.ts, *.py, *.php
-alwaysApply: false
+description: U7-Systems department guidelines focused on development, design, and technical direction through tYberius Designz
+globs: ["*/u7-systems/*", "*/tech/*", "*.js", "*.ts", "*.py", "*.php", "*.sql"]
+alwaysApply: true
+priority: high
+version: 1.0
 ---
 
 # U7-Systems Department Guidelines
 
-The U7-Systems department focuses on development, design, and technical direction for cFish.io through tYberius Designz.
+## Department Overview
 
-## Department Role
-
+### Core Responsibilities
 - Lead technical system architecture and design
-- Develop specialized technical solutions
-- Establish technical standards and best practices
+- Establish development standards and practices
 - Implement cross-platform integrations
-- Provide technical direction for all departments
-- Align all implementations with the Serve (U7) philosophical principle
+- Manage infrastructure and deployments
+- Ensure system security and performance
+- Align implementations with the Serve (U7) philosophical principle
 
-## Core Technologies
+### Department Alignment
+- Serve (U7) philosophical principle
+- Technical excellence in service
+- Innovation with stability
+- Scalable architecture
+- Robust implementation
+- Cross-platform compatibility
 
-- **Frontend**: React, TypeScript, SCSS, etc.
-- **Backend**: Node.js, PHP, Python, etc.
-- **Databases**: MySQL, PostgreSQL, MongoDB, etc.
-- **DevOps**: Docker, Git, CI/CD pipelines, etc.
-- **Cloud Services**: AWS, Azure, etc.
-- **System Architecture**: Microservices, APIs, etc.
+## Agent Configuration
 
-## File Organization
+### Agent Roles
+```json
+{
+  "systemArchitect": {
+    "role": "Technical Architecture Lead",
+    "responsibilities": [
+      "System architecture design",
+      "Technical direction",
+      "Integration patterns",
+      "Performance optimization"
+    ],
+    "context": {
+      "required": [
+        "System architecture docs",
+        "Technical standards",
+        "Integration specs",
+        "Performance requirements"
+      ],
+      "optional": [
+        "Legacy systems",
+        "Future roadmap",
+        "Industry trends"
+      ]
+    }
+  },
+  "developmentLead": {
+    "role": "Development Standards Lead",
+    "responsibilities": [
+      "Coding standards",
+      "Best practices",
+      "Development workflows",
+      "Quality assurance"
+    ],
+    "context": {
+      "required": [
+        "Development standards",
+        "Code quality metrics",
+        "Testing frameworks",
+        "CI/CD pipelines"
+      ],
+      "optional": [
+        "Historical patterns",
+        "Team feedback",
+        "Tool evaluations"
+      ]
+    }
+  },
+  "securitySpecialist": {
+    "role": "Security and Infrastructure Lead",
+    "responsibilities": [
+      "Security standards",
+      "Infrastructure management",
+      "Access control",
+      "Compliance verification"
+    ],
+    "context": {
+      "required": [
+        "Security protocols",
+        "Infrastructure docs",
+        "Compliance requirements",
+        "Access patterns"
+      ],
+      "optional": [
+        "Incident history",
+        "Risk assessments",
+        "Audit reports"
+      ]
+    }
+  },
+  "creativeEngineer": {
+    "role": "Creative Technical Lead",
+    "responsibilities": [
+      "UI/UX implementation",
+      "Creative technology",
+      "Interactive features",
+      "Visual optimization"
+    ],
+    "context": {
+      "required": [
+        "Design systems",
+        "Animation standards",
+        "Interaction patterns",
+        "Performance targets"
+      ],
+      "optional": [
+        "Design history",
+        "User feedback",
+        "Creative experiments"
+      ]
+    }
+  }
+}
+```
 
-- Follow UcF file organization patterns:
-  - Store files in appropriate departmental directories
-  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
-  - Example: `ucf-u7.4-api-gateway-20250507.js`
+### Role-Specific Templates
 
-- Systems-specific organization:
-  ```
-  U7-Systems/
-    Frontend/         # Frontend code and components
-    Backend/          # Backend services and APIs
-    Architecture/     # System architecture documentation
-    DevOps/           # Deployment and operations
-    Libraries/        # Shared code libraries
-    Tools/            # Development tools and utilities
-    Documentation/    # Technical documentation
-  ```
+#### Architecture Design Template
+```markdown
+# [System Component]
 
-## Coding Standards
+## Overview
+[Brief description of component]
 
-- All code must follow these standards:
-  - Consistent formatting (use linters and formatters)
-  - Comprehensive documentation
-  - Unit and integration tests
-  - Error handling and logging
-  - Security best practices
-  - Performance optimization
+## Architecture
+- System design
+- Integration points
+- Data flow
+- Scalability considerations
 
-- Language-specific standards:
-  - JavaScript/TypeScript: ESLint, Prettier
-  - PHP: PSR-12, PHPStan, PHPCS
-  - Python: PEP 8, Pylint
-  - CSS/SCSS: Stylelint
+## Implementation
+### Design
+- Component structure
+- Interface definitions
+- Data models
+- Security patterns
 
-## Architecture Guidelines
+### Development
+- Technical stack
+- Development approach
+- Testing strategy
+- Deployment plan
 
-- Implement loosely coupled, highly cohesive components
-- Use domain-driven design principles
-- Create clear interfaces between systems
-- Document all API endpoints and data models
-- Implement comprehensive error handling
-- Design for scalability and maintainability
-- Consider cross-platform compatibility in all designs
+### Validation
+- Performance testing
+- Security assessment
+- Integration verification
+- Load testing
+```
 
-## Philosophical Alignment
+#### Development Standards Template
+```markdown
+# [Development Standard]
 
-As Serve (U7) department, focus on:
-- Technical solutions that serve the mission
-- Creating value through specialized expertise
-- Balancing innovation with stability
-- Empowering users and clients
-- Technical excellence in service of goals
-- Reliable and robust implementations
+## Overview
+[Brief description of standard]
 
-## Relaunch Priorities
+## Requirements
+- Code quality metrics
+- Performance targets
+- Security requirements
+- Testing coverage
 
-For the April 2025 relaunch, focus on:
-- Cross-platform integration optimization
-- API development for knowledge monetization
-- Technical infrastructure for documentation-as-service
-- Performance optimization for increased traffic
-- Security enhancements for client data
-- Scalability improvements for future growth 
+## Implementation
+### Standards
+- Coding conventions
+- Documentation requirements
+- Review processes
+- Quality gates
+
+### Practices
+- Development workflow
+- Testing approach
+- Deployment process
+- Monitoring setup
+
+### Validation
+- Code analysis
+- Performance metrics
+- Security checks
+- Compliance verification
+```
+
+## Technical Standards
+
+### Development Stack
+```json
+{
+  "frontend": {
+    "core": {
+      "framework": "React/Next.js",
+      "language": "TypeScript",
+      "styling": "SCSS/Tailwind",
+      "state": "Redux/Context"
+    },
+    "testing": {
+      "unit": "Jest",
+      "integration": "React Testing Library",
+      "e2e": "Cypress"
+    },
+    "build": {
+      "bundler": "Webpack/Vite",
+      "optimization": "Advanced",
+      "analysis": "Bundle analyzer"
+    }
+  },
+  "backend": {
+    "core": {
+      "primary": "Node.js/Express",
+      "secondary": "PHP/WordPress",
+      "database": "MySQL/PostgreSQL",
+      "caching": "Redis"
+    },
+    "testing": {
+      "unit": "Jest/PHPUnit",
+      "integration": "Supertest",
+      "load": "k6"
+    },
+    "deployment": {
+      "containerization": "Docker",
+      "orchestration": "Kubernetes",
+      "scaling": "Auto-scaling"
+    }
+  }
+}
+```
+
+### Code Quality Standards
+```json
+{
+  "qualityMetrics": {
+    "complexity": {
+      "cyclomatic": "≤ 10",
+      "cognitive": "≤ 15",
+      "maintainability": "A grade"
+    },
+    "coverage": {
+      "unit": "≥ 80%",
+      "integration": "≥ 70%",
+      "e2e": "≥ 50%"
+    },
+    "performance": {
+      "lighthouse": "≥ 90",
+      "ttfb": "≤ 200ms",
+      "fcp": "≤ 1.5s"
+    }
+  }
+}
+```
+
+## System Architecture
+
+### Infrastructure Design
+```json
+{
+  "architecture": {
+    "compute": {
+      "web": {
+        "type": "Containerized",
+        "scaling": "Horizontal",
+        "regions": ["Primary", "DR"]
+      },
+      "processing": {
+        "type": "Serverless",
+        "scaling": "Auto",
+        "concurrency": "Managed"
+      }
+    },
+    "storage": {
+      "data": {
+        "primary": "Relational",
+        "cache": "In-memory",
+        "files": "Object storage"
+      },
+      "backup": {
+        "frequency": "Daily",
+        "retention": "30 days",
+        "encryption": "AES-256"
+      }
+    },
+    "networking": {
+      "topology": "Multi-region",
+      "cdn": "Global edge",
+      "security": "Zero trust"
+    }
+  }
+}
+```
+
+### Integration Patterns
+```json
+{
+  "patterns": {
+    "synchronous": {
+      "rest": {
+        "style": "RESTful",
+        "versioning": "URL-based",
+        "documentation": "OpenAPI"
+      },
+      "graphql": {
+        "schema": "Federated",
+        "caching": "Persisted",
+        "tooling": "Apollo"
+      }
+    },
+    "asynchronous": {
+      "events": {
+        "style": "Event-driven",
+        "broker": "Message queue",
+        "patterns": "Pub/Sub"
+      },
+      "streams": {
+        "processing": "Real-time",
+        "scaling": "Elastic",
+        "persistence": "Log-based"
+      }
+    }
+  }
+}
+```
+
+## Security Standards
+
+### Security Implementation
+```json
+{
+  "security": {
+    "authentication": {
+      "method": "OAuth 2.0/JWT",
+      "mfa": "Required",
+      "session": "Stateless"
+    },
+    "authorization": {
+      "model": "RBAC",
+      "granularity": "Resource-level",
+      "enforcement": "Policy-based"
+    },
+    "data": {
+      "encryption": {
+        "transit": "TLS 1.3",
+        "rest": "AES-256",
+        "keys": "KMS"
+      },
+      "classification": {
+        "levels": ["Public", "Internal", "Confidential"],
+        "handling": "Data governance"
+      }
+    }
+  }
+}
+```
+
+### Compliance Standards
+```json
+{
+  "compliance": {
+    "security": {
+      "standards": ["OWASP Top 10", "CIS Benchmarks"],
+      "auditing": "Continuous",
+      "reporting": "Automated"
+    },
+    "privacy": {
+      "standards": ["GDPR", "CCPA"],
+      "controls": "Privacy by design",
+      "monitoring": "Data flow tracking"
+    }
+  }
+}
+```
+
+## Success Metrics
+
+### Technical Metrics
+```json
+{
+  "metrics": {
+    "availability": {
+      "target": "99.99%",
+      "measurement": "Uptime",
+      "reporting": "Real-time"
+    },
+    "performance": {
+      "target": "< 100ms",
+      "measurement": "Response time",
+      "reporting": "Continuous"
+    },
+    "reliability": {
+      "target": "99.9%",
+      "measurement": "Success rate",
+      "reporting": "Daily"
+    }
+  }
+}
+```
+
+### Development Metrics
+```json
+{
+  "developmentMetrics": {
+    "velocity": {
+      "target": "85%",
+      "measurement": "Sprint completion",
+      "reporting": "Sprint"
+    },
+    "quality": {
+      "target": "< 1%",
+      "measurement": "Defect rate",
+      "reporting": "Release"
+    },
+    "efficiency": {
+      "target": "90%",
+      "measurement": "Automation coverage",
+      "reporting": "Monthly"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Architecture
+- [ ] System design validation
+- [ ] Integration patterns defined
+- [ ] Security architecture review
+- [ ] Performance optimization
+- [ ] Scalability verification
+- [ ] Documentation complete
+
+### Development
+- [ ] Standards implementation
+- [ ] Testing framework setup
+- [ ] CI/CD pipeline configuration
+- [ ] Code quality tools
+- [ ] Security scanning
+- [ ] Monitoring implementation
+
+### Infrastructure
+- [ ] Environment setup
+- [ ] Deployment automation
+- [ ] Backup configuration
+- [ ] Monitoring setup
+- [ ] Security controls
+- [ ] Disaster recovery
+
+## Review Process
+
+### Architecture Review
+1. Design validation
+2. Security assessment
+3. Performance review
+4. Scalability testing
+5. Integration verification
+6. Documentation review
+7. Final approval
+
+### Code Review
+1. Standards compliance
+2. Security analysis
+3. Performance check
+4. Test coverage
+5. Documentation quality
+6. Maintainability assessment
+7. Final validation
+
+## Emergency Response Protocols
+
+### Incident Management
+```json
+{
+  "incidentResponse": {
+    "classification": {
+      "severity1": {
+        "description": "Critical system failure",
+        "response": "Immediate",
+        "notification": "All stakeholders"
+      },
+      "severity2": {
+        "description": "Major functionality affected",
+        "response": "Within 1 hour",
+        "notification": "Technical leads"
+      },
+      "severity3": {
+        "description": "Minor functionality affected",
+        "response": "Within 4 hours",
+        "notification": "Team leads"
+      }
+    },
+    "procedures": {
+      "identification": {
+        "automated": "Monitoring alerts",
+        "manual": "User reports",
+        "analysis": "Impact assessment"
+      },
+      "response": {
+        "immediate": "Service restoration",
+        "investigation": "Root cause analysis",
+        "communication": "Stakeholder updates"
+      },
+      "recovery": {
+        "validation": "Service verification",
+        "documentation": "Incident report",
+        "prevention": "Future mitigation"
+      }
+    }
+  }
+}
+```
+
+## Version Control Standards
+
+### Git Workflow
+```json
+{
+  "gitWorkflow": {
+    "branches": {
+      "main": {
+        "purpose": "Production code",
+        "protection": "Required reviews",
+        "automation": "CI/CD pipeline"
+      },
+      "develop": {
+        "purpose": "Integration branch",
+        "protection": "Build verification",
+        "automation": "Automated tests"
+      },
+      "feature": {
+        "pattern": "feature/*",
+        "lifecycle": "Create from develop",
+        "completion": "Merge to develop"
+      },
+      "release": {
+        "pattern": "release/*",
+        "lifecycle": "Create from develop",
+        "completion": "Merge to main and develop"
+      },
+      "hotfix": {
+        "pattern": "hotfix/*",
+        "lifecycle": "Create from main",
+        "completion": "Merge to main and develop"
+      }
+    },
+    "commits": {
+      "convention": "Conventional Commits",
+      "validation": "Commit hooks",
+      "automation": "Automated formatting"
+    },
+    "reviews": {
+      "requirements": {
+        "approvals": 2,
+        "coverage": "No decrease",
+        "quality": "Pass all checks"
+      },
+      "automation": {
+        "linting": "Pre-commit",
+        "testing": "Pre-merge",
+        "security": "Vulnerability scan"
+      }
+    }
+  }
+}
+```
+
+## Enhanced Testing Framework
+
+### Test Coverage Requirements
+```json
+{
+  "testingRequirements": {
+    "unitTests": {
+      "coverage": {
+        "statements": "95%",
+        "branches": "90%",
+        "functions": "95%",
+        "lines": "95%"
+      },
+      "quality": {
+        "mutation": "85%",
+        "complexity": "≤ 10"
+      }
+    },
+    "integrationTests": {
+      "coverage": {
+        "apis": "100%",
+        "workflows": "90%",
+        "edge-cases": "85%"
+      },
+      "performance": {
+        "response": "≤ 200ms",
+        "throughput": "≥ 1000 rps"
+      }
+    },
+    "e2eTests": {
+      "coverage": {
+        "critical-paths": "100%",
+        "user-flows": "90%"
+      },
+      "performance": {
+        "page-load": "≤ 2s",
+        "interaction": "≤ 100ms"
+      }
+    },
+    "chaosEngineering": {
+      "scenarios": [
+        "Network latency",
+        "Service failures",
+        "Resource exhaustion",
+        "Data corruption"
+      ],
+      "requirements": {
+        "recovery": "Automatic",
+        "data": "No loss",
+        "service": "Degraded mode"
+      }
+    }
+  }
+}
+``` 

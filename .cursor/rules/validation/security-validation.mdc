@@ -1,0 +1,315 @@
+# Security Validation Rules
+
+---
+description: Security testing and validation guidelines for cFish.io
+globs: ["*/security/*", "*/tests/security/*"]
+alwaysApply: true
+priority: critical
+---
+
+## Security Testing Framework
+
+### Core Security Areas
+- Authentication Testing
+- Authorization Testing
+- Input Validation
+- Output Sanitization
+- Session Management
+- Data Protection
+- API Security
+- Infrastructure Security
+
+### Security Standards
+- OWASP Guidelines
+- WordPress Security
+- PCI Compliance
+- GDPR Requirements
+- Security Best Practices
+- Industry Standards
+
+### Security Tools
+- OWASP ZAP
+- Acunetix
+- PHPStan
+- PHPCS Security
+- SSL Labs
+- Security Headers
+
+## Implementation Guidelines
+
+### Security Test Framework
+```php
+abstract class SecurityTestCase extends TestCase {
+  protected function setUp(): void {
+    parent::setUp();
+    $this->initializeSecurityTest();
+  }
+  
+  protected function initializeSecurityTest() {
+    // Configure security environment
+    // Set up test credentials
+    // Initialize security tools
+    // Configure monitoring
+  }
+  
+  protected function performSecurityCheck($target, $type) {
+    $scanner = $this->getSecurityScanner($type);
+    return $scanner->scan($target);
+  }
+  
+  protected function assertSecurityCompliance($results, $standard) {
+    foreach ($standard->getRequirements() as $requirement) {
+      $this->assertTrue(
+        $results->meetsRequirement($requirement),
+        "Failed security requirement: {$requirement->getName()}"
+      );
+    }
+  }
+}
+```
+
+### Authentication Testing
+```php
+class AuthenticationTest extends SecurityTestCase {
+  public function testPasswordSecurity() {
+    $password = 'TestPassword123!';
+    $hasher = new PasswordHasher();
+    
+    // Test password hashing
+    $hash = $hasher->hash($password);
+    $this->assertNotEquals($password, $hash);
+    
+    // Test password verification
+    $this->assertTrue($hasher->verify($password, $hash));
+    
+    // Test against rainbow tables
+    $this->assertFalse($this->isCommonPassword($password));
+  }
+  
+  public function testBruteForceProtection() {
+    $attempts = [];
+    for ($i = 0; $i < 5; $i++) {
+      $attempts[] = $this->attemptLogin('user', 'wrong' . $i);
+    }
+    
+    $lastAttempt = $this->attemptLogin('user', 'correct');
+    $this->assertFalse($lastAttempt['success']);
+    $this->assertEquals('account_locked', $lastAttempt['status']);
+  }
+}
+```
+
+### Authorization Testing
+```php
+class AuthorizationTest extends SecurityTestCase {
+  public function testRoleBasedAccess() {
+    $user = $this->createUser(['role' => 'subscriber']);
+    
+    // Test resource access
+    $this->assertFalse(
+      $user->can('edit_posts'),
+      'Subscriber should not edit posts'
+    );
+    
+    // Test capability inheritance
+    $editor = $this->createUser(['role' => 'editor']);
+    $this->assertTrue(
+      $editor->can('edit_posts'),
+      'Editor should edit posts'
+    );
+  }
+  
+  public function testPermissionEscalation() {
+    $user = $this->createUser(['role' => 'subscriber']);
+    
+    try {
+      $user->promote('administrator');
+      $this->fail('Should not allow self-promotion');
+    } catch (SecurityException $e) {
+      $this->assertEquals('unauthorized_promotion', $e->getCode());
+    }
+  }
+}
+```
+
+## Security Validation Categories
+
+### Input Validation
+- SQL Injection
+- XSS Prevention
+- CSRF Protection
+- File Upload Security
+- Input Sanitization
+- Parameter Validation
+
+### Authentication Security
+- Password Policies
+- Multi-factor Authentication
+- Session Management
+- Login Security
+- Password Reset
+- Account Recovery
+
+### Authorization Security
+- Role-based Access
+- Capability Checking
+- Resource Protection
+- API Authorization
+- Token Validation
+- Permission Management
+
+### Data Protection
+- Encryption Standards
+- Data Storage
+- Data Transmission
+- Backup Security
+- Data Deletion
+- Privacy Compliance
+
+## Security Testing Standards
+
+### OWASP Compliance
+```json
+{
+  "owaspChecks": {
+    "injection": {
+      "sql": "prevented",
+      "command": "prevented",
+      "ldap": "prevented"
+    },
+    "authentication": {
+      "brute_force": "protected",
+      "session_fixation": "prevented",
+      "credential_exposure": "prevented"
+    },
+    "xss": {
+      "reflected": "prevented",
+      "stored": "prevented",
+      "dom": "prevented"
+    }
+  }
+}
+```
+
+### WordPress Security
+```json
+{
+  "wordpressChecks": {
+    "core": {
+      "version": "latest",
+      "file_permissions": "secure",
+      "debug": "production"
+    },
+    "plugins": {
+      "updates": "automatic",
+      "vulnerability_scan": "daily",
+      "compatibility": "verified"
+    },
+    "database": {
+      "prefix": "randomized",
+      "access": "restricted",
+      "backup": "encrypted"
+    }
+  }
+}
+```
+
+## Security Monitoring
+
+### Real-time Monitoring
+```json
+{
+  "monitoring": {
+    "authentication": {
+      "failed_attempts": "tracked",
+      "suspicious_patterns": "alerted",
+      "ip_blocking": "automatic"
+    },
+    "activity": {
+      "admin_actions": "logged",
+      "file_changes": "monitored",
+      "api_access": "tracked"
+    },
+    "system": {
+      "resource_usage": "monitored",
+      "error_logs": "analyzed",
+      "updates": "tracked"
+    }
+  }
+}
+```
+
+### Security Alerts
+```json
+{
+  "alerts": {
+    "critical": {
+      "response": "immediate",
+      "notification": "all channels",
+      "action": "automatic"
+    },
+    "warning": {
+      "response": "4 hours",
+      "notification": "security team",
+      "action": "manual"
+    },
+    "info": {
+      "response": "24 hours",
+      "notification": "log",
+      "action": "review"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Security testing framework installed
+- [ ] Testing tools configured
+- [ ] Monitoring system active
+- [ ] Alert system configured
+- [ ] Standards documented
+- [ ] Team trained
+
+### Testing
+- [ ] Authentication tests implemented
+- [ ] Authorization tests created
+- [ ] Input validation verified
+- [ ] Output sanitization checked
+- [ ] Session security tested
+- [ ] API security validated
+
+### Validation
+- [ ] OWASP compliance verified
+- [ ] WordPress security checked
+- [ ] PCI compliance validated
+- [ ] GDPR requirements met
+- [ ] Security headers configured
+- [ ] SSL/TLS validated
+
+## Continuous Security
+
+### Review Process
+1. Regular security audits
+2. Vulnerability scanning
+3. Penetration testing
+4. Code review
+5. Configuration review
+6. Update verification
+7. Incident response testing
+8. Team training
+9. Documentation updates
+10. Policy review
+
+### Security Cycle
+1. Monitor systems
+2. Identify threats
+3. Assess risks
+4. Implement controls
+5. Test security
+6. Review results
+7. Update security
+8. Train team
+9. Document changes
+10. Regular review 

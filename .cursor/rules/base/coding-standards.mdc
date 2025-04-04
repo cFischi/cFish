@@ -1,0 +1,199 @@
+---
+description: Core coding standards and best practices for cFish.io development
+globs: *
+alwaysApply: true
+priority: high
+version: 1.0
+---
+
+# Coding Standards and Best Practices
+
+## Core Principles
+
+- Follow WordPress coding standards for PHP development
+- Implement mobile-first responsive design
+- Use test-driven development (TDD) approach
+- Maintain comprehensive documentation
+- Ensure security best practices
+- Optimize for performance
+- Follow SOLID principles
+
+## Code Organization
+
+### File Structure
+- Break large files into smaller modules (<100 lines)
+- Use descriptive file names following UcF conventions
+- Organize by feature or domain rather than type
+- Maintain clear separation of concerns
+- Implement modular architecture
+
+### Naming Conventions
+- Variables: camelCase
+- Classes: PascalCase
+- Constants: UPPER_SNAKE_CASE
+- Functions: snake_case (WordPress standard)
+- Files: kebab-case
+- Follow UcF naming pattern: `ucf-[department].[function]-[description]-[date].[extension]`
+
+## Development Patterns
+
+### WordPress Development
+- Use proper hook naming conventions
+- Implement nonce verification
+- Sanitize inputs and escape outputs
+- Use prepared statements for queries
+- Follow WordPress.org plugin guidelines
+- Implement proper error handling
+
+### JavaScript Development
+- Use ES6+ features appropriately
+- Implement proper error handling
+- Follow async/await patterns
+- Maintain consistent event handling
+- Implement proper state management
+- Use TypeScript where appropriate
+
+### CSS/SCSS Development
+- Follow BEM methodology
+- Implement mobile-first approach
+- Use logical property ordering
+- Maintain consistent naming
+- Optimize for performance
+- Follow accessibility guidelines
+
+## Security Standards
+
+### Input Validation
+- Validate all user inputs
+- Implement proper sanitization
+- Use prepared statements
+- Verify nonce tokens
+- Check user capabilities
+- Implement rate limiting
+
+### Output Escaping
+- Escape all output appropriately
+- Use context-specific escaping
+- Implement XSS prevention
+- Follow OWASP guidelines
+- Document security measures
+
+## Performance Optimization
+
+### Code Level
+- Use efficient algorithms
+- Implement proper caching
+- Optimize database queries
+- Minimize DOM manipulation
+- Use appropriate data structures
+- Implement lazy loading
+
+### Asset Management
+- Optimize images and media
+- Implement proper caching
+- Use asset versioning
+- Minimize HTTP requests
+- Follow loading best practices
+
+## Documentation Requirements
+
+### Code Documentation
+- Use PHPDoc standards
+- Document all functions
+- Explain complex logic
+- Include usage examples
+- Document security considerations
+- Maintain changelog
+
+### API Documentation
+- Document all endpoints
+- Include request/response examples
+- Document authentication requirements
+- Include error responses
+- Maintain versioning information
+
+## Testing Standards
+
+### Unit Testing
+- Write comprehensive tests
+- Follow AAA pattern
+- Implement proper mocking
+- Test edge cases
+- Maintain high coverage
+- Document test cases
+
+### Integration Testing
+- Test cross-component functionality
+- Verify system integration
+- Test error handling
+- Validate security measures
+- Document test scenarios
+
+## Version Control
+
+### Git Practices
+- Use feature branches
+- Write clear commit messages
+- Follow conventional commits
+- Implement proper PR process
+- Maintain clean history
+- Document significant changes
+
+### Branch Strategy
+- main: Production code
+- develop: Development branch
+- feature/*: Feature branches
+- bugfix/*: Bug fix branches
+- release/*: Release branches
+
+## Error Handling
+
+### Logging
+- Implement comprehensive logging
+- Use appropriate log levels
+- Include context information
+- Follow logging standards
+- Maintain log rotation
+- Document logging patterns
+
+### Error Recovery
+- Implement graceful degradation
+- Provide user feedback
+- Log error details
+- Implement retry mechanisms
+- Document recovery procedures
+
+## Accessibility Standards
+
+### WCAG Compliance
+- Follow WCAG 2.1 guidelines
+- Implement proper ARIA roles
+- Maintain keyboard navigation
+- Provide alternative text
+- Test with screen readers
+- Document accessibility features
+
+## Mobile Optimization
+
+### Responsive Design
+- Implement mobile-first approach
+- Use proper breakpoints
+- Optimize for touch interfaces
+- Test across devices
+- Document responsive patterns
+
+## Cross-Platform Compatibility
+
+### Browser Support
+- Test across major browsers
+- Implement graceful degradation
+- Document browser requirements
+- Test responsive behavior
+- Maintain compatibility list
+
+### Platform Testing
+- Test on major platforms
+- Verify mobile compatibility
+- Document platform requirements
+- Implement platform-specific fixes
+- Maintain test environments 

@@ -1,0 +1,219 @@
+---
+description: Development workflow standards and procedures for cFish.io
+globs: *
+alwaysApply: true
+priority: high
+version: 1.0
+---
+
+# Development Workflow Standards
+
+## Core Workflow Principles
+
+### Progressive Reasoning Implementation
+1. Understand: Clearly identify task requirements
+2. Analyze: Examine current state and context
+3. Plan: Design implementation approach
+4. Implement: Follow best practices
+5. Validate: Verify implementation
+6. Document: Update documentation and plan next steps
+
+### Self-Questioning Loop
+- Verify requirement understanding
+- Consider alternative approaches
+- Check for edge cases
+- Validate against standards
+- Assess security implications
+
+## Session Management
+
+### Chat Session Guidelines
+- Create new sessions for feature completion
+- Update workbench and memory files
+- Document challenges and solutions
+- Provide clear next steps
+- Follow structured format
+
+### Memory File Updates
+```markdown
+## [Title] (MM-DD-2025)
+- [Bullet points with key information]
+- [More bullet points as needed]
+
+_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+```
+
+## Development Process
+
+### Feature Implementation
+1. Create detailed PRD
+2. Break down into manageable tasks
+3. Implement test-first approach
+4. Follow coding standards
+5. Document thoroughly
+6. Review and validate
+
+### Code Review Process
+1. Self-review implementation
+2. Verify security practices
+3. Check coding standards
+4. Validate documentation
+5. Test functionality
+6. Update changelog
+
+## Task Management
+
+### Task Structure
+```markdown
+TASK: [Brief description]
+Status: [in-progress|complete]
+Description: [Detailed description]
+
+Steps:
+[ ] Step 1
+[ ] Step 2
+[X] Completed step
+
+Reflections:
+- Implementation observations
+- Challenges encountered
+
+Decisions:
+- Implementation choices
+- Technical decisions
+```
+
+### Progress Tracking
+- Use scratchpad.md for task state
+- Update memory.md with progress
+- Document in changelog.md
+- Track milestones
+- Monitor dependencies
+
+## Quality Assurance
+
+### Testing Requirements
+- Write tests before implementation
+- Create comprehensive test suite
+- Implement security testing
+- Validate performance
+- Document test cases
+
+### Documentation Standards
+- Update technical documentation
+- Maintain user guides
+- Document API changes
+- Create usage examples
+- Keep changelog current
+
+## Deployment Process
+
+### Staging Deployment
+1. Verify all tests pass
+2. Check performance metrics
+3. Validate security measures
+4. Review documentation
+5. Test in staging environment
+
+### Production Deployment
+1. Create deployment plan
+2. Verify backups
+3. Execute deployment
+4. Monitor performance
+5. Document changes
+
+## Error Management
+
+### Error Handling
+- Implement comprehensive logging
+- Provide clear error messages
+- Create recovery procedures
+- Document error patterns
+- Monitor error rates
+
+### Issue Resolution
+1. Identify root cause
+2. Create reproduction steps
+3. Implement fix
+4. Add regression tests
+5. Document solution
+
+## Security Procedures
+
+### Security Review
+- Verify input validation
+- Check output escaping
+- Validate authentication
+- Review authorization
+- Test security measures
+
+### Vulnerability Management
+1. Regular security scans
+2. Address vulnerabilities
+3. Document security fixes
+4. Update security docs
+5. Monitor security status
+
+## Performance Management
+
+### Performance Monitoring
+- Track key metrics
+- Monitor resource usage
+- Identify bottlenecks
+- Optimize performance
+- Document benchmarks
+
+### Optimization Process
+1. Measure current performance
+2. Identify improvements
+3. Implement optimizations
+4. Validate results
+5. Document changes
+
+## Communication Standards
+
+### Status Updates
+- Provide regular updates
+- Document progress
+- Share challenges
+- Report metrics
+- Plan next steps
+
+### Documentation Updates
+- Keep documentation current
+- Update technical docs
+- Maintain user guides
+- Document changes
+- Track versions
+
+## Version Control
+
+### Branch Management
+- Create feature branches
+- Follow naming conventions
+- Keep branches updated
+- Clean up after merge
+- Document changes
+
+### Commit Standards
+- Write clear messages
+- Follow conventional commits
+- Reference issues
+- Document breaking changes
+- Keep commits focused
+
+## Continuous Improvement
+
+### Process Refinement
+- Review workflows regularly
+- Identify improvements
+- Implement changes
+- Monitor results
+- Document learnings
+
+### Knowledge Sharing
+- Document best practices
+- Share learnings
+- Create examples
+- Update guidelines
+- Maintain knowledge base 

@@ -1,0 +1,50 @@
+{
+  "UpdateInterval": 30,
+  "Thresholds": {
+    "Memory": {
+      "Warning": 75,
+      "Critical": 85,
+      "Emergency": 90
+    },
+    "Process": {
+      "MaxTotal": 250,
+      "MaxCursor": 3,
+      "MaxMemoryPerCursor": 300,
+      "TotalCursorMemory": 1000
+    },
+    "Disk": {
+      "Warning": 80,
+      "Critical": 90
+    },
+    "CPU": {
+      "Warning": 70,
+      "Critical": 85
+    }
+  },
+  "Alerts": {
+    "Email": {
+      "Enabled": true,
+      "Recipients": [
+        "admin@cfish.io",
+        "alerts@cfish.io"
+      ],
+      "FromAddress": "monitoring@cfish.io",
+      "SmtpServer": "smtp.cfish.io",
+      "SmtpPort": 587,
+      "UseTLS": true
+    },
+    "AutoRemediate": {
+      "Enabled": true,
+      "Actions": [
+        "CleanupProcesses",
+        "TriggerGarbageCollection",
+        "OptimizeCursorInstances"
+      ]
+    }
+  },
+  "Reporting": {
+    "LogRetention": 7,
+    "MetricsPath": "./.cursor/metrics/monitoring",
+    "AlertsPath": "./.cursor/logs/alerts"
+  }
+} 

@@ -1,15 +1,16 @@
 ---
-description: U6-Marketing department guidelines focused on FischEYe production design and social media communications.
-globs: U6-Marketing/*, *.md, *.css, *.js
-alwaysApply: false
+description: U6-Marketing department guidelines focused on FischEYe production design and social media communications
+globs: ["*/u6-marketing/*", "*/media/*", "*.mp4", "*.jpg", "*.png", "*.svg"]
+alwaysApply: true
+priority: high
+version: 1.0
 ---
 
 # U6-Marketing Department Guidelines
 
-The U6-Marketing department focuses on FischEYe production design, social media, and communications for cFish.io.
+## Department Overview
 
-## Department Role
-
+### Core Responsibilities
 - Lead communications and marketing initiatives
 - Manage FischEYe production design
 - Create and maintain brand identity
@@ -17,79 +18,403 @@ The U6-Marketing department focuses on FischEYe production design, social media,
 - Coordinate social media presence
 - Align all implementations with the Communicate (U6) philosophical principle
 
-## Core Technologies
-
-- **Design Tools**: Adobe Creative Suite, Figma, etc.
-- **Social Media**: Platform integrations and management
-- **Content Management**: WordPress, media libraries
-- **Analytics**: Tracking and reporting tools
-- **Marketing Automation**: Email and campaign systems
-
-## File Organization
-
-- Follow UcF file organization patterns:
-  - Store files in appropriate departmental directories
-  - Use consistent naming: `ucf-[department].[function]-[description]-[date].[extension]`
-  - Example: `ucf-u6.4-brand-guidelines-20250507.md`
-
-- Marketing-specific organization:
-  ```
-  U6-Marketing/
-    Branding/         # Brand identity and guidelines
-    Media/            # Media assets and resources
-    Campaigns/        # Marketing campaign materials
-    Social/           # Social media content and planning
-    Content/          # Content creation and management
-    Analytics/        # Marketing analytics and reporting
-  ```
-
-## Brand Guidelines
-
-- Maintain consistent brand identity across all platforms:
-  - Typography: [Specify font families and usage]
-  - Color palette: [Specify brand colors with hex values]
-  - Imagery guidelines: [Describe image style and selection criteria]
-  - Voice and tone: [Define communication style]
-  - Logo usage: [Specify rules for logo placement and variations]
-
-- Apply brand guidelines to all client-facing materials:
-  - Documentation
-  - Website and digital platforms
-  - Social media content
-  - Client presentations
-  - Marketing materials
-
-## Documentation-as-Service
-
-- Create professional-grade documentation for clients:
-  - Implement consistent branding across all documentation
-  - Develop templates for different document types
-  - Establish quality metrics for documentation deliverables
-  - Create visually appealing layouts and formatting
-  - Incorporate information design best practices
-
-- Documentation export formats:
-  - PDF with professional formatting
-  - Interactive HTML for digital delivery
-  - Print-optimized versions for physical distribution
-  - Markdown source files for future updates
-
-## Philosophical Alignment
-
-As Communicate (U6) department, focus on:
+### Department Alignment
+- Communicate (U6) philosophical principle
 - Clear and effective communication
-- Authentic representation of values
-- Engaging and compelling storytelling
+- Authentic brand representation
+- Engaging storytelling
 - Building genuine connections
-- Transparent and ethical marketing practices
-- Extending the Dreamflo philosophy to clients
+- Transparent marketing practices
 
-## Relaunch Priorities
+## Agent Configuration
 
-For the April 2025 relaunch, focus on:
-- Documentation-as-service marketing materials
-- Brand refresh aligned with relaunch positioning
-- Client success story documentation
-- Knowledge monetization promotional strategy
-- Enhanced visual identity across all platforms
-- Client-facing examples of multi-platform integration 
+### Agent Roles
+```json
+{
+  "marketingCoordinator": {
+    "role": "Marketing Strategy Coordinator",
+    "responsibilities": [
+      "Marketing strategy oversight",
+      "Brand consistency management",
+      "Campaign coordination",
+      "Performance tracking"
+    ],
+    "context": {
+      "required": [
+        "Brand guidelines",
+        "Marketing strategy",
+        "Campaign metrics",
+        "Performance targets"
+      ],
+      "optional": [
+        "Historical campaigns",
+        "Market analysis",
+        "Competitor insights"
+      ]
+    }
+  },
+  "mediaProducer": {
+    "role": "Multimedia Production Specialist",
+    "responsibilities": [
+      "Content creation",
+      "Visual design",
+      "Video production",
+      "Asset management"
+    ],
+    "context": {
+      "required": [
+        "Design standards",
+        "Production workflows",
+        "Asset specifications",
+        "Quality guidelines"
+      ],
+      "optional": [
+        "Previous productions",
+        "Style references",
+        "Technical constraints"
+      ]
+    }
+  },
+  "socialMediaManager": {
+    "role": "Social Media Communications Manager",
+    "responsibilities": [
+      "Content strategy",
+      "Platform management",
+      "Engagement monitoring",
+      "Analytics tracking"
+    ],
+    "context": {
+      "required": [
+        "Platform guidelines",
+        "Content calendar",
+        "Engagement metrics",
+        "Response protocols"
+      ],
+      "optional": [
+        "Historical performance",
+        "Trend analysis",
+        "Audience insights"
+      ]
+    }
+  }
+}
+```
+
+### Role-Specific Templates
+
+#### Marketing Campaign Template
+```markdown
+# [Campaign Name]
+
+## Overview
+[Brief description of campaign]
+
+## Objectives
+- Target audience
+- Key messages
+- Success metrics
+- Timeline goals
+
+## Implementation
+### Planning
+- Strategy development
+- Resource allocation
+- Timeline creation
+- Budget planning
+
+### Execution
+- Content creation
+- Channel distribution
+- Engagement monitoring
+- Performance tracking
+
+### Analysis
+- Metrics review
+- ROI calculation
+- Insights gathering
+- Future recommendations
+```
+
+#### Content Production Template
+```markdown
+# [Content Project]
+
+## Overview
+[Brief description of content]
+
+## Requirements
+- Brand alignment
+- Technical specifications
+- Distribution channels
+- Performance targets
+
+## Production
+### Pre-production
+- Concept development
+- Resource planning
+- Timeline creation
+- Technical setup
+
+### Production
+- Content creation
+- Quality assurance
+- Brand compliance
+- Technical validation
+
+### Post-production
+- Final editing
+- Format optimization
+- Distribution prep
+- Analytics setup
+```
+
+## Brand Standards
+
+### Visual Identity
+```json
+{
+  "brandElements": {
+    "logo": {
+      "primary": "FischEYe standard logo",
+      "variations": [
+        "Monochrome",
+        "Reversed",
+        "Icon only"
+      ],
+      "clearSpace": "1x height minimum",
+      "minimumSize": "30px height"
+    },
+    "colors": {
+      "primary": {
+        "main": "#[HEX]",
+        "dark": "#[HEX]",
+        "light": "#[HEX]"
+      },
+      "secondary": {
+        "accent1": "#[HEX]",
+        "accent2": "#[HEX]",
+        "accent3": "#[HEX]"
+      }
+    },
+    "typography": {
+      "primary": "Font Family Name",
+      "secondary": "Font Family Name",
+      "webSafe": "Arial, sans-serif"
+    }
+  }
+}
+```
+
+### Content Guidelines
+```json
+{
+  "contentStandards": {
+    "tone": {
+      "professional": "Clear and authoritative",
+      "approachable": "Friendly and helpful",
+      "innovative": "Forward-thinking and creative"
+    },
+    "messaging": {
+      "core": [
+        "Knowledge excellence",
+        "Innovation leadership",
+        "Client success"
+      ],
+      "style": "Clear, concise, and engaging"
+    }
+  }
+}
+```
+
+## Production Standards
+
+### Media Specifications
+```json
+{
+  "imageSpecs": {
+    "web": {
+      "formats": ["jpg", "png", "webp"],
+      "maxSize": "1MB",
+      "dimensions": {
+        "hero": "1920x1080",
+        "thumbnail": "300x300",
+        "social": "1200x630"
+      }
+    },
+    "video": {
+      "formats": ["mp4", "webm"],
+      "maxSize": "100MB",
+      "resolution": "1920x1080",
+      "frameRate": "30fps"
+    },
+    "animation": {
+      "formats": ["gif", "webp"],
+      "maxSize": "2MB",
+      "frameRate": "24fps"
+    }
+  }
+}
+```
+
+### Quality Standards
+```json
+{
+  "qualityMetrics": {
+    "images": {
+      "compression": "Optimal balance",
+      "sharpness": "High clarity",
+      "colorProfile": "sRGB"
+    },
+    "video": {
+      "bitrate": "High quality",
+      "audio": "Clear stereo",
+      "encoding": "H.264"
+    },
+    "design": {
+      "alignment": "Precise grid",
+      "spacing": "Consistent rhythm",
+      "contrast": "WCAG AA compliant"
+    }
+  }
+}
+```
+
+## Social Media Management
+
+### Platform Strategy
+```json
+{
+  "platforms": {
+    "linkedin": {
+      "content": "Professional insights",
+      "frequency": "3-5/week",
+      "format": ["Articles", "Updates", "Videos"],
+      "metrics": ["Engagement", "Reach", "Conversions"]
+    },
+    "twitter": {
+      "content": "Industry news",
+      "frequency": "5-7/day",
+      "format": ["Tweets", "Threads", "Media"],
+      "metrics": ["Engagement", "Clicks", "Retweets"]
+    },
+    "instagram": {
+      "content": "Visual storytelling",
+      "frequency": "1-2/day",
+      "format": ["Posts", "Stories", "Reels"],
+      "metrics": ["Reach", "Saves", "Shares"]
+    }
+  }
+}
+```
+
+### Engagement Guidelines
+```json
+{
+  "engagement": {
+    "response": {
+      "timing": "Within 2 hours",
+      "tone": "Professional and helpful",
+      "escalation": "Clear protocols"
+    },
+    "monitoring": {
+      "frequency": "Real-time",
+      "tools": ["Social listening", "Analytics"],
+      "metrics": ["Sentiment", "Volume", "Trends"]
+    }
+  }
+}
+```
+
+## Success Metrics
+
+### Marketing Metrics
+```json
+{
+  "metrics": {
+    "brandAwareness": {
+      "target": "25% increase",
+      "measurement": "Brand mentions",
+      "reporting": "Monthly"
+    },
+    "engagement": {
+      "target": "15% growth",
+      "measurement": "Interaction rate",
+      "reporting": "Weekly"
+    },
+    "conversion": {
+      "target": "10% increase",
+      "measurement": "Lead generation",
+      "reporting": "Monthly"
+    }
+  }
+}
+```
+
+### Production Metrics
+```json
+{
+  "productionMetrics": {
+    "contentQuality": {
+      "target": "95%",
+      "measurement": "Quality score",
+      "reporting": "Per piece"
+    },
+    "turnaround": {
+      "target": "48 hours",
+      "measurement": "Production time",
+      "reporting": "Per project"
+    },
+    "effectiveness": {
+      "target": "85%",
+      "measurement": "Goal achievement",
+      "reporting": "Monthly"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Campaign Launch
+- [ ] Strategy validation
+- [ ] Content creation
+- [ ] Channel preparation
+- [ ] Analytics setup
+- [ ] Team briefing
+- [ ] Launch execution
+
+### Content Production
+- [ ] Brief review
+- [ ] Resource allocation
+- [ ] Production schedule
+- [ ] Quality checks
+- [ ] Distribution plan
+- [ ] Performance tracking
+
+### Platform Management
+- [ ] Content calendar
+- [ ] Asset preparation
+- [ ] Engagement monitoring
+- [ ] Analytics tracking
+- [ ] Team coordination
+- [ ] Performance review
+
+## Review Process
+
+### Content Review
+1. Brand alignment
+2. Technical quality
+3. Message clarity
+4. Channel suitability
+5. Performance potential
+6. Final approval
+
+### Campaign Review
+1. Strategy alignment
+2. Resource readiness
+3. Content quality
+4. Channel preparation
+5. Analytics setup
+6. Launch readiness
+7. Team preparation
+8. Final validation 

@@ -1,0 +1,296 @@
+---
+description: Template for tYFeAiz Live Boardz multi-agent collaboration sessions
+globs: *
+alwaysApply: false
+priority: medium
+version: 1.0
+---
+
+# Live Boardz Session Template
+
+## Session Information
+```markdown
+Session ID: [Unique identifier]
+Date: [MM-DD-2025]
+Focus: [Primary session objective]
+Participants: [List of agents and roles]
+```
+
+## Agent Roles
+
+### Executive Agent
+```markdown
+Role: Strategic planning and direction
+Focus: [Current focus area]
+Context Required:
+- Business requirements
+- Strategic documents
+- System architecture
+- User research
+```
+
+### Project Architect
+```markdown
+Role: System design and technical architecture
+Focus: [Current focus area]
+Context Required:
+- Technical specifications
+- Existing architecture
+- Design patterns
+- Technical debt considerations
+```
+
+### Implementation Engineer
+```markdown
+Role: Code generation and development
+Focus: [Current focus area]
+Context Required:
+- Technical specifications
+- Codebase structure
+- Testing frameworks
+- Development environment
+```
+
+### QA Analyst
+```markdown
+Role: Testing and validation
+Focus: [Current focus area]
+Context Required:
+- Testing plans
+- Quality metrics
+- Security practices
+- Performance requirements
+```
+
+### Documentation Specialist
+```markdown
+Role: Technical writing and documentation
+Focus: [Current focus area]
+Context Required:
+- Documentation standards
+- Existing documentation
+- Technical specifications
+- User personas
+```
+
+## Session Structure
+
+### 1. Planning Phase
+```markdown
+Executive Agent:
+- Define strategic goals
+- Outline success criteria
+- Set implementation priorities
+
+Project Architect:
+- Create technical approach
+- Define system components
+- Identify integration points
+
+All Agents:
+- Review and provide input
+- Identify potential issues
+- Suggest improvements
+
+Human Coordinator:
+- Review direction
+- Provide guidance
+- Approve approach
+```
+
+### 2. Design Phase
+```markdown
+Project Architect:
+- Design system components
+- Create interface specifications
+- Define data models
+
+Security Expert:
+- Perform threat modeling
+- Identify security requirements
+- Define security measures
+
+All Agents:
+- Review design
+- Provide feedback
+- Suggest improvements
+```
+
+### 3. Implementation Phase
+```markdown
+Implementation Engineer:
+- Develop code
+- Create tests
+- Implement security measures
+
+QA Analyst:
+- Review code quality
+- Verify test coverage
+- Validate implementation
+
+Documentation Specialist:
+- Create technical documentation
+- Document APIs
+- Update user guides
+```
+
+### 4. Verification Phase
+```markdown
+QA Analyst:
+- Conduct testing
+- Verify requirements
+- Validate security
+
+Implementation Engineer:
+- Address issues
+- Optimize performance
+- Finalize implementation
+
+Documentation Specialist:
+- Complete documentation
+- Update changelog
+- Prepare release notes
+```
+
+## Handoff Protocol
+
+### Handoff Template
+```markdown
+[HANDOFF FROM: Agent Role]
+
+# Completed Work
+- [List completed tasks]
+- [Include results and metrics]
+
+# Current Status
+- [Implementation state]
+- [Outstanding issues]
+- [Blocking items]
+
+# Context References
+- [Key files]
+- [Important decisions]
+- [Related documentation]
+
+# Next Steps
+- [Tasks for next agent]
+- [Priority order]
+- [Dependencies]
+
+[HANDOFF TO: Next Agent Role]
+```
+
+## Decision Framework
+
+### Decision Template
+```markdown
+[DECISION POINT: Title]
+
+# Options
+1. [Option 1]
+   - Benefits:
+   - Drawbacks:
+   - Implementation considerations:
+
+2. [Option 2]
+   - Benefits:
+   - Drawbacks:
+   - Implementation considerations:
+
+# Analysis
+- [Comparison of options]
+- [Trade-off analysis]
+- [Risk assessment]
+
+# Recommendation
+- [Preferred option]
+- [Rationale]
+- [Implementation plan]
+
+[REQUEST FOR INPUT: Specific Agent or ALL]
+```
+
+## Progress Tracking
+
+### Status Update Template
+```markdown
+## Implementation Status
+- Completed: [%]
+- In Progress: [Tasks]
+- Blocked: [Issues]
+- Next: [Upcoming tasks]
+
+## Metrics
+- Test Coverage: [%]
+- Code Quality: [Metrics]
+- Performance: [Measurements]
+- Security: [Assessment]
+
+## Documentation
+- Technical: [Status]
+- User: [Status]
+- API: [Status]
+- Release: [Status]
+```
+
+## Session Documentation
+
+### Memory Update Template
+```markdown
+## [Session Title] (MM-DD-2025)
+- Session Focus: [Description]
+- Key Decisions: [List]
+- Implementations: [Summary]
+- Next Steps: [Plan]
+
+_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+```
+
+### Changelog Update Template
+```markdown
+## [Version] - [2025-MM-DD]
+
+### Added
+- [New features]
+
+### Changed
+- [Modified functionality]
+
+### Fixed
+- [Bug fixes]
+
+### Security
+- [Security updates]
+```
+
+## Review Checklist
+
+### Implementation Review
+- [ ] Code follows standards
+- [ ] Tests are comprehensive
+- [ ] Security measures implemented
+- [ ] Performance optimized
+- [ ] Documentation complete
+- [ ] Error handling proper
+- [ ] Logging implemented
+- [ ] Metrics configured
+
+### Documentation Review
+- [ ] Technical documentation complete
+- [ ] API documentation updated
+- [ ] User guides current
+- [ ] Release notes prepared
+- [ ] Changelog updated
+- [ ] Known issues documented
+- [ ] Dependencies listed
+- [ ] Configuration documented
+
+### Security Review
+- [ ] Input validation complete
+- [ ] Output escaping implemented
+- [ ] Authentication verified
+- [ ] Authorization checked
+- [ ] Security headers configured
+- [ ] Error handling secure
+- [ ] Logging secure
+- [ ] Dependencies scanned 

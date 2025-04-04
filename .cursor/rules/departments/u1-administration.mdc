@@ -81,3 +81,370 @@ For the April 2025 relaunch, focus on:
 - Success metrics definition and tracking
 - Risk management and contingency planning
 - Long-term vision alignment between all departments 
+
+# U1-Administration Department Rules
+
+---
+description: Guidelines for U1-Administration department operations in cFish.io
+globs: ["*/u1-administration/*", "*/administration/*"]
+alwaysApply: true
+priority: high
+---
+
+## Department Overview
+
+### Core Responsibilities
+- Business administration
+- Trust structure management
+- Financial operations
+- Organizational policies
+- Cross-departmental coordination
+- Strategic planning
+
+### Department Alignment
+- Soul (U1) philosophical principle
+- System integrity and core values
+- Ethical business practices
+- Long-term sustainability
+- Balanced growth
+- Philosophical consistency
+
+## Agent Configuration
+
+### Agent Roles
+```json
+{
+  "adminAgent": {
+    "role": "Administrative Coordinator",
+    "responsibilities": [
+      "Policy documentation",
+      "Trust structure maintenance",
+      "Administrative workflow",
+      "Strategic planning"
+    ],
+    "context": {
+      "required": [
+        "UcF organizational structure",
+        "Business administration docs",
+        "Trust documentation",
+        "Policy frameworks"
+      ],
+      "optional": [
+        "Historical records",
+        "Financial reports",
+        "Strategic plans"
+      ]
+    }
+  }
+}
+```
+
+### Role-Specific Templates
+
+#### Policy Documentation Template
+```markdown
+# [Policy Name]
+
+## Overview
+[Brief description of the policy]
+
+## Scope
+- Departments affected
+- Personnel affected
+- Systems affected
+- Time period
+
+## Policy Details
+### Requirements
+- [Requirement 1]
+- [Requirement 2]
+- [Requirement 3]
+
+### Implementation
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+### Compliance
+- Monitoring procedures
+- Reporting requirements
+- Audit schedule
+
+## Review and Updates
+- Review frequency
+- Update procedures
+- Version tracking
+```
+
+#### Trust Structure Template
+```markdown
+# [Trust Component]
+
+## Purpose
+[Component purpose and benefits]
+
+## Structure
+- Legal framework
+- Organizational alignment
+- Operational impact
+
+## Implementation
+### Requirements
+- Legal requirements
+- Operational requirements
+- Documentation requirements
+
+### Procedures
+1. [Procedure 1]
+2. [Procedure 2]
+3. [Procedure 3]
+
+### Validation
+- Compliance checks
+- Audit requirements
+- Review procedures
+```
+
+## Integration Patterns
+
+### Cross-Department Integration
+```json
+{
+  "integrationPoints": {
+    "u2_research": {
+      "type": "Strategic Alignment",
+      "touchpoints": [
+        "Innovation strategy",
+        "Research priorities",
+        "Resource allocation"
+      ]
+    },
+    "u3_operations": {
+      "type": "Resource Management",
+      "touchpoints": [
+        "Budget allocation",
+        "Resource planning",
+        "Operational policies"
+      ]
+    },
+    "u4_production": {
+      "type": "Project Oversight",
+      "touchpoints": [
+        "Project budgets",
+        "Resource allocation",
+        "Production policies"
+      ]
+    },
+    "u5_data": {
+      "type": "Data Governance",
+      "touchpoints": [
+        "Data policies",
+        "Compliance requirements",
+        "Security standards"
+      ]
+    },
+    "u6_marketing": {
+      "type": "Brand Management",
+      "touchpoints": [
+        "Marketing budgets",
+        "Brand policies",
+        "Communication standards"
+      ]
+    },
+    "u7_systems": {
+      "type": "Technical Governance",
+      "touchpoints": [
+        "Technology policies",
+        "Security standards",
+        "Infrastructure planning"
+      ]
+    }
+  }
+}
+```
+
+### Documentation Integration
+```json
+{
+  "documentationFlow": {
+    "input": {
+      "sources": [
+        "Department reports",
+        "Strategic plans",
+        "Policy drafts",
+        "Trust documents"
+      ],
+      "format": "Standardized templates"
+    },
+    "processing": {
+      "review": "Multi-level review process",
+      "validation": "Compliance check",
+      "approval": "Authority sign-off"
+    },
+    "output": {
+      "formats": [
+        "PDF documentation",
+        "Digital knowledge base",
+        "Training materials",
+        "Reference guides"
+      ],
+      "distribution": "Role-based access"
+    }
+  }
+}
+```
+
+## Success Metrics
+
+### Performance Metrics
+```json
+{
+  "metrics": {
+    "policyCompliance": {
+      "target": "98%",
+      "measurement": "Monthly audit",
+      "reporting": "Department dashboard"
+    },
+    "documentationQuality": {
+      "target": "95%",
+      "measurement": "Quality assessment",
+      "reporting": "Weekly review"
+    },
+    "processEfficiency": {
+      "target": "90%",
+      "measurement": "Time tracking",
+      "reporting": "Monthly analysis"
+    },
+    "crossDepartmentAlignment": {
+      "target": "95%",
+      "measurement": "Alignment score",
+      "reporting": "Quarterly review"
+    }
+  }
+}
+```
+
+### Strategic Metrics
+```json
+{
+  "strategicMetrics": {
+    "trustStructure": {
+      "stability": "99%",
+      "compliance": "100%",
+      "efficiency": "95%"
+    },
+    "policyFramework": {
+      "coverage": "98%",
+      "effectiveness": "95%",
+      "adoption": "90%"
+    },
+    "resourceAllocation": {
+      "efficiency": "95%",
+      "utilization": "90%",
+      "optimization": "85%"
+    }
+  }
+}
+```
+
+## Quality Assurance
+
+### Documentation QA
+```json
+{
+  "documentationQA": {
+    "review": {
+      "technical": "Accuracy and completeness",
+      "legal": "Compliance and risk",
+      "usability": "Clarity and accessibility"
+    },
+    "validation": {
+      "compliance": "Policy alignment",
+      "consistency": "Style and format",
+      "completeness": "Required elements"
+    },
+    "approval": {
+      "levels": [
+        "Department review",
+        "Legal review",
+        "Executive approval"
+      ]
+    }
+  }
+}
+```
+
+### Process QA
+```json
+{
+  "processQA": {
+    "workflow": {
+      "validation": "Process compliance",
+      "efficiency": "Time and resource usage",
+      "effectiveness": "Outcome quality"
+    },
+    "monitoring": {
+      "metrics": "Performance tracking",
+      "alerts": "Issue notification",
+      "reporting": "Status updates"
+    },
+    "improvement": {
+      "analysis": "Performance review",
+      "planning": "Enhancement strategy",
+      "implementation": "Process updates"
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Agent roles configured
+- [ ] Templates implemented
+- [ ] Integration points established
+- [ ] Metrics defined
+- [ ] QA procedures documented
+- [ ] Documentation standards set
+
+### Validation
+- [ ] Role effectiveness verified
+- [ ] Template usability tested
+- [ ] Integration tested
+- [ ] Metrics validated
+- [ ] QA procedures tested
+- [ ] Standards compliance checked
+
+### Maintenance
+- [ ] Regular role review
+- [ ] Template updates
+- [ ] Integration optimization
+- [ ] Metrics refinement
+- [ ] QA improvement
+- [ ] Standards evolution
+
+## Review Process
+
+### Documentation Review
+1. Content accuracy
+2. Format compliance
+3. Policy alignment
+4. Legal compliance
+5. Usability check
+6. Technical review
+7. Final approval
+8. Distribution plan
+9. Implementation tracking
+10. Feedback collection
+
+### Process Review
+1. Efficiency analysis
+2. Resource utilization
+3. Output quality
+4. User feedback
+5. Compliance check
+6. Performance metrics
+7. Improvement planning
+8. Implementation
+9. Validation
+10. Documentation update 

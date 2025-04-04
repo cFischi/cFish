@@ -1,0 +1,157 @@
+# Authentication Feature Rules
+
+---
+description: Authentication implementation guidelines and best practices for cFish.io
+globs: ["*/auth/*", "*/authentication/*"]
+alwaysApply: true
+priority: high
+---
+
+## Authentication Requirements
+
+### Core Authentication Features
+- User registration and login
+- Password reset functionality
+- Social authentication integration
+- Two-factor authentication
+- Session management
+- Role-based access control
+
+### Security Requirements
+- Secure password hashing
+- Brute force protection
+- Session timeout handling
+- IP-based restrictions
+- Failed login monitoring
+- Security logging
+
+### User Experience
+- Clear error messages
+- Password strength indicators
+- Remember me functionality
+- Progressive enhancement
+- Mobile-friendly forms
+- Accessibility compliance
+
+## Implementation Guidelines
+
+### User Authentication
+```php
+class UserAuthentication {
+  public function authenticate_user($credentials) {
+    // Verify nonce
+    if (!wp_verify_nonce($credentials['nonce'], 'auth_nonce')) {
+      return new WP_Error('invalid_nonce', 'Security check failed');
+    }
+    
+    // Authenticate user
+    $user = wp_authenticate(
+      sanitize_user($credentials['username']),
+      $credentials['password']
+    );
+    
+    if (is_wp_error($user)) {
+      $this->log_failed_attempt($credentials['username']);
+      return $user;
+    }
+    
+    return $this->setup_user_session($user);
+  }
+  
+  private function setup_user_session($user) {
+    wp_set_auth_cookie($user->ID, isset($_POST['remember']));
+    return $user;
+  }
+  
+  private function log_failed_attempt($username) {
+    // Log failed attempt for security monitoring
+  }
+}
+```
+
+### Two-Factor Authentication
+```php
+class TwoFactorAuth {
+  public function setup_2fa($user_id) {
+    // Generate and store secret key
+    $secret = $this->generate_secret();
+    update_user_meta($user_id, '2fa_secret', $secret);
+    
+    // Generate QR code for app setup
+    return $this->generate_qr_code($secret);
+  }
+  
+  public function verify_2fa_code($user_id, $code) {
+    $secret = get_user_meta($user_id, '2fa_secret', true);
+    return $this->verify_totp($secret, $code);
+  }
+}
+```
+
+### Password Management
+```php
+class PasswordManager {
+  public function reset_password($user_id, $new_password) {
+    // Verify password strength
+    if (!$this->validate_password_strength($new_password)) {
+      return new WP_Error('weak_password', 'Password does not meet requirements');
+    }
+    
+    // Update password
+    wp_set_password($new_password, $user_id);
+    
+    // Clear any reset tokens
+    delete_user_meta($user_id, 'password_reset_token');
+    
+    return true;
+  }
+}
+```
+
+## Integration Points
+
+### WordPress Integration
+- Use WordPress authentication hooks
+- Integrate with user roles and capabilities
+- Use WordPress password hashing
+- Implement proper nonce verification
+- Use WordPress session management
+- Follow WordPress security best practices
+
+### External Services
+- Social login providers
+- Two-factor authentication services
+- Password strength validation
+- CAPTCHA services
+- Email verification services
+- Security monitoring services
+
+## Testing Requirements
+
+### Unit Tests
+- Authentication flow testing
+- Password reset testing
+- Two-factor authentication testing
+- Session management testing
+- Security feature testing
+- Error handling testing
+
+### Integration Tests
+- Social login integration
+- Email verification flow
+- Password reset flow
+- Two-factor setup flow
+- Session handling
+- Security measure testing
+
+## Security Checklist
+- [ ] Password hashing implemented
+- [ ] Brute force protection active
+- [ ] Two-factor authentication available
+- [ ] Session management secure
+- [ ] Password policies enforced
+- [ ] Security logging implemented
+- [ ] Rate limiting configured
+- [ ] Error messages secure
+- [ ] Input validation complete
+- [ ] Output escaping implemented 

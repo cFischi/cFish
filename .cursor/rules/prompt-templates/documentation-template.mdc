@@ -1,0 +1,358 @@
+# Documentation Template
+
+---
+description: Template for creating comprehensive documentation for cFish.io
+globs: ["*/docs/*", "*.md"]
+alwaysApply: true
+priority: high
+---
+
+## Documentation Structure
+
+### File Header
+```markdown
+# [Component/Feature Name]
+
+## Overview
+[Brief description of the component/feature]
+
+## Version Information
+- Version: [x.y.z]
+- Last Updated: [YYYY-MM-DD]
+- Status: [Draft/In Review/Approved/Deprecated]
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Requirements](#requirements)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [API Reference](#api-reference)
+6. [Examples](#examples)
+7. [Troubleshooting](#troubleshooting)
+8. [Contributing](#contributing)
+```
+
+### Introduction Section
+```markdown
+## Introduction
+
+### Purpose
+[Explain the main purpose and benefits]
+
+### Features
+- Feature 1: [Description]
+- Feature 2: [Description]
+- Feature 3: [Description]
+
+### Architecture
+[High-level architecture overview]
+
+### Dependencies
+- Dependency 1 (version)
+- Dependency 2 (version)
+- Dependency 3 (version)
+```
+
+### Technical Documentation
+```markdown
+## Technical Details
+
+### Class Structure
+```php
+class Example {
+    /**
+     * @param string $param Description
+     * @return bool Result description
+     */
+    public function method($param) {
+        // Implementation
+    }
+}
+```
+
+### Database Schema
+```sql
+CREATE TABLE example (
+    id INT PRIMARY KEY,
+    name VARCHAR(255),
+    created_at TIMESTAMP
+);
+```
+
+### API Endpoints
+```json
+{
+    "endpoint": "/api/v1/resource",
+    "method": "POST",
+    "parameters": {
+        "name": "string",
+        "type": "string"
+    },
+    "response": {
+        "id": "integer",
+        "status": "string"
+    }
+}
+```
+```
+
+### Usage Examples
+```markdown
+## Usage Examples
+
+### Basic Usage
+```php
+$example = new Example();
+$result = $example->method('test');
+```
+
+### Advanced Usage
+```php
+$config = [
+    'option1' => 'value1',
+    'option2' => 'value2'
+];
+
+$example = new Example($config);
+$result = $example->advancedMethod();
+```
+
+### Integration Example
+```php
+use Example\Integration;
+
+$integration = new Integration();
+$integration->connect()
+    ->process()
+    ->complete();
+```
+```
+
+## Documentation Types
+
+### Technical Documentation
+- Architecture Documentation
+- API Documentation
+- Code Documentation
+- Database Documentation
+- Deployment Documentation
+- Security Documentation
+
+### User Documentation
+- User Guides
+- Installation Guides
+- Configuration Guides
+- Troubleshooting Guides
+- FAQ Documents
+- Release Notes
+
+### Process Documentation
+- Development Workflows
+- Testing Procedures
+- Deployment Processes
+- Maintenance Procedures
+- Security Protocols
+- Emergency Procedures
+
+## Documentation Standards
+
+### Formatting Standards
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold Text**
+*Italic Text*
+`Code Inline`
+
+- Bullet Points
+  - Sub Points
+    - Sub Sub Points
+
+1. Numbered List
+2. Second Item
+   a. Sub Item
+   b. Sub Item
+
+> Blockquotes for important notes
+
+| Column 1 | Column 2 |
+|----------|----------|
+| Data 1   | Data 2   |
+```
+
+### Code Examples
+```markdown
+### PHP Example
+```php
+class Example {
+    public function method() {
+        // Code with comments
+    }
+}
+```
+
+### JavaScript Example
+```javascript
+function example() {
+    // Code with comments
+}
+```
+
+### SQL Example
+```sql
+SELECT column
+FROM table
+WHERE condition;
+```
+```
+
+## Documentation Components
+
+### API Documentation
+```markdown
+## API Reference
+
+### Endpoint: /api/resource
+- Method: POST
+- Authentication: Required
+- Rate Limit: 100/hour
+
+#### Request Parameters
+| Parameter | Type   | Required | Description     |
+|-----------|--------|----------|-----------------|
+| name      | string | Yes      | Resource name   |
+| type      | string | No       | Resource type   |
+
+#### Response Format
+```json
+{
+    "id": 123,
+    "name": "Example",
+    "created_at": "2025-01-01T00:00:00Z"
+}
+```
+
+#### Error Responses
+| Code | Description           |
+|------|-----------------------|
+| 400  | Invalid parameters    |
+| 401  | Unauthorized         |
+| 404  | Resource not found   |
+```
+
+### Configuration Documentation
+```markdown
+## Configuration
+
+### Environment Variables
+```env
+APP_NAME=Example
+APP_ENV=production
+APP_DEBUG=false
+```
+
+### Configuration File
+```php
+return [
+    'key' => 'value',
+    'array' => [
+        'item1',
+        'item2'
+    ]
+];
+```
+```
+
+## Implementation Guidelines
+
+### Documentation Creation
+1. Start with template
+2. Fill in all sections
+3. Add code examples
+4. Include diagrams
+5. Add error handling
+6. Include troubleshooting
+7. Review and validate
+8. Update as needed
+
+### Documentation Review
+1. Technical accuracy
+2. Completeness
+3. Code correctness
+4. Example validity
+5. Link verification
+6. Format consistency
+7. Grammar check
+8. Version verification
+
+## Maintenance Guidelines
+
+### Regular Updates
+- Version updates
+- Feature additions
+- Bug fix documentation
+- Deprecation notices
+- Security updates
+- Performance improvements
+
+### Version Control
+- Track documentation versions
+- Maintain changelog
+- Archive old versions
+- Update dependencies
+- Review references
+- Update examples
+
+## Implementation Checklist
+
+### Setup
+- [ ] Template selected
+- [ ] Sections identified
+- [ ] Structure defined
+- [ ] Examples prepared
+- [ ] References gathered
+- [ ] Tools configured
+
+### Content
+- [ ] Overview complete
+- [ ] Technical details added
+- [ ] Examples included
+- [ ] API documented
+- [ ] Configuration explained
+- [ ] Troubleshooting added
+
+### Review
+- [ ] Technical review
+- [ ] Peer review
+- [ ] User testing
+- [ ] Examples verified
+- [ ] Links checked
+- [ ] Format validated
+
+## Documentation Review Cycle
+
+### Review Process
+1. Technical accuracy
+2. Completeness check
+3. Example verification
+4. Format validation
+5. Link verification
+6. Grammar check
+7. Version verification
+8. User feedback
+9. Final review
+10. Publication
+
+### Update Cycle
+1. Monitor changes
+2. Collect feedback
+3. Identify updates
+4. Plan revisions
+5. Implement changes
+6. Review updates
+7. Test examples
+8. Update version
+9. Publish changes
+10. Notify users 

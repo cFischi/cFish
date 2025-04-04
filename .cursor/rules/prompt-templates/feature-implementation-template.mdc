@@ -1,0 +1,375 @@
+# Feature Implementation Template
+
+---
+description: Template for implementing new features in cFish.io
+globs: ["*/features/*", "*/implementations/*"]
+alwaysApply: true
+priority: high
+---
+
+## Feature Specification
+
+### Feature Overview
+```markdown
+# [Feature Name]
+
+## Description
+[Brief description of the feature]
+
+## Business Value
+- Primary benefit
+- Secondary benefits
+- Expected impact
+- Success metrics
+
+## Requirements
+- Functional requirements
+- Technical requirements
+- Performance requirements
+- Security requirements
+```
+
+### Technical Specification
+```markdown
+## Technical Details
+
+### Architecture
+- Component structure
+- Integration points
+- Data flow
+- Dependencies
+
+### Data Model
+```php
+class ExampleModel {
+    protected $attributes = [
+        'id' => 'integer',
+        'name' => 'string',
+        'status' => 'string'
+    ];
+    
+    protected $relationships = [
+        'parent' => 'belongsTo',
+        'children' => 'hasMany'
+    ];
+}
+```
+
+### API Design
+```json
+{
+    "endpoints": {
+        "create": {
+            "method": "POST",
+            "path": "/api/v1/resource",
+            "parameters": {
+                "name": "string",
+                "type": "string"
+            }
+        },
+        "read": {
+            "method": "GET",
+            "path": "/api/v1/resource/{id}",
+            "parameters": {
+                "id": "integer"
+            }
+        }
+    }
+}
+```
+```
+
+## Implementation Plan
+
+### Development Phases
+```markdown
+## Phase 1: Foundation
+- [ ] Database schema
+- [ ] Base models
+- [ ] Core services
+- [ ] Basic API endpoints
+
+## Phase 2: Core Features
+- [ ] Feature implementation
+- [ ] Integration points
+- [ ] Business logic
+- [ ] Validation rules
+
+## Phase 3: Enhancement
+- [ ] Advanced features
+- [ ] Performance optimization
+- [ ] Security hardening
+- [ ] Documentation
+```
+
+### Implementation Guidelines
+```php
+// Base Service Class
+abstract class BaseService {
+    protected $model;
+    protected $validator;
+    
+    public function __construct(Model $model, Validator $validator) {
+        $this->model = $model;
+        $this->validator = $validator;
+    }
+    
+    protected function validate($data) {
+        return $this->validator->validate($data);
+    }
+    
+    protected function create($data) {
+        $this->validate($data);
+        return $this->model->create($data);
+    }
+}
+
+// Feature Service Implementation
+class FeatureService extends BaseService {
+    public function processFeature($input) {
+        // Validate input
+        $validated = $this->validate($input);
+        
+        // Process business logic
+        $result = $this->processBusinessLogic($validated);
+        
+        // Create record
+        $record = $this->create($result);
+        
+        // Return response
+        return $this->formatResponse($record);
+    }
+}
+```
+
+### Testing Strategy
+```php
+class FeatureTest extends TestCase {
+    /** @test */
+    public function it_processes_valid_input() {
+        // Arrange
+        $input = $this->validInput();
+        $service = $this->createService();
+        
+        // Act
+        $result = $service->processFeature($input);
+        
+        // Assert
+        $this->assertFeatureProcessed($result);
+    }
+    
+    /** @test */
+    public function it_handles_invalid_input() {
+        // Arrange
+        $input = $this->invalidInput();
+        $service = $this->createService();
+        
+        // Act & Assert
+        $this->expectException(ValidationException::class);
+        $service->processFeature($input);
+    }
+}
+```
+
+## Integration Guidelines
+
+### Database Integration
+```php
+// Migration
+class CreateFeatureTable extends Migration {
+    public function up() {
+        Schema::create('features', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('status');
+            $table->json('configuration');
+            $table->timestamps();
+            
+            $table->index(['name', 'status']);
+        });
+    }
+}
+
+// Model
+class Feature extends Model {
+    protected $fillable = [
+        'name',
+        'status',
+        'configuration'
+    ];
+    
+    protected $casts = [
+        'configuration' => 'array'
+    ];
+}
+```
+
+### API Integration
+```php
+// Controller
+class FeatureController extends Controller {
+    protected $service;
+    
+    public function __construct(FeatureService $service) {
+        $this->service = $service;
+    }
+    
+    public function store(FeatureRequest $request) {
+        try {
+            $result = $this->service->processFeature(
+                $request->validated()
+            );
+            
+            return response()->json($result, 201);
+        } catch (Exception $e) {
+            return $this->handleError($e);
+        }
+    }
+}
+
+// Request Validation
+class FeatureRequest extends FormRequest {
+    public function rules() {
+        return [
+            'name' => 'required|string|max:255',
+            'status' => 'required|in:active,inactive',
+            'configuration' => 'required|array'
+        ];
+    }
+}
+```
+
+## Security Considerations
+
+### Security Checklist
+```markdown
+## Security Requirements
+- [ ] Input validation
+- [ ] Authentication
+- [ ] Authorization
+- [ ] Data encryption
+- [ ] Audit logging
+- [ ] Error handling
+- [ ] Rate limiting
+- [ ] Security headers
+```
+
+### Security Implementation
+```php
+class SecureFeatureService {
+    public function process($data) {
+        // Validate input
+        $this->validateInput($data);
+        
+        // Check permissions
+        $this->authorize('process-feature');
+        
+        // Rate limiting
+        $this->checkRateLimit();
+        
+        // Process securely
+        $result = $this->processSecurely($data);
+        
+        // Audit logging
+        $this->logAudit('feature_processed', $result);
+        
+        return $result;
+    }
+}
+```
+
+## Performance Optimization
+
+### Performance Requirements
+```markdown
+## Performance Targets
+- Response time: < 200ms
+- Database queries: < 5 per request
+- Memory usage: < 50MB
+- Cache hit ratio: > 80%
+```
+
+### Optimization Implementation
+```php
+class OptimizedFeatureService {
+    public function process($data) {
+        // Cache check
+        if ($cached = $this->cache->get($key)) {
+            return $cached;
+        }
+        
+        // Database optimization
+        $result = $this->model
+            ->select(['id', 'name', 'status'])
+            ->with(['relation' => function($query) {
+                $query->select(['id', 'related_field']);
+            }])
+            ->find($id);
+        
+        // Cache store
+        $this->cache->put($key, $result, $ttl);
+        
+        return $result;
+    }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Requirements reviewed
+- [ ] Architecture designed
+- [ ] Database schema created
+- [ ] Dependencies installed
+- [ ] Configuration setup
+- [ ] Environment prepared
+
+### Development
+- [ ] Models implemented
+- [ ] Services created
+- [ ] Controllers developed
+- [ ] API endpoints added
+- [ ] Validation rules defined
+- [ ] Error handling implemented
+
+### Testing
+- [ ] Unit tests written
+- [ ] Integration tests created
+- [ ] Performance tests developed
+- [ ] Security tests implemented
+- [ ] Edge cases covered
+- [ ] Documentation complete
+
+### Deployment
+- [ ] Code reviewed
+- [ ] Tests passing
+- [ ] Performance verified
+- [ ] Security validated
+- [ ] Documentation updated
+- [ ] Deployment tested
+
+## Review Process
+
+### Code Review
+1. Architecture review
+2. Code quality check
+3. Performance analysis
+4. Security audit
+5. Test coverage
+6. Documentation review
+7. Standards compliance
+8. Integration verification
+9. Error handling
+10. Final approval
+
+### Deployment Review
+1. Environment check
+2. Configuration verify
+3. Database migration
+4. Service deployment
+5. Integration test
+6. Performance test
+7. Security scan
+8. Monitoring setup
+9. Backup verify
+10. Final validation 

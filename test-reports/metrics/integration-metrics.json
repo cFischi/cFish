@@ -1,0 +1,28 @@
+[
+  {
+    "timestamp": "2025-04-02T21:00:13.079Z",
+    "results": [
+      {
+        "success": false,
+        "error": "API test execution failed: Cannot find module 'supertest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js"
+      },
+      {
+        "success": false,
+        "error": "API test execution failed: Cannot find module 'supertest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js"
+      },
+      {
+        "success": false,
+        "error": "API test execution failed: Cannot find module 'supertest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js"
+      },
+      {
+        "success": false,
+        "error": "API test execution failed: Cannot find module 'supertest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js"
+      }
+    ],
+    "analysis": {
+      "trends": null,
+      "anomalies": [],
+      "recommendations": []
+    }
+  }
+]

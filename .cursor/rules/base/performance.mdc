@@ -1,0 +1,354 @@
+# Base Performance Rules
+
+---
+description: Performance optimization standards and guidelines for cFish.io
+globs: *
+alwaysApply: true
+priority: high
+version: 1.0
+---
+
+# Performance Optimization Standards
+
+## Resource Management
+
+### Memory Optimization
+- Implement efficient data structures
+- Use memory pooling where appropriate
+- Implement proper garbage collection
+- Monitor memory usage patterns
+- Set clear memory thresholds
+- Implement memory leak detection
+
+### CPU Utilization
+- Optimize algorithmic complexity
+- Implement proper threading
+- Use asynchronous operations
+- Monitor CPU usage patterns
+- Set processor utilization limits
+- Implement load balancing
+
+### Storage Optimization
+- Implement efficient caching
+- Use appropriate compression
+- Optimize database queries
+- Monitor storage patterns
+- Set storage thresholds
+- Implement cleanup routines
+
+## Token Management
+
+### Context Window Optimization
+- Maintain focused context scope
+- Implement context pruning
+- Use efficient token encoding
+- Monitor token usage
+- Set token limits
+- Implement token recycling
+
+### Response Optimization
+- Implement response caching
+- Use efficient formatting
+- Optimize output generation
+- Monitor response patterns
+- Set response size limits
+- Implement compression
+
+## Network Optimization
+
+### Request Management
+- Implement request batching
+- Use connection pooling
+- Optimize payload size
+- Monitor network patterns
+- Set bandwidth limits
+- Implement rate limiting
+
+### Cache Strategy
+- Implement multi-level caching
+- Use appropriate cache invalidation
+- Optimize cache hit ratio
+- Monitor cache performance
+- Set cache size limits
+- Implement cache warming
+
+## Monitoring and Metrics
+
+### Performance Tracking
+- Track key performance indicators
+- Monitor resource utilization
+- Measure response times
+- Track error rates
+- Monitor system health
+- Implement alerting
+
+### Optimization Metrics
+```json
+{
+  "performance": {
+    "response_time": {
+      "target": "< 200ms",
+      "critical": "> 500ms"
+    },
+    "memory_usage": {
+      "target": "< 50MB per operation",
+      "critical": "> 100MB"
+    },
+    "token_efficiency": {
+      "target": "> 80%",
+      "critical": "< 60%"
+    },
+    "cache_hit_ratio": {
+      "target": "> 85%",
+      "critical": "< 70%"
+    },
+    "cpu_utilization": {
+      "target": "< 70%",
+      "critical": "> 90%"
+    },
+    "network_latency": {
+      "target": "< 100ms",
+      "critical": "> 250ms"
+    }
+  }
+}
+```
+
+## Optimization Procedures
+
+### Performance Testing
+```json
+{
+  "testing": {
+    "load_testing": {
+      "concurrent_users": 100,
+      "duration": "30m",
+      "ramp_up": "5m"
+    },
+    "stress_testing": {
+      "max_users": 500,
+      "duration": "1h",
+      "failure_threshold": "95th percentile"
+    },
+    "scalability_testing": {
+      "step_size": 50,
+      "max_steps": 10,
+      "stabilization_time": "5m"
+    }
+  }
+}
+```
+
+### Optimization Process
+1. Measure current performance
+2. Identify bottlenecks
+3. Implement improvements
+4. Validate results
+5. Document changes
+6. Monitor impact
+
+## Integration Performance
+
+### Cross-Platform Optimization
+```json
+{
+  "platforms": {
+    "wordpress": {
+      "max_payload": "1MB",
+      "batch_size": 100,
+      "sync_interval": "5m"
+    },
+    "clickup": {
+      "max_requests": 100,
+      "rate_limit": "1s",
+      "batch_size": 50
+    },
+    "notion": {
+      "max_payload": "500KB",
+      "sync_interval": "1m",
+      "batch_size": 25
+    },
+    "vendasta": {
+      "max_requests": 50,
+      "rate_limit": "2s",
+      "batch_size": 20
+    }
+  }
+}
+```
+
+### Synchronization Performance
+- Optimize sync operations
+- Use efficient algorithms
+- Implement batching
+- Monitor sync performance
+- Set sync thresholds
+- Implement recovery
+
+## Local LLM Optimization
+
+### Resource Allocation
+```json
+{
+  "llm_resources": {
+    "gpu_memory": {
+      "max": "8GB",
+      "preferred": "4GB",
+      "minimum": "2GB"
+    },
+    "cpu_cores": {
+      "max": 8,
+      "preferred": 4,
+      "minimum": 2
+    },
+    "ram": {
+      "max": "16GB",
+      "preferred": "8GB",
+      "minimum": "4GB"
+    }
+  }
+}
+```
+
+### Model Performance
+- Optimize input processing
+- Use efficient tokenization
+- Implement batching
+- Monitor inference times
+- Set performance targets
+- Implement caching
+
+## Documentation Requirements
+
+### Performance Documentation
+- Document optimization strategies
+- Maintain performance logs
+- Record optimization results
+- Track improvements
+- Document thresholds
+- Maintain metrics history
+
+### Monitoring Documentation
+- Document monitoring setup
+- Maintain alert configurations
+- Record incident responses
+- Track resolution times
+- Document procedures
+- Maintain runbooks
+
+## Core Performance Principles
+
+### WordPress Performance
+- Use object caching for database queries
+- Implement transient caching for API responses
+- Optimize database queries
+- Minimize plugin usage
+- Implement lazy loading for images
+- Use proper WordPress hooks for optimal execution
+
+### Frontend Performance
+- Implement code splitting
+- Use lazy loading for components
+- Optimize asset loading
+- Implement proper caching strategies
+- Minimize render-blocking resources
+- Follow mobile-first development practices
+
+### Database Optimization
+- Use proper indexing
+- Optimize query structure
+- Implement query caching
+- Regular database maintenance
+- Monitor query performance
+- Use appropriate data types
+
+### Asset Optimization
+- Compress and optimize images
+- Minify CSS and JavaScript
+- Use proper cache headers
+- Implement CDN integration
+- Optimize web fonts
+- Reduce HTTP requests
+
+### Caching Strategy
+- Implement page caching
+- Use object caching
+- Configure browser caching
+- Implement API response caching
+- Regular cache invalidation
+- Monitor cache hit rates
+
+## Implementation Guidelines
+
+### Query Optimization
+```php
+function optimize_wp_query($query) {
+  // Set posts per page
+  $query->set('posts_per_page', 10);
+  
+  // Only get required fields
+  $query->set('fields', 'ids');
+  
+  // Use proper indexing
+  $query->set('orderby', 'ID');
+  
+  return $query;
+}
+add_action('pre_get_posts', 'optimize_wp_query');
+```
+
+### Caching Implementation
+```php
+function cache_api_response($response, $key, $expiration = 3600) {
+  if (empty($response)) return false;
+  
+  $cache_key = 'api_cache_' . md5($key);
+  return set_transient($cache_key, $response, $expiration);
+}
+```
+
+### Asset Loading
+```php
+function optimize_asset_loading() {
+  // Defer non-critical JavaScript
+  add_filter('script_loader_tag', function($tag, $handle) {
+    if ($handle !== 'jquery') {
+      return str_replace(' src', ' defer src', $tag);
+    }
+    return $tag;
+  }, 10, 2);
+  
+  // Add preload for critical assets
+  add_action('wp_head', function() {
+    echo '<link rel="preload" href="critical.css" as="style">';
+  });
+}
+```
+
+## Performance Monitoring
+- Implement server-side performance tracking
+- Monitor frontend performance metrics
+- Track database query performance
+- Monitor cache effectiveness
+- Regular performance audits
+- Automated performance testing
+
+## Performance Metrics
+- Page load time: < 2 seconds
+- Time to First Byte (TTFB): < 200ms
+- First Contentful Paint (FCP): < 1 second
+- Largest Contentful Paint (LCP): < 2.5 seconds
+- First Input Delay (FID): < 100ms
+- Cumulative Layout Shift (CLS): < 0.1
+
+## Optimization Checklist
+- [ ] Database queries optimized
+- [ ] Caching properly implemented
+- [ ] Assets optimized and compressed
+- [ ] Lazy loading configured
+- [ ] CDN integration in place
+- [ ] Performance monitoring active
+- [ ] Mobile optimization complete
+- [ ] Browser caching configured
+- [ ] Query performance verified
+- [ ] Load testing completed 

@@ -1,0 +1,104 @@
+[
+  {
+    "timestamp": "2025-04-02T21:00:13.068Z",
+    "results": [
+      {
+        "success": false,
+        "error": {
+          "error": "Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js",
+          "stack": "Error: Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js\n    at Object.retryOperation (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:83:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at listOnTimeout (node:internal/timers:555:9)\n    at process.processTimers (node:internal/timers:529:7)\n    at async Object.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:119:23)\n    at async C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:74:22\n    at async Promise.all (index 0)\n    at async Object.executeInParallel (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:842:28)\n    at async TestRunner.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:81:21)\n    at async TestRunner.run (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:31:7)",
+          "timestamp": "2025-04-02T21:00:13.036Z",
+          "metadata": {
+            "component": "emergency-response",
+            "type": "unit"
+          },
+          "environment": {
+            "platform": "win32",
+            "nodeVersion": "v22.12.0",
+            "memory": {
+              "rss": 34000896,
+              "heapTotal": 5763072,
+              "heapUsed": 5117192,
+              "external": 1608722,
+              "arrayBuffers": 11515
+            }
+          }
+        }
+      },
+      {
+        "success": false,
+        "error": {
+          "error": "Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js",
+          "stack": "Error: Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js\n    at Object.retryOperation (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:83:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at listOnTimeout (node:internal/timers:555:9)\n    at process.processTimers (node:internal/timers:529:7)\n    at async Object.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:119:23)\n    at async C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:74:22\n    at async Promise.all (index 1)\n    at async Object.executeInParallel (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:842:28)\n    at async TestRunner.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:81:21)\n    at async TestRunner.run (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:31:7)",
+          "timestamp": "2025-04-02T21:00:13.044Z",
+          "metadata": {
+            "component": "git-workflow",
+            "type": "unit"
+          },
+          "environment": {
+            "platform": "win32",
+            "nodeVersion": "v22.12.0",
+            "memory": {
+              "rss": 34131968,
+              "heapTotal": 5763072,
+              "heapUsed": 5222040,
+              "external": 1608762,
+              "arrayBuffers": 11515
+            }
+          }
+        }
+      },
+      {
+        "success": false,
+        "error": {
+          "error": "Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js",
+          "stack": "Error: Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js\n    at Object.retryOperation (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:83:11)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at listOnTimeout (node:internal/timers:555:9)\n    at process.processTimers (node:internal/timers:529:7)\n    at async Object.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:119:23)\n    at async C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:74:22\n    at async Promise.all (index 2)\n    at async Object.executeInParallel (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:842:28)\n    at async TestRunner.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:81:21)\n    at async TestRunner.run (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:31:7)",
+          "timestamp": "2025-04-02T21:00:13.052Z",
+          "metadata": {
+            "component": "test-framework",
+            "type": "unit"
+          },
+          "environment": {
+            "platform": "win32",
+            "nodeVersion": "v22.12.0",
+            "memory": {
+              "rss": 34275328,
+              "heapTotal": 5763072,
+              "heapUsed": 5315944,
+              "external": 1608762,
+              "arrayBuffers": 11515
+            }
+          }
+        }
+      },
+      {
+        "success": false,
+        "error": {
+          "error": "Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js",
+          "stack": "Error: Operation failed after 3 attempts: Jest test execution failed: Cannot find module 'jest'\nRequire stack:\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js\n- C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js\n    at Object.retryOperation (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:83:11)\n    at async Object.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:119:23)\n    at async C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:74:22\n    at async Promise.all (index 3)\n    at async Object.executeInParallel (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-suite.js:842:28)\n    at async TestRunner.runUnitTests (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:81:21)\n    at async TestRunner.run (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\test-runner.js:31:7)",
+          "timestamp": "2025-04-02T21:00:13.060Z",
+          "metadata": {
+            "component": "agent-monitoring",
+            "type": "unit"
+          },
+          "environment": {
+            "platform": "win32",
+            "nodeVersion": "v22.12.0",
+            "memory": {
+              "rss": 34340864,
+              "heapTotal": 5763072,
+              "heapUsed": 5382320,
+              "external": 1608762,
+              "arrayBuffers": 11515
+            }
+          }
+        }
+      }
+    ],
+    "analysis": {
+      "trends": null,
+      "anomalies": [],
+      "recommendations": []
+    }
+  }
+]

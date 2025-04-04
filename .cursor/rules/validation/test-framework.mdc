@@ -1,0 +1,338 @@
+# Test Framework Validation Rules
+
+---
+description: Testing framework guidelines and best practices for cFish.io
+globs: ["*/tests/*", "*/test/*", "*Test.php"]
+alwaysApply: true
+priority: high
+---
+
+## Testing Framework Requirements
+
+### Core Testing Types
+- Unit Testing
+- Integration Testing
+- Feature Testing
+- End-to-End Testing
+- Performance Testing
+- Security Testing
+
+### Testing Standards
+- Test-Driven Development
+- Behavior-Driven Development
+- Code Coverage Requirements
+- Performance Benchmarks
+- Security Standards
+- Quality Metrics
+
+### Testing Tools
+- PHPUnit for unit testing
+- Behat for behavior testing
+- JMeter for performance testing
+- Selenium for browser testing
+- PHPStan for static analysis
+- PHPCS for coding standards
+
+## Implementation Guidelines
+
+### Unit Testing Framework
+```php
+abstract class BaseTestCase extends TestCase {
+  protected function setUp(): void {
+    parent::setUp();
+    $this->initializeTestEnvironment();
+  }
+  
+  protected function initializeTestEnvironment() {
+    // Set up test database
+    // Configure test environment
+    // Initialize mocks
+    // Set up fixtures
+  }
+  
+  protected function createMock($class) {
+    return $this->getMockBuilder($class)
+      ->disableOriginalConstructor()
+      ->getMock();
+  }
+  
+  protected function assertArrayStructure($expected, $actual) {
+    foreach ($expected as $key => $value) {
+      $this->assertArrayHasKey($key, $actual);
+      if (is_array($value)) {
+        $this->assertArrayStructure($value, $actual[$key]);
+      }
+    }
+  }
+}
+```
+
+### Feature Testing
+```php
+class FeatureTestCase extends BaseTestCase {
+  protected function setUp(): void {
+    parent::setUp();
+    $this->initializeFeatureTest();
+  }
+  
+  protected function initializeFeatureTest() {
+    // Set up feature test environment
+    // Initialize required services
+    // Set up test data
+    // Configure feature flags
+  }
+  
+  protected function simulateUserAction($action, $data = []) {
+    return $this->actingAs($this->createTestUser())
+      ->post("/api/{$action}", $data);
+  }
+  
+  protected function assertFeatureResponse($response, $expectedStructure) {
+    $response->assertStatus(200)
+      ->assertJson(['success' => true])
+      ->assertJsonStructure($expectedStructure);
+  }
+}
+```
+
+### Performance Testing
+```php
+class PerformanceTest extends BaseTestCase {
+  protected $benchmarks = [];
+  
+  protected function measurePerformance($callback, $iterations = 100) {
+    $start = microtime(true);
+    $memory_start = memory_get_usage();
+    
+    for ($i = 0; $i < $iterations; $i++) {
+      $callback();
+    }
+    
+    return [
+      'duration' => (microtime(true) - $start) / $iterations,
+      'memory' => (memory_get_usage() - $memory_start) / $iterations
+    ];
+  }
+  
+  protected function assertPerformanceMetrics($metrics, $thresholds) {
+    $this->assertLessThan(
+      $thresholds['duration'],
+      $metrics['duration'],
+      'Performance threshold exceeded'
+    );
+    
+    $this->assertLessThan(
+      $thresholds['memory'],
+      $metrics['memory'],
+      'Memory usage threshold exceeded'
+    );
+  }
+}
+```
+
+## Testing Categories
+
+### Unit Tests
+- Class method testing
+- Function validation
+- Input/output verification
+- Error handling
+- Edge cases
+- Boundary testing
+
+### Integration Tests
+- Component interaction
+- Service integration
+- API endpoints
+- Database operations
+- External services
+- System workflows
+
+### Feature Tests
+- User workflows
+- Business logic
+- Feature completion
+- User interface
+- Data validation
+- Error scenarios
+
+### Performance Tests
+- Response time
+- Resource usage
+- Scalability
+- Load testing
+- Stress testing
+- Endurance testing
+
+## Test Implementation
+
+### Test Structure
+```php
+class ExampleTest extends TestCase {
+  /**
+   * @test
+   * @group feature
+   * @covers ExampleClass::exampleMethod
+   */
+  public function it_should_perform_expected_action() {
+    // Arrange
+    $input = $this->createTestInput();
+    $expected = $this->getExpectedOutput();
+    
+    // Act
+    $result = $this->subject->performAction($input);
+    
+    // Assert
+    $this->assertEquals($expected, $result);
+    $this->assertExpectedSideEffects();
+  }
+}
+```
+
+### Test Data Management
+```php
+trait TestDataGenerator {
+  protected function generateTestData($type, $count = 1) {
+    $factory = $this->getDataFactory($type);
+    return $factory->create($count);
+  }
+  
+  protected function createTestScenario($scenario) {
+    return $this->scenarios[$scenario]->setup();
+  }
+  
+  protected function cleanupTestData() {
+    // Clean up generated data
+    // Reset state
+    // Clear caches
+  }
+}
+```
+
+## Testing Standards
+
+### Code Coverage
+```json
+{
+  "coverage": {
+    "minimum": {
+      "lines": 80,
+      "functions": 90,
+      "classes": 100
+    },
+    "critical": {
+      "lines": 90,
+      "functions": 95,
+      "classes": 100
+    }
+  }
+}
+```
+
+### Performance Benchmarks
+```json
+{
+  "benchmarks": {
+    "response": {
+      "api": "200ms",
+      "web": "500ms",
+      "background": "1000ms"
+    },
+    "memory": {
+      "peak": "64MB",
+      "average": "32MB"
+    }
+  }
+}
+```
+
+## Test Automation
+
+### CI/CD Integration
+```yaml
+test_pipeline:
+  stages:
+    - lint
+    - unit
+    - integration
+    - feature
+    - performance
+    - security
+  
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: always
+    - if: $CI_MERGE_REQUEST_ID
+      when: always
+```
+
+### Automated Testing
+```json
+{
+  "automation": {
+    "schedule": {
+      "unit": "every commit",
+      "integration": "hourly",
+      "feature": "daily",
+      "performance": "weekly"
+    },
+    "triggers": {
+      "pull_request": ["unit", "integration"],
+      "merge": ["feature", "performance"],
+      "deploy": ["all"]
+    }
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Testing framework installed
+- [ ] Test environment configured
+- [ ] CI/CD integration complete
+- [ ] Test data management setup
+- [ ] Coverage tools configured
+- [ ] Automation implemented
+
+### Test Suite
+- [ ] Unit tests implemented
+- [ ] Integration tests created
+- [ ] Feature tests developed
+- [ ] Performance tests configured
+- [ ] Security tests established
+- [ ] Documentation complete
+
+### Validation
+- [ ] Coverage requirements met
+- [ ] Performance benchmarks achieved
+- [ ] Security standards verified
+- [ ] Code quality confirmed
+- [ ] Documentation reviewed
+- [ ] Automation validated
+
+## Continuous Improvement
+
+### Review Process
+1. Analyze test results
+2. Identify gaps
+3. Plan improvements
+4. Implement changes
+5. Validate updates
+6. Document changes
+7. Update standards
+8. Review automation
+9. Optimize process
+10. Regular review
+
+### Optimization Cycle
+1. Monitor metrics
+2. Analyze patterns
+3. Identify issues
+4. Plan solutions
+5. Implement changes
+6. Test results
+7. Document updates
+8. Monitor effects
+9. Adjust approach
+10. Regular review 

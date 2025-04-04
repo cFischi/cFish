@@ -1,0 +1,206 @@
+# User Management Feature Rules
+
+---
+description: User management implementation guidelines and best practices for cFish.io
+globs: ["*/users/*", "*/user-management/*"]
+alwaysApply: true
+priority: high
+---
+
+## User Management Requirements
+
+### Core Features
+- User registration
+- Profile management
+- Role and capability management
+- User metadata handling
+- User search and filtering
+- Bulk user operations
+
+### Security Requirements
+- Role-based access control
+- Capability verification
+- Input validation
+- Output sanitization
+- Audit logging
+- Privacy compliance
+
+### User Experience
+- Intuitive interface
+- Clear feedback messages
+- Progressive enhancement
+- Mobile responsiveness
+- Accessibility compliance
+- Performance optimization
+
+## Implementation Guidelines
+
+### User Management Class
+```php
+class UserManager {
+  public function create_user($user_data) {
+    // Validate user data
+    if (!$this->validate_user_data($user_data)) {
+      return new WP_Error('invalid_data', 'Invalid user data provided');
+    }
+    
+    // Create user
+    $user_id = wp_insert_user([
+      'user_login' => sanitize_user($user_data['username']),
+      'user_email' => sanitize_email($user_data['email']),
+      'user_pass' => $user_data['password'],
+      'role' => $user_data['role'] ?? 'subscriber'
+    ]);
+    
+    if (is_wp_error($user_id)) {
+      return $user_id;
+    }
+    
+    // Add custom user metadata
+    $this->add_user_metadata($user_id, $user_data['metadata'] ?? []);
+    
+    return $user_id;
+  }
+  
+  public function update_user($user_id, $user_data) {
+    // Verify permissions
+    if (!current_user_can('edit_user', $user_id)) {
+      return new WP_Error('permission_denied', 'Insufficient permissions');
+    }
+    
+    // Update user data
+    $result = wp_update_user([
+      'ID' => $user_id,
+      'user_email' => sanitize_email($user_data['email']),
+      'role' => $user_data['role']
+    ]);
+    
+    if (is_wp_error($result)) {
+      return $result;
+    }
+    
+    // Update metadata
+    $this->update_user_metadata($user_id, $user_data['metadata'] ?? []);
+    
+    return $result;
+  }
+  
+  private function add_user_metadata($user_id, $metadata) {
+    foreach ($metadata as $key => $value) {
+      add_user_meta($user_id, sanitize_key($key), sanitize_text_field($value));
+    }
+  }
+}
+```
+
+### Role Management
+```php
+class RoleManager {
+  public function add_role($role_name, $capabilities = []) {
+    // Verify permissions
+    if (!current_user_can('manage_roles')) {
+      return new WP_Error('permission_denied', 'Insufficient permissions');
+    }
+    
+    // Add role
+    add_role($role_name, ucfirst($role_name), $capabilities);
+    
+    // Log role creation
+    $this->log_role_change('create', $role_name);
+  }
+  
+  public function update_role_capabilities($role_name, $capabilities) {
+    $role = get_role($role_name);
+    
+    foreach ($capabilities as $cap => $grant) {
+      if ($grant) {
+        $role->add_cap($cap);
+      } else {
+        $role->remove_cap($cap);
+      }
+    }
+  }
+}
+```
+
+### User Search
+```php
+class UserSearch {
+  public function search_users($args = []) {
+    $query = new WP_User_Query([
+      'search' => '*' . sanitize_text_field($args['search']) . '*',
+      'search_columns' => ['user_login', 'user_email', 'display_name'],
+      'meta_query' => $this->build_meta_query($args['meta'] ?? []),
+      'role__in' => $args['roles'] ?? [],
+      'number' => $args['per_page'] ?? 10,
+      'paged' => $args['page'] ?? 1
+    ]);
+    
+    return [
+      'users' => $query->get_results(),
+      'total' => $query->get_total()
+    ];
+  }
+  
+  private function build_meta_query($meta_args) {
+    $meta_query = [];
+    
+    foreach ($meta_args as $key => $value) {
+      $meta_query[] = [
+        'key' => sanitize_key($key),
+        'value' => sanitize_text_field($value)
+      ];
+    }
+    
+    return $meta_query;
+  }
+}
+```
+
+## Integration Points
+
+### WordPress Integration
+- Use WordPress user functions
+- Integrate with roles and capabilities
+- Use WordPress metadata API
+- Implement proper hooks
+- Follow WordPress coding standards
+- Use WordPress security functions
+
+### External Services
+- User import/export services
+- Profile photo services
+- Email verification services
+- Role management tools
+- User analytics services
+- Compliance verification tools
+
+## Testing Requirements
+
+### Unit Tests
+- User CRUD operations
+- Role management
+- Capability verification
+- Metadata handling
+- Search functionality
+- Security measures
+
+### Integration Tests
+- User workflow testing
+- Role hierarchy testing
+- Permission inheritance
+- Search integration
+- Bulk operations
+- API integration
+
+## Implementation Checklist
+- [ ] User CRUD operations implemented
+- [ ] Role management complete
+- [ ] Capability system configured
+- [ ] Metadata handling implemented
+- [ ] Search functionality working
+- [ ] Bulk operations available
+- [ ] Security measures active
+- [ ] Logging system implemented
+- [ ] Privacy compliance verified
+- [ ] Performance optimization complete 

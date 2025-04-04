@@ -1,0 +1,322 @@
+# Monitoring Meta Rules
+
+---
+description: Guidelines for monitoring Cursor operations and performance for cFish.io
+globs: ["*.mdc"]
+alwaysApply: true
+priority: high
+---
+
+## Monitoring Framework
+
+### Core Metrics
+- Response time tracking
+- Memory usage monitoring
+- Token consumption analysis
+- Error rate tracking
+- Performance benchmarks
+- Resource utilization
+
+### System Health
+- Agent performance
+- System resources
+- Network connectivity
+- API availability
+- Cache efficiency
+- Error patterns
+
+### User Interaction
+- Command patterns
+- Response quality
+- Error frequency
+- Usage patterns
+- Feature adoption
+- User satisfaction
+
+## Implementation Guidelines
+
+### Performance Monitoring
+```php
+class PerformanceMonitor {
+  private $metrics = [];
+  
+  public function track_operation($operation, $data) {
+    $start_time = microtime(true);
+    $start_memory = memory_get_usage();
+    
+    try {
+      $result = $this->execute_operation($operation, $data);
+      
+      $this->record_metrics([
+        'operation' => $operation,
+        'duration' => microtime(true) - $start_time,
+        'memory_used' => memory_get_usage() - $start_memory,
+        'status' => 'success',
+        'timestamp' => time()
+      ]);
+      
+      return $result;
+    } catch (Exception $e) {
+      $this->record_error($e, $operation);
+      throw $e;
+    }
+  }
+  
+  private function record_metrics($metrics) {
+    $this->metrics[] = $metrics;
+    $this->analyze_metrics();
+  }
+  
+  private function analyze_metrics() {
+    // Implement metrics analysis
+    // Monitor trends
+    // Identify issues
+    // Generate alerts
+  }
+}
+```
+
+### Resource Monitoring
+```php
+class ResourceMonitor {
+  public function monitor_resources() {
+    return [
+      'memory' => [
+        'usage' => memory_get_usage(),
+        'peak' => memory_get_peak_usage(),
+        'limit' => ini_get('memory_limit')
+      ],
+      'cpu' => [
+        'load' => sys_getloadavg(),
+        'processes' => count(array_filter(explode("\n", shell_exec("ps aux | grep php"))))
+      ],
+      'disk' => [
+        'free' => disk_free_space('/'),
+        'total' => disk_total_space('/')
+      ]
+    ];
+  }
+  
+  public function check_thresholds($metrics) {
+    // Check against defined thresholds
+    // Generate alerts if needed
+    // Log issues
+    // Trigger optimization
+  }
+}
+```
+
+### Error Monitoring
+```php
+class ErrorMonitor {
+  public function track_error($error, $context = []) {
+    $error_data = [
+      'message' => $error->getMessage(),
+      'code' => $error->getCode(),
+      'file' => $error->getFile(),
+      'line' => $error->getLine(),
+      'trace' => $error->getTraceAsString(),
+      'context' => $context,
+      'timestamp' => time()
+    ];
+    
+    $this->log_error($error_data);
+    $this->analyze_error_pattern($error_data);
+    $this->notify_if_critical($error_data);
+  }
+  
+  private function analyze_error_pattern($error) {
+    // Analyze error patterns
+    // Identify recurring issues
+    // Generate reports
+    // Suggest improvements
+  }
+}
+```
+
+## Monitoring Categories
+
+### Performance Monitoring
+- Response time tracking
+- Memory usage analysis
+- CPU utilization
+- Network latency
+- Cache performance
+- Query execution time
+
+### Resource Monitoring
+- Memory allocation
+- CPU usage
+- Disk space
+- Network bandwidth
+- Cache utilization
+- Connection pools
+
+### Error Monitoring
+- Error rates
+- Error patterns
+- Recovery time
+- Impact analysis
+- Root cause identification
+- Resolution tracking
+
+### Usage Monitoring
+- Command frequency
+- Feature usage
+- User patterns
+- Session duration
+- Interaction flow
+- Success rates
+
+## Alert System
+
+### Alert Levels
+```json
+{
+  "alertLevels": {
+    "critical": {
+      "response": "immediate",
+      "notification": "all channels",
+      "action": "required"
+    },
+    "warning": {
+      "response": "within hour",
+      "notification": "primary channel",
+      "action": "review"
+    },
+    "info": {
+      "response": "daily review",
+      "notification": "log",
+      "action": "monitor"
+    }
+  }
+}
+```
+
+### Alert Channels
+```json
+{
+  "channels": {
+    "email": {
+      "priority": "high",
+      "format": "detailed",
+      "recipients": "team"
+    },
+    "slack": {
+      "priority": "medium",
+      "format": "summary",
+      "channel": "monitoring"
+    },
+    "logs": {
+      "priority": "all",
+      "format": "complete",
+      "retention": "30 days"
+    }
+  }
+}
+```
+
+## Reporting System
+
+### Performance Reports
+```json
+{
+  "performanceReport": {
+    "metrics": [
+      "response_time",
+      "memory_usage",
+      "error_rate",
+      "success_rate"
+    ],
+    "frequency": "daily",
+    "format": "detailed",
+    "distribution": "team"
+  }
+}
+```
+
+### Usage Reports
+```json
+{
+  "usageReport": {
+    "metrics": [
+      "command_frequency",
+      "feature_usage",
+      "user_patterns",
+      "success_rates"
+    ],
+    "frequency": "weekly",
+    "format": "summary",
+    "distribution": "stakeholders"
+  }
+}
+```
+
+### Error Reports
+```json
+{
+  "errorReport": {
+    "metrics": [
+      "error_frequency",
+      "error_patterns",
+      "resolution_time",
+      "impact_level"
+    ],
+    "frequency": "daily",
+    "format": "detailed",
+    "distribution": "development"
+  }
+}
+```
+
+## Implementation Checklist
+
+### Setup
+- [ ] Monitoring framework implemented
+- [ ] Metrics collection active
+- [ ] Alert system configured
+- [ ] Reporting system setup
+- [ ] Thresholds defined
+- [ ] Channels established
+
+### Validation
+- [ ] Performance monitoring verified
+- [ ] Resource tracking confirmed
+- [ ] Error tracking tested
+- [ ] Alert system validated
+- [ ] Reports generating
+- [ ] Data accuracy confirmed
+
+### Maintenance
+- [ ] Regular review schedule
+- [ ] Threshold adjustments
+- [ ] Alert tuning
+- [ ] Report optimization
+- [ ] System updates
+- [ ] Documentation current
+
+## Continuous Improvement
+
+### Review Process
+1. Collect monitoring data
+2. Analyze patterns
+3. Identify issues
+4. Plan improvements
+5. Implement changes
+6. Validate results
+7. Update documentation
+8. Adjust thresholds
+9. Optimize alerts
+10. Regular review
+
+### Optimization Cycle
+1. Monitor metrics
+2. Analyze trends
+3. Identify bottlenecks
+4. Plan solutions
+5. Implement changes
+6. Test results
+7. Document updates
+8. Monitor effects
+9. Adjust approach
+10. Regular review 

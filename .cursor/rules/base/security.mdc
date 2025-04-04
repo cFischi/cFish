@@ -1,0 +1,110 @@
+# Base Security Rules
+
+---
+description: Core security guidelines and practices for cFish.io development
+globs: ["*.php", "*.js", "*.ts"]
+alwaysApply: true
+priority: high
+---
+
+## Core Security Principles
+
+### WordPress Security
+- Always use `$wpdb->prepare()` for SQL queries
+- Implement nonce verification for forms
+- Sanitize input data using appropriate WordPress functions
+- Escape output using context-specific functions
+- Verify user capabilities before actions
+- Follow WordPress security best practices
+
+### API Security
+- Implement proper authentication mechanisms
+- Use HTTPS for all API endpoints
+- Validate and sanitize API inputs
+- Implement rate limiting
+- Use secure session management
+- Follow OAuth 2.0 best practices where applicable
+
+### Data Protection
+- Encrypt sensitive data at rest
+- Use secure communication channels
+- Implement proper access controls
+- Follow GDPR compliance requirements
+- Regular security audits
+- Secure backup procedures
+
+### Code Security
+- Follow secure coding practices
+- Implement input validation
+- Use prepared statements
+- Avoid common vulnerabilities (XSS, CSRF, SQLi)
+- Regular dependency updates
+- Security-focused code reviews
+
+### Error Handling
+- Implement secure error logging
+- Avoid exposing sensitive information in errors
+- Use appropriate error reporting levels
+- Implement graceful error recovery
+- Document error handling procedures
+
+### Security Monitoring
+- Implement comprehensive logging
+- Regular security scans
+- Monitor for suspicious activities
+- Automated security testing
+- Incident response procedures
+
+## Implementation Guidelines
+
+### Authentication
+```php
+function verify_user_authentication() {
+  if (!check_ajax_referer('secure_nonce', 'nonce', false)) {
+    wp_send_json_error('Invalid security token');
+  }
+  
+  if (!current_user_can('required_capability')) {
+    wp_send_json_error('Insufficient permissions');
+  }
+}
+```
+
+### Data Sanitization
+```php
+function sanitize_input_data($data) {
+  if (is_array($data)) {
+    return array_map('sanitize_input_data', $data);
+  }
+  return sanitize_text_field($data);
+}
+```
+
+### Error Handling
+```php
+function handle_security_error($error, $context = []) {
+  error_log(sprintf(
+    'Security Error: %s, Context: %s',
+    $error->getMessage(),
+    json_encode($context)
+  ));
+  
+  if (WP_DEBUG) {
+    throw $error;
+  }
+  
+  return wp_send_json_error('An error occurred');
+}
+```
+
+## Security Validation Checklist
+- [ ] Input validation implemented
+- [ ] Output escaping in place
+- [ ] SQL queries using prepared statements
+- [ ] Proper authentication checks
+- [ ] Authorization verification
+- [ ] Rate limiting configured
+- [ ] Error handling secure
+- [ ] Logging properly implemented
+- [ ] Security headers configured
+- [ ] SSL/TLS properly configured 
