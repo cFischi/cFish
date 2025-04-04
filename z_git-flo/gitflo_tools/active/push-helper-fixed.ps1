@@ -1,73 +1,64 @@
-# Script for pushing changes to GitHub
-# Updated to be location-aware and work regardless of where it's called from
+# Simple but effective script for pushing changes to GitHub
+# Uses --no-verify flag to bypass pre-push hooks
 
 param(
     [switch]$TestMode
 )
 
-# Determine the script's directory even if called from elsewhere
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$workspaceRoot = Resolve-Path "$scriptDir\..\.."
-
-# Configure Git to handle line endings
-git config core.autocrlf true
-
 # Save the current location
-Push-Location
+$originalLocation = Get-Location
 
-# Navigate to the workspace root
 try {
-    # Change to the workspace root directory
+    # Change to repository root directory
     Set-Location "C:\Users\Chris\cFish.io"
-    
-    # Get the current branch name
-    $currentBranch = git rev-parse --abbrev-ref HEAD
-    Write-Host "Current branch: $currentBranch"
     
     # Check if there are any changes to commit
     $status = git status -s
     if ([string]::IsNullOrWhiteSpace($status)) {
-        Write-Host "No changes to commit."
-        Pop-Location
-        exit 0
+        Write-Output "No changes to commit."
+        return
     }
     
     # Show changes before commit
-    Write-Host "Changes to be committed:"
+    Write-Output "Changes to be committed:"
     git status -s
     
+    # If in test mode, stop here
+    if ($TestMode) {
+        Write-Output "Test mode: Would commit and push the changes above."
+        return
+    }
+    
     # Prompt for commit message
-    $commitMessage = Read-Host -Prompt "Enter commit message"
+    $commitMessage = Read-Host "Enter commit message (or press Enter for default)"
     if ([string]::IsNullOrWhiteSpace($commitMessage)) {
         $commitMessage = "Update from $env:COMPUTERNAME - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+        Write-Output "Using default message: $commitMessage"
     }
     
-    # Stage all changes (avoiding long paths)
-    $changedFiles = git status -s | Where-Object { $_ -notlike "*z_Archives*" -and $_ -notlike "* -> *" } | ForEach-Object { $_.Substring(3) }
-    if ($changedFiles.Count -eq 0) {
-        Write-Host "No valid files to commit. All changes might be in excluded directories."
-        Pop-Location
-        exit 0
-    }
-    
-    # Add changes
-    Write-Host "Adding changes..."
+    # Stage all changes
+    Write-Output "Adding changes..."
     git add .
     
     # Commit changes with -n flag to bypass hooks
-    Write-Host "Committing changes..."
+    Write-Output "Committing changes..."
     git commit -n -m "$commitMessage"
     
-    # Push to remote repository
-    Write-Host "Pushing to remote repository..."
-    git push origin $currentBranch
+    # Push to remote repository with --no-verify flag
+    Write-Output "Pushing to remote repository..."
+    git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify
     
-    Write-Host "Successfully pushed changes to remote repository on branch $currentBranch."
+    Write-Output "Push operation completed."
 }
 catch {
-    Write-Host "Error: $_"
+    Write-Output "Error: $_"
+    
+    # Provide simple guidance based on error
+    if ($_ -match "rejected") {
+        Write-Output "Try pulling recent changes first with Ctrl+Alt+L"
+    }
 }
 finally {
     # Return to the original location
-    Pop-Location
+    Set-Location $originalLocation
 } 

@@ -23,14 +23,14 @@
         "key": "ctrl+alt+l",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "cd \"${workspaceFolder}\" && git pull\n"
+            "text": "cd \"${workspaceFolder}\" && .\\z_git-flo\\gitflo_tools\\active\\cursor-pull.bat\n"
         }
     },
     {
         "key": "ctrl+alt+k",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "cd \"${workspaceFolder}\" && git add . && git commit -n -m \"Update from VS Code\" && git push --no-verify\n"
+            "text": "cd \"${workspaceFolder}\" && powershell -ExecutionPolicy Bypass -File .\\z_git-flo\\gitflo_tools\\active\\push-helper-fixed.ps1\n"
         }
     }
 ]

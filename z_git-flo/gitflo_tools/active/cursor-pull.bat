@@ -1,22 +1,32 @@
 @echo off
-echo Pulling changes from remote...
+echo ===== Git Pull Operation =====
 
-REM Save current location
-pushd %~dp0
-cd "C:\Users\Chris\cFish.io"
+rem Change to repository directory
+cd /d "C:\Users\Chris\cFish.io"
 
-REM Get current branch name
-for /f "tokens=*" %%a in ('git rev-parse --abbrev-ref HEAD') do set CURRENT_BRANCH=%%a
-echo Current branch: %CURRENT_BRANCH%
+rem Get current branch
+for /f "tokens=*" %%a in ('git rev-parse --abbrev-ref HEAD') do set BRANCH=%%a
+echo Current branch: %BRANCH%
 
-REM Pull from the specific branch
-git pull origin %CURRENT_BRANCH%
+rem Check if in test mode
+if "%1"=="--test" (
+    echo Test mode: Would pull changes from remote for branch %BRANCH%.
+    goto :end
+)
+
+rem Pull from remote
+echo Pulling from remote branch %BRANCH%...
+git pull origin %BRANCH%
 
 if %ERRORLEVEL% EQU 0 (
     echo Successfully pulled changes from remote.
 ) else (
     echo Error: Failed to pull changes from remote.
+    echo Possible solutions:
+    echo - If there are merge conflicts, resolve them before continuing
+    echo - If there are local changes, commit them first with Ctrl+Alt+K
+    echo - For connection issues, verify your internet connection
 )
 
-REM Return to original location
-popd 
+:end
+echo ===== Pull operation completed ===== 
