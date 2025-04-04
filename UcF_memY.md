@@ -3197,3 +3197,29 @@ git push origin fix/include-parent-theme
 ```
 
 If you want to fix the push-helper script, you might need to modify it to remove the test:full script requirement or add that script to your package.json.
+
+## Git-flo Keyboard Shortcut Issues (06-04-2025)
+- Identified critical issues with git-flo keyboard shortcuts (Ctrl+Alt+K/L) implementation
+- Problematic areas documented:
+  - Missing file staging functionality before commit
+  - Incomplete error handling for "test:full" script errors
+  - Workflow interruption requiring manual intervention
+  - Potential VS Code integration and keybindings configuration issues
+- Created comprehensive documentation in README.md with temporary workflow solution
+- Keyboard shortcuts depend on:
+  - VS Code keybindings in .vscode/keybindings.json
+  - PowerShell scripts in z_git-flo/gitflo_tools/
+  - Git hook scripts in .git/hooks/
+- Identified temporary workflow:
+  1. Manual staging with git add commands
+  2. Manual commit with descriptive messages
+  3. Manual push with --no-verify flag to bypass failing hooks
+- Issue to be resolved on development computer with both hook and shortcut fixes
+
+_Updated 06-04-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+
+## Next Steps
+- Complete implementation of Universal Step flo and Urgent Client Step flo documents
+- Integrate fixed keyboard shortcuts with updated Git workflow
+- Resolve missing "test:full" script issue in package.json
+- Document updated workflow in appropriate UcF standards

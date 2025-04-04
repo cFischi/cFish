@@ -1267,6 +1267,26 @@ All notable changes to cFish.io will be documented in this file following semant
 - Comprehensive testing protocol needed
 - Script maintenance guidelines to be established
 
+## [4.3.1] - [2025-06-04]
+
+### Added
+- Comprehensive documentation of git-flo keyboard shortcut issues:
+  - Detailed analysis of Ctrl+Alt+K/L shortcut implementation problems
+  - Thorough explanation of component dependencies in VS Code, PowerShell, and Git hooks
+  - Step-by-step temporary workflow instructions until fixes are implemented
+- Expanded README.md with keyboard shortcut troubleshooting section
+- Updated memory.md with detailed issue identification and next steps
+
+### Changed
+- Enhanced Git push issue documentation with more specific error handling guidance
+- Improved workflow documentation for temporary manual Git operations
+- Refined troubleshooting steps for failed Git operations
+
+### Fixed
+- Documentation gaps in Git workflow process
+- Unclear error handling procedures for npm script errors
+- Missing information on keyboard shortcut dependencies and configuration
+
 ## [4.3.0] - [2025-06-04]
 
 ### Added
