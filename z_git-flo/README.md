@@ -25,6 +25,7 @@ The issue has been addressed by implementing Git keyboard shortcuts that bypass 
 
 - **Ctrl+Alt+L**: Pull changes from remote
 - **Ctrl+Alt+K**: Stage, commit, and push changes to remote
+- **Ctrl+Alt+J**: Check current Git status
 
 These shortcuts use the `-n` and `--no-verify` flags to bypass the Git hooks that cause the "test:full" error.
 
@@ -42,6 +43,15 @@ These shortcuts use the `-n` and `--no-verify` flags to bypass the Git hooks tha
      git add . && git commit -n -m "Update from VS Code" && git push --no-verify
      ```
    - Use this when you want to push all your changes to the remote repository
+
+3. **Check status (Ctrl+Alt+J)**:
+   - This shortcut will show the current Git status of your workspace
+   - It navigates to the workspace folder and runs `git status` through the cursor-status.bat script
+   - Displays formatted information about modified, staged, and untracked files
+   - Shows your current branch name and working directory
+   - Provides clear status information with visual formatting
+   - Use this anytime you need to check which files have been modified or the current state of your repository
+   - The script works from any directory or file in the workspace
 
 ### Alternative Manual Methods
 
@@ -89,14 +99,21 @@ Current implementation:
     "key": "ctrl+alt+l",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-        "text": "cd \"${workspaceFolder}\" && git pull\n"
+        "text": "cd \"${workspaceFolder}\" && .\\z_git-flo\\gitflo_tools\\active\\cursor-pull.bat\n"
     }
 },
 {
     "key": "ctrl+alt+k",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-        "text": "cd \"${workspaceFolder}\" && git add . && git commit -n -m \"Update from VS Code\" && git push --no-verify\n"
+        "text": "cd \"${workspaceFolder}\" && powershell -ExecutionPolicy Bypass -File .\\z_git-flo\\gitflo_tools\\active\\push-helper-fixed.ps1\n"
+    }
+},
+{
+    "key": "ctrl+alt+j",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "cd \"${workspaceFolder}\" && .\\z_git-flo\\gitflo_tools\\active\\cursor-status.bat\n"
     }
 }
 ```

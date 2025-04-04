@@ -10,6 +10,7 @@ This guide provides instructions for synchronizing your cFish.io repository betw
 - Keyboard shortcuts:
   - `Ctrl+Alt+L`: Pull latest changes from GitHub
   - `Ctrl+Alt+K`: Push local changes to GitHub
+  - `Ctrl+Alt+J`: Check Git status
 - Script locations (updated):
   - Primary scripts: `z_git-flo\gitflo_tools\`
   - Wrapper scripts: Root directory
@@ -31,6 +32,15 @@ This guide provides instructions for synchronizing your cFish.io repository betw
 2. Enter a commit message when prompted (or leave blank for auto-generated timestamp message)
 3. Wait for confirmation: "Success! Changes pushed to GitHub."
 4. Remember to press `Ctrl+Alt+L` on your other computer before working there
+
+### Checking Repository Status
+1. Press `Ctrl+Alt+J` to see the current Git status
+2. View the output to see:
+   - Which files have been modified
+   - Which files are staged for commit
+   - Any untracked files
+   - Current branch information
+   - Relationship to remote branch
 
 ## Keyboard Shortcut Details
 
@@ -54,6 +64,15 @@ This shortcut executes `push-helper-fixed.ps1` which:
 - Commits with your message
 - Pushes to GitHub
 - Displays success message
+
+### `Ctrl+Alt+J` (Check Git Status)
+This shortcut executes a simple command that:
+- Determines the workspace root directory (location-aware)
+- Shows the current branch
+- Displays the status of all files in the repository
+- Shows relationships between local and remote branches
+- Lists staged, unstaged, and untracked files
+- No changes are made to your files or repository
 
 ## Script Locations
 

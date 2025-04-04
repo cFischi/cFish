@@ -32,5 +32,12 @@
         "args": {
             "text": "cd \"${workspaceFolder}\" && git add . && git commit -n -m \"Update from VS Code\" && git push --no-verify\n"
         }
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "cd \"${workspaceFolder}\" && git status\n"
+        }
     }
 ]

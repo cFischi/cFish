@@ -94,10 +94,18 @@ All valuable information from these files has been preserved in:
 3. The reference materials in `z_git-flo/gitflo_tools/archive/`
 4. The UcF_memory.md entries
 
+## Latest Keyboard Shortcut Enhancements
+The current Git workflow includes these keyboard shortcuts:
+- **Ctrl+Alt+L**: Pull changes from GitHub repository
+- **Ctrl+Alt+K**: Stage, commit, and push changes to GitHub
+- **Ctrl+Alt+J**: Check current Git status showing modified, staged, and untracked files
+
+These shortcuts are configured in `z_git-flo/gitflo_tools/active/keybindings.json` and are documented in the README.md and git-multi-sync-SOP.md files.
+
 ## Deletion Instructions
 1. Review each file one final time before deletion
 2. Use PowerShell Remove-Item command for deletion
 3. Verify Git status after deletion
 4. Commit the cleanup changes
 
-_Created 06-02-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 
+_Updated 06-02-2025 | AI: Cursor (Claude 3.7 Sonnet)_ 

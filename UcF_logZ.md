@@ -2,6 +2,26 @@
 
 All notable changes to cFish.io will be documented in this file following semantic versioning (MAJOR.MINOR.PATCH).
 
+## [1.2.2] - [2025-06-02]
+
+### Added
+- New Git keyboard shortcut (Ctrl+Alt+J) for quickly checking repository status
+- New script (cursor-status.bat) in z_git-flo/gitflo_tools/active directory 
+- VS Code keybindings integration for seamless keyboard shortcut usage
+- Comprehensive documentation in memory.md and git-sync-verification file
+
+### Changed
+- Enhanced Git workflow with more comprehensive keyboard shortcuts
+- Improved script implementation to use absolute paths for reliability
+- Updated README.md with information about the new keyboard shortcut
+- Refined documentation to include troubleshooting information
+
+### Fixed
+- Path resolution issue in Git script implementation
+- Directory navigation problems with proper workspace detection
+- Script execution reliability with better error handling
+- Documentation consistency across all Git workflow files
+
 ## [4.2.0] - [2025-06-04]
 
 ### Added
