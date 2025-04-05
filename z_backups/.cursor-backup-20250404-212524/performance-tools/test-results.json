@@ -1,0 +1,86 @@
+{
+  "components": {
+    "U2_AI_Research_Load": {
+      "status": "FAILED",
+      "testCase": "U2_AI_Research_Load",
+      "metrics": {
+        "response_time": 121,
+        "token_usage": 52494,
+        "efficiency": 89
+      },
+      "startTime": "2025-04-02T13:24:35.9974675-04:00",
+      "error": "Token usage (52494) exceeded critical threshold (50000)",
+      "duration": 47.0134,
+      "endTime": "2025-04-02T13:24:36.0444809-04:00"
+    },
+    "RelaunchPriority_Load": {
+      "status": "PASSED",
+      "testCase": "RelaunchPriority_Load",
+      "metrics": {
+        "load_time": 178,
+        "context_efficiency": 90,
+        "memory_usage": 14
+      },
+      "startTime": "2025-04-02T13:24:36.22667-04:00",
+      "duration": 22.4014,
+      "endTime": "2025-04-02T13:24:36.2490714-04:00"
+    },
+    "PillarSpecific_Load": {
+      "status": "FAILED",
+      "testCase": "PillarSpecific_Load",
+      "metrics": {
+        "load_time": 162,
+        "context_efficiency": 90,
+        "memory_usage": 17
+      },
+      "startTime": "2025-04-02T13:24:36.1822401-04:00",
+      "error": "Context efficiency (90%) below target threshold (92%)",
+      "duration": 20.1982,
+      "endTime": "2025-04-02T13:24:36.2024383-04:00"
+    },
+    "BaseContext_Load": {
+      "status": "PASSED",
+      "testCase": "BaseContext_Load",
+      "metrics": {
+        "load_time": 84,
+        "context_efficiency": 91,
+        "memory_usage": 16
+      },
+      "startTime": "2025-04-02T13:24:36.1303977-04:00",
+      "duration": 28.1697,
+      "endTime": "2025-04-02T13:24:36.1585674-04:00"
+    },
+    "U7_Systems_Performance": {
+      "status": "PASSED",
+      "testCase": "U7_Systems_Performance",
+      "metrics": {
+        "response_time": 186,
+        "token_usage": 34078,
+        "efficiency": 95
+      },
+      "startTime": "2025-04-02T13:24:36.0658336-04:00",
+      "duration": 22.9382,
+      "endTime": "2025-04-02T13:24:36.0887718-04:00"
+    },
+    "U4_WordPress_Integration": {
+      "status": "PASSED",
+      "testCase": "U4_WordPress_Integration",
+      "metrics": {
+        "response_time": 136,
+        "token_usage": 26604,
+        "efficiency": 89
+      },
+      "startTime": "2025-04-02T13:24:35.9191931-04:00",
+      "duration": 38.9745,
+      "endTime": "2025-04-02T13:24:35.9581676-04:00"
+    }
+  },
+  "startTime": "2025-04-02T13:24:35.8502028-04:00",
+  "summary": {
+    "failed": 2,
+    "passed": 4,
+    "totalTests": 6,
+    "duration": 0.4254576
+  },
+  "metrics": {}
+}

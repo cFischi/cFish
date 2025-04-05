@@ -1,0 +1,2032 @@
+{
+  "memory": 86,
+  "cpu": 40,
+  "processes": [
+    {
+      "name": "System Idle Process",
+      "pid": 0,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "System",
+      "pid": 4,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Secure System",
+      "pid": 88,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Registry",
+      "pid": 156,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "smss.exe",
+      "pid": 528,
+      "cpu": 0,
+      "memory": 1,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "csrss.exe",
+      "pid": 856,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "wininit.exe",
+      "pid": 960,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "csrss.exe",
+      "pid": 968,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "services.exe",
+      "pid": 368,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "LsaIso.exe",
+      "pid": 640,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "lsass.exe",
+      "pid": 628,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1120,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "fontdrvhost.exe",
+      "pid": 1148,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1212,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1260,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "winlogon.exe",
+      "pid": 1324,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "fontdrvhost.exe",
+      "pid": 1372,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1436,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1444,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1544,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1620,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1632,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1628,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1668,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1736,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1756,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "IntelCpHDCPSvc.exe",
+      "pid": 1868,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1876,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1912,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1976,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1996,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 956,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1972,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "IntelCpHeciSvc.exe",
+      "pid": 2080,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "dwm.exe",
+      "pid": 2252,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2360,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2372,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2496,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2576,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2600,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2636,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2700,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2744,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "dasHost.exe",
+      "pid": 2824,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "vmms.exe",
+      "pid": 2832,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 2924,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3116,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3140,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3180,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVDisplay.Container.exe",
+      "pid": 3188,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3264,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3272,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3368,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3376,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3384,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3392,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3492,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "igfxCUIService.exe",
+      "pid": 3524,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Memory Compression",
+      "pid": 3544,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3636,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3648,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3828,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3892,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3968,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 4040,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 3320,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 4140,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVDisplay.Container.exe",
+      "pid": 4172,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 4224,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 4248,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 4256,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 4344,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5280,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5468,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "WmiPrvSE.exe",
+      "pid": 5548,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "vmcompute.exe",
+      "pid": 5672,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5680,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5736,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5828,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5664,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5184,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6104,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6284,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6332,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6364,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "spoolsv.exe",
+      "pid": 6404,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "CmWebAdmin.exe",
+      "pid": 6688,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6712,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "mDNSResponder.exe",
+      "pid": 6720,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "DSAService.exe",
+      "pid": 6728,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "armsvc.exe",
+      "pid": 6736,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "OneApp.IGCC.WinService.exe",
+      "pid": 6744,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "iduServ.exe",
+      "pid": 6752,
+      "cpu": 0,
+      "memory": 1,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "IPROSetMonitor.exe",
+      "pid": 6764,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "HeciServer.exe",
+      "pid": 6772,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Mystic_Light_Service.exe",
+      "pid": 6788,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "LightKeeperService.exe",
+      "pid": 6796,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6804,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MSI_Central_Service.exe",
+      "pid": 6812,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "IVPN Service.exe",
+      "pid": 6828,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "nvcontainer.exe",
+      "pid": 6836,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "SurSvc.exe",
+      "pid": 6844,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "DSAUpdateService.exe",
+      "pid": 6860,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "DtapiService.exe",
+      "pid": 6852,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "HPPrintScanDoctorService.exe",
+      "pid": 6868,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6904,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RtkAudUService64.exe",
+      "pid": 6916,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MSI_Companion_Service.exe",
+      "pid": 6924,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "WDDriveService.exe",
+      "pid": 6932,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AudioDevMon.exe",
+      "pid": 6956,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AudioDevMon.exe",
+      "pid": 6972,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MsMpEng.exe",
+      "pid": 7004,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AdobeUpdateService.exe",
+      "pid": 7012,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "zml8service.exe",
+      "pid": 7028,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MacriumService.exe",
+      "pid": 7040,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "WMIRegistrationService.exe",
+      "pid": 7048,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 7020,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "rpdsvc.exe",
+      "pid": 7060,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "wslservice.exe",
+      "pid": 7068,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 7076,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Plex Update Service.exe",
+      "pid": 7084,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NahimicService.exe",
+      "pid": 7100,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "SearchIndexer.exe",
+      "pid": 7116,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "CodeMeter.exe",
+      "pid": 7124,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 7132,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AGMService.exe",
+      "pid": 7280,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MpDefenderCoreService.exe",
+      "pid": 7320,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 7420,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 8040,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "WmiPrvSE.exe",
+      "pid": 8092,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "wlanext.exe",
+      "pid": 8220,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 8276,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 8352,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "unsecapp.exe",
+      "pid": 8952,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "WmiPrvSE.exe",
+      "pid": 7352,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "wmpnetwk.exe",
+      "pid": 9600,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "dllhost.exe",
+      "pid": 9932,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 10172,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AggregatorHost.exe",
+      "pid": 6572,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "nvcontainer.exe",
+      "pid": 10248,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NisSrv.exe",
+      "pid": 10856,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 11656,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "DSATray.exe",
+      "pid": 11804,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "nvcontainer.exe",
+      "pid": 11816,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "nvcontainer.exe",
+      "pid": 11832,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "sihost.exe",
+      "pid": 11912,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 11940,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 11948,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "PresentationFontCache.exe",
+      "pid": 11996,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 12036,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "taskhostw.exe",
+      "pid": 12208,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 9468,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 11724,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "ctfmon.exe",
+      "pid": 12108,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "explorer.exe",
+      "pid": 12468,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 12516,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "igfxEM.exe",
+      "pid": 12724,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MSI.CentralServer.exe",
+      "pid": 12932,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 12940,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 13300,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "StartMenuExperienceHost.exe",
+      "pid": 13556,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 13692,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RuntimeBroker.exe",
+      "pid": 13728,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "SearchApp.exe",
+      "pid": 14080,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "ReflectUI.exe",
+      "pid": 14208,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RuntimeBroker.exe",
+      "pid": 13428,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "nvsphelper64.exe",
+      "pid": 14000,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVIDIA Overlay.exe",
+      "pid": 12204,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVIDIA Overlay.exe",
+      "pid": 14676,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVIDIA Overlay.exe",
+      "pid": 15032,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVIDIA Overlay.exe",
+      "pid": 15048,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NVIDIA Overlay.exe",
+      "pid": 15104,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RtkAudUService64.exe",
+      "pid": 14456,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RAVCpl64.exe",
+      "pid": 2952,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 5920,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 6912,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "flux.exe",
+      "pid": 7292,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NahimicMonitorX64.exe",
+      "pid": 1384,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "NhNotifSys.exe",
+      "pid": 14584,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 14652,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "IGCCTray.exe",
+      "pid": 15372,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "ReflectMonitor.exe",
+      "pid": 15512,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "MSI.True Color.exe",
+      "pid": 15552,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "TextInputHost.exe",
+      "pid": 15620,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "FirePod.exe",
+      "pid": 15768,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "nusb3mon.exe",
+      "pid": 15824,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "IGCC.exe",
+      "pid": 15940,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "CCXProcess.exe",
+      "pid": 15960,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "node.exe",
+      "pid": 15980,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 16072,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 16236,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AdobeIPCBroker.exe",
+      "pid": 16292,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RuntimeBroker.exe",
+      "pid": 16324,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 16436,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 16612,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 16704,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 16724,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 16968,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "CompPkgSrv.exe",
+      "pid": 17172,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 17316,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 17340,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 14848,
+      "cpu": 0,
+      "memory": 1,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 15452,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 4296,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 7312,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 13640,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "pwsh.exe",
+      "pid": 3840,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 7248,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "appmap-v3.187.0",
+      "pid": 14184,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 2992,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 12952,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "esrv_svc.exe",
+      "pid": 13500,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "LogiFacecamService.exe",
+      "pid": 15872,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 7416,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "vmware-converter-a.exe",
+      "pid": 3712,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "vmware-converter.exe",
+      "pid": 16912,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "vmware-converter.exe",
+      "pid": 4180,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 15888,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 15288,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 1560,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 12892,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "SystemSettings.exe",
+      "pid": 9448,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "ApplicationFrameHost.exe",
+      "pid": 17124,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AdobeNotificationClient.exe",
+      "pid": 6952,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RuntimeBroker.exe",
+      "pid": 17752,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "UserOOBEBroker.exe",
+      "pid": 18252,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "SecurityHealthService.exe",
+      "pid": 18300,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 16284,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 15428,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 11560,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "ShellExperienceHost.exe",
+      "pid": 12484,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RuntimeBroker.exe",
+      "pid": 7364,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Cursor.exe",
+      "pid": 7452,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 13988,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "esrv.exe",
+      "pid": 17260,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AdobeCollabSync.exe",
+      "pid": 17620,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AdobeCollabSync.exe",
+      "pid": 16040,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "AcrobatNotificationClient.exe",
+      "pid": 16048,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "RuntimeBroker.exe",
+      "pid": 19360,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "acrotray.exe",
+      "pid": 19304,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Signal.exe",
+      "pid": 18320,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Signal.exe",
+      "pid": 14284,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Signal.exe",
+      "pid": 9128,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "Signal.exe",
+      "pid": 10816,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 3780,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "pwsh.exe",
+      "pid": 5908,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "svchost.exe",
+      "pid": 19244,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "conhost.exe",
+      "pid": 11172,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "pwsh.exe",
+      "pid": 3256,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "node.exe",
+      "pid": 19432,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "cmd.exe",
+      "pid": 4684,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    },
+    {
+      "name": "tasklist.exe",
+      "pid": 4904,
+      "cpu": 0,
+      "memory": 0,
+      "path": "",
+      "ppid": null
+    }
+  ],
+  "alerts": [
+    {
+      "type": "critical",
+      "resource": "memory",
+      "value": 86,
+      "threshold": 85,
+      "timestamp": 1743663842007
+    }
+  ],
+  "timestamp": 1743663842007
+}

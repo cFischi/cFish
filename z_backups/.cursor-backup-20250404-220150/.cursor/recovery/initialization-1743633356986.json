@@ -1,0 +1,49 @@
+{
+  "stage": "initialization",
+  "timestamp": "2025-04-02T22:35:56.986Z",
+  "metrics": {
+    "current": {
+      "timestamp": "2025-04-02T22:35:56.091Z",
+      "resourceStats": {
+        "resourceMetrics": {
+          "cpu": 1.344086021505376,
+          "memory": 81.16783865576276,
+          "disk": 50
+        }
+      }
+    },
+    "history": [
+      {
+        "timestamp": "2025-04-02T22:35:54.076Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 0,
+            "memory": 80.2535267807892,
+            "disk": 50
+          }
+        }
+      },
+      {
+        "timestamp": "2025-04-02T22:35:55.080Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 48.182009504639474,
+            "memory": 80.86277643074766,
+            "disk": 50
+          }
+        }
+      },
+      {
+        "timestamp": "2025-04-02T22:35:56.091Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 1.344086021505376,
+            "memory": 81.16783865576276,
+            "disk": 50
+          }
+        }
+      }
+    ]
+  },
+  "progress": 0
+}

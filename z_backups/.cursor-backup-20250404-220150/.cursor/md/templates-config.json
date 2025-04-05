@@ -1,0 +1,142 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-04-02",
+  "documentationTemplates": {
+    "memory": {
+      "format": "pillar_aware",
+      "sections": {
+        "context": {
+          "required": true,
+          "fields": [
+            "department",
+            "priority",
+            "token_allocation",
+            "dependencies"
+          ]
+        },
+        "updates": {
+          "required": true,
+          "format": "## [Title] (MM-DD-2025)\n- [Updates]\n\n_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_",
+          "metrics": [
+            "token_usage",
+            "performance_impact",
+            "optimization_status"
+          ]
+        },
+        "next_steps": {
+          "required": true,
+          "prioritization": true,
+          "dependencies": true
+        }
+      },
+      "integration": {
+        "token_metrics": {
+          "display": "inline",
+          "update": "real-time",
+          "threshold_alerts": true
+        },
+        "performance_data": {
+          "collection": "automated",
+          "visualization": "embedded",
+          "trending": true
+        }
+      }
+    },
+    "changelog": {
+      "format": "relaunch_focused",
+      "sections": {
+        "pillar_updates": {
+          "grouping": "by_department",
+          "priority_tags": true,
+          "token_impact": true
+        },
+        "token_optimizations": {
+          "metrics": [
+            "efficiency_gains",
+            "allocation_changes",
+            "performance_improvements"
+          ],
+          "visualization": true
+        },
+        "performance_gains": {
+          "metrics": [
+            "response_time",
+            "load_time",
+            "token_efficiency"
+          ],
+          "comparison": "historical"
+        }
+      },
+      "versioning": {
+        "format": "semantic",
+        "tagging": true,
+        "automation": true
+      }
+    },
+    "verification": {
+      "format": "comprehensive",
+      "checks": {
+        "token_usage": {
+          "metrics": [
+            "current_allocation",
+            "efficiency",
+            "optimization_status"
+          ],
+          "thresholds": {
+            "warning": "80%",
+            "critical": "90%"
+          }
+        },
+        "pillar_alignment": {
+          "checks": [
+            "dependency_validation",
+            "priority_consistency",
+            "resource_balance"
+          ],
+          "reporting": "automated"
+        },
+        "relaunch_progress": {
+          "tracking": [
+            "milestone_completion",
+            "dependency_status",
+            "resource_utilization"
+          ],
+          "visualization": "timeline"
+        }
+      },
+      "automation": {
+        "frequency": "hourly",
+        "reporting": "automated",
+        "alerts": {
+          "channels": ["console", "log", "status"],
+          "priority": ["critical", "warning", "info"]
+        }
+      }
+    }
+  },
+  "templateDefaults": {
+    "formatting": {
+      "markdown": true,
+      "indentation": 2,
+      "lineEndings": "lf"
+    },
+    "metadata": {
+      "required": [
+        "version",
+        "lastUpdated",
+        "department",
+        "priority"
+      ],
+      "optional": [
+        "contributors",
+        "reviewers",
+        "tags"
+      ]
+    },
+    "validation": {
+      "preCommit": true,
+      "autoFormat": true,
+      "linting": true
+    }
+  }
+} 

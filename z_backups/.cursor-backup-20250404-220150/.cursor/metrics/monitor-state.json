@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "memory": 75.68813960642746,
+    "cpu": 0,
+    "total": {
+      "memory": 8427982848,
+      "free": "1.91GB",
+      "used": "5.94GB",
+      "percentUsed": 75.68813960642746
+    },
+    "processes": {
+      "total": 0,
+      "active": 0,
+      "memory": 0
+    }
+  },
+  "warnings": [],
+  "timestamp": 1743662329052,
+  "processId": 14424
+}

@@ -1,0 +1,40 @@
+# cFish.io Client Response System
+
+This file provides guidance for client interactions with these priorities:
+1. 4-hour maximum response time to all client inquiries
+2. Venue-specific approach tailored to client type
+3. Focus on immediate revenue-generating activities
+
+## Core Client Commitment
+- All client inquiries receive acknowledgment within 1 hour
+- Complete responses delivered within 4 hours maximum
+- Every client communication includes relevant portfolio examples
+- All client interactions are documented in patterns directory
+
+## Client Task Format
+When requesting client tasks, use this format:
+
+TASK: [Brief client communication task]
+Client Type: [Club|Lounge|Bar|Residential|Other]
+Priority: [REVENUE-CRITICAL|REVENUE-HIGH|REVENUE-MEDIUM]
+Timeline: [Expected response time]
+Success Criteria: [Client response or action]
+
+## Documentation Format
+Document client interactions with this format:
+
+## [Client Name] - [Contact Purpose] (MM-DD-2025)
+- Brief summary of communication
+- Key information shared with client
+- Client feedback received
+- Planned next steps
+- Response timeline
+
+_Contact Made MM-DD-2025 | Response Expected By: MM-DD-2025_
+
+## Pattern Documentation
+Document successful client interactions in "patterns" directory:
+- What worked with this client type
+- Which portfolio examples resonated
+- Response times that led to conversion
+- Follow-up sequences that were effective 

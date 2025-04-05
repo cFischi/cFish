@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-04-02T23:21:46.083Z",
+  "resourceStats": {
+    "resourceMetrics": {
+      "cpu": 7.163801624810799,
+      "memory": 82.3279207508895,
+      "disk": 50
+    }
+  }
+}

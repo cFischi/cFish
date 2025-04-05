@@ -6,14 +6,22 @@ alwaysApply: true
 
 # Cursor Meta-Rule for cFish.io
 
+## Core Principles
+
+- Focus on immediate revenue generation through client acquisition
+- Prioritize 4-hour response commitment for all client inquiries
+- Implement venue-specific approach tailored to client type
+- Document successful patterns for future reuse
+- Maintain UcF department structure with client-centered focus
+
 ## Rule Storage & Organization
 
-- Always store new Cursor rules in the `.cursor/rules` directory
+- Store all cursor rules in the `.cursor/rules` directory
 - Create new rules as separate `.mdc` files with appropriate naming
 - Follow UcF naming conventions for all rule files
 - Store prompt templates in the `.cursor/rules/prompt-templates` directory
-- Organize rules by department and functionality
-- Implement hierarchical rule structure for better organization
+- Store pattern documentation in the `.cursor/patterns` directory
+- Organize rules by department and client type
 - Use version control to track rule evolution
 
 ## Rule Creation Conventions
@@ -28,8 +36,8 @@ alwaysApply: true
   version: 1.0       # Rule version number
   ---
   ```
-- Prefer department-specific rules for departmental contexts
-- Create specialized rule files for different aspects of projects
+- Prefer client-type specific rules for venue contexts
+- Create specialized rule files for different venue types
 - Keep rules focused and concise for better usability
 - Always follow WordPress coding standards in PHP rule examples
 - Implement feedback loops for continuous rule improvement
@@ -39,23 +47,116 @@ alwaysApply: true
 ## Rule Evolution Strategy
 
 - Monitor rule effectiveness and update based on outcomes
-- Track successful patterns and document learnings
+- Track successful client engagement patterns and document
 - Remove ineffective or outdated rules
 - Merge complementary rules when appropriate
 - Document rule history and evolution
 - Implement automated rule validation where possible
 - Create feedback loops for continuous improvement
 
-## Departmental Organization
+## Client-Type Organization
 
-Follow cFish.io's seven-department structure:
-- U1-Administration: Business administration and overhead functions
-- U2-Research: AI integration and R&D functions (tYFeAiz)
-- U3-Operations: Physical operations and facilities management
-- U4-Production: Web presence, operations, and production (WordPress)
-- U5-Data: Dispatch, services, and success functions
-- U6-Marketing: Social media and communications
-- U7-Systems: Development, design, and technical direction
+Prioritize venue-specific organization:
+- Club: Atmosphere, lighting, sound, crowd flow optimization
+- Lounge: Premium experience, sophisticated design, exclusive feel
+- Bar: Operational efficiency, service speed, layout optimization
+- Residential: Personal style, comfort, quality, timeline adherence
+
+## Revenue Priority Order
+
+1. REVENUE-CRITICAL: High-value, ready-to-proceed clients
+2. REVENUE-HIGH: Serious inquiries with clear intent
+3. REVENUE-MEDIUM: Exploratory inquiries with potential
+4. REVENUE-LOW: Information-only requests
+5. Standard department priorities for non-client tasks
+
+## Rule Interaction Management
+
+- Define clear rule precedence with revenue-first hierarchy
+- Implement conflict resolution with client needs first
+- Document rule dependencies explicitly
+- Track interaction effects between rules
+- Create interaction maps for complex rule sets
+- Define composition rules for rule combinations
+- Document override patterns clearly
+
+## Context-Aware Rule Application
+
+- Implement context-sensitive rule selection based on client type
+- Define context categories with venue type priorities
+- Create selection criteria for rule application
+- Monitor rule effectiveness with different client types
+- Adjust rule priorities based on conversion metrics
+- Document venue-specific patterns
+- Track adaptation results by client type
+
+## Rule Performance Monitoring
+
+- Track rule application by client conversion rate
+- Monitor context fit and interaction impact
+- Measure adaptation success by venue type
+- Document performance metrics
+- Implement continuous optimization
+- Create performance profiles by client type
+- Track resource utilization
+
+## Rule Referencing Syntax
+
+- Reference rules using the syntax `@rule-name.mdc`
+- Use internal links within rules: `[rule-name](mdc:.cursor/rules/rule-name.mdc)`
+- Don't repeat guidance that exists in other rule files - reference instead
+- Implement clear cross-referencing standards
+- Maintain dependency documentation
+
+## File Naming Conventions
+
+Follow cFish.io standard format:
+`ucf-[department].[function]-[description]-[date].[extension]`
+
+Function codes:
+1. Documentation
+2. Configuration
+3. Tools
+4. Scripts/Development
+5. Testing
+6. Automation
+7. Infrastructure
+8. Integration
+9. Miscellaneous
+
+Example: `ucf-u7.3-directory-visual-order-20250506.ps1`
+
+## Validation Framework
+
+- Implement comprehensive rule validation
+- Create validation criteria and test scenarios
+- Define verification procedures
+- Document validation processes
+- Automate testing where possible
+- Monitor performance impact
+- Detect potential conflicts
+- Perform regression analysis
+
+## Continuous Optimization
+
+- Monitor rule effectiveness by client conversion metrics
+- Identify optimization opportunities based on successful patterns
+- Track improvement impact on revenue generation
+- Document success patterns by venue type
+- Review performance regularly against 4-hour commitment
+- Refine rules based on client feedback
+- Assess impact systematically
+- Recognize emerging patterns
+
+## Client-Centric Department Integration
+
+- U1-Administration: Business strategy with client-centered approach
+- U2-Research: AI integration for client acquisition optimization
+- U3-Operations: Physical operations with venue-specific focus
+- U4-Production: WordPress development prioritizing client needs
+- U5-Data: Data management with client conversion tracking
+- U6-Marketing: Communication strategy by venue type
+- U7-Systems: Technical implementation with client-first approach
 
 ## Rule Priority Order
 
@@ -65,16 +166,6 @@ Follow cFish.io's seven-department structure:
 4. Department-specific rules
 5. Feature-specific rules
 6. Override rules for special cases
-
-## Rule Interaction Management
-
-- Define clear rule precedence hierarchy
-- Implement conflict resolution protocols
-- Document rule dependencies explicitly
-- Track interaction effects between rules
-- Create interaction maps for complex rule sets
-- Define composition rules for rule combinations
-- Document override patterns clearly
 
 ## Context-Aware Rule Application
 

@@ -1,0 +1,748 @@
+[
+  {
+    "test": "setup",
+    "stage": "initialization",
+    "startMetrics": {
+      "current": {
+        "timestamp": "2025-04-03T00:02:00.969Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 25.065834182806658,
+            "memory": 82.57393397106259,
+            "disk": 50
+          }
+        }
+      },
+      "history": [
+        {
+          "timestamp": "2025-04-03T00:01:44.882Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 5.570175438596491,
+              "memory": 79.52433232099526,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:45.884Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 57.21936844844887,
+              "memory": 80.2456049801396,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:46.897Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 29.78334568930899,
+              "memory": 80.62473361122817,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:47.923Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 51.525285361025716,
+              "memory": 80.38022699117862,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:48.905Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.721616459384038,
+              "memory": 81.20312225865602,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:49.928Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 14.218973630288616,
+              "memory": 82.3404109519137,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:50.934Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 50.076452599388375,
+              "memory": 82.93600400075233,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:51.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.21586448199351,
+              "memory": 82.034036526791,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:52.937Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.753398835072588,
+              "memory": 81.58244528976051,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:53.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 19.785750691713996,
+              "memory": 82.25084114456898,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:54.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 27.379452012479536,
+              "memory": 82.5499255690939,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:55.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 22.012788434806783,
+              "memory": 83.14911501822742,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:56.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 45.32516809275219,
+              "memory": 83.1705962199889,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:57.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 24.318181818181817,
+              "memory": 81.90986351660881,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:58.957Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 21.589726071963042,
+              "memory": 81.65549109575026,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:59.968Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.294940227967746,
+              "memory": 82.29667094832702,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:02:00.969Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 25.065834182806658,
+              "memory": 82.57393397106259,
+              "disk": 50
+            }
+          }
+        }
+      ]
+    },
+    "endMetrics": {
+      "current": {
+        "timestamp": "2025-04-03T00:02:00.969Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 25.065834182806658,
+            "memory": 82.57393397106259,
+            "disk": 50
+          }
+        }
+      },
+      "history": [
+        {
+          "timestamp": "2025-04-03T00:01:44.882Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 5.570175438596491,
+              "memory": 79.52433232099526,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:45.884Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 57.21936844844887,
+              "memory": 80.2456049801396,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:46.897Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 29.78334568930899,
+              "memory": 80.62473361122817,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:47.923Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 51.525285361025716,
+              "memory": 80.38022699117862,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:48.905Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.721616459384038,
+              "memory": 81.20312225865602,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:49.928Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 14.218973630288616,
+              "memory": 82.3404109519137,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:50.934Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 50.076452599388375,
+              "memory": 82.93600400075233,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:51.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.21586448199351,
+              "memory": 82.034036526791,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:52.937Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.753398835072588,
+              "memory": 81.58244528976051,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:53.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 19.785750691713996,
+              "memory": 82.25084114456898,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:54.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 27.379452012479536,
+              "memory": 82.5499255690939,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:55.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 22.012788434806783,
+              "memory": 83.14911501822742,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:56.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 45.32516809275219,
+              "memory": 83.1705962199889,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:57.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 24.318181818181817,
+              "memory": 81.90986351660881,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:58.957Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 21.589726071963042,
+              "memory": 81.65549109575026,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:59.968Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.294940227967746,
+              "memory": 82.29667094832702,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:02:00.969Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 25.065834182806658,
+              "memory": 82.57393397106259,
+              "disk": 50
+            }
+          }
+        }
+      ]
+    },
+    "timestamp": "2025-04-03T00:01:52.788Z"
+  },
+  {
+    "test": "configuration",
+    "stage": "initialization",
+    "startMetrics": {
+      "current": {
+        "timestamp": "2025-04-03T00:02:00.969Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 25.065834182806658,
+            "memory": 82.57393397106259,
+            "disk": 50
+          }
+        }
+      },
+      "history": [
+        {
+          "timestamp": "2025-04-03T00:01:44.882Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 5.570175438596491,
+              "memory": 79.52433232099526,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:45.884Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 57.21936844844887,
+              "memory": 80.2456049801396,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:46.897Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 29.78334568930899,
+              "memory": 80.62473361122817,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:47.923Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 51.525285361025716,
+              "memory": 80.38022699117862,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:48.905Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.721616459384038,
+              "memory": 81.20312225865602,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:49.928Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 14.218973630288616,
+              "memory": 82.3404109519137,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:50.934Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 50.076452599388375,
+              "memory": 82.93600400075233,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:51.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.21586448199351,
+              "memory": 82.034036526791,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:52.937Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.753398835072588,
+              "memory": 81.58244528976051,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:53.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 19.785750691713996,
+              "memory": 82.25084114456898,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:54.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 27.379452012479536,
+              "memory": 82.5499255690939,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:55.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 22.012788434806783,
+              "memory": 83.14911501822742,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:56.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 45.32516809275219,
+              "memory": 83.1705962199889,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:57.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 24.318181818181817,
+              "memory": 81.90986351660881,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:58.957Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 21.589726071963042,
+              "memory": 81.65549109575026,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:59.968Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.294940227967746,
+              "memory": 82.29667094832702,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:02:00.969Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 25.065834182806658,
+              "memory": 82.57393397106259,
+              "disk": 50
+            }
+          }
+        }
+      ]
+    },
+    "endMetrics": {
+      "current": {
+        "timestamp": "2025-04-03T00:02:00.969Z",
+        "resourceStats": {
+          "resourceMetrics": {
+            "cpu": 25.065834182806658,
+            "memory": 82.57393397106259,
+            "disk": 50
+          }
+        }
+      },
+      "history": [
+        {
+          "timestamp": "2025-04-03T00:01:44.882Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 5.570175438596491,
+              "memory": 79.52433232099526,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:45.884Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 57.21936844844887,
+              "memory": 80.2456049801396,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:46.897Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 29.78334568930899,
+              "memory": 80.62473361122817,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:47.923Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 51.525285361025716,
+              "memory": 80.38022699117862,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:48.905Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.721616459384038,
+              "memory": 81.20312225865602,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:49.928Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 14.218973630288616,
+              "memory": 82.3404109519137,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:50.934Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 50.076452599388375,
+              "memory": 82.93600400075233,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:51.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 30.21586448199351,
+              "memory": 82.034036526791,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:52.937Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.753398835072588,
+              "memory": 81.58244528976051,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:53.949Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 19.785750691713996,
+              "memory": 82.25084114456898,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:54.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 27.379452012479536,
+              "memory": 82.5499255690939,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:55.950Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 22.012788434806783,
+              "memory": 83.14911501822742,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:56.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 45.32516809275219,
+              "memory": 83.1705962199889,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:57.951Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 24.318181818181817,
+              "memory": 81.90986351660881,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:58.957Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 21.589726071963042,
+              "memory": 81.65549109575026,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:01:59.968Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 18.294940227967746,
+              "memory": 82.29667094832702,
+              "disk": 50
+            }
+          }
+        },
+        {
+          "timestamp": "2025-04-03T00:02:00.969Z",
+          "resourceStats": {
+            "resourceMetrics": {
+              "cpu": 25.065834182806658,
+              "memory": 82.57393397106259,
+              "disk": 50
+            }
+          }
+        }
+      ]
+    },
+    "timestamp": "2025-04-03T00:01:58.802Z"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "name": "cfish-process-visualization",
+  "version": "1.0.0",
+  "description": "Process visualization component for cFish.io",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "playwright test",
+    "build": "tsc",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "format": "prettier --write src/**/*.{ts,tsx,scss}",
+    "start:dashboard": "node src/dashboard/index.js"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "d3": "^7.8.5",
+    "dotenv": "^16.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanitize-filename": "^1.6.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/d3": "^7.4.3",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "cheerio": "^1.0.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^23.0.1",
+    "lru-cache": "^11.1.0",
+    "natural": "^8.0.1",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.5",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cFischi/cFish.git"
+  },
+  "keywords": [
+    "process",
+    "visualization",
+    "monitoring",
+    "react",
+    "d3"
+  ],
+  "author": "cFish.io",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cFischi/cFish/issues"
+  },
+  "homepage": "https://github.com/cFischi/cFish#readme"
+}

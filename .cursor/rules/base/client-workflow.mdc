@@ -1,0 +1,159 @@
+# Client Workflow with 4-Hour Response Framework
+
+## Core Principles
+
+- Every client inquiry receives acknowledgment within 1 hour
+- Complete responses are delivered within 4 hours maximum
+- All client communications include relevant portfolio examples
+- Every client interaction is documented for pattern recognition
+- Client conversion is the top priority for all activities
+
+## Communication Workflow
+
+### 1. Initial Contact (Within 1 Hour)
+- Check all communication channels hourly:
+  - Email
+  - Website contact forms
+  - Social media direct messages
+  - Phone messages
+- Send acknowledgment within 1 hour:
+  ```
+  Thank you for reaching out about [specific topic]. I'm reviewing your inquiry and will provide a complete response within the next [X] hours (maximum 4 hours).
+  ```
+- Categorize inquiry by venue type:
+  - Club
+  - Lounge 
+  - Bar
+  - Residential
+  - Other
+- Assign REVENUE priority level:
+  - REVENUE-CRITICAL: High-value, ready-to-proceed clients
+  - REVENUE-HIGH: Serious inquiries with clear intent
+  - REVENUE-MEDIUM: Exploratory inquiries
+  - REVENUE-LOW: Information-only requests
+
+### 2. Full Response (Within 4 Hours)
+- Research client and venue if applicable
+- Select venue-specific portfolio examples (3-5 maximum)
+- Create personalized response using venue-specific template
+- Include clear call to action:
+  - Request for meeting/call
+  - Offer for site visit/consultation
+  - Next step in engagement process
+- Document response in client tracking system
+
+### 3. Follow-up Protocol
+- If no response within 48 hours:
+  - Send follow-up email with additional information
+  - Try alternative contact method if available
+  - Offer specific meeting times
+- If response received:
+  - Reply within 4 hours maximum
+  - Move to meeting scheduling or next engagement step
+  - Document all communication in pattern library
+
+## Documentation Requirements
+
+### Client Contact Record
+Document all client interactions using this format:
+
+```markdown
+## [Client Name] - [Contact Purpose] (MM-DD-2025)
+
+### Summary
+- Brief overview of client inquiry or communication
+
+### Details
+- Key information shared with client
+- Client feedback or questions
+- Specific needs identified
+- Portfolio examples shared
+
+### Next Steps
+- Follow-up actions and timeline
+- Required materials to prepare
+- Conversion plan
+
+_Contact Made MM-DD-2025 | Response Expected By: MM-DD-2025_
+```
+
+### Pattern Documentation
+For successful client interactions, document patterns:
+
+```markdown
+## [Venue Type] Success Pattern (MM-DD-2025)
+
+### Client Profile
+- Venue type and characteristics
+- Initial concerns or priorities
+- Communication preferences
+
+### Effective Approach
+- Portfolio examples that resonated
+- Key talking points that connected
+- Objections and how they were addressed
+- Timeline that led to conversion
+
+### Lessons Learned
+- What worked well
+- What to avoid
+- Recommendations for similar clients
+
+_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+```
+
+## Client Task Format
+
+When creating client-related tasks, use this format:
+
+```
+TASK: [Brief client communication task]
+Client: [Client Name]
+Client Type: [Club|Lounge|Bar|Residential|Other]
+Priority: [REVENUE-CRITICAL|REVENUE-HIGH|REVENUE-MEDIUM|REVENUE-LOW]
+Timeline: [Expected completion time]
+Value: [Estimated revenue potential]
+Success Criteria: [Client response or action]
+```
+
+## Client Opportunity Tracking
+
+Track all client opportunities using this format:
+
+```
+client_name: "[Client Name]"
+client_type: "club|lounge|bar|residential|other"
+status: "inquiry|meeting|proposal|negotiation|closed"
+value: "[Estimated revenue potential]"
+priority: "REVENUE-CRITICAL|REVENUE-HIGH|REVENUE-MEDIUM|REVENUE-LOW"
+last_contact: "MM-DD-2025"
+next_action: "[Specific follow-up action]"
+next_deadline: "MM-DD-2025"
+portfolio_shared: "[Links to shared examples]"
+conversion_probability: "[Percentage]"
+```
+
+## 4-Hour Response Checklist
+
+- [ ] Check all communication channels hourly
+- [ ] Send acknowledgment within 1 hour of inquiry
+- [ ] Categorize by venue type and priority
+- [ ] Research client/venue if needed
+- [ ] Select relevant portfolio examples
+- [ ] Create personalized response
+- [ ] Include clear call to action
+- [ ] Send complete response within 4 hours
+- [ ] Document in client tracking system
+- [ ] Schedule follow-up if no response within 48 hours
+
+## Performance Metrics
+
+Track these metrics to ensure client response effectiveness:
+
+- Acknowledgment time: Target 100% within 1 hour
+- Complete response time: Target 100% within 4 hours
+- Meeting conversion rate: Target 40% of inquiries
+- Proposal conversion rate: Target 50% of meetings
+- Client conversion rate: Target 30% of proposals
+- Portfolio engagement: Track which examples resonate most
+- Response patterns: Document successful approaches by venue type 

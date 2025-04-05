@@ -1,0 +1,165 @@
+{
+  "storage": {
+    "type": "time-series",
+    "retention": {
+      "raw": "7d",
+      "hourly": "30d",
+      "daily": "365d"
+    }
+  },
+  "collection": {
+    "interval": 60,
+    "metrics": {
+      "performance": {
+        "reliability": {
+          "alert": "below",
+          "threshold": 99.9,
+          "unit": "percent"
+        },
+        "responseTime": {
+          "alert": "threshold",
+          "threshold": 1000,
+          "unit": "ms"
+        },
+        "accuracy": {
+          "alert": "below",
+          "threshold": 95,
+          "unit": "percent"
+        },
+        "efficiency": {
+          "alert": "below",
+          "threshold": 90,
+          "unit": "percent"
+        },
+        "processTree": {
+          "renderTime": {
+            "alert": "above",
+            "threshold": 16,
+            "unit": "ms"
+          },
+          "memoryUsage": {
+            "alert": "above",
+            "threshold": 100,
+            "unit": "MB"
+          },
+          "updateLatency": {
+            "alert": "above",
+            "threshold": 50,
+            "unit": "ms"
+          },
+          "domUpdateTime": {
+            "alert": "above",
+            "threshold": 8,
+            "unit": "ms"
+          }
+        },
+        "resourceGraphs": {
+          "renderEfficiency": {
+            "alert": "below",
+            "threshold": 95,
+            "unit": "percent"
+          },
+          "updateLatency": {
+            "alert": "above",
+            "threshold": 50,
+            "unit": "ms"
+          },
+          "dataCompression": {
+            "alert": "below",
+            "threshold": 80,
+            "unit": "percent"
+          },
+          "websocketLatency": {
+            "alert": "above",
+            "threshold": 50,
+            "unit": "ms"
+          }
+        },
+        "systemResources": {
+          "cpuUsage": {
+            "alert": "above",
+            "threshold": 10,
+            "unit": "percent"
+          },
+          "memoryUsage": {
+            "alert": "above",
+            "threshold": 100,
+            "unit": "MB"
+          }
+        }
+      },
+      "crossPlatform": {
+        "compatibility": {
+          "alert": "below",
+          "threshold": 95,
+          "unit": "percent"
+        },
+        "memoryCalculation": {
+          "variance": {
+            "alert": "above",
+            "threshold": 5,
+            "unit": "percent"
+          }
+        },
+        "processNormalization": {
+          "accuracy": {
+            "alert": "below",
+            "threshold": 95,
+            "unit": "percent"
+          }
+        }
+      },
+      "resourceManagement": {
+        "predictionAccuracy": {
+          "alert": "below",
+          "threshold": 90,
+          "unit": "percent"
+        },
+        "statePersistence": {
+          "alert": "below",
+          "threshold": 99,
+          "unit": "percent"
+        },
+        "recoveryReliability": {
+          "alert": "below",
+          "threshold": 98,
+          "unit": "percent"
+        },
+        "systemIntegration": {
+          "overhead": {
+            "alert": "above",
+            "threshold": 10,
+            "unit": "percent"
+          },
+          "latency": {
+            "alert": "above",
+            "threshold": 100,
+            "unit": "ms"
+          }
+        },
+        "alertSystem": {
+          "accuracy": {
+            "alert": "below",
+            "threshold": 95,
+            "unit": "percent"
+          },
+          "correlationPrecision": {
+            "alert": "below",
+            "threshold": 95,
+            "unit": "percent"
+          },
+          "processingTime": {
+            "alert": "above",
+            "threshold": 100,
+            "unit": "ms"
+          }
+        }
+      }
+    }
+  },
+  "aggregation": {
+    "shortterm": "5m",
+    "realtime": "1m",
+    "longterm": "1h"
+  }
+}

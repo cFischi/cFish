@@ -1,0 +1,189 @@
+# REVENUE-CRITICAL Priority Framework
+
+---
+description: Guidelines for handling REVENUE-CRITICAL priority tasks
+globs: ["*.md", "*.mdc"]
+alwaysApply: true
+priority: highest
+version: 1.0
+---
+
+## Definition
+
+REVENUE-CRITICAL tasks are those that:
+- Directly impact immediate client acquisition or conversion
+- Have a clear path to revenue generation within 0-30 days
+- Involve high-value clients ready to proceed
+- Require immediate attention and response
+- Represent the highest priority for resource allocation
+
+## Core Principles
+
+1. **4-Hour Response Commitment**
+   - All client inquiries receive acknowledgment within 1 hour
+   - Complete responses delivered within 4 hours maximum
+   - Every follow-up handled within 4 hours
+   - Any client question answered same day
+   
+2. **Venue-Specific Prioritization**
+   - Club venues: Focus on atmosphere, crowd flow, operational efficiency
+   - Lounge venues: Focus on premium experience, exclusivity, comfort
+   - Bar venues: Focus on operational efficiency, service speed, layout
+   - Residential: Focus on personal style, quality, timeline adherence
+   
+3. **Revenue-First Decision Making**
+   - Allocate resources based on revenue potential
+   - Prioritize tasks that directly lead to client conversion
+   - Focus on immediate business impact
+   - Make decisions based on revenue timeline (shorter = higher priority)
+   
+4. **Pattern Documentation**
+   - Document all successful client interactions
+   - Capture effective approaches by venue type
+   - Record client objections and effective responses
+   - Track conversion patterns for optimization
+
+## Implementation Timeline
+
+### Immediate (Day 1)
+- Implement 4-hour response system across all contact channels
+- Set up venue-specific portfolio organization
+- Create client communication templates by venue type
+- Establish client tracking system with conversion metrics
+
+### Short-Term (Days 2-7)
+- Develop initial portfolio examples for each venue type
+- Create client-specific case studies showing business impact
+- Implement automated follow-up system
+- Document initial client interaction patterns
+
+### Medium-Term (Days 8-14)
+- Analyze early client interaction patterns
+- Refine venue-specific approaches based on results
+- Enhance portfolio presentations with metrics
+- Develop advanced client proposal templates by venue type
+
+### Long-Term (Days 15-30)
+- Create comprehensive pattern library by venue type
+- Implement predictive analytics for client conversion
+- Develop advanced ROI projections for client proposals
+- Create client success case studies with metrics
+
+## Task Prioritization
+
+When faced with multiple REVENUE-CRITICAL tasks, prioritize by:
+
+1. **Revenue Potential**
+   - Higher potential revenue = higher priority
+   - Shorter time to revenue = higher priority
+   - Higher conversion probability = higher priority
+   
+2. **Client Type**
+   - Ready-to-proceed clients > exploratory inquiries
+   - Specific project requests > general information requests
+   - Repeat/referral clients > new prospects
+   
+3. **Response Timeline**
+   - Approaching 4-hour deadline > earlier in window
+   - Client-initiated follow-ups > initial inquiries
+   - Complex requests requiring research > simple inquiries
+
+## Documentation Requirements
+
+### Client Interaction Documentation
+
+```markdown
+## [Client Name] - [Contact Purpose] (MM-DD-2025)
+
+### Summary
+- Brief overview of client inquiry or communication
+
+### Details
+- Key information shared with client
+- Client feedback or questions
+- Specific needs identified
+- Portfolio examples shared
+
+### Next Steps
+- Follow-up actions and timeline
+- Required materials to prepare
+- Conversion plan
+
+_Contact Made MM-DD-2025 | Response Expected By: MM-DD-2025_
+```
+
+### Pattern Documentation
+
+```markdown
+## [Venue Type] Success Pattern (MM-DD-2025)
+
+### Client Profile
+- Venue type and characteristics
+- Initial concerns or priorities
+- Communication preferences
+
+### Effective Approach
+- Portfolio examples that resonated
+- Key talking points that connected
+- Objections and how they were addressed
+- Timeline that led to conversion
+
+### Lessons Learned
+- What worked well
+- What to avoid
+- Recommendations for similar clients
+
+_Updated MM-DD-2025 | AI: Cursor (Claude 3.7 Sonnet)_
+```
+
+## Success Metrics
+
+Track these metrics for REVENUE-CRITICAL tasks:
+
+- **Client Acquisition Rate**
+  - Target: 30% inquiry-to-client conversion
+  - Track by venue type and approach
+  
+- **Response Time Performance**
+  - Target: 100% acknowledgment within 1 hour
+  - Target: 100% complete response within 4 hours
+  
+- **Meeting Conversion Rate**
+  - Target: 40% inquiry-to-meeting conversion
+  - Track by venue type and portfolio examples
+  
+- **Proposal Conversion Rate**
+  - Target: 50% meeting-to-proposal conversion
+  - Track by proposal approach and client type
+  
+- **Pattern Documentation Growth**
+  - Target: 5 new successful patterns documented weekly
+  - Track by venue type and effectiveness
+
+## Analog-First Approach
+
+For all REVENUE-CRITICAL activities, follow this approach:
+
+1. **Document First, Structure Later**
+   - Begin with simple documentation of what works
+   - Let patterns emerge from actual client interactions
+   - Create structure based on proven approaches
+   - Avoid over-engineering before validation
+   
+2. **Real Client Examples > Theoretical Approaches**
+   - Base approaches on actual client successes
+   - Use real data over assumptions
+   - Document verbatim client language that works
+   - Track successful conversion language
+   
+3. **Rapid Iteration Based on Results**
+   - Test approaches with actual clients
+   - Document outcomes immediately
+   - Refine based on client feedback
+   - Implement successful patterns quickly
+   
+4. **Focus on Revenue, Not Perfection**
+   - Prioritize revenue generation over perfect systems
+   - Get approach in front of clients quickly
+   - Refine based on conversion impact
+   - Measure success by revenue, not theoretical elegance 

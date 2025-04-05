@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-04-03T03:50:26.523Z",
+  "platform": {
+    "os": "win32",
+    "release": "10.0.19045",
+    "arch": "x64"
+  },
+  "status": "failure",
+  "error": {
+    "message": "Dependency verification failed - see logs for details",
+    "stack": "Error: Dependency verification failed - see logs for details\n    at verifyDependencies (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\verify-dependencies.js:88:13)\n    at async C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\run-system-tests.js:59:22\n    at async SystemTests.withRetry (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\run-system-tests.js:45:16)\n    at async SystemTests.testCore (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\run-system-tests.js:58:18)\n    at async SystemTests.testAll (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\run-system-tests.js:146:5)\n    at async SystemTests.withRetry (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\run-system-tests.js:45:16)\n    at async SystemTests.run (C:\\Users\\Chris\\cFish.io\\.cursor\\scripts\\run-system-tests.js:31:7)"
+  }
+}

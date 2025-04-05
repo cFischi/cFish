@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-04-02",
+  "performanceTools": {
+    "tokenOptimizer": {
+      "enabled": true,
+      "strategies": {
+        "dynamicAllocation": {
+          "enabled": true,
+          "minTokens": 1000,
+          "maxTokens": 50000,
+          "adjustmentFactor": 1.2
+        },
+        "contextPruning": {
+          "enabled": true,
+          "maxAge": "1h",
+          "retentionPriority": ["critical", "high", "medium", "low"]
+        },
+        "pillarRotation": {
+          "enabled": true,
+          "interval": "30m",
+          "priorityBased": true
+        }
+      }
+    },
+    "performanceMonitor": {
+      "enabled": true,
+      "metrics": {
+        "collection": {
+          "interval": "1s",
+          "aggregation": "5m"
+        },
+        "storage": {
+          "type": "file",
+          "path": "./.cursor/performance-tools/metrics.json",
+          "rotation": "1d"
+        }
+      }
+    },
+    "alertManager": {
+      "enabled": true,
+      "channels": {
+        "console": {
+          "enabled": true,
+          "format": "detailed"
+        },
+        "file": {
+          "enabled": true,
+          "path": "./.cursor/performance-tools/alerts.log",
+          "rotation": "7d"
+        }
+      },
+      "rules": {
+        "resourceUsage": {
+          "cpu": {
+            "warning": "70%",
+            "critical": "90%"
+          },
+          "memory": {
+            "warning": "80%",
+            "critical": "95%"
+          }
+        },
+        "performance": {
+          "responseTime": {
+            "warning": "200ms",
+            "critical": "500ms"
+          },
+          "errorRate": {
+            "warning": "5%",
+            "critical": "10%"
+          }
+        }
+      }
+    }
+  }
+} 

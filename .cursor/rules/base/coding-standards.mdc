@@ -6,16 +6,19 @@ priority: high
 version: 1.0
 ---
 
-# Coding Standards and Best Practices
+# Client-Centered Coding Standards
 
 ## Core Principles
 
+- Implement mobile-first responsive design for venue owners
+- Focus on features that directly support client acquisition
+- Prioritize portfolio showcase functionality
+- Ensure 4-hour response system is technically supported
+- Organize code by client type and venue category
 - Follow WordPress coding standards for PHP development
-- Implement mobile-first responsive design
-- Use test-driven development (TDD) approach
-- Maintain comprehensive documentation
+- Maintain comprehensive documentation with client focus
 - Ensure security best practices
-- Optimize for performance
+- Optimize for performance on mobile devices
 - Follow SOLID principles
 
 ## Code Organization
@@ -23,7 +26,7 @@ version: 1.0
 ### File Structure
 - Break large files into smaller modules (<100 lines)
 - Use descriptive file names following UcF conventions
-- Organize by feature or domain rather than type
+- Organize by client type or venue category
 - Maintain clear separation of concerns
 - Implement modular architecture
 
@@ -35,6 +38,15 @@ version: 1.0
 - Files: kebab-case
 - Follow UcF naming pattern: `ucf-[department].[function]-[description]-[date].[extension]`
 
+### Client Type Organization
+- Use directory structure reflecting venue types:
+  - club/
+  - lounge/
+  - bar/
+  - residential/
+- Implement consistent patterns across venue types
+- Use shared components with venue-specific customization
+
 ## Development Patterns
 
 ### WordPress Development
@@ -45,21 +57,21 @@ version: 1.0
 - Follow WordPress.org plugin guidelines
 - Implement proper error handling
 
-### JavaScript Development
-- Use ES6+ features appropriately
-- Implement proper error handling
-- Follow async/await patterns
-- Maintain consistent event handling
-- Implement proper state management
-- Use TypeScript where appropriate
+### Portfolio Showcase Development
+- Optimize image loading for mobile
+- Implement lazy loading for gallery images
+- Create venue-specific gallery templates
+- Implement before/after comparison functionality
+- Support multiple media types (images, video, 3D)
+- Ensure proper taxonomy for venue categorization
 
-### CSS/SCSS Development
-- Follow BEM methodology
-- Implement mobile-first approach
-- Use logical property ordering
-- Maintain consistent naming
-- Optimize for performance
-- Follow accessibility guidelines
+### Client Contact System
+- Implement immediate notification for new inquiries
+- Create timestamp system for 4-hour response tracking
+- Develop venue-specific contact forms
+- Build automated follow-up system
+- Create client interaction history
+- Implement secure messaging system
 
 ## Security Standards
 
@@ -80,16 +92,16 @@ version: 1.0
 
 ## Performance Optimization
 
-### Code Level
-- Use efficient algorithms
-- Implement proper caching
-- Optimize database queries
-- Minimize DOM manipulation
-- Use appropriate data structures
-- Implement lazy loading
+### Mobile-First Optimization
+- Implement responsive breakpoints prioritizing mobile
+- Optimize image loading and compression
+- Minimize HTTP requests
+- Implement critical CSS loading
+- Use performance budgets for mobile loading
+- Test on actual mobile devices
 
 ### Asset Management
-- Optimize images and media
+- Optimize images for venue portfolios
 - Implement proper caching
 - Use asset versioning
 - Minimize HTTP requests
@@ -105,82 +117,86 @@ version: 1.0
 - Document security considerations
 - Maintain changelog
 
-### API Documentation
-- Document all endpoints
-- Include request/response examples
-- Document authentication requirements
-- Include error responses
-- Maintain versioning information
+### Client-Centered Documentation
+- Create venue-specific implementation guides
+- Document successful portfolio templates
+- Maintain client interaction case studies
+- Document conversion patterns by venue type
+- Create client response templates
 
 ## Testing Standards
 
-### Unit Testing
-- Write comprehensive tests
-- Follow AAA pattern
-- Implement proper mocking
-- Test edge cases
-- Maintain high coverage
-- Document test cases
+### Testing Priorities
+- Mobile responsiveness testing
+- Contact form functionality
+- Portfolio display performance
+- 4-hour response system reliability
+- Client tracking accuracy
+- Cross-browser compatibility
 
-### Integration Testing
-- Test cross-component functionality
-- Verify system integration
-- Test error handling
-- Validate security measures
-- Document test scenarios
+### Mobile Testing
+- Test on actual mobile devices
+- Verify touch interaction
+- Test portfolio gallery usability
+- Ensure contact forms work on small screens
+- Validate performance on mobile networks
+- Test client communication display on mobile
 
-## Version Control
+## Client-Centered Error Handling
 
-### Git Practices
-- Use feature branches
-- Write clear commit messages
-- Follow conventional commits
-- Implement proper PR process
-- Maintain clean history
-- Document significant changes
+### User-Facing Errors
+- Provide clear, non-technical error messages
+- Implement graceful fallbacks for all features
+- Guide users through error recovery
+- Collect error information for improvement
+- Ensure errors don't prevent contact form submission
 
-### Branch Strategy
-- main: Production code
-- develop: Development branch
-- feature/*: Feature branches
-- bugfix/*: Bug fix branches
-- release/*: Release branches
-
-## Error Handling
-
-### Logging
+### Server-Side Errors
 - Implement comprehensive logging
-- Use appropriate log levels
-- Include context information
-- Follow logging standards
-- Maintain log rotation
-- Document logging patterns
-
-### Error Recovery
-- Implement graceful degradation
-- Provide user feedback
-- Log error details
-- Implement retry mechanisms
-- Document recovery procedures
+- Create immediate alerts for contact form failures
+- Provide automatic recovery options
+- Implement redundant contact mechanisms
+- Ensure data persistence during errors
 
 ## Accessibility Standards
 
-### WCAG Compliance
+### Client Accessibility
 - Follow WCAG 2.1 guidelines
 - Implement proper ARIA roles
 - Maintain keyboard navigation
-- Provide alternative text
+- Provide alternative text for portfolio images
 - Test with screen readers
 - Document accessibility features
 
-## Mobile Optimization
+## Venue-Specific Implementation
 
-### Responsive Design
-- Implement mobile-first approach
-- Use proper breakpoints
-- Optimize for touch interfaces
-- Test across devices
-- Document responsive patterns
+### Club Venue Features
+- Implement dramatic lighting showcases
+- Create before/after gallery options
+- Develop sound system visualization
+- Build crowd flow demonstration tools
+- Implement video integration for atmosphere
+
+### Lounge Venue Features
+- Showcase premium materials and finishes
+- Develop mood and atmosphere galleries
+- Create comfort and exclusivity demonstrations
+- Implement brand identity showcases
+- Build premium experience visualizations
+
+### Bar Venue Features
+- Create operational efficiency visualizations
+- Develop service speed demonstrations
+- Build layout optimization showcases
+- Implement revenue impact calculators
+- Create workflow visualization tools
+
+### Residential Features
+- Implement material and finish showcases
+- Create before/after transformation galleries
+- Build style and personality demonstrations
+- Develop quality detail showcases
+- Implement project timeline visualizations
 
 ## Cross-Platform Compatibility
 

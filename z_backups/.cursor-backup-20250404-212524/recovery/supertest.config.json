@@ -1,0 +1,14 @@
+{
+  "timeout": 5000,
+  "coverage": {
+    "apis": 100,
+    "edgeCases": 85,
+    "workflows": 90
+  },
+  "performance": {
+    "throughput": 1000,
+    "responseTime": 200
+  },
+  "baseUrl": "http://localhost:3000",
+  "retries": 3
+}
