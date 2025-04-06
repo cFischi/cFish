@@ -1,4 +1,4 @@
-# UcF/cFish Strategic Pivot Overview (June 2025)
+# UcF/cFish Strategic Pivot Overview (April 2025)
 
 ## 1. Situational Synthesis & Evolution
 
@@ -27,7 +27,7 @@ This imperative must be pursued with specific focus on **Clubs, Bars, and Lounge
 
 ## 3. Strategic Recommendation: RADICAL FOCUS & Simplification (Next 90 Days)
 
-This plan embraces the direction of the June 4th pivot but mandates further simplification for success.
+This plan embraces the direction of the april 4th pivot but mandates further simplification for success.
 
 *   **Unified Operational Model:**
     *   **ACTION:** **Archive** the `Universal UcF Step flo`. Operate *exclusively* under a **streamlined version** of the `Urgent Client Step flo`, recognizing this as a necessary, temporary measure to maximize immediate focus. Core principles for systematic learning will be integrated minimally into the Urgent flow.
@@ -63,17 +63,17 @@ This plan embraces the direction of the June 4th pivot but mandates further simp
 
 This structured approach merges previous roadmap concepts (Client Foundation, Service Excellence, System Integration) into a focused revenue-driven timeline.
 
-*   **Month 1: Foundation & First Wins (Approx. June 5 - July 5)**
+*   **Month 1: Foundation & First Wins (Approx. april 5 - may 5)**
     *   **Goal:** Secure 1-2 new paying clients in Clubs, Bars, and Lounges niche. Establish core web presence and response system.
     *   **Actions:** Implement WordPress MVP site with core comms plugins. Finalize MVP Portfolios with dynamic video clips & before/after content for Clubs, Bars, and Lounges. Implement *reliable* 4-hour client response workflow (initial templates, documented process, basic notifications). Execute targeted outreach in Metro Atlanta area. Streamline proposal template. Use simple, reliable Git commands. Stabilize Cursor by removing non-essential workspace files. Implement basic tracking (Analytics, GBP).
     *   **Metric:** # New Clients Signed, Average Client Response Time.
 
-*   **Month 2: Delivery Excellence & Testimonials (Approx. July 6 - Aug 5)**
+*   **Month 2: Delivery Excellence & Testimonials (Approx. may 6 - june 5)**
     *   **Goal:** Deliver outstanding results for initial clients, gather strong testimonials.
     *   **Actions:** Execute projects flawlessly. Implement a client satisfaction check-in process. Document successes for portfolio/case studies with emphasis on video content. Refine venue-specific service packages for Clubs, Bars, and Lounges based on real-world delivery experience.
     *   **Metric:** Client Satisfaction Score, # Testimonials Received.
 
-*   **Month 3: Predictability & Re-evaluation (Approx. Aug 6 - Sept 5)**
+*   **Month 3: Predictability & Re-evaluation (Approx. june 6 - july 5)**
     *   **Goal:** Establish a repeatable sales/delivery process, achieve predictable (even if small) monthly revenue.
     *   **Actions:** Analyze sales pipeline and conversion data from Club, Bar, and Lounge clients. Optimize outreach based on results. Standardize onboarding for new clients. *Critically re-evaluate* infrastructure needs based on *actual* client load and revenue. Is advanced DMMS needed *now*? Is complex sync required *now*? Make data-driven decisions about restarting paused projects based on having secured at least 2 consistent paying clients.
     *   **Metric:** Monthly Recurring Revenue (or predictable project revenue), Client Acquisition Cost.
