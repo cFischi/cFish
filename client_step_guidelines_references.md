@@ -5,11 +5,61 @@
 **Status**: Active - REVENUE-CRITICAL  
 **Department**: U1-Administration (Universal Application)
 
-**Page 1 of 7**
+**Page 1 of 9**
 
 ## Guidelines Overview
 
 This document provides essential references, guidelines, and checklists for client engagement processes. Use these structured protocols to ensure consistent, high-quality client interactions that maximize revenue potential.
+
+## Strategic Context
+
+These client guidelines support the core principle of garage-based operations:
+> "Build the stable engine before building the spaceship."
+
+□ **Foundation First Approach**
+  - Focus on stable revenue generation before complex expansions
+  - Prioritize client services that can be delivered with current capabilities
+  - Ensure physical infrastructure directly supports client service delivery
+  - Build quality processes that scale with business growth
+
+□ **Revenue-Driven Operations**
+  - Connect every client interaction to revenue generation
+  - Focus resources on activities with direct client impact
+  - Establish consistent client communication standards
+  - Ensure all client-facing activities align with business capabilities
+
+**Strategic Alignment Notes**:
+________________________________________________________________
+________________________________________________________________
+
+## Client Qualification Criteria
+
+Use these criteria to evaluate and prioritize prospective clients:
+
+### Revenue Potential Assessment
+□ **Budget Qualification**
+  - Confirmed budget: $_______________________________________
+  - Budget authority identified: □ Yes □ No
+  - Decision timeline: _______________________________________
+  - Payment capability verified: □ Yes □ No
+
+□ **Project Scope Alignment**
+  - Matches capabilities: □ High □ Medium □ Low
+  - Resource requirements: □ Available □ Partial □ Unavailable
+  - Timeline compatibility: □ Ideal □ Workable □ Challenging
+
+□ **Long-term Value Potential**
+  - Repeat business potential: □ High □ Medium □ Low
+  - Referral opportunities: □ High □ Medium □ Low
+  - Portfolio value: □ High □ Medium □ Low
+  - Strategic relationship value: □ High □ Medium □ Low
+
+**Qualification Score**: _____/10
+**Qualification Decision**: □ Pursue □ Limited Engagement □ Refer □ Decline
+
+**Qualification Notes**:
+________________________________________________________________
+________________________________________________________________
 
 ---
 
@@ -29,7 +79,7 @@ This document provides essential references, guidelines, and checklists for clie
 ________________________________________________________________
 ________________________________________________________________
 
-**Page 2 of 7**
+**Page 2 of 9**
 
 ### Client Communication Checklist
 
@@ -63,7 +113,7 @@ ________________________________________________________________
 
 **Communication Reviewer**: _______________________________
 
-**Page 3 of 7**
+**Page 3 of 9**
 
 ### Client Proposal Checklist
 
@@ -97,7 +147,7 @@ ________________________________________________________________
 
 **Proposal Approved By**: __________________________________
 
-**Page 4 of 7**
+**Page 4 of 9**
 
 ### End-of-Day Client Checklist
 
@@ -149,7 +199,7 @@ ________________________________________________________________
 **Visit Schedule**: ________________________________________
 **Visit Location**: ________________________________________
 
-**Page 5 of 7**
+**Page 5 of 9**
 
 ## Client Issue Response Format
 
@@ -189,7 +239,51 @@ ________________________________________________________________
 _Reported ____-____-____ | Target Resolution: ____-____-____
 ```
 
-**Page 6 of 7**
+## Decision Framework for Client Engagement
+
+Use this standardized framework for making consistent decisions throughout client engagement:
+
+### Decision Evaluation Matrix
+```
+## Decision Point: [___________________] (____-____-____)
+
+### Options Analysis
+                  | Option 1         | Option 2         | Option 3
+------------------|------------------|------------------|------------------
+Description       | ________________ | ________________ | ________________
+Revenue Impact    | □High □Med □Low  | □High □Med □Low  | □High □Med □Low
+Timeline Impact   | □Fast □Med □Slow | □Fast □Med □Slow | □Fast □Med □Slow
+Resource Required | □Low □Med □High  | □Low □Med □High  | □Low □Med □High
+Client Value      | □High □Med □Low  | □High □Med □Low  | □High □Med □Low
+Risk Level        | □Low □Med □High  | □Low □Med □High  | □Low □Med □High
+
+### Decision Criteria
+1. Revenue generation potential: _______________________________
+2. Client satisfaction impact: _________________________________
+3. Resource efficiency: _______________________________________
+4. Timeline considerations: ___________________________________
+5. Strategic alignment: _______________________________________
+
+### Selected Option: ___________________________________________
+
+Rationale: ____________________________________________________
+_____________________________________________________________
+_____________________________________________________________
+
+Implementation Timeline: □Immediate □24hrs □48hrs □1week □Other______
+```
+
+**Rapid Decision Guidelines**:
+- When uncertain, prioritize revenue impact
+- Choose options that maintain the 4-hour response commitment
+- Prefer solutions that can be implemented with current resources
+- Default to client-friendly options that align with venue type priorities
+- Consider precedent established with similar clients
+
+**Decision Documentation Required**: □Yes □No
+**Escalation Required**: □Yes □No
+
+**Page 6 of 9**
 
 ## Client Engagement References
 
@@ -262,7 +356,67 @@ ________________________________________________________________
 ________________________________________________________________
 ________________________________________________________________
 
-**Page 7 of 7**
+**Page 7 of 9**
+
+## Success Definition and Exit Criteria
+
+Define clear success metrics and completion points for client engagements:
+
+### Client Conversion Success Criteria
+□ **Inquiry to Consultation Conversion**
+  - Success metric: _________% conversion rate
+  - Minimum response time: _________hours
+  - Quality indicators: __________________________________________
+  - Exit point: □ Meeting scheduled □ Information provided □ Qualification complete
+
+□ **Consultation to Proposal Conversion**
+  - Success metric: _________% conversion rate
+  - Turnaround time: _________days
+  - Quality indicators: __________________________________________
+  - Exit point: □ Proposal delivered □ Budget confirmed □ Timeline agreed
+
+□ **Proposal to Contract Conversion**
+  - Success metric: _________% conversion rate
+  - Negotiation timeline: _________days
+  - Quality indicators: __________________________________________
+  - Exit point: □ Contract signed □ Deposit received □ Work scheduled
+
+□ **Contract to Completion Conversion**
+  - Success metric: _________% client satisfaction
+  - Delivery timeline: Within _________% of estimate
+  - Quality indicators: __________________________________________
+  - Exit point: □ Deliverables approved □ Final payment □ Testimonial received
+
+### Client Relationship Status Definition
+□ **Active Client**
+  - Current project in progress
+  - Regular communication within last _________ days
+  - Revenue expectation within _________ days
+  - Upcoming milestones: _________________________________________
+
+□ **Maintenance Client**
+  - Completed primary project
+  - Ongoing support or maintenance
+  - Regular check-ins every _________ days/weeks
+  - Upsell opportunities: _________________________________________
+
+□ **Dormant Client**
+  - Completed project with no current activity
+  - No communication within _________ days
+  - Reactivation strategy: _________________________________________
+  - Value of relationship: $__________________________________________
+
+□ **Closed Client**
+  - Relationship formally concluded
+  - Final documentation completed: □ Yes □ No
+  - Post-project review completed: □ Yes □ No
+  - Referral opportunities secured: □ Yes □ No
+
+**Success Measurement Notes**:
+________________________________________________________________
+________________________________________________________________
+
+**Page 8 of 9**
 
 ## Client Type-Specific Workflows
 
