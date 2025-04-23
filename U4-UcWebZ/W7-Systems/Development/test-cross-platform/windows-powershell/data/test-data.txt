@@ -1,2 +1,0 @@
-﻿Test data for windows-powershell
-Created: 2025-03-12 23:04:31

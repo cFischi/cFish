@@ -1,8 +1,0 @@
-[2025-03-14 22:38:08] [INFO] Starting DMMS integrity scan...
-[2025-03-14 22:38:09] [INFO] Scanning master file: C:\Users\Chris\cFish.io\memory.md
-[2025-03-14 22:38:09] [INFO] Found 50 entries in master file.
-[2025-03-14 22:38:09] [ERROR] Error during execution: The property 'Count' cannot be found on this object. Verify that the property exists.
-[2025-03-14 22:38:09] [ERROR] Stack Trace: at Start-IntegrityScan, C:\Users\Chris\cFish.io\U5-Data\Scripts\scan-integrity.ps1: line 370
-at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\scan-integrity.ps1: line 542
-at Fix-IntegrityIssues, C:\Users\Chris\cFish.io\U5-Data\Scripts\Fix-IntegrityIssues.ps1: line 287
-at <ScriptBlock>, C:\Users\Chris\cFish.io\U5-Data\Scripts\Fix-IntegrityIssues.ps1: line 295

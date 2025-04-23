@@ -1,2 +1,0 @@
-# Memory.md Protection Guide
-

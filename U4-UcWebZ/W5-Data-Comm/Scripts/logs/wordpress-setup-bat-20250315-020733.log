@@ -1,4 +1,0 @@
-[Sat 03/15/2025  2:07:33.44] Starting WordPress Environment Setup 
-[Sat 03/15/2025  2:07:33.44] Parameters: CONFIG=config\wordpress-config.json, WP_PATH=..\..\WordPress, FORCE=false, SKIP_PLUGINS=false, SKIP_THEMES=false 
-[Sat 03/15/2025  2:07:33.46] Executing PowerShell command: powershell -NoProfile -ExecutionPolicy Bypass -File ""C:\Users\Chris\cFish.io\U5-Data\Scripts\wordpress-environment-setup.ps1"" -ConfigPath ""config\wordpress-config.json"" -WordPressPath ""..\..\WordPress"" 
-[Sat 03/15/2025  2:07:33.76] WordPress Environment Setup completed with some failures. 

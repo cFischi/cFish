@@ -1,7 +1,0 @@
-{
-  "MemoryPercent": 15,
-  "DiskSpacePercent": 10,
-  "HandlesPercent": 15,
-  "CpuPercent": 20,
-  "ProcessCountMax": 20
-}

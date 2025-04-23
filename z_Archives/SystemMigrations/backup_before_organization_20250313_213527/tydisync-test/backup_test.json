@@ -1,8 +1,0 @@
-{
-  "title": "Test Heading ",
-  "content": "# Test Heading \r\n \r\nThis is a test paragraph. \r\n \r\n- List item 1 \r\n- List item 2 \r\n",
-  "items": [
-    "List item 1 ",
-    "List item 2 "
-  ]
-}
